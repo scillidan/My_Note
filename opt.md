@@ -179,7 +179,7 @@ dictd dict://172.24.212.63:8040
 ## [HandBrake](https://handbrake.fr/)
 
 ↪ [How to reduce video file size using Handbrake](https://steamcommunity.com/sharedfiles/filedetails/?id=1856527757)  
-↪ [Newbie On Encoding From Blu-Ray Source Files](https://www.reddit.com/r/handbrake/comments/qas35a/newbie_on_encoding_from_bluray_source_files/ 00)
+↪ [Newbie On Encoding From Blu-Ray Source Files](https://www.reddit.com/r/handbrake/comments/qas35a/newbie_on_encoding_from_bluray_source_files/ )
 
 ## [OBS Studio](https://obsproject.com/)
 
