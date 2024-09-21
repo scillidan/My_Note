@@ -80,7 +80,7 @@ cook c 1001-1188 | sd c1 "\55 c" > _.md && mkdirs _.md && trash _.md
 我搜到了一段描述，去了解`yarn dev`和`yarn start`的区别：
 
 > **TL;DR:** In Next.js, `next dev` is used to run the app in development mode. On the other hand, `next start` is used to run the app in production mode, but requires `next build` to be run first to generate an optimized production build.
->
+
 > （机翻）太长不看：在Next.js中，`Next dev`命令用于在开发模式下运行应用程序。另一方面，`Next start`命令用于在生产模式下运行应用程序，但需要首先运行`Next Build`命令以生成优化的生产版本。
 
 ↪ [What's the difference between npm run dev and npm run start in Next.js?](https://stackoverflow.com/questions/69400243/whats-the-difference-between-npm-run-dev-and-npm-run-start-in-next-js)
@@ -89,7 +89,7 @@ Development和Production的区别：
 
 > The development build is used - as the name suggests - for development reasons. You have Source Maps, debugging and often times hot reloading ability in those builds.
 > The production build, on the other hand, runs in production mode which means this is the code running on your client's machine. The production build runs uglify and builds your source files into one or multiple minimized files. It also extracts CSS and images and of course any other sources you're loading with Webpack. There's also no hot reloading included. Source Maps might be included as separate files depending on your webpack `devtool` [settings](https://webpack.js.org/configuration/devtool/).
->
+
 > （机翻）使用开发构建--顾名思义--是出于开发原因。在这些版本中，您拥有源代码映射、调试和经常热重新加载的能力。
   另一方面，生产构建在生产模式下运行，这意味着这是在您的客户端机器上运行的代码。生产构建运行uglify并将源文件构建到一个或多个最小化文件中。它还提取css和图像，当然还有你用webpack加载的任何其他来源。此外，还不包括热重装。根据您的webpack开发工具设置，源地图可能会作为单独的文件包含在内。
 

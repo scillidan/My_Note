@@ -39,12 +39,12 @@ extra-keys = [[ \
 ]]
 ```
 
-↪ [Can I hide this keyboard? I have a physical one attached](https://www.reddit.com/r/termux/comments/qaenv5/can_i_hide_this_keyboard_i_have_a_physical_one/)
+↪ [Can I hide this keyboard? I have a physical one attached](https://www.reddit.com/r/termux/comments/qaenv5/can_i_hide_this_keyboard_i_have_a_physical_one/)  
 ↪ [Disabling the up-arrow key rebinding?](https://github.com/atuinsh/atuin/issues/51#issuecomment-1641211422)
 
 ### Input Method
 
-↪ [copy and paste using Ctrl-C Ctrl-V or right click menu](https://github.com/termux/termux-app/issues/1891)
+↪ [copy and paste using Ctrl-C Ctrl-V or right click menu](https://github.com/termux/termux-app/issues/1891)  
 ↪ [Text Input View](https://wiki.termux.com/wiki/Touch_Keyboard#Text_Input_View)
 
 ### [SSH](https://wiki.termux.com/wiki/Remote_Access#SSH)
@@ -81,7 +81,7 @@ termux-chroot
 ls /usr
 ```
 
-↪ [Termux is not FHS compliant](https://wiki.termux.com/wiki/Differences_from_Linux#Termux_is_not_FHS_compliant)
+↪ [Termux is not FHS compliant](https://wiki.termux.com/wiki/Differences_from_Linux#Termux_is_not_FHS_compliant)  
 ↪ [Access Termux from a file manager](https://wiki.termux.com/wiki/Internal_and_external_storage)
 
 ### Username
@@ -90,20 +90,20 @@ ls /usr
 
 ### Desktop
 
-↪ [Graphical Environment](https://wiki.termux.com/wiki/Graphical_Environment)
-↪ [Termux Desktop](https://github.com/adi1090x/termux-desktop)
+↪ [Graphical Environment](https://wiki.termux.com/wiki/Graphical_Environment)  
+↪ [Termux Desktop](https://github.com/adi1090x/termux-desktop)  
 ↪ [termux-desktop-xfce](https://github.com/Yisus7u7/termux-desktop-xfce)
 
 ### [root-termux](https://github.com/hctilg/root-termux)
 
 ### [code-server](https://github.com/coder/code-server/)
 
-↪ [Install - npm](https://coder.com/docs/code-server/npm)
-↪ [Usage - Termux](https://coder.com/docs/code-server/termux)
+↪ [Install - npm](https://coder.com/docs/code-server/npm)  
+↪ [Usage - Termux](https://coder.com/docs/code-server/termux)  
 ↪ [How to install VS Code in an Android Phone?](https://www.codewithharry.com/blogpost/install-vs-code-in-android/)
 
 ### Troubleshoot
 
-↪ [apt-get update fails to fetch files, “Temporary failure resolving …” error](https://askubuntu.com/questions/91543/apt-get-update-fails-to-fetch-files-temporary-failure-resolving-error)
-↪ [cargo install: specify a /tmp substitute?](https://stackoverflow.com/questions/64572901/cargo-install-specify-a-tmp-substitute/64616981#64616981)
+↪ [apt-get update fails to fetch files, “Temporary failure resolving …” error](https://askubuntu.com/questions/91543/apt-get-update-fails-to-fetch-files-temporary-failure-resolving-error)  
+↪ [cargo install: specify a /tmp substitute?](https://stackoverflow.com/questions/64572901/cargo-install-specify-a-tmp-substitute/64616981#64616981)  
 ↪ [Can not install on android - target 'aarch64-linux-android' not found in channel.](https://github.com/rust-lang/rustup/issues/2872)
