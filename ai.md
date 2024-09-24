@@ -132,10 +132,6 @@ python translate_novel.py --trust_remote_code --model_name_or_path ./models/saku
 python translate_epub.py --trust_remote_code --model_name_or_path ./models/sakura-14b-qwen2beta-v0.9.2-q2k.gguf --model_version 0.9 --no-auth --llama_cpp --use_gpu --log debug --text_length 512 --data_path <novel.epub> --output_folder <novel_epub>
 ```
 
-```sh
-
-```
-
 ↪ [各种推理引擎的使用说明](https://github.com/SakuraLLM/SakuraLLM/blob/main/usage.md)  
 ↪ [Sakura模型部署教程-本地运行-Transformers模型](https://github.com/SakuraLLM/tutorial/blob/main/tutorial-local-transformers.md)
 

@@ -467,7 +467,6 @@ Visit `http://<YourHost>:32400/web`
 <!-- --8<-- [start:ubuntu-server-arm] -->
 ```sh
 sudo apt install dictd
-  
 ```
 
 Test:
