@@ -85,6 +85,66 @@ sdcv <word>
 
 ↪ [A command line dictionary.](https://nchrs.xyz/stardict.html)
 
+## [dict-ecdict](https://github.com/tuberry/dict-ecdict)
+
+<!-- --8<-- [start:ubuntu-server-arm] -->
+```sh
+sudo apt install unzip p7zip-full dictfmt dictzip python-is-python3
+git clone --depth=1 --single-branch -b master https://github.com/tuberry/dict-ecdict
+cd ./dict-ecdict
+make && sudo make install
+```
+
+```sh
+sudo mkdir -p /etc/dict 
+sudo vim /var/lib/dictd/db.list
+```
+
+```
+database ecdict {
+	data /usr/share/dictd/ecdict.dict.dz
+	index /usr/share/dictd/ecdict.index
+}
+```
+
+```sh
+sudo systemctl restart dictd.service
+```
+
+↪ [How can I uncompress a \*.7z file?](https://askubuntu.com/questions/219392/how-can-i-uncompress-a-7z-file)
+<!-- --8<-- [end:ubuntu-server-arm] -->
+
+## [PyGlossary](https://github.com/ilius/pyglossary)
+
+```sh
+pip install pyglossary
+pip install lxml beautifulsoup4
+```
+
+For `DICT.org`:
+
+```sh
+pyglossary <stardict.ifo> <dictionary.index> --write-options=dictzip=true --remove-html-all
+```
+
+```sh
+pyglossary <mdict.mdx> <mdict.txt>
+pyglossary <mdict.txt> <dictionary.index> --write-options=dictzip=true
+```
+
+## [MDict Tool](https://github.com/liuyug/mdict-utils)
+
+```sh
+mdict.exe -x "汉语大词典(简体精排).mdx"  -d ./mdx
+```
+
+Find all `` → 
+Replace `\n`1`` → `\t`
+
+```sh
+pyglossary <mdict.txt> <dictionary.index> --write-options=dictzip=true
+```
+
 ## [Newsboat](https://github.com/newsboat/newsboat)
 
 ```sh
@@ -170,6 +230,15 @@ pkg install asciinema
 2. Get `tesseract-ocr-w64-setup-5.*.exe` from [Tesseract at UB Mannheim](https://github.com/UB-Mannheim/tesseract/wiki)
 
 ↪ [marker - install_ocrmypdf.md](https://github.com/VikParuchuri/marker/blob/master/docs/install_ocrmypdf.md)
+
+## [NSZ](https://github.com/nicoboss/nsz)
+
+```sh
+python -m venv venv
+venv\Scripts\activate.bat
+pip install -r requirements-gui.txt 
+python nsz.py
+```
 
 ## [syncabook](https://github.com/r4victor/syncabook)
 

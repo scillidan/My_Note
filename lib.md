@@ -145,18 +145,3 @@ Get `clang+llvm-*-x86_64-pc-windows-msvc.tar.xz` from [LLVM - Releases](https://
 ## [lxml](https://lxml.de/)
 
 ↪ [[Bug]: Lxml](https://github.com/termux/termux-packages/issues/18552)
-
-## [FFmpeg](https://www.ffmpeg.org/)
-
-↪ [ffmpeg GIF to MP4](https://gist.github.com/gvoze32/95f96992a443e73c4794c342a44e0811)  
-↪ [gif.to.video](https://github.com/kinglisky/gif.to.video/blob/master/doc.md)  
-↪ [How to do I convert an animated gif to an mp4 or mv4 on the command line?](https://unix.stackexchange.com/questions/40638/how-to-do-i-convert-an-animated-gif-to-an-mp4-or-mv4-on-the-command-line)  
-↪ [小红书发布的动图为什么不动？](https://www.bilibili.com/read/cv21625230/)  
-↪ [How to convert video to animated GIF using FFmpeg](https://shotstack.io/learn/convert-video-gif-ffmpeg/)
-
-## [ImageMagick](https://www.imagemagick.org/)
-
-↪ [Recommendation for compressing JPG files with ImageMagick](https://stackoverflow.com/questions/7261855/recommendation-for-compressing-jpg-files-with-imagemagick)  
-↪ [Invert colors with ImageMagick](https://superuser.com/questions/1194468/invert-colors-with-imagemagick)  
-↪ [convert images to pdf](https://askubuntu.com/questions/493584/convert-images-to-pdf)  
-↪ [Rotate images in Windows with ImageMagick](https://scribbleghost.net/2020/10/12/rotate-images-in-windows-with-imagemagick/)

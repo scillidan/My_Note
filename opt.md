@@ -79,6 +79,26 @@ C:\Users\<User>\Opt\Keypirinha\portable\Local\Packages\tldr
 ↪ [Using Language Servers in Sublime Text](https://laravel-news.com/sublime-text-lsp)  
 ↪ [Sublime Text 3: How to install plugins from Github](https://stackoverflow.com/questions/23026201/sublime-text-3-how-to-install-plugins-from-github)
 
+## [VS Code](https://code.visualstudio.com)
+
+Settings → Features → Terminal → Edit in settings.json:
+
+```sh
+{
+    "terminal.integrated.profiles.windows": {
+        "Cmder": {
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ],
+            "args": [
+                "/k C:\\Users\\<User>\\Opt\\cmder_mini\\vendor\\init.bat"
+            ]
+        },
+    }
+}
+```
+
 ## [Obsidian](https://obsidian.md/)
 
 ↪ [Obsidian.md/plugins should have an RSS feed](https://forum.obsidian.md/t/obsidian-md-plugins-should-have-an-rss-feed/42066)
@@ -112,48 +132,8 @@ Install `WinSSHTerm`. Start, to install [PuTTY](https://www.putty.org/), [WinSCP
 
 ## [GoldenDict](https://github.com/goldendict/goldendict)
 
-这是一种传统的优秀的愈发检查器，但java被诅咒了。
-
-```
-已启用 On
-类型 纯文本
-名称 `TencentTrans-22`
-命令行 `C:\Users\User\Source\goldendict\tencent-translate-for-goldendict\venv\Scripts\python.exe C:\Users\User\Source\goldendict\tencent-translate-for-goldendict\TencentTrans_en22zh_user.py %GDWORD%`
-C:\Users\User\Github\SETUP-note\goldendict\Script\venv\Scripts\python.exe C:\Users\User\Github\SETUP-note\goldendict\Script\deeplx_translate_user.py "%GDWORD%" en zh --debug
-
-```
-Plain Text
-cambridge
-C:\Users\User\Source\goldendict\cambridge-dictionary\venv\Scripts\python.exe C:\Users\User\Source\goldendict\cambridge-dictionary\cambridge.py "%GDWORD%"
-```
-
-```
-Plain Text
-sentences
-C:\Users\User\AppData\Roaming\pnpm\echo-cli.CMD "%GDWORD%" | C:\Users\User\go\bin\sentences.exe
-```
-
-```sh
-Plain Text
-TencentTrans_22
-C:\Users\User\Source\goldendict\tencent-translate-for-goldendict\venv\Scripts\python.exe C:\Users\User\Source\goldendict\tencent-translate-for-goldendict\TencentTrans_22_user.py "%GDWORD%"
-```
-
-DeepLX
-
-```sh
-Plain Text
-DeepLX
-C:\Users\User\Github\SETUP-note\goldendict\Script\venv\Scripts\python.exe C:\Users\User\Github\SETUP-note\goldendict\Script\deeplx_translate_user.py "%GDWORD%" en zh
-```
-
-```sh
-Plain Text
-mecab
-"C:\Users\User\Github\My_Shell\command\mecab_demo.bat" "%GDWORD%"
-```
-
-dictd dict://172.24.212.63:8040
+↪ [配置GoldenDict](https://scillidan.github.io/YAFA-site/blog/goldendict/)  
+↪ [配置GoldenDict·番外](https://scillidan.github.io/YAFA-site/blog/goldendict-expand/)
 
 ## [OmegaT](https://omegat.org/)
 
@@ -181,9 +161,23 @@ dictd dict://172.24.212.63:8040
 ↪ [How to reduce video file size using Handbrake](https://steamcommunity.com/sharedfiles/filedetails/?id=1856527757)  
 ↪ [Newbie On Encoding From Blu-Ray Source Files](https://www.reddit.com/r/handbrake/comments/qas35a/newbie_on_encoding_from_bluray_source_files/ )
 
+## [Subtitle Edit](https://github.com/SubtitleEdit/subtitleedit)
+
+Get `SubtitleEditBeta.zip` from [Subtitle Edit - Releases](https://github.com/SubtitleEdit/subtitleedit/releases).
+
+Subtitle Edit → Auto-translate → Select `Ollama` or `LM Studio` → Translate
+
 ## [OBS Studio](https://obsproject.com/)
 
 ↪ [Advanced Recording Settings Guide](https://obsproject.com/kb/advanced-recording-settings-guide)
+
+## [FFmpeg](https://www.ffmpeg.org/)
+
+↪ [ffmpeg GIF to MP4](https://gist.github.com/gvoze32/95f96992a443e73c4794c342a44e0811)  
+↪ [gif.to.video](https://github.com/kinglisky/gif.to.video/blob/master/doc.md)  
+↪ [How to do I convert an animated gif to an mp4 or mv4 on the command line?](https://unix.stackexchange.com/questions/40638/how-to-do-i-convert-an-animated-gif-to-an-mp4-or-mv4-on-the-command-line)  
+↪ [小红书发布的动图为什么不动？](https://www.bilibili.com/read/cv21625230/)  
+↪ [How to convert video to animated GIF using FFmpeg](https://shotstack.io/learn/convert-video-gif-ffmpeg/)
 
 ## [XnConvert](https://www.xnview.com/en/xnconvert/)
 
@@ -194,3 +188,88 @@ dictd dict://172.24.212.63:8040
 ↪ [DOpus vs. ExifTool long comments](https://exiftool.org/forum/index.php?topic=12317.0)  
 ↪ [ExifTool/Directory Opus incompatibilities](https://exiftool.org/forum/index.php?topic=9262.0)
 
+## [ImageMagick](https://www.imagemagick.org/)
+
+↪ [Recommendation for compressing JPG files with ImageMagick](https://stackoverflow.com/questions/7261855/recommendation-for-compressing-jpg-files-with-imagemagick)  
+↪ [Invert colors with ImageMagick](https://superuser.com/questions/1194468/invert-colors-with-imagemagick)  
+↪ [convert images to pdf](https://askubuntu.com/questions/493584/convert-images-to-pdf)  
+↪ [Rotate images in Windows with ImageMagick](https://scribbleghost.net/2020/10/12/rotate-images-in-windows-with-imagemagick/)
+
+## [FotoKilof](https://github.com/TeaM-TL/FotoKilof)
+
+```sh
+git clone --depth=1 https://github.com/TeaM-TL/FotoKilof
+python -m venv venv
+venv\Scripts\activate.bat
+python setup.py install
+pip install pywin32
+python -m fotokilof
+```
+
+## [imagepy](https://github.com/Image-Py/imagepy)
+
+```sh
+git clone --depth=1 https://github.com/Image-Py/imagepy
+python -m venv venv
+venv\Scripts\activate.bat
+pip install -r requirements.txt
+# pip install numpy matplotlib vispy
+python -m imagepy
+```
+
+## [Fluent Reader](https://github.com/yang991178/fluent-reader)
+
+1. Open `http://localhost:8070` → Settings → API Keys → Create a new API key → `fluent-reader` → Copy the Token
+2. Fluent Reader → Setting → Select a service Service → Miniflux :
+
+```
+Endpoint `http://127.0.0.1:8070`
+Type `API Key`
+Password `<Token>`
+```
+
+## [Thorium](https://github.com/edrlab/thorium-reader)
+
+Catalogs → Add an OPDS feed:
+
+```
+Name `<Name>`
+Link `http://<YourHost>/opds`
+```
+
+## [PDFsam](https://github.com/torakiki/pdfsam)
+
+Get `pdfsam-*-windows.zip` from [PDFsam - Releases](https://github.com/torakiki/pdfsam/releases).
+
+Or build from source:
+
+Install [OpenJDK11](https://jdk.java.net/archive/), [Maven](https://maven.apache.org/), [gettext](https://mlocati.github.io/articles/gettext-iconv-windows.html), [Gpg](https://www.gnupg.org/).
+
+```sh
+git clone --depth=1 https://github.com/torakiki/pdfsam
+git checkout v5.2.0
+gpg --full-gen-key
+gpg --search-keys BF019D784ED7F785
+mvn clean install -Drelease
+```
+
+↪ [Build-and-run](https://github.com/torakiki/pdfsam/wiki/Build-and-run)  
+↪ [理解和使用 GPG](https://www.rectcircle.cn/posts/understand-and-use-gpg/)  
+↪ [Can't verify packages, GPG keys return no user ID](https://github.com/torakiki/pdfsam/issues/472)
+
+## [DocumentCorrector](https://github.com/Robomarchello/DocumentCorrector)
+
+```sh
+git clone --depth=1 https://github.com/Robomarchello/DocumentCorrector
+python -m venv venv
+venv\Scripts\activate.bat
+pip install -r requirements.txt
+python main.py
+```
+
+Build executable:
+
+```sh
+pip install nuitka
+python makeExe.py
+```

@@ -128,3 +128,39 @@ Tools:
 Attribution:
 
 The [pinouts_v0.3_toc.pdf](https://github.com/scillidan/Cos_Cache/blob/master/pdf/pinouts_v0.3_toc.pdf) edit from [The Pinouts Book](https://pinouts.org) by [NODE](https://n-o-d-e.net/index.html) & Baptiste / [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+
+## EPUB.js
+
+- [Le TeXtallion](http://anamnese.online.fr/site2/textallion/docs/presentation.html) by [farvardin](https://github.com/farvardin) / [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0)
+- [Alice in Wonderland](https://www.gutenberg.org/ebooks/11) by Lewis Carroll / [PDM](https://creativecommons.org/publicdomain/mark/1.0)
+- [Alice in Wonderland (illustrate)](https://www.gutenberg.org/ebooks/28885) by Lewis Carroll, illustrator by Arthur Rackham, proem by Austin Dobson / [PDM](https://creativecommons.org/publicdomain/mark/1.0)
+- [phenomenon Is this the glass wall](https://everest-pipkin.com/projects/phenomenon.html) by [Everest Pipkin](https://everest-pipkin.com) / [ACSL](https://anticapitalist.software)
+
+## [pyLanguagetool](https://github.com/Findus23/pyLanguagetool) (TBD)
+
+我个人不使用LanguageTool的桌面客户端，而它的浏览器插件，在「本地服务」的情况下，不是特别好用。这里尝试将[pyLanguagetool](https://github.com/Findus23/pyLanguagetool)嵌入到GoldenDict来进行交互。
+
+查看[cli.py](https://github.com/scillidan/pyLanguagetool/blob/master/pylanguagetool/cli.py)里的注释`Edit for GoldenDict`，了解分叉做了哪些修改。
+
+```sh
+git clone --depth=1 https://github.com/scillidan/pyLanguagetool
+cd pyLanguagetool
+python -m venv venv
+venv\Scripts\activate.bat
+pip install -e .
+pip install beautifulsoup4
+```
+
+我遇到过一些字符错误，所以使用了[echo-cli](https://github.com/iamakulov/echo-cli)代替`echo`命令。
+
+```sh
+pnpm add -g echo-cli
+```
+
+GoldenDict → 编辑 → 词典 → 词典来源 → 程序 → 添加：
+
+```
+类型 纯文本
+名称 `pyLanguagetool`
+命令行 `C:\Users\<User>\AppData\Roaming\pnpm\echo-cli.CMD %GDWORD% | gd_pyLanguagetool\venv\Scripts\pylanguagetool.exe --api-url http://<host>:<port>/v2/ --input-type html --no-color --lang en-US`
+```
