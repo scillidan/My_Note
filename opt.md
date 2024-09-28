@@ -254,8 +254,7 @@ mvn clean install -Drelease
 ```
 
 ↪ [Build-and-run](https://github.com/torakiki/pdfsam/wiki/Build-and-run)  
-↪ [理解和使用 GPG](https://www.rectcircle.cn/posts/understand-and-use-gpg/)  
-↪ [Can't verify packages, GPG keys return no user ID](https://github.com/torakiki/pdfsam/issues/472)
+↪ [理解和使用 GPG](https://www.rectcircle.cn/posts/understand-and-use-gpg/) 
 
 ## [DocumentCorrector](https://github.com/Robomarchello/DocumentCorrector)
 
@@ -271,5 +270,6 @@ Build executable:
 
 ```sh
 pip install nuitka
-python makeExe.py
-```
+python makeExe.p
+
+## [Pegasus Frontend](https://github.com/mmatyas/pegasus-frontend)

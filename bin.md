@@ -85,6 +85,22 @@ sdcv <word>
 
 ↪ [A command line dictionary.](https://nchrs.xyz/stardict.html)
 
+## [portable-python-maker](https://github.com/dreamsavior/portable-python-maker) (BUG)
+
+```sh
+git clone https://github.com/dreamsavior/portable-python-maker
+cd portable-python-maker
+```
+
+For example:
+
+```sh
+pwsh.exe portablepy.ps1 -source "https://www.python.org/ftp/python/3.7.0/python-3.7.0-embed-win32.zip" -destination "C:\Users\User\Lib\python-3.7-32"
+pwsh.exe portablepy.ps1 -source "https://www.python.org/ftp/python/3.9.13/python-3.9.13-embed-amd64.zip" -destination "C:\Users\User\Lib\python-3.9"
+```
+
+If it fails, run again.
+
 ## [dict-ecdict](https://github.com/tuberry/dict-ecdict)
 
 <!-- --8<-- [start:ubuntu-server-arm] -->
@@ -114,6 +130,8 @@ sudo systemctl restart dictd.service
 ↪ [How can I uncompress a \*.7z file?](https://askubuntu.com/questions/219392/how-can-i-uncompress-a-7z-file)
 <!-- --8<-- [end:ubuntu-server-arm] -->
 
+## [dict-wrapper](https://github.com/dekerser/dict-wrapper) (TBD)
+
 ## [PyGlossary](https://github.com/ilius/pyglossary)
 
 ```sh
@@ -132,7 +150,7 @@ pyglossary <mdict.mdx> <mdict.txt>
 pyglossary <mdict.txt> <dictionary.index> --write-options=dictzip=true
 ```
 
-## [MDict Tool](https://github.com/liuyug/mdict-utils)
+## [MDict Tool](https://github.com/liuyug/mdict-utils) (TBD)
 
 ```sh
 mdict.exe -x "汉语大词典(简体精排).mdx"  -d ./mdx
@@ -229,7 +247,29 @@ pkg install asciinema
 1. Get `Ghostscript 10.* for Windows (64 bit) form [ghostscript - Downloads](https://ghostscript.com/releases/gsdnld.html)
 2. Get `tesseract-ocr-w64-setup-5.*.exe` from [Tesseract at UB Mannheim](https://github.com/UB-Mannheim/tesseract/wiki)
 
-↪ [marker - install_ocrmypdf.md](https://github.com/VikParuchuri/marker/blob/master/docs/install_ocrmypdf.md)
+```sh
+python.exe -m venv venv
+venv\Scripts\activate.bat
+pip install torch  --index-url https://download.pytorch.org/whl/cu121
+pip install ocrmypdf
+pip install -e .
+```
+
+Use with command:
+
+```sh
+marker_single <file.pdf> <OutputFolder> --batch_multiplier 2 --max_pages 10 
+```
+
+With GUI:
+
+```sh
+pip install streamlit
+marker_gui
+```
+
+↪ [marker - install_ocrmypdf.md](https://github.com/VikParuchuri/marker/blob/master/docs/install_ocrmypdf.md)  
+↪ [PermissionError: [Errno 13] Permission denied: 'C:\\Users\\schor\\AppData\\Local\\Temp\\tmpoaply4el.pdf'](https://github.com/VikParuchuri/marker/issues/267)
 
 ## [NSZ](https://github.com/nicoboss/nsz)
 
@@ -240,7 +280,7 @@ pip install -r requirements-gui.txt
 python nsz.py
 ```
 
-## [syncabook](https://github.com/r4victor/syncabook)
+## [syncabook](https://github.com/r4victor/syncabook) (TBD)
 
 Full → Language(Chinese) → Upload Files → VAD(silero-vad-skip-gaps) → Initial Prompt(对于普通话句子，以中文简体输出) → Diarization - Speakers(), Min Speakers(1), Max Speakers() → Submit
 
@@ -360,4 +400,16 @@ cargo build
 cd target/debug
 starfetch.exe -d
 starfetch.exe -l
+```
+
+## [sd](https://github.com/chmln/sd)
+
+```sh
+curl -k https://raw.githubusercontent.com/scillidan/WALLPAP-ENG-resource/main/table.md ^
+  | sd "\[\d{10}\]\(" "" ^
+  | sd "(\)\|\S+subsc)" "|![](//img.shields.io/steam/subsc" ^
+  | mdtable2csv ^
+  | sd "//steamc" "https://steamc" ^
+  | xsv select source,version,urlid ^
+  | csview
 ```

@@ -24,6 +24,7 @@ port  | serve
 4501  | QRcode Designer
 4502  | Flood
 7830  | Faster Whisper Webui
+7840  | IOPaint
 7850  | Stable Diffusion web UI
 8020  | Coder Server
 8030  | LanguageTool
@@ -211,14 +212,7 @@ Path: `/mnt/nvme`
 ↪ [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)  
 ↪ [Ubuntu安装Docker详细教程](https://www.huixinglaile.com/archives/117a5c58.html)
 
-## ZeroTier One
-
-
-```sh
-curl -s https://install.zerotier.com | sudo bash
-```
-
- [PM2](https://pm2.keymetrics.io/)
+## [PM2](https://pm2.keymetrics.io/)
 
 ```sh
 wget https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh -O install_nvm.sh
@@ -229,7 +223,6 @@ nvm install --lts
 npm install pm2 -g
 pm2 dump
 pm2 startup
-...
 ```
 
 ↪ [Vue packages version mismatch](https://github.com/nuxt/nuxt/issues/10305)  
@@ -288,9 +281,46 @@ Password: adminadmin
 ↪ `Running qBittorrent without X server (WebUI only, systemd service set up, Ubuntu 15.04 or newer)` on [qBittorrent - Wiki](https://github.com/qbittorrent/qBittorrent/wiki)  
 ↪ [How to Install qBittorrent-NoX, a headless and web UI Torrent Client](https://saputra.org/threads/how-to-install-qbittorrent-nox-a-headless-and-web-ui-torrent-client.1099/)
 
-## [Flood](https://github.com/jesec/flood)
+## [ZeroTier One](https://www.zerotier.com/)
 
-![](https://img.shields.io/github/license/jesec/flood?label=&style=flat-square)[![](https://img.shields.io/github/last-commit/scillidan/flood/main?label=&style=flat-square)](https://github.com/scillidan/flood)
+<!-- --8<-- [start:ubuntu-22-arm] -->
+```sh
+curl -s https://install.zerotier.com | sudo bash
+```
+
+↪ [Debian 11 with ufw firewall is blocking zerotier](https://discuss.zerotier.com/t/debian-11-with-ufw-firewall-is-blocking-zerotier/13072)
+<!-- --8<-- [end:ubuntu-22-arm] -->
+
+## [ztncui](https://github.com/key-networks/ztncui)
+
+## [headscale](https://github.com/juanfont/headscale) (TBD)
+
+Get `headscale_<version>_linux_arm64.deb` from [Headscale - Releases](https://github.com/juanfont/headscale/releases).
+
+```sh
+sudo apt install ./headscale.deb
+sudo systemctl enable --now headscale
+systemctl status headscale
+```
+
+```sh
+sudo dpkg --remove headscale
+sudo dpkg --purge headscale
+```
+
+## [Headscale-UI](https://github.com/gurucomputing/headscale-ui) (TBD)
+
+```sh
+git clone --depth=1 https://github.com/gurucomputing/headscale-ui
+cd headscale-ui
+nvm install Hydrogen
+nvm use 18.20.1
+npm install
+npm run build
+npm add -g serve
+```
+
+## [Flood](https://github.com/jesec/flood)
 
 ![](https://raw.githubusercontent.com/scillidan/Cos_Asset/main/screenshot/flood.png)
 
@@ -443,7 +473,7 @@ systemctl status jellyfin
 ↪ [Plugins](https://jellyfin.org/docs/general/server/plugins/)
 <!-- --8<-- [end:ubuntu-server-arm] -->
 
-## Plex (x)
+## [Plex](https://www.plex.tv/) (Cache)
 
 <!-- --8<-- [start:ubuntu-server-arm] -->
 ```sh
@@ -567,6 +597,8 @@ With PM2:
 ```sh
 pm2 start server.py --name silverdict --interpreter "venv/Scripts/python.exe" --cwd "SilverDict/server" 
 ```
+
+![](https://raw.githubusercontent.com/scillidan/Cos_Asset/main/screenshot/silverdict.png)
 
 ## [LanguageTool](https://languagetool.org/)
 
@@ -704,7 +736,7 @@ sudo systemctl enable --now deeplx.service
 ```
 <!-- --8<-- [end:ubuntu-server-arm] -->
 
-## Weblate (TBD)
+## [Weblate](https://weblate.org) (TBD)
 
 <!-- --8<-- [start:ubuntu-server-arm] -->
 ```sh
@@ -901,6 +933,8 @@ Backup data:
 pg_dump -U miniflux -h 127.0.0.1 -p 5432 -F t miniflux > miniflux.tar
 ```
 
+![](https://raw.githubusercontent.com/scillidan/Cos_Asset/main/screenshot/miniflux.png)
+
 ## [linkding](https://github.com/sissbruecker/linkding)
 
 <!-- --8<-- [start:windows10] -->
@@ -1004,6 +1038,8 @@ pm2 save
 
 ↪ [linkding - Setup](https://github.com/sissbruecker/linkding/blob/master/README.md#setup)
 <!-- --8<-- [end:ubuntu-server-arm] -->
+
+![](https://raw.githubusercontent.com/scillidan/Cos_Asset/main/screenshot/linkding.png)
 
 ## [Netdata](https://www.netdata.cloud/)
 
@@ -1140,6 +1176,8 @@ With PM2:
 pm2 start changedetection.py --name changedetection --interpreter "venv/Scripts/python.exe" --cwd "changedetection.io"
 ```
 
+![](https://raw.githubusercontent.com/scillidan/Cos_Asset/main/screenshot/changedetection.png)
+
 ## [Coder](https://coder.com/) (x)
 
 ```sh
@@ -1191,16 +1229,6 @@ sudo systemctl enable code-server
 
 ↪ [Packaged server installation](https://github.com/zadam/trilium/wiki/Packaged-server-installation)
 
-## [ZeroTier One](https://www.zerotier.com/)
-
-<!-- --8<-- [start:ubuntu-22-arm] -->
-```sh
-curl -s https://install.zerotier.com | sudo bash
-```
-
-↪ [Debian 11 with ufw firewall is blocking zerotier](https://discuss.zerotier.com/t/debian-11-with-ufw-firewall-is-blocking-zerotier/13072)
-<!-- --8<-- [end:ubuntu-22-arm] -->
-
 ## [ArchiveBox](https://github.com/ArchiveBox/ArchiveBox)
 
 ```sh
@@ -1228,19 +1256,7 @@ cargo build --release
 ./target/release/bukubrow --install-chrome
 ```
 
-## [Stable Diffusion web UI]()
-
-```sh
-open-cli http://127.0.0.1:7850/?__theme=dark && cd stable-diffusion-webui && webui-user.bat
-```
-
-## Faster Whisper Webui
-
-``open-cli http://127.0.0.1:7830 && cd C:\Users\User\Github\AI-demo\faster-whisper-webui && venv\Scripts\python.exe app.py --server_name 127.0.0.1 --server_port 7830 --input_audio_max_duration -1 --whisper_implementation "faster-whisper" --default_model_name "large-v2" --vad_parallel_devices "0" --auto_parallel true --output_dir "C:\Users\User\Downloads"``
-
 ## [BallonsTranslator](https://github.com/dmMaze/BallonsTranslator)
-
-![](https://img.shields.io/github/license/dmMaze/BallonsTranslator?label=&style=flat-square)[![](https://img.shields.io/github/last-commit/scillidan/BallonsTranslator/main?label=&style=flat-square)](https://github.com/scillidan/BallonsTranslator)
 
 ![](https://raw.githubusercontent.com/scillidan/Cos_Asset/main/screenshot/ballonstranslator.png)
 
@@ -1260,8 +1276,6 @@ python launch.py
 ```
 
 ## [Album App for Django](https://github.com/jobsta/albumapp-django)
-
-![](https://img.shields.io/github/license/jobsta/albumapp-django?label=&style=flat-square)[![](https://img.shields.io/github/last-commit/scillidan/albumapp-django/master?label=&style=flat-square)](https://github.com/scillidan/albumapp-django)
 
 ![](https://raw.githubusercontent.com/scillidan/Cos_Asset/main/screenshot/albumapp-django.png)
 
@@ -1283,8 +1297,6 @@ python manage.py runserver localhost:8010
 Visit `localhost:8010/albums`.
 
 ## [Streamlit Image Crop](https://github.com/mitsuse/streamlit-image-crop)
-
-![](https://img.shields.io/github/license/mitsuse/streamlit-image-crop?label=&style=flat-square)[![](https://img.shields.io/github/last-commit/scillidan/streamlit-image-crop/main?label=&style=flat-square)](https://github.com/scillidan/streamlit-image-crop)
 
 ![](https://raw.githubusercontent.com/scillidan/Cos_Asset/main/screenshot/streamlit-image-crop.png)
 
@@ -1320,15 +1332,11 @@ streamlit run example.py
 
 ## [Rclone-Webui-Angular](https://github.com/yuudi/rclone-webui-angular)
 
-![](https://img.shields.io/github/license/yuudi/rclone-webui-angular?label=&style=flat-square)[![](https://img.shields.io/github/last-commit/scillidan/rclone-webui-angular/main?label=&style=flat-square)](https://github.com/scillidan/rclone-webui-angular)
-
 ![](https://raw.githubusercontent.com/scillidan/Cos_Asset/main/screenshot/rclone-webui-angular.png)
 
 ↪ [Using embed build of this project](https://github.com/yuudi/rclone-webui-angular/blob/master/docs/embed.md).
 
 ## [books](https://github.com/frappe/books)
-
-![](https://img.shields.io/github/license/frappe/books?label=&style=flat-square)[![](https://img.shields.io/github/last-commit/scillidan/books/main?label=&style=flat-square)](https://github.com/scillidan/books)
 
 ![](https://raw.githubusercontent.com/scillidan/Cos_Asset/main/screenshot/books.png)
 
@@ -1347,8 +1355,6 @@ But can't add books with `calibredb add <Book> --with-library <CalibreData>` whe
 
 ## [Calibre-Web](https://github.com/janeczku/calibre-web)
 
-![](https://img.shields.io/github/license/janeczku/calibre-web?label=&style=flat-square)
-
 ```sh
 python -m venv venv
 venv\Scripts\activate.bat
@@ -1365,8 +1371,6 @@ cps
 ![](https://raw.githubusercontent.com/scillidan/Cos_Asset/main/screenshot/calibre-web.png)
 
 ## [SQLite Web](https://github.com/coleifer/sqlite-web)
-
-![](https://img.shields.io/github/license/coleifer/sqlite-web?label=&style=flat-square)[![](https://img.shields.io/github/last-commit/scillidan/sqlite-web/main?label=&style=flat-square)](https://github.com/scillidan/sqlite-web)
 
 ![](https://raw.githubusercontent.com/scillidan/Cos_Asset/main/screenshot/sqlite-web.png)
 
@@ -1386,4 +1390,32 @@ pip install .
 ```sh
 venv\Scripts\sqlite_web.exe <your.db>
 ```
+
+## [Instant Recipe Search](https://github.com/typesense/showcase-recipe-search)
+
+![](https://raw.githubusercontent.com/scillidan/Cos_Asset/main/screenshot/showcase-recipe-search.png)
+
+## [Pic Smaller](https://github.com/joye61/pic-smaller)
+
+Deploy with [Vercel](https://vercel.com).
+
+## [IT-TOOLS](https://github.com/CorentinTh/it-tools)
+
+Deploy with [Vercel](https://vercel.com).
+
+## [MyIP](https://github.com/jason5ng32/MyIP)
+
+![](https://raw.githubusercontent.com/scillidan/Cos_Asset/main/screenshot/myip.png)
+
+## [Web-Check](https://github.com/Lissy93/web-check)
+
+![](https://raw.githubusercontent.com/scillidan/Cos_Asset/main/screenshot/web-check.png)
+
+## [OpenCTI](https://github.com/OpenCTI-Platform/opencti)
+
+## [Zeal User Contributions & Cheat Sheets](https://github.com/xantiagoma/zealusercontributions)
+
+## [Torrents.csv](https://github.com/emtee40/torrents-csv-server)
+
+## [kitsunekko-tools](https://github.com/Ajatt-Tools/kitsunekko-tools)
 

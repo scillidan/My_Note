@@ -1,3 +1,7 @@
+## [Vim](https://www.vim.org)
+
+Get `gvim_*_x64_signed.zip` from [Downloading Vim](https://www.vim.org/download.php).
+
 ## [Neovim](https://neovim.io)
 
 ```sh

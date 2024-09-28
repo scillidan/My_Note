@@ -2,6 +2,25 @@
 
 ↪ [How to Install Python 3.9 on Ubuntu 22.04](https://vegastack.com/tutorials/how-to-install-python-3-9-on-ubuntu-22-04/)
 
+## [pyenv for Windows](https://github.com/pyenv-win/pyenv-win)
+
+<!-- --8<-- [start:windows10] -->
+```sh
+git clone --depth=1 https://github.com/pyenv-win/pyenv-win ~/.pyenv
+```
+
+↪ [Installation](https://github.com/pyenv-win/pyenv-win/blob/master/docs/installation.md#git-commands)  
+↪ [Add System Settings](https://github.com/pyenv-win/pyenv-win/blob/master/docs/installation.md#add-system-settings)
+
+```sh
+pyenv install -l | findstr 3.7
+pyenv install -l | findstr 3.11
+pyenv install 3.7.9-win32
+pyenv install 3.11.9
+pyenv shell <version>
+```
+<!-- --8<-- [end:windows10] -->
+
 ## [pyenv](https://github.com/pyenv/pyenv)
 
 <!-- --8<-- [start:ubuntu-22-arm] -->
@@ -29,6 +48,8 @@ pyenv install 3.9.13
 
 ↪ [ubuntu에서 pyenv 설치하기](https://jinmay.github.io/2019/03/16/linux/ubuntu-install-pyenv-1/)
 
+Or:
+
 ```sh
 sudo apt update
 sudo apt install build-essential curl libbz2-dev libffi-dev liblzma-dev libncursesw5-dev libreadline-dev libsqlite3-dev libssl-dev libxml2-dev libxmlsec1-dev llvm make tk-dev wget xz-utils zlib1g-dev
@@ -45,6 +66,33 @@ pyenv global 3.9.13
 <!-- --8<-- [start:termux] -->
 ↪ [Build older python package - 3.9](https://github.com/termux/termux-packages/discussions/9498)
 <!-- --8<-- [end:termux] -->
+
+## [NVM for Windows](https://github.com/coreybutler/nvm-windows)
+
+1. Get `nvm-noinstall.zip` from [Releases](https://github.com/coreybutler/nvm-windows/releases).
+2. Decompress it to `nvm\`.
+3. Add `nvm` into `PATH`.
+
+Add these into `User Variables`:
+
+```
+NVM_HOME=C:\Users\User\.nvm
+NVM_SYMLINK=C:\Program Files\nodejs
+SYS_ARCH=64
+```
+
+Edit `.nvm\settings.txt`:
+
+```
+proxy: http://127.0.0.1:<port>
+node_mirror: https://npmmirror.com/mirrors/node/
+```
+
+```sh
+nvm list available
+nvm install 18.20.4
+nvm install 20.17.0
+```
 
 ## [Jupyter](https://github.com/jupyter/jupyter)
 
@@ -140,7 +188,7 @@ make CFLAGS=-DLUAJIT_ENABLE_LUA52COMPAT TARGET_LDFLAGS=-mwindows
 
 ## [LLVM](https://llvm.org/)
 
-Get `clang+llvm-*-x86_64-pc-windows-msvc.tar.xz` from [LLVM - Releases](https://github.com/llvm/llvm-project/releases).
+Get `clang+llvm-*-x86_64-pc-windows-msvc.tar.xz` from [Releases](https://github.com/llvm/llvm-project/releases).
 
 ## [lxml](https://lxml.de/)
 

@@ -76,33 +76,6 @@ sudo vim /etc/crontab
 00 23 * * * root /usr/sbin/rtcwake -m off -s 28800
 ```
 
-## [headscale](https://github.com/juanfont/headscale) (x)
-
-Get `headscale_<version>_linux_arm64.deb` from [](https://github.com/juanfont/headscale/releases).
-
-```sh
-sudo apt install ./headscale.deb
-sudo systemctl enable --now headscale
-systemctl status headscale
-```
-
-```sh
-sudo dpkg --remove headscale
-sudo dpkg --purge headscale
-```
-
-## [Headscale-UI](https://github.com/gurucomputing/headscale-ui) (x)
-
-```sh
-git clone https://github.com/gurucomputing/headscale-ui
-cd headscale-ui
-nvm install Hydrogen
-nvm use 18.20.1
-npm install
-npm run build
-npm add -g serve
-```
-
 ## Alacritty
 
 ```sh
