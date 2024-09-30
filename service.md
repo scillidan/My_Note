@@ -9,33 +9,6 @@ sudo apt-get clean
 sudo apt-get autoremove
 ```
 
-Some Port:
-
-port  | serve
-:-    | :-
-19999 | netdata
-2628  | dictd
-4401  | reminiflux
-4402  | ePubViewer
-4403  | PDF.js viewer (demo)
-4404  | Sreadium
-4405  | Vivliostyle Viewer
-4406  | Kiwix JS PWA
-4501  | QRcode Designer
-4502  | Flood
-7830  | Faster Whisper Webui
-7840  | IOPaint
-7850  | Stable Diffusion web UI
-8020  | Coder Server
-8030  | LanguageTool
-8050  | qBittorrent
-8060  | linkding
-8070  | miniflux
-8080  | Stirling PDF
-8090  | Komga
-8096  | Jellyfin
-9117  | Jackett
-
 ## Change Timezone
 
 ```sh
@@ -322,8 +295,6 @@ npm add -g serve
 
 ## [Flood](https://github.com/jesec/flood)
 
-![](https://raw.githubusercontent.com/scillidan/Cos_Asset/main/screenshot/flood.png)
-
 ```sh
 npm install
 npm run build
@@ -368,7 +339,7 @@ Password for qBittorrent: adminadmin
 Default Download Directory is on `/home/qbittorrent-nox/Downloads`.
 <!-- --8<-- [end:ubuntu-server-arm] -->
 
-## Jackett
+## [Jackett](https://github.com/Jackett/Jackett)
 
 ```sh
 sudo apt install mono-devel
@@ -598,8 +569,6 @@ With PM2:
 pm2 start server.py --name silverdict --interpreter "venv/Scripts/python.exe" --cwd "SilverDict/server" 
 ```
 
-![](https://raw.githubusercontent.com/scillidan/Cos_Asset/main/screenshot/silverdict.png)
-
 ## [LanguageTool](https://languagetool.org/)
 
 1. Get `ngrams-en-*.zip` from [here](https://languagetool.org/download/ngram-data/).
@@ -681,7 +650,7 @@ Used in browser:
 2. Browser Extension → Settings → Advanced settings → Other server → `http://<host>:<port>/v2`
 3. General settings → Show in right-click menu (On)
 
-## [Apertium](https://www.apertium.org/)
+## [Apertium](https://www.apertium.org/) (TBD)
 
 ↪ [Install Apertium core using packaging](https://wiki.apertium.org/wiki/Install_Apertium_core_using_packaging)  
 ↪ [Install language data using packaging](https://wiki.apertium.org/wiki/Install_language_data_using_packaging)  
@@ -933,8 +902,6 @@ Backup data:
 pg_dump -U miniflux -h 127.0.0.1 -p 5432 -F t miniflux > miniflux.tar
 ```
 
-![](https://raw.githubusercontent.com/scillidan/Cos_Asset/main/screenshot/miniflux.png)
-
 ## [linkding](https://github.com/sissbruecker/linkding)
 
 <!-- --8<-- [start:windows10] -->
@@ -1039,8 +1006,6 @@ pm2 save
 ↪ [linkding - Setup](https://github.com/sissbruecker/linkding/blob/master/README.md#setup)
 <!-- --8<-- [end:ubuntu-server-arm] -->
 
-![](https://raw.githubusercontent.com/scillidan/Cos_Asset/main/screenshot/linkding.png)
-
 ## [Netdata](https://www.netdata.cloud/)
 
 <!-- --8<-- [start:ubuntu-server-arm] -->
@@ -1107,15 +1072,11 @@ List all bookmarks:
 ding .
 ```
 
-![](https://raw.githubusercontent.com/scillidan/Cos_Asset/main/screenshot/linkding-cli_01.png)
-
 Search bookmark:
 
 ```sh
 ding <String>
 ```
-
-![](https://raw.githubusercontent.com/scillidan/Cos_Asset/main/screenshot/linkding-cli_02.png)
 
 ## [audiobookshelf](https://github.com/advplyr/audiobookshelf)
 
@@ -1159,26 +1120,7 @@ cd client
 npm start
 ```
 
-## [changedetection.io](https://github.com/dgtlmoon/changedetection.io)
-
-```sh
-python310 -m venv venv
-venv/Scripts/activate.bat
-pip install .
-python changedetection.py
-```
-
-Visit `localhost:5000`.
-
-With PM2:
-
-```sh
-pm2 start changedetection.py --name changedetection --interpreter "venv/Scripts/python.exe" --cwd "changedetection.io"
-```
-
-![](https://raw.githubusercontent.com/scillidan/Cos_Asset/main/screenshot/changedetection.png)
-
-## [Coder](https://coder.com/) (x)
+## [Coder](https://coder.com/) (Cache)
 
 ```sh
 mkdir ~/code-server
@@ -1219,203 +1161,42 @@ sudo systemctl enable code-server
 
 ↪ [Setup Guide](https://github.com/coder/code-server/blob/main/docs/guide.md)
 
-## [Dify](https://github.com/langgenius/dify)
+## [audiobookshelf](https://github.com/advplyr/audiobookshelf) (Cache)
 
-↪ [Start with Local Source Code](https://docs.dify.ai/getting-started/install-self-hosted/local-source-code)
-
-## [Verba](https://github.com/weaviate/Verba)
-
-## [Trilium](https://github.com/zadam/trilium)
-
-↪ [Packaged server installation](https://github.com/zadam/trilium/wiki/Packaged-server-installation)
-
-## [ArchiveBox](https://github.com/ArchiveBox/ArchiveBox)
+![](https://img.shields.io/github/license/advplyr/audiobookshelf?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/audiobookshelf/main?label=&style=flat-square)](https://github.com/scillidan/audiobookshelf)
 
 ```sh
-archivebox manage createsuperuser
-archivebox server 127.0.0.1:8010
+nvm install 16.20.0
+nvm use 16.20.0
+git clone --depth=1 https://github.com/advplyr/audiobookshelf
+set NODE_ENV=production
+npm install
+npm install sequelize sequelize-cli --save
+cd clinet
+npm install
+npm update vue
+npm update fork-ts-checker-webpack-plugin
+npm run generate
+cd ..
+npm start
 ```
 
-↪ [Publishing Your Archive](https://docs.archivebox.io/en/master/Publishing-Your-Archive.html)
-
-## [Bukubrow](https://github.com/samhh/bukubrow-webext)
-
-Install `Bukubrow` browser extension.
+And:
 
 ```sh
-pipx install "buku[server]"
-bukuserver run --host 127.0.0.1 --port 5001
+cd client
+npm start
 ```
 
-↪ [Bukuserver](https://github.com/jarun/buku/tree/master/bukuserver)
+Change host or port by editing client/nuxt.config.js:
 
-```sh
-git clone https://github.com/samhh/bukubrow-host
-cd bukubrow-host
-cargo build --release
-./target/release/bukubrow --install-chrome
+```
+module.exports = {
+  server: {
+    ...
+  },
 ```
 
-## [BallonsTranslator](https://github.com/dmMaze/BallonsTranslator)
-
-![](https://raw.githubusercontent.com/scillidan/Cos_Asset/main/screenshot/ballonstranslator.png)
-
-```sh
-git clone --depth=1 https://github.com/dmMaze/BallonsTranslator
-cd BallonsTranslator
-python -m venv venv
-venv\Scripts\activate.bat
-```
-
-1. Install [CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit), I used `CUDA 12.1.0`.
-2. Read [PyTorch - Start Locally](https://pytorch.org/get-started/locally/).
-
-```sh
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
-python launch.py
-```
-
-## [Album App for Django](https://github.com/jobsta/albumapp-django)
-
-![](https://raw.githubusercontent.com/scillidan/Cos_Asset/main/screenshot/albumapp-django.png)
-
-```sh
-git clone --depth=1 https://github.com/jobsta/albumapp-django
-cd albumapp-django
-python -m venv venv
-venv\Scripts\activate.bat
-pip install django reportbro-lib
-python manage.py makemigrations albums
-python manage.py migrate
-python manage.py compilemessages
-```
-
-```sh
-python manage.py runserver localhost:8010
-```
-
-Visit `localhost:8010/albums`.
-
-## [Streamlit Image Crop](https://github.com/mitsuse/streamlit-image-crop)
-
-![](https://raw.githubusercontent.com/scillidan/Cos_Asset/main/screenshot/streamlit-image-crop.png)
-
-I should have tested it on `python38` and take a screenshot:
-
-![](https://raw.githubusercontent.com/scillidan/Cos_Asset/main/screenshot/streamlit-image-crop_cache.png)
-
-```sh
-git clone --depth=1 https://github.com/mitsuse/streamlit-image-crop
-cd streamlit-image-crop
-python38 -m pip install poetry
-poetry install
-C:\Users\<User>\AppData\Local\pypoetry\Cache\virtualenvs\streamlit-image-crop-*-py3.8\Scripts\activate.bat
-```
-
-```sh
-cd streamlit_image_crop/frontend
-fnm install 16.20.0
-fnm use 16.20.0
-npm i
-npm run build
-serve -s build -l 4321
-```
-
-At the same time:
-
-```sh
-pip install -U click==8
-streamlit run example.py
-```
-
-↪ [click.get_os_args is deprecated on module 'click 8.1.0'](https://github.com/streamlit/streamlit/issues/4555)
-
-## [Rclone-Webui-Angular](https://github.com/yuudi/rclone-webui-angular)
-
-![](https://raw.githubusercontent.com/scillidan/Cos_Asset/main/screenshot/rclone-webui-angular.png)
-
-↪ [Using embed build of this project](https://github.com/yuudi/rclone-webui-angular/blob/master/docs/embed.md).
-
-## [books](https://github.com/frappe/books)
-
-![](https://raw.githubusercontent.com/scillidan/Cos_Asset/main/screenshot/books.png)
-
-```sh
-yarn
-yarn build
-yarn dev
-```
-
-## [Calibre](https://calibre-ebook.com/)
-
-1. Calibre → Preferences → Sharing/Sharing over ht net → The port on which to listen for connections `<Port>`
-2. Calibre → Connect/share → Start Content server
-
-But can't add books with `calibredb add <Book> --with-library <CalibreData>` when `calibre-server.exe --port <Port> <CalibreData>` running.
-
-## [Calibre-Web](https://github.com/janeczku/calibre-web)
-
-```sh
-python -m venv venv
-venv\Scripts\activate.bat
-pip install calibreweb[metadata]
-cps
-```
-
-1. Visit `localhost:8083`. If your want to shotdown the process, `Ctrl+C` and refresh the web-page.
-2. Login with default Username `admin` and Password `admin123`. If you want to edit account:
-  - admin → Edit `Username`, `Email`, `Password`
-3. Calibre → Add books. You should get `Calibre Library\` now.
-4. Calibre-Web → Admin → Edit Cabibre Database Configuration → Select folder contains the `metadata.db`.
-
-![](https://raw.githubusercontent.com/scillidan/Cos_Asset/main/screenshot/calibre-web.png)
-
-## [SQLite Web](https://github.com/coleifer/sqlite-web)
-
-![](https://raw.githubusercontent.com/scillidan/Cos_Asset/main/screenshot/sqlite-web.png)
-
-```sh
-pipx install sqlite-web
-sqlite_web yourdatabase.db
-```
-
-Or:
-
-```sh
-python -m venv venv
-venv\Scripts\activate.bat
-pip install .
-```
-
-```sh
-venv\Scripts\sqlite_web.exe <your.db>
-```
-
-## [Instant Recipe Search](https://github.com/typesense/showcase-recipe-search)
-
-![](https://raw.githubusercontent.com/scillidan/Cos_Asset/main/screenshot/showcase-recipe-search.png)
-
-## [Pic Smaller](https://github.com/joye61/pic-smaller)
-
-Deploy with [Vercel](https://vercel.com).
-
-## [IT-TOOLS](https://github.com/CorentinTh/it-tools)
-
-Deploy with [Vercel](https://vercel.com).
-
-## [MyIP](https://github.com/jason5ng32/MyIP)
-
-![](https://raw.githubusercontent.com/scillidan/Cos_Asset/main/screenshot/myip.png)
-
-## [Web-Check](https://github.com/Lissy93/web-check)
-
-![](https://raw.githubusercontent.com/scillidan/Cos_Asset/main/screenshot/web-check.png)
-
-## [OpenCTI](https://github.com/OpenCTI-Platform/opencti)
-
-## [Zeal User Contributions & Cheat Sheets](https://github.com/xantiagoma/zealusercontributions)
-
-## [Torrents.csv](https://github.com/emtee40/torrents-csv-server)
-
-## [kitsunekko-tools](https://github.com/Ajatt-Tools/kitsunekko-tools)
-
+<!--
+## [ArchiveBox](https://github.com/ArchiveBox/ArchiveBox) 
+ -->

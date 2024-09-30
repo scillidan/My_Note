@@ -380,8 +380,9 @@ python spongebob-cli
 
 ```sh
 git clone https://github.com/Haruno19/starfetch
-cd starfetch/res/constellations
 ```
+
+Check `starfetch/res/constellations`.
 
 ```sh
 git clone https://github.com/K1ngst0m/starfetch

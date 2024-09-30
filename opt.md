@@ -270,6 +270,18 @@ Build executable:
 
 ```sh
 pip install nuitka
-python makeExe.p
+python makeExe.py
+```
+
+## [Thinreports Basic Editor](https://github.com/thinreports/thinreports-basic-editor)
+
+```sh
+nvm install 16.20.0
+nvm use 16.20.0
+npm install
+npm run build:windows
+```
+
+Open `builds/thinreports-basic-editor-*-win32/thinreports-basic-editor.exe`
 
 ## [Pegasus Frontend](https://github.com/mmatyas/pegasus-frontend)

@@ -84,14 +84,26 @@ SYS_ARCH=64
 Edit `.nvm\settings.txt`:
 
 ```
-proxy: http://127.0.0.1:<port>
 node_mirror: https://npmmirror.com/mirrors/node/
 ```
 
 ```sh
 nvm list available
+nvm install lts
 nvm install 18.20.4
-nvm install 20.17.0
+nvm use 18.20.4
+```
+
+## [pnpm](https://pnpm.io/)
+
+```pwsh
+Invoke-WebRequest https://get.pnpm.io/install.ps1 -UseBasicParsing | Invoke-Expression
+```
+
+↪ [On Windows](https://pnpm.io/installation)
+
+```sh
+pnpm install -g <pkg>
 ```
 
 ## [Jupyter](https://github.com/jupyter/jupyter)
@@ -101,6 +113,19 @@ pip install --user ipykernel
 ipython kernel install
 jupyter-lab
 ```
+
+## [rbenv for Windows](https://github.com/RubyMetric/rbenv-for-windows)
+
+```pwsh
+$env:HOME = "C:\Users\<User>"
+$env:RBENV_ROOT = "$env:HOME\Lib\rbenv"
+iwr -useb "https://github.com/RubyMetric/rbenv-for-windows/raw/main/tool/install.ps1" | iex
+$env:RBENV_USE_MIRROR = "CN"
+& "$ENV:RBENV_ROOT\rbenv\bin\rbenv.ps1" init
+```
+
+1. Set variable `RBENV_ROOT=C:\Users\<User>\Lib\rbenv`.
+2. Add `%RBENV_ROOT%\rbenv\bin`, `%RBENV_ROOT%\shims` into `PATH`.
 
 ## [MSYS2](https://www.msys2.org/)
 
