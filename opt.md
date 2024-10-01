@@ -284,4 +284,24 @@ npm run build:windows
 
 Open `builds/thinreports-basic-editor-*-win32/thinreports-basic-editor.exe`
 
-## [Pegasus Frontend](https://github.com/mmatyas/pegasus-frontend)
+## [GPi CASE 2](https://retroflag.com/gpi_case_2.html) (TBD)
+
+↪ [Retro BIOSes](https://github.com/Abdess/retroarch_system)  
+↪ [RetroArch asset server](https://github.com/NickHeap2/retroarch-asset-server)  
+↪ [Arcade manager for Retropie & Recalbox](https://github.com/cosmo0/arcade-manager)  
+
+### [RetroPie](https://retropie.org.uk/) 
+
+↪ [Install Raspbian/Raspberry Pi OS](https://retropie.org.uk/docs/Manual-Installation/)
+
+### [ES-DE Frontend](https://gitlab.com/es-de/emulationstation-de)
+
+↪ [Userguide](https://gitlab.com/es-de/emulationstation-de/-/blob/master/USERGUIDE.md)  
+↪ [Themes list](https://gitlab.com/es-de/themes/themes-list)  
+↪ [Modern for ES-DE](https://gitlab.com/es-de/themes/modern-es-de)
+
+### [Pegasus Frontend](https://github.com/mmatyas/pegasus-frontend)
+
+↪ [Sleipnir](https://github.com/y-muller/retromega-sleipnir)
+
+### [Recalbox](https://www.recalbox.com/)

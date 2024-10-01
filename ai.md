@@ -479,6 +479,7 @@ NegPiP
 SD Webui Vectorscope CC
 CLIP Interrogator
 ComfyUI
+sd-webui-controlnet
 ```
 
 Extensions → Install from URL:
@@ -592,3 +593,7 @@ os.environ["USE_TORCH"] = "1"
 ```sh
 streamlit run demo/app.py
 ```
+
+<!-- 
+https://github.com/lamm-mit/PDF2Audio
+ -->

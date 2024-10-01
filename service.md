@@ -187,6 +187,26 @@ Path: `/mnt/nvme`
 
 ## [PM2](https://pm2.keymetrics.io/)
 
+<!-- --8<-- [start:windows10] -->
+Run commands as Admin:
+
+```sh
+git clone https://github.com/jessety/pm2-installer
+cd pm2-installer
+npm run configure
+npm run setup
+pm2 start ...
+pm2 save
+```
+
+Windows 10 → Control Panel → Administrative Tools > Services → PM2 → Properties → Log On → local system account → Go back to first tab → Start
+
+↪ [pm2-installer](https://github.com/jessety/pm2-installer)
+↪ [Persistent applications](https://pm2.keymetrics.io/docs/usage/startup/)
+↪ [State is now: Stopped](https://github.com/jessety/pm2-installer/issues/69)
+<!-- --8<-- [end:windows10] -->
+
+<!-- --8<-- [start:ubuntu-server-arm-22] -->
 ```sh
 wget https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh -O install_nvm.sh
 chmod +x ./install_nvm.sh
@@ -200,6 +220,7 @@ pm2 startup
 
 ↪ [Vue packages version mismatch](https://github.com/nuxt/nuxt/issues/10305)  
 ↪ [how to modify nuxt server start port ,default port is 3000](https://github.com/nuxt/nuxt/issues/490)
+<!-- --8<-- [end:ubuntu-server-arm-22] -->
 
 ## qbittorrent-nox
 
@@ -307,7 +328,7 @@ qBittorrent → Tools → Options → Web UI → Web USer Interface (On) → por
 Visit `localhost:4321`, login.
 <!-- --8<-- [end:windows10] -->
 
-<!-- --8<-- [start:ubuntu-server-arm] -->
+<!-- --8<-- [start:ubuntu-server-arm-22] -->
 Edit `package.json`:
 
 ```
@@ -337,7 +358,7 @@ Password for qBittorrent: adminadmin
 ```
 
 Default Download Directory is on `/home/qbittorrent-nox/Downloads`.
-<!-- --8<-- [end:ubuntu-server-arm] -->
+<!-- --8<-- [end:ubuntu-server-arm-22] -->
 
 ## [Jackett](https://github.com/Jackett/Jackett)
 
@@ -373,7 +394,7 @@ java.exe -jar "komga.jar" --komga.config-dir="config"
 ```
 <!-- --8<-- [end:windows10] -->
 
-<!-- --8<-- [start:ubuntu-server-arm] -->
+<!-- --8<-- [start:ubuntu-server-arm-22] -->
 ```sh
 sudo apt install openjdk-21-jdk postgresql postgresql-contrib -y
 ```
@@ -421,7 +442,18 @@ WantedBy=multi-user.target
 sudo systemctl daemon-reload
 sudo systemctl enable --now komga
 ```
-<!-- --8<-- [end:ubuntu-server-arm] -->
+<!-- --8<-- [end:ubuntu-server-arm-22] -->
+
+## [Suwayomi](https://github.com/Suwayomi/Suwayomi-Server)
+
+<!-- --8<-- [start:windows10] -->
+```sh
+gradlew server:downloadWebUI server:shadowJar
+```
+<!-- --8<-- [end:windows10] -->
+
+↪ [Contributing](https://github.com/Suwayomi/Suwayomi-Server/blob/master/CONTRIBUTING.md)  
+↪ [Tachiyomi Extensions Revived](https://github.com/timschneeb/tachiyomi-extensions-revived)
 
 ## [Jellyfin](https://jellyfin.org/)
 
@@ -431,7 +463,7 @@ mprocs "jellyfin.exe --service" "timeout 20 && jellyfin-mpv-shim\run.exe"
 ```
 <!-- --8<-- [end:windows10] -->
 
-<!-- --8<-- [start:ubuntu-server-arm] -->
+<!-- --8<-- [start:ubuntu-server-arm-22] -->
 ```sh
 sudo dpkg -i jellyfin-server_10.9.11+ubu2204_arm64.deb jellyfin-web_10.9.11+ubu2204_all.deb
 sudo dpkg -i jellyfin-ffmpeg6_6.0.1-8-jammy_arm64.deb
@@ -442,11 +474,11 @@ systemctl status jellyfin
 ↪ [Installation - Linux](https://jellyfin.org/docs/general/installation/linux#linux-generic-amd64)  
 ↪ [Media - Movies](https://jellyfin.org/docs/general/server/media/movies/)  
 ↪ [Plugins](https://jellyfin.org/docs/general/server/plugins/)
-<!-- --8<-- [end:ubuntu-server-arm] -->
+<!-- --8<-- [end:ubuntu-server-arm-22] -->
 
 ## [Plex](https://www.plex.tv/) (Cache)
 
-<!-- --8<-- [start:ubuntu-server-arm] -->
+<!-- --8<-- [start:ubuntu-server-arm-22] -->
 ```sh
 echo deb https://downloads.plex.tv/repo/deb public main | sudo tee /etc/apt/sources.list.d/plexmediaserver.list
 curl https://downloads.plex.tv/plex-keys/PlexSign.key | sudo apt-key add -
@@ -461,11 +493,11 @@ sudo systemctl status plexmediaserver
 Visit `http://<YourHost>:32400/web`
 
 ↪ [Install of plex on Ubuntu server 22.04](https://www.reddit.com/r/PleX/comments/yp13yb/install_of_plex_on_ubuntu_server_2204/)
-<!-- --8<-- [end:ubuntu-server-arm] -->
+<!-- --8<-- [end:ubuntu-server-arm-22] -->
 
 ## [dictd](https://linux.die.net/man/8/dictd)
 
-<!-- --8<-- [start:ubuntu-server-arm] -->
+<!-- --8<-- [start:ubuntu-server-arm-22] -->
 ```sh
 sudo apt install dictd
 ```
@@ -534,7 +566,7 @@ database wikdict-zh-en {
 ```sh
 sudo systemctl enable --now dictd.service
 ```
-<!-- --8<-- [end:ubuntu-server-arm] -->
+<!-- --8<-- [end:ubuntu-server-arm-22] -->
 
 ↪ [dictd.conf](https://gist.github.com/wind0204/d65c7d1b5d7794c4c7fa1a02d5151acc)
 
@@ -594,7 +626,7 @@ Set WshShell = Nothing
 Create shortcut of `languagetool_service.vbs`, put it into `C:\Users\<User>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\`.
 <!-- --8<-- [end:windows10] -->
 
-<!-- --8<-- [start:ubuntu-server-arm] -->
+<!-- --8<-- [start:ubuntu-server-arm-22] -->
 Decompress `ngrams-en-*.zip` to `/mnt/<nvme>/share/ngrams/`.
 
 ```sh
@@ -638,7 +670,7 @@ WantedBy=multi-user.target
 ```sh
 sudo systemctl enable --now languagetool.service
 ```
-<!-- --8<-- [end:ubuntu-server-arm] -->
+<!-- --8<-- [end:ubuntu-server-arm-22] -->
 
 ↪ [LanguageTool embedded HTTP Server](https://dev.languagetool.org/http-server)  
 ↪ [Anyone self-hosting languagetool?](https://www.reddit.com/r/selfhosted/comments/ksvmii/anyone_selfhosting_languagetool/)  
@@ -674,7 +706,7 @@ go build .
 
 ↪ [请求添加对树莓派ARM的二进制程序](https://github.com/OwO-Network/DeepLX/issues/111)
 
-<!-- --8<-- [start:ubuntu-server-arm] -->
+<!-- --8<-- [start:ubuntu-server-arm-22] -->
 1. Get `deeplx_linux_arm64` from [DeepLX - Releases](https://github.com/OwO-Network/DeepLX/releases).
 2. `chmod +x deeplx_linux_arm64`
 3. `mv deeplx_linux_arm64 /usr/bin/deeplx`
@@ -703,11 +735,11 @@ WantedBy=multi-user.target
 ```sh
 sudo systemctl enable --now deeplx.service
 ```
-<!-- --8<-- [end:ubuntu-server-arm] -->
+<!-- --8<-- [end:ubuntu-server-arm-22] -->
 
 ## [Weblate](https://weblate.org) (TBD)
 
-<!-- --8<-- [start:ubuntu-server-arm] -->
+<!-- --8<-- [start:ubuntu-server-arm-22] -->
 ```sh
 sudo apt install -y \
    libxml2-dev libxslt-dev libfreetype6-dev libjpeg-dev libz-dev libyaml-dev \
@@ -733,7 +765,7 @@ sudo apt-get install git-svn
 ↪ [Installing on Debian and Ubuntu](https://docs.weblate.org/en/latest/admin/install/venv-debian.html)  
 ↪ [Mercurial](https://docs.weblate.org/en/latest/vcs.html#vcs-mercurial)  
 ↪ [Gerrit](https://docs.weblate.org/en/latest/vcs.html#vcs-gerrit)
-<!-- --8<-- [end:ubuntu-server-arm] -->
+<!-- --8<-- [end:ubuntu-server-arm-22] -->
 
 ## [Miniflux](https://miniflux.app/)
 
@@ -825,7 +857,7 @@ Set WshShell = Nothing
 3. It will autorun at startup.
 <!-- --8<-- [end:windows10] -->
 
-<!-- --8<-- [start:ubuntu-server-arm] -->
+<!-- --8<-- [start:ubuntu-server-arm-22] -->
 ```sh
 cd /etc/apt/sources.list.d
 sudo touch miniflux.list
@@ -894,7 +926,7 @@ Other options:
 
 ↪ [miniflux-theme-reeder](https://github.com/rootknight/Miniflux-Theme-Reeder)  
 ↪ [Feed Filtering Rules](https://miniflux.app/docs/rules.html#feed-filtering-rules)
-<!-- --8<-- [end:ubuntu-server-arm] -->
+<!-- --8<-- [end:ubuntu-server-arm-22] -->
 
 Backup data:
 
@@ -973,7 +1005,7 @@ Set WshShell = Nothing
 3. It will autorun at startup.
 <!-- --8<-- [end:windows10] -->
 
-<!-- --8<-- [start:ubuntu-server-arm] -->
+<!-- --8<-- [start:ubuntu-server-arm-22] -->
 ```sh
 vim requirements.dev.txt
 ```
@@ -992,10 +1024,8 @@ vim package.json
 
 ```sh
 {
-  ...
   "scripts": {
-    "start": "concurrently \"rollup -c -w\" \"python manage.py runserver 0.0.0.0:8060\"",
-    ...
+    "start": "concurrently \"rollup -c -w\" \"python manage.py runserver 0.0.0.0:8060\""
 ```
 
 ```sh
@@ -1004,11 +1034,11 @@ pm2 save
 ```
 
 ↪ [linkding - Setup](https://github.com/sissbruecker/linkding/blob/master/README.md#setup)
-<!-- --8<-- [end:ubuntu-server-arm] -->
+<!-- --8<-- [end:ubuntu-server-arm-22] -->
 
 ## [Netdata](https://www.netdata.cloud/)
 
-<!-- --8<-- [start:ubuntu-server-arm] -->
+<!-- --8<-- [start:ubuntu-server-arm-22] -->
 ```sh
 sudo apt install netdata -y
 ```
@@ -1032,7 +1062,7 @@ sudo systemctl enable --now netdata
 ```
 
 ↪ [How to Install Netdata on Ubuntu 22.04](https://wiki.crowncloud.net/?how_to_Install_netdata_monitoring_tool_ubuntu_22_04)
-<!-- --8<-- [end:ubuntu-server-arm] -->
+<!-- --8<-- [end:ubuntu-server-arm-22] -->
 
 ### Browser Extension
 
@@ -1076,48 +1106,6 @@ Search bookmark:
 
 ```sh
 ding <String>
-```
-
-## [audiobookshelf](https://github.com/advplyr/audiobookshelf)
-
-```sh
-fnm install 16.20.0
-fnm use 16.20.0
-```
-
-```sh
-git clone --depth=1 https://github.com/advplyr/audiobookshelf
-set NODE_ENV=production
-npm i
-npm install sequelize sequelize-cli --save
-cd clinet
-npm i
-npm update vue
-npm update fork-ts-checker-webpack-plugin
-npm run generate
-cd ..
-```
-
-Edit client/nuxt.config.js:
-
-```
-module.exports = {
-...
-server: {
-  ...
-  host: '127.0.0.1'
-},
-```
-
-```sh
-npm start
-```
-
-At same time:
-
-```sh
-cd client
-npm start
 ```
 
 ## [Coder](https://coder.com/) (Cache)
@@ -1198,5 +1186,9 @@ module.exports = {
 ```
 
 <!--
+## [Teable](https://github.com/teableio/teable)
+## [Plane](https://github.com/makeplane/plane)
+## [Maybe](https://github.com/maybe-finance/maybe)
+## [Mpv Shelf](https://github.com/aramrw/mpv-shelf)
 ## [ArchiveBox](https://github.com/ArchiveBox/ArchiveBox) 
  -->

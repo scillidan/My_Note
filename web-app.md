@@ -184,6 +184,10 @@ yarn build
 yarn start
 ```
 
+## [ASCIIFlow](https://github.com/lewish/asciiflow)
+
+![](https://img.shields.io/github/license/lewish/asciiflow?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/asciiflow/master?label=&style=flat-square)](https://github.com/scillidan/asciiflow) ![](https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white)
+
 ## [Excalith Start Page](https://github.com/excalith/excalith-start-page)
 
 ![](https://img.shields.io/github/license/excalith/excalith-start-page?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/excalith-start-page/main?label=&style=flat-square)](https://github.com/scillidan/excalith-start-page) ![](https://img.shields.io/badge/Vercel-black?style=flat&logo=Vercel&logoColor=white)
@@ -272,7 +276,7 @@ If app take up `4321` port, open `chrome://serviceworker-internals/?devtools` an
 
 ## [gifconverter](https://github.com/marshallku/gifconverter)
 
-![](https://img.shields.io/github/license/marshallku/gifconverter?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/gifconverter/main?label=&style=flat-square)](https://github.com/scillidan/gifconverter) ![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white)
+![](https://img.shields.io/github/license/marshallku/gifconverter?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/gifconverter/main?label=&style=flat-square)](https://github.com/scillidan/gifconverter) ![](https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white)
 
 ```sh
 npm install
@@ -313,7 +317,7 @@ pm2 serve . 4321 --name git-rawify --spa
 
 ## [Guitar Editor](https://github.com/haixiangyan/guitar-tabs-editor)
 
-![](https://img.shields.io/github/license/haixiangyan/guitar-tabs-editor?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/guitar-tabs-editor/master?label=&style=flat-square)](https://github.com/scillidan/guitar-tabs-editor) ![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white)
+![](https://img.shields.io/github/license/haixiangyan/guitar-tabs-editor?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/guitar-tabs-editor/master?label=&style=flat-square)](https://github.com/scillidan/guitar-tabs-editor) ![](https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white)
 
 ```sh
 npm install
@@ -485,7 +489,7 @@ serve -s docs -l 4321
 
 ## [miniPaint](https://github.com/viliusle/miniPaint)
 
-![](https://img.shields.io/github/license/viliusle/miniPaint?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/miniPaint/main?label=&style=flat-square)](https://github.com/scillidan/miniPaint) ![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white)
+![](https://img.shields.io/github/license/viliusle/miniPaint?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/miniPaint/main?label=&style=flat-square)](https://github.com/scillidan/miniPaint) ![](https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white)
 
 ```sh
 npm install
@@ -634,7 +638,7 @@ serve -s . -p 4321
 
 ## [QR code designer](https://github.com/kochrt/qr-designer)
 
-![](https://img.shields.io/github/license/kochrt/qr-designer?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/qr-designer/main?label=&style=flat-square)](https://github.com/scillidan/qr-designer) ![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white)
+![](https://img.shields.io/github/license/kochrt/qr-designer?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/qr-designer/main?label=&style=flat-square)](https://github.com/scillidan/qr-designer) ![](https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white)
 
 ```sh
 nvm install 16.20.0
@@ -661,7 +665,7 @@ pm2 start npm --name "qr-designer" -- run start
 
 ## [quiver](https://github.com/varkor/quiver)
 
-![](https://img.shields.io/github/license/varkor/quiver?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/quiver/master?label=&style=flat-square)](https://github.com/scillidan/quiver) ![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white)
+![](https://img.shields.io/github/license/varkor/quiver?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/quiver/master?label=&style=flat-square)](https://github.com/scillidan/quiver) ![](https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white)
 
 ```sh
 git clone --depth=1 https://github.com/varkor/quiver
@@ -676,7 +680,7 @@ serve -s src -p 4321
 
 ## [REAFLOW](https://github.com/reaviz/reaflow)
 
-![](https://img.shields.io/github/license/reaviz/reaflow?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/reaflow/master?label=&style=flat-square)](https://github.com/scillidan/reaflow) ![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white)
+![](https://img.shields.io/github/license/reaviz/reaflow?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/reaflow/master?label=&style=flat-square)](https://github.com/scillidan/reaflow) ![](https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white)
 
 ```sh
 npm install
@@ -762,7 +766,7 @@ gulp.task("serve", () => {
 ```
 
 ```sh
-pm2 start "C:/Users/<User>/AppData/Roaming/pnpm/global/5/.pnpm/gulp-cli@2.3.0/node_modules/gulp-cli/bin/gulp.js" --interpreter "C:/Users/<User>/AppData/Roaming/fnm/node-versions/v10.21.0/installation/node.exe" -n regexr
+pm2 start "C:\Users\<User>\AppData\Roaming\pnpm\node_modules\gulp-cli\bin\gulp.js" --interpreter "C:\Users\<User>\.nvm\v10.21.0\node.exe" -n regexr
 ``` 
 
 Visit `localhost:4321`.
@@ -939,7 +943,7 @@ serve -s build -p 4321
 
 ## [Guitar Tab Editor](https://github.com/calesce/tab-editor)
 
-![](https://img.shields.io/github/license/calesce/tab-editor?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/tab-editor/master?label=&style=flat-square)](https://github.com/scillidan/tab-editor) ![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white)
+![](https://img.shields.io/github/license/calesce/tab-editor?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/tab-editor/master?label=&style=flat-square)](https://github.com/scillidan/tab-editor) ![](https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white)
 
 ```sh
 npm install
@@ -984,7 +988,7 @@ Visit `localhost:5420/develop`.
 
 ## [Url encoder for SVG](https://github.com/yoksel/url-encoder)
 
-![](https://img.shields.io/github/license/yoksel/url-encoder?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/url-encoder/main?label=&style=flat-square)](https://github.com/scillidan/url-encoder) ![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white)
+![](https://img.shields.io/github/license/yoksel/url-encoder?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/url-encoder/main?label=&style=flat-square)](https://github.com/scillidan/url-encoder) ![](https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white)
 
 ```sh
 npm install
@@ -1045,7 +1049,7 @@ pm2 serve viewer 4321 --name vivliostyle-viewer --spa
 
 ## [Vtracer Web App](https://github.com/visioncortex/vtracer)
 
-![](https://img.shields.io/github/license/visioncortex/vtracer?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/vtracer/master?label=&style=flat-square)](https://github.com/scillidan/vtracer) ![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white)
+![](https://img.shields.io/github/license/visioncortex/vtracer?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/vtracer/master?label=&style=flat-square)](https://github.com/scillidan/vtracer) ![](https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white)
 
 ```sh
 nvm install 16.20.0
@@ -1069,6 +1073,40 @@ serve -s dist -p 4321
 ```
 
 If app take up `4321` port, open `chrome://serviceworker-internals/?devtools` and unregister it.
+
+## [readium-js-viewer](https://github.com/readium/readium-js-viewer)
+
+![](https://img.shields.io/github/license/readium/readium-js-viewer?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/readium-js-viewer/master?label=&style=flat-square)](https://github.com/scillidan/readium-js-viewer) ![](https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white)
+
+## [Mokuro reader](https://github.com/ZXY101/mokuro-reader)
+
+![](https://img.shields.io/github/license/ZXY101/mokuro-reader?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/mokuro-reader/main?label=&style=flat-square)](https://github.com/scillidan/mokuro-reader) ![](https://img.shields.io/badge/Vercel-black?style=flat&logo=Vercel&logoColor=white)
+
+## [Ebook Reader](https://github.com/ttu-ttu/ebook-reader)
+
+![](https://img.shields.io/github/license/ttu-ttu/ebook-reader?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/ebook-reader/main?label=&style=flat-square)](https://github.com/scillidan/ebook-reader) ![](https://img.shields.io/badge/Vercel-black?style=flat&logo=Vercel&logoColor=white)
+
+1. When deploy with [Vercel](https://vercel.com).
+2. The Project → Settings
+  - General → Build & Development Settings
+    ```
+    Build Command `pnpm build`
+    Output Directory `build`
+    Install Command `pnpm install --frozen-lockfile && pnpm svelte-kit sync`
+    ```
+  - Root Directory → `apps/web`
+
+## [foliate-js](https://github.com/johnfactotum/foliate-js)
+
+![](https://img.shields.io/github/license/johnfactotum/foliate-js?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/foliate-js/main?label=&style=flat-square)](https://github.com/scillidan/foliate-js) ![](https://img.shields.io/badge/Vercel-black?style=flat&logo=Vercel&logoColor=white)
+
+## [drawDB](https://github.com/drawdb-io/drawdb)
+
+![](https://img.shields.io/github/license/drawdb-io/drawdb?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/drawdb/main?label=&style=flat-square)](https://github.com/scillidan/drawdb) ![](https://img.shields.io/badge/Vercel-black?style=flat&logo=Vercel&logoColor=white)
+
+## [CyberChef](https://github.com/gchq/CyberChef)
+
+![](https://img.shields.io/github/license/gchq/CyberChef?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/CyberChef/main?label=&style=flat-square)](https://github.com/scillidan/CyberChef) ![](https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white)
 
 ## [Bukubrow](https://github.com/samhh/bukubrow-webext) (Cache)
 
@@ -1148,8 +1186,8 @@ C:\Users\<User>\AppData\Local\pypoetry\Cache\virtualenvs\streamlit-image-crop-*-
 
 ```sh
 cd streamlit_image_crop/frontend
-fnm install 16.20.0
-fnm use 16.20.0
+nvm install 16.20.0
+nvm use 16.20.0
 npm i
 npm run build
 serve -s build -l 4321
@@ -1257,6 +1295,9 @@ The data is on `public\docs`.
 ↪ [Packaged server installation](https://github.com/zadam/trilium/wiki/Packaged-server-installation)
 
 <!-- 
+## [DGM.js](https://github.com/dgmjs/dgmjs)
+## [Excalibur](https://github.com/camelot-dev/excalibur)
+## [Super Productivity](https://github.com/johannesjo/super-productivity)
 ## [Instant Recipe Search](https://github.com/typesense/showcase-recipe-search)
 ## [MyIP](https://github.com/jason5ng32/MyIP)
 ## [Web-Check](https://github.com/Lissy93/web-check)
@@ -1265,6 +1306,7 @@ The data is on `public\docs`.
 ## [Torrents.csv](https://github.com/emtee40/torrents-csv-server)
 ## [kitsunekko-tools](https://github.com/Ajatt-Tools/kitsunekko-tools)
 ## [Zeal User Contributions & Cheat Sheets](https://github.com/xantiagoma/zealusercontributions)
+## [Monkeytype](https://github.com/monkeytypegame/monkeytype)
 ```sh
 yarn
 yarn build
