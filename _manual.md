@@ -1,17 +1,5 @@
 <!-- I will clean up after a long time -->
 
-## hosts
-
-```sh
-sudo vim /etc/hosts
-```
-
-```
-<ip> github.com
-<ip> raw.githubusercontent.com
-<ip> mirror.archlinuxarm.org
-```
-
 ## Port
 
 port  | serve
@@ -416,22 +404,20 @@ DCT方式 `浮点（慢速高品质）`
 
 ## [LaTeX](https://www.latex-project.org/)
 
-↪ [A Tufte Handout Example](https://rstudio.github.io/tufte/)  
-↪ [How I'm able to take notes in mathematics lectures using LaTeX and Vim](https://castel.dev/post/lecture-notes-1/)  
-↪ [LaTeX tables: Basics](https://vladar.bearblog.dev/latex-tables-basics/)  
-↪ [LaTeX page geometry and layout](https://vladar.bearblog.dev/latex-page-geometry-and-layout/)  
-↪ [LaTeX: text spacing and decoration](https://vladar.bearblog.dev/latex-text-spacing-and-decoration/)  
-↪ [LaTeX and its fancy fonts](https://vladar.bearblog.dev/latex-and-its-fancy-fonts/)  
-↪ [LaTeX document structure](https://vladar.bearblog.dev/latex-document-structure/)  
 ↪ [LaTeX for tabletop](https://vladar.bearblog.dev/latex-for-tabletop/)  
+↪ [LaTeX images](https://vladar.bearblog.dev/latex-images/)  
+↪ [LaTeX and its fancy fonts](https://vladar.bearblog.dev/latex-and-its-fancy-fonts/)  
+↪ [LaTeX: text spacing and decoration](https://vladar.bearblog.dev/latex-text-spacing-and-decoration/)  
+↪ [LaTeX tables: Basics](https://vladar.bearblog.dev/latex-tables-basics/)  
 ↪ [LaTeX tables: Advanced features](https://vladar.bearblog.dev/latex-tables-advanced-features/)  
-↪ [LaTeX images](https://vladar.bearblog.dev/latex-images/)
+↪ [LaTeX page geometry and layout](https://vladar.bearblog.dev/latex-page-geometry-and-layout/)  
+↪ [LaTeX document structure](https://vladar.bearblog.dev/latex-document-structure/)  
+↪ [Screenplay template](https://www.overleaf.com/latex/templates/screenplay-template/grqmtrnytdhj)
 
 ## [Godot](https://godotengine.org/)
 
 ↪ [Godot Recipes](https://kidscancode.org/godot_recipes/4.x/)  
-↪ [Dialogic 2](https://docs.dialogic.pro/introduction.html)
-
+↪ [Dialogic 2](https://docs.dialogic.pro/introduction.html)  
 ↪ [Configuring neovim's LSP to work with Godot](https://ericlathrop.com/2024/02/configuring-neovim-s-lsp-to-work-with-godot/)
 
 ## [Renpy](https://www.renpy.org/)

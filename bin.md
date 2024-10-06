@@ -130,7 +130,7 @@ sudo systemctl restart dictd.service
 ↪ [How can I uncompress a \*.7z file?](https://askubuntu.com/questions/219392/how-can-i-uncompress-a-7z-file)
 <!-- --8<-- [end:ubuntu-server-arm] -->
 
-## [dict-wrapper](https://github.com/dekerser/dict-wrapper) (TBD)
+## [dict-wrapper](https://github.com/dekerser/dict-wrapper)
 
 ## [PyGlossary](https://github.com/ilius/pyglossary)
 
@@ -150,7 +150,7 @@ pyglossary <mdict.mdx> <mdict.txt>
 pyglossary <mdict.txt> <dictionary.index> --write-options=dictzip=true
 ```
 
-## [MDict Tool](https://github.com/liuyug/mdict-utils) (TBD)
+## [MDict Tool](https://github.com/liuyug/mdict-utils) (Cache)
 
 ```sh
 mdict.exe -x "汉语大词典(简体精排).mdx"  -d ./mdx

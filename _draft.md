@@ -138,7 +138,7 @@ The [pinouts_v0.3_toc.pdf](https://github.com/scillidan/Cos_Cache/blob/master/pd
 - [Alice in Wonderland (illustrate)](https://www.gutenberg.org/ebooks/28885) by Lewis Carroll, illustrator by Arthur Rackham, proem by Austin Dobson / [PDM](https://creativecommons.org/publicdomain/mark/1.0)
 - [phenomenon Is this the glass wall](https://everest-pipkin.com/projects/phenomenon.html) by [Everest Pipkin](https://everest-pipkin.com) / [ACSL](https://anticapitalist.software)
 
-## [pyLanguagetool](https://github.com/Findus23/pyLanguagetool) (TBD)
+## [pyLanguagetool](https://github.com/Findus23/pyLanguagetool) (Cache)
 
 我个人不使用LanguageTool的桌面客户端，而它的浏览器插件，在「本地服务」的情况下，不是特别好用。这里尝试将[pyLanguagetool](https://github.com/Findus23/pyLanguagetool)嵌入到GoldenDict来进行交互。
 

@@ -84,7 +84,7 @@ sudo ifconfig wlan0 down
 ↪ [Configure a Static IP address for WIFI using Netplan in Ubuntu Server 22.04 on a HP Pavillion Desktop 510-p051a](https://stackoverflow.com/questions/77637274/configure-a-static-ip-address-for-wifi-using-netplan-in-ubuntu-server-22-04-on-a)  
 ↪ [No internet connection after ubuntu server 20.04 install, ifconfig not available](https://askubuntu.com/questions/1233934/no-internet-connection-after-ubuntu-server-20-04-install-ifconfig-not-available)
 
-## Edit source.list
+## Use repository mirror
 
 ```sh
 sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
@@ -287,7 +287,7 @@ curl -s https://install.zerotier.com | sudo bash
 
 ## [ztncui](https://github.com/key-networks/ztncui)
 
-## [headscale](https://github.com/juanfont/headscale) (TBD)
+## [headscale](https://github.com/juanfont/headscale) (Cache)
 
 Get `headscale_<version>_linux_arm64.deb` from [Headscale - Releases](https://github.com/juanfont/headscale/releases).
 
@@ -302,7 +302,7 @@ sudo dpkg --remove headscale
 sudo dpkg --purge headscale
 ```
 
-## [Headscale-UI](https://github.com/gurucomputing/headscale-ui) (TBD)
+## [Headscale-UI](https://github.com/gurucomputing/headscale-ui) (Cache)
 
 ```sh
 git clone --depth=1 https://github.com/gurucomputing/headscale-ui
@@ -737,7 +737,7 @@ sudo systemctl enable --now deeplx.service
 ```
 <!-- --8<-- [end:ubuntu-server-arm-22] -->
 
-## [Weblate](https://weblate.org) (TBD)
+## [Weblate](https://weblate.org) (Cache)
 
 <!-- --8<-- [start:ubuntu-server-arm-22] -->
 ```sh

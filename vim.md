@@ -165,6 +165,7 @@ pip install --upgrade pynvim
 ### cmp
 
 ↪ [How to Install and Use nvim cmp Autocompletion](https://linovox.com/install-and-use-nvim-cmp/)
+<!-- ↪ [Autocomplete with nvim-cmp](https://www.jonashietala.se/blog/2024/05/26/autocomplete_with_nvim-cmp/) -->
 
 ### [mason.nvim](https://github.com/williamboman/mason.nvim)
 
@@ -178,13 +179,15 @@ pip install --upgrade pynvim
 
 ### [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 
-Install `zig`, `gcc`.
+Install [zig](https://ziglang.org/), [gcc](https://gcc.gnu.org/).
 
-↪ [nvim-treesitter doesn't seem to work in windows.](https://github.com/nvim-treesitter/nvim-treesitter/issues/2135  )
+↪ [nvim-treesitter doesn't seem to work in windows.](https://github.com/nvim-treesitter/nvim-treesitter/issues/2135)
 
 ```
 :TSInstall python
 ```
+
+<!-- ↪ [Let's create a Tree-sitter grammar](https://www.jonashietala.se/blog/2024/03/19/lets_create_a_tree-sitter_grammar/) -->
 
 ### [nvim-devdocs](https://github.com/luckasRanarison/nvim-devdocs)
 

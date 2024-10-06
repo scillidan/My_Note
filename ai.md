@@ -562,7 +562,7 @@ With [Anime Segmentation](https://www.iopaint.com/plugins/anime_seg):
 iopaint start --model=lama --device=cpu --port=7840 --enable-anime-seg
 ```
 
-## [RapidVideOCR](https://github.com/SWHL/RapidVideOCR) (TBD)
+## [RapidVideOCR](https://github.com/SWHL/RapidVideOCR) (Cache)
 
 ↪ [VideoSubFinder提取字幕关键帧教程](https://juejin.cn/post/7203362527082053691)  
 ↪ [在线demo](https://swhl.github.io/RapidVideOCR/docs/online_demo/)

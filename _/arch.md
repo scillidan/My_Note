@@ -1,248 +1,3 @@
-## Log In
-
-↪ https://github.com/altreact/archbk/issues/9
-
-```
-username: root
-password: root
-```
-
-<!--end-->
-
-## Wlan (Optional)
-
-↪ https://zhuanlan.b.com/p/596227524
-
-```sh
-ip link
-systemctl status iwd
-systemctl restart iwd
-systemctl status iwd
-iwctl
-device list
-station wlan0 scan
-station wlan0 get-networks
-station wlan0 connect "SSID"
-ping archlinux.org
-pacman -Syyu
-```
-
-```sh
-sudo pacman -S pacman-contrib
-sudo paccache -rk 2
-```
-
-## Pacman
-
-↪ https://www.youtube.com/watch?v=odgD_RdJjCU
-
-```sh
-nano /etc/pacman.conf
-```
-
-```
-Color
-ParalleDownloads = 5
-ILoveCandy
-```
-
-↪ https://mirrors.ustc.edu.cn/help/archlinux.html
-↪ https://mirrors.tuna.tsinghua.edu.cn/help/archlinux/
-
-```sh
-cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
-nano /etc/pacman.d/mirrorlist
-```
-
-```
-Server = https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
-Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
-Server = https://mirror.archlinux.tw/ArchLinux/$repo/os/$arch
-Server = https://mirror.0xem.ma/arch/$repo/os/$arch
-Server = https://mirror.aktkn.sg/archlinux/$repo/os/$arch
-Server = https://archlinux.uk.mirror.allworldit.com/archlinux/$repo/os/$arch
-Server = https://mirrors.cat.net/archlinux/$repo/os/$arch
-```
-
-```sh
-pacman -Syyu
-```
-
-## yay
-
-```sh
-sudo pacman -S go
-go env -w GO111MODULE=on
-go env -w GOPROXY=https://goproxy.cn,direct
-go env
-```
-
-↪ https://www.makeuseof.com/install-and-use-yay-arch-linux/
-
-```sh
-sudo pacman -S --needed git base-devel
-git clone https://aur.archlinux.org/yay-bin.git
-cd yay-bin
-makepkg
-sudo pacman -U yay-bin*.pkg.tar.xz
-yay
-```
-
-Use `arch-chroot` in [VirtualBox](https://www.virtualbox.org/):
-
-```sh
-sudo pacman -S fakeroot
-sudo useradd -m auruser
-sudo passwd auruser
-su - auruser
-cd yay-bin
-makepkg
-```
-
-## paru (Optional)
-
-```sh
-yay -S paru
-```
-
-## Flathub
-
-↪ https://github.com/flatpak/flatpak/issues/5253
-
-```sh
-sudo pacman -S flatpak
-reboot
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install org.freefilesync.FreeFileSync
-```
-
-```sh
-flatpak uninstall flathub org.localsend.localsend_app
-flatpak install flathub org.localsend.localsend_app
-flatpak run org.localsend.localsend_app
-```
-
-## useradd
-
-```sh
-sudo pacman -S sudo vim
-sudo useradd -m YourName
-visudo
-```
-
-```sh
-YourName ALL=(ALL:ALL) ALL
-```
-
-Or
-
-```sh
-sudo addgroup sudouser
-sudo usermod -aG sudouser YourName
-sudo visudo
-```
-
-```sh
-sudouser ALL=(ALL)ALL
-```
-
-```sh
-reboot
-```
-
-## locale-gen
-
-↪ https://zhuanlan.zhihu.com/p/385251617
-
-```sh
-sudo vim /etc/locale.gen
-```
-
-```
-en_US.UTF-8 UTF-8
-zh_CN.UTF-8 UTF-8
-```
-
-```sh
-sudo locale-gen
-```
-
-```sh
-sudo vim /etc/locale.conf
-```
-
-```sh
-LANG=en_US.UTF-8
-```
-
-## timedatectl
-
-...
-
-```sh
-timedatectl set-timezone Asia/Chongqing
-```
-
-## hostname
-
-```sh
-sudo vim /etc/hostname
-```
-
-```
-YourMachine
-```
-
-```sh
-sudo systemctl restart systemd-hostnamed
-```
-
-## hosts
-
-```sh
-sudo systemctl restart systemd-resolved
-```
-
-## NetworkManager
-
-```sh
-sudo pacman -S networkmanager
-sudo systemctl stop netctl
-sudo systemctl disable netctl
-sudo systemctl enable --now networkmanager
-sudo pacman -S network-manager-applet
-```
-
-## Fireware
-
-↪ https://www.youtube.com/watch?v=odgD_RdJjCU
-? https://arch-general.archlinux.narkive.com/tAB5NZpE/how-to-autostart-ufw-on-system-startup
-
-```sh
-sudo pacman -S ufw
-sudo ufw status
-sudo systemctl enable --now ufw
-sudo reboot
-sudo ufw status
-```
-
-## SSH
-
-↪ https://medium.com/@pythonaugust/enable-ssh-on-arch-linux-8f1ede0d9c88
-
-```sh
-sudo pacman -S openssh
-sudo systemctl enable --now sshd
-sudo ufw allow 22/tcp
-ip addr show
-```
-
-Get your IP of `inet`. On client machine:
-
-```sh
-ssh username@YourIP
-```
-
 ## Xfce
 
 ↪ https://linuxopsys.com/topics/install-xfce-desktop-on-arch-linux
@@ -372,7 +127,7 @@ Put `.png` into `~/.icons`.
 
 Icon → Select icon from `All Icons` → Search icon
 
-↪ https://github.com/scillidan/ASSET-demo/blob/main/bloodborne-caryll-runes/png-white/Lake.png
+↪ https://github.com/scillidan/icon-bloodborne-caryll-runes/blob/main/png-white/Lake.png
 
 ## Cursor
 
@@ -473,18 +228,13 @@ sudo systemctl enable --now pipewire
 
 ## ZeroTier
 
-↪ https://www.zerotier.com/download/
+Log-in [ZeroTier](https://my.zerotier.com) to create a Network.
 
 ```sh
 sudo pacman -S zerotier-one
 sudo systemctl enable --now zerotier-one.service
 systemctl status zerotier-one.service
-```
-
-Log-in [ZeroTier](https://my.zerotier.com) to create a Network.
-
-```sh
-sudo zerotier-cli join NetworkID
+sudo zerotier-cli join <NetworkID>
 ```
 
 Go back to `Network` board of ZeroTier, check the newly discovered machine.
@@ -1318,11 +1068,3 @@ cp -r ~/Git/translations/local/data/lang/chinese/** ./dest/data/
 ```sh
 yay -S qview
 ```
-
-## Qemu (x)
-
-```sh
-sudo pacman -S qemu-full
-```
-
-↪ https://www.baeldung.com/linux/qemu-from-terminal

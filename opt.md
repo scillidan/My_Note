@@ -11,6 +11,24 @@
 ↪ [7Zip - Command Line : Exclude folder(s) by wildcard pattern?](https://superuser.com/questions/97342/7zip-command-line-exclude-folders-by-wildcard-pattern)  
 ↪ [How to zip multiple folders into separate files [Full guide]](https://windowsreport.com/zip-multiple-folders-separate-files/)
 
+## [SmartZip](https://github.com/vvyoko/SmartZip)
+
+1. Download `SmartZip*.zip` from releases of [Releases](https://github.com/vvyoko/SmartZip/releases).
+2. Decompress it to `SmartZip\`.
+
+Create from `light.ico` form `dark.ico`:
+
+```sh
+magick convert dark.ico -channel RGB -negate light.ico
+```
+
+1. SmartZip → 自定义 → 图标路径 → `%SmartZipDir%\light.ico`.
+2. 关联 → 右键菜单 → Select `SmartZip Decompress`, `SmartZip Compress` → 注册.
+
+## [Open Shell](https://github.com/Open-Shell/Open-Shell-Menu)
+
+Open Shell → Setting → Backup → Load from XML File → Select `Menu Settings.xml`
+
 ## [Everything](https://www.voidtools.com/)
 
 ↪ [Omit Recycle Bin Files From Search](https://www.voidtools.com/forum/viewtopic.php?t=6454)  
@@ -24,8 +42,6 @@
 ↪ [[Feature Repuest] 拼音输入法设置单行模式](https://github.com/fcitx/fcitx5-chinese-addons/issues/3)
 
 ## [Keypirinha](https://keypirinha.com)
-
-C:\Users\<User>\Opt\Keypirinha\portable\Local\Packages\tldr
 
 ### Theme
 
@@ -70,6 +86,17 @@ C:\Users\<User>\Opt\Keypirinha\portable\Local\Packages\tldr
 - `Color pick` [Keypirinha ColorPicker](https://github.com/clinden/keypirinha-colorpicker)
 - `snip (need-to-set)` [keypirinha-snippets](https://github.com/dozius/keypirinha-snippets)
 - `quicknote` [Keypirinha Plugin: quicknote-markdown](https://github.com/NopenAI/keypirinha-quicknote-markdown)
+
+## [Shell-X](https://github.com/oleg-shilo/shell-x)
+
+1. Download `shell-x.*.7z` ffrom [Releases](https://github.com/oleg-shilo/shell-x/releases).
+2. Decompress it to `shell-x\`.
+3. Add `shell-x\` into `PATH`.
+
+```sh
+shell-x -r
+shell-x -init
+```
 
 ## [Sublime Text](https://www.sublimetext.com/)
 
@@ -120,6 +147,10 @@ Packages → Search `latexmk` → Select the `latexmk` → Content Menu → Inst
 ↪ [Shortcut to open Cmder in a chosen folder](https://github.com/cmderdev/cmder#shortcut-to-open-cmder-in-a-chosen-folder)  
 ↪ [set PATH with multiple lines](https://stackoverflow.com/questions/40909459/set-path-with-multiple-lines)  
 ↪ [Terminal sizes](https://help.gnome.org/users/gnome-terminal/stable/app-terminal-sizes.html.en)
+
+## [Alacritty](https://alacritty.org/)
+
+↪ [How can I configure alacritty to work with MSYS2?](https://github.com/alacritty/alacritty/issues/3301#issuecomment-753320506)
 
 ## [Lintalist](https://lintalist.github.io/)
 
@@ -283,25 +314,3 @@ npm run build:windows
 ```
 
 Open `builds/thinreports-basic-editor-*-win32/thinreports-basic-editor.exe`
-
-## [GPi CASE 2](https://retroflag.com/gpi_case_2.html) (TBD)
-
-↪ [Retro BIOSes](https://github.com/Abdess/retroarch_system)  
-↪ [RetroArch asset server](https://github.com/NickHeap2/retroarch-asset-server)  
-↪ [Arcade manager for Retropie & Recalbox](https://github.com/cosmo0/arcade-manager)  
-
-### [RetroPie](https://retropie.org.uk/) 
-
-↪ [Install Raspbian/Raspberry Pi OS](https://retropie.org.uk/docs/Manual-Installation/)
-
-### [ES-DE Frontend](https://gitlab.com/es-de/emulationstation-de)
-
-↪ [Userguide](https://gitlab.com/es-de/emulationstation-de/-/blob/master/USERGUIDE.md)  
-↪ [Themes list](https://gitlab.com/es-de/themes/themes-list)  
-↪ [Modern for ES-DE](https://gitlab.com/es-de/themes/modern-es-de)
-
-### [Pegasus Frontend](https://github.com/mmatyas/pegasus-frontend)
-
-↪ [Sleipnir](https://github.com/y-muller/retromega-sleipnir)
-
-### [Recalbox](https://www.recalbox.com/)

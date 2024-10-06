@@ -134,6 +134,22 @@ $env:RBENV_USE_MIRROR = "CN"
 
 ↪ [How to Install GCC in Termux for C++ Programming](https://www.samgalope.dev/2024/09/03/how-to-install-gcc-in-termux-for-c-programming/)
 
+```sh
+pacman -Syyu
+pacman -S mingw-w64-ucrt-x86_64-gcc
+pacman -S mingw-w64-x86_64-cargo-c mingw-w64-x86_64-protobuf
+cargo install atuin
+pacman -S mingw-w64-ucrt-x86_64-pkg-config
+```
+
+## [Cygwin](https://www.cygwin.com/) (Cache)
+
+```sh
+apt-cyg install git vim zsh
+cd /cygdrive/c/cygwin64/home/User
+source .zshrc
+```
+
 ## [Cargo](https://doc.rust-lang.org/cargo/)
 
 <!-- --8<-- [start:ubuntu-22-arm] -->

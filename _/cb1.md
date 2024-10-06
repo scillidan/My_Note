@@ -1,4 +1,4 @@
-## cb1
+## cb1 (Cache)
 
 Get images from [armbian - BIGTREETECH CB1](https://www.armbian.com/bigtreetech-cb1).
 
@@ -24,9 +24,9 @@ sudo apt list --installed
 
 ```sh
 sudo nmcli dev wifi list
-sudo nmcli dev wifi connect "<SSID>" password <Password>
+sudo nmcli dev wifi connect "<ssid>" password <password>
 ```
 
 ```sh
-nmtui-connect <SSID>
+nmtui-connect <ssid>
 ```
