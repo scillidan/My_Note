@@ -2,6 +2,15 @@
 
 ↪ [How to Install Python 3.9 on Ubuntu 22.04](https://vegastack.com/tutorials/how-to-install-python-3-9-on-ubuntu-22-04/)
 
+```sh
+python -m pip install -e .
+python -m pip install build twine
+python setup.py sdist bdist_wheel
+python -m build
+```
+
+↪ [How to Publish an Open-Source Python Package to PyPI](https://realpython.com/pypi-publish-python-package/)
+
 ## [pyenv for Windows](https://github.com/pyenv-win/pyenv-win)
 
 <!-- --8<-- [start:windows10] -->
@@ -66,6 +75,15 @@ pyenv global 3.9.13
 <!-- --8<-- [start:termux] -->
 ↪ [Build older python package - 3.9](https://github.com/termux/termux-packages/discussions/9498)
 <!-- --8<-- [end:termux] -->
+
+## [NPM](https://www.npmjs.com/)
+
+```sh
+npm login
+npm init
+npm publish
+# npm version patch
+```
 
 ## [NVM for Windows](https://github.com/coreybutler/nvm-windows)
 

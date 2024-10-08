@@ -682,12 +682,6 @@ Used in browser:
 2. Browser Extension → Settings → Advanced settings → Other server → `http://<host>:<port>/v2`
 3. General settings → Show in right-click menu (On)
 
-## [Apertium](https://www.apertium.org/) (TBD)
-
-↪ [Install Apertium core using packaging](https://wiki.apertium.org/wiki/Install_Apertium_core_using_packaging)  
-↪ [Install language data using packaging](https://wiki.apertium.org/wiki/Install_language_data_using_packaging)  
-↪ [apertium-zho](https://github.com/apertium/apertium-zho)
-
 ## [DeepLX](https://github.com/OwO-Network/DeepLX)
 
 <!-- --8<-- [start:windows10] -->
@@ -1108,6 +1102,12 @@ Search bookmark:
 ding <String>
 ```
 
+## [Stirling PDF](https://github.com/Stirling-Tools/Stirling-PDF)
+
+↪ [LocalRunGuide.md](https://github.com/Stirling-Tools/Stirling-PDF/blob/main/LocalRunGuide.md)
+
+## [CompressioWeb](https://github.com/naamhaiabdullah/compressioweb) (Cache)
+
 ## [Coder](https://coder.com/) (Cache)
 
 ```sh
@@ -1149,6 +1149,39 @@ sudo systemctl enable code-server
 
 ↪ [Setup Guide](https://github.com/coder/code-server/blob/main/docs/guide.md)
 
+## [Trilium](https://github.com/zadam/trilium) (Cache)
+
+Get `trilium-linux-x64-server-*.tar.xz` from [Releases](https://github.com/zadam/trilium/releases).
+
+```sh
+tar -xvf trilium-linux-x64-server-*.tar.xz
+sudo mv trilium-linux-x64-server /opt/trilium
+sudo vim /etc/systemd/system/trilium.service
+```
+
+```
+[Unit]
+Description=Trilium Daemon
+After=syslog.target network.target
+
+[Service]
+User=root
+Group=root
+Type=simple
+ExecStart=/opt/trilium/trilium.sh
+WorkingDirectory=/opt/trilium/
+
+TimeoutStopSec=20
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```sh
+sudo systemctl enable --now trilium
+```
+
 ## [audiobookshelf](https://github.com/advplyr/audiobookshelf) (Cache)
 
 ![](https://img.shields.io/github/license/advplyr/audiobookshelf?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/audiobookshelf/main?label=&style=flat-square)](https://github.com/scillidan/audiobookshelf)
@@ -1183,6 +1216,26 @@ module.exports = {
   server: {
     ...
   },
+```
+
+## [Bukubrow](https://github.com/samhh/bukubrow-webext) (Cache)
+
+![](https://img.shields.io/github/license/samhh/bukubrow-webext?label=&style=flat-square)
+
+Install `Bukubrow` browser extension.
+
+```sh
+pipx install "buku[server]"
+bukuserver run --host 127.0.0.1 --port 5001
+```
+
+↪ [Bukuserver](https://github.com/jarun/buku/tree/master/bukuserver)
+
+```sh
+git clone https://github.com/samhh/bukubrow-host
+cd bukubrow-host
+cargo build --release
+./target/release/bukubrow --install-chrome
 ```
 
 <!--

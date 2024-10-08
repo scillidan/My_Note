@@ -247,7 +247,8 @@ hostname -I
 ↪ [The killer features of the Steam Deck](https://www.jonashietala.se/blog/2023/10/24/the_killer_features_of_the_steam_deck/)
 
 ## [GPi CASE 2](https://retroflag.com/gpi_case_2.html) (TBD)
-?↪ [Retro BIOSes](https://github.com/Abdess/retroarch_system)  
+
+↪ [Retro BIOSes](https://github.com/Abdess/retroarch_system)  
 
 Get [SD Memory Card Formatter](https://www.sdcard.org/downloads/formatter/).
 Get [Raspberry Pi Imager](https://www.raspberrypi.com/software/).
@@ -266,6 +267,8 @@ psk="<WifiPassword>"
 ```
 
 ↪ [Retro Gaming With RetroPie, GPi CASE 2, and a Raspberry Pi](https://navendu.me/posts/retropie-gpi-case-2-setup/).
+
+### [Recalbox](https://www.recalbox.com/)
 
 ### RetroPie and [ES-DE Frontend](https://gitlab.com/es-de/emulationstation-de)
 
@@ -303,9 +306,6 @@ On Windows:
 
 ```sh
 set "HOME=C:/Users/User"
-```
-
-```sh
 mkdir "%HOME%/Opt"
 cd "%HOME%/Opt"
 ```
@@ -324,22 +324,24 @@ mkdir pegasus-g
 2. Goto `【2】数据文件（安卓+PC）/【1】基础包_110GB`. Select `基础包_110GB Roms.zip.001`, decompress them to `pegasus-g/Roms`.
 3. Goto `【3】数据列表（安卓+PC)/【PC】metadata数据列表` , move (or copy) all to `pegasus-g/playlists`.
 
-```
+```sh
 mkdir "%HOME%/Source/pegasus"
 cd "%HOME%/Source/pegasus"
 ```
 
 Clone some themes from [Pegasus Theme Gallery](https://pegasus-frontend.org/tools/themes).
 
-### [Recalbox](https://www.recalbox.com/)
-
-## Android TV (TBD)
+## [Android TV](https://www.android.com/tv/) (Cache)
 
 ↪ [LineageOS 21 (Android 14)](https://konstakang.com/devices/rpi4/LineageOS21/)  
-↪ [用树莓派做电视盒子，安装Android TV系统](https://cloud.tencent.com/developer/article/1947011)  
-↪ [Kodi](https://kodi.tv/)  
+
+## [OSMC](https://osmc.tv/) (Cache)
+
+↪ [Installing OSMC on the Raspberry Pi](https://pimylifeup.com/raspberry-pi-osmc/)  
 ↪ [Chinese-IPTV](https://github.com/BurningC4/Chinese-IPTV)  
-↪ [MATVT](https://github.com/virresh/matvt)  
-↪ [Android TV Remote Control](https://android-tv-remote-control.en.uptodown.com/android)  
+↪ [MATVT](https://github.com/virresh/matvt)
+
+## [Home Assistant](https://www.home-assistant.io/) (Cache)
+
 ↪ [Home Assistant - Raspberry Pi](https://www.home-assistant.io/installation/raspberrypi/)  
 ↪ [Android TV Remote](https://www.home-assistant.io/integrations/androidtv_remote/)

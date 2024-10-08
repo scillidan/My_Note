@@ -77,13 +77,17 @@ If app take up `4321` port, open `chrome://serviceworker-internals/?devtools` an
 
 ## [cnvrt](https://github.com/gregermendle/cnvrt)
 
-![](https://img.shields.io/github/license/gregermendle/cnvrt?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/cnvrt/main?label=&style=flat-square)](https://github.com/scillidan/cnvrt)
+![](https://img.shields.io/github/license/gregermendle/cnvrt?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/cnvrt/main?label=&style=flat-square)](https://github.com/scillidan/cnvrt) ![](https://img.shields.io/badge/Vercel-black?style=flat&logo=Vercel&logoColor=white)
 
 ```sh
 pnpm install
 pnpm build
 pnpm start
 ```
+
+## [pdf-lib-draw-table](https://github.com/MP70/pdf-lib-draw-table)
+
+![](https://img.shields.io/github/license/MP70/pdf-lib-draw-table?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/pdf-lib-draw-table/master?label=&style=flat-square)](https://github.com/scillidan/pdf-lib-draw-table)
 
 ## [Codi.link](https://github.com/midudev/codi.link)
 
@@ -94,6 +98,10 @@ npm install
 npm run build
 serve -s dist -p 4321
 ```
+
+## [Editor](https://github.com/markhillard/Editor)
+
+![](https://img.shields.io/github/license/markhillard/Editor?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/Editor/master?label=&style=flat-square)](https://github.com/scillidan/Editor) ![](https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white)
 
 ## [DGM.js](https://github.com/dgmjs/dgmjs)
 
@@ -148,7 +156,7 @@ serve -s build -p 4321
 
 ## [ePubViewer](https://github.com/pgaskin/ePubViewer)
 
-![](https://img.shields.io/github/license/agmmnn/etytree?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/pgaskin/ePubViewer/main?label=&style=flat-square)](https://github.com/scillidan/ePubViewer) ![](https://img.shields.io/badge/Vercel-black?style=flat&logo=Vercel&logoColor=white)
+![](https://img.shields.io/github/license/pgaskin/ePubViewer?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/pgaskin/ePubViewer/main?label=&style=flat-square)](https://github.com/scillidan/ePubViewer) ![](https://img.shields.io/badge/Vercel-black?style=flat&logo=Vercel&logoColor=white)
 
 ```sh
 serve -s . -p 4321
@@ -933,7 +941,7 @@ serve -s dist/editor -l 4321
 
 ## [SVGOMG](https://github.com/jakearchibald/svgomg)
 
-![](https://img.shields.io/github/license/jakearchibald/svgomg?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/svgomg/main?label=&style=flat-square)](https://github.com/scillidan/svgomg)
+![](https://img.shields.io/github/license/jakearchibald/svgomg?label=&style=flat-square)
 
 ```sh
 npm install
@@ -1110,25 +1118,26 @@ If app take up `4321` port, open `chrome://serviceworker-internals/?devtools` an
 
 ![](https://img.shields.io/github/license/gchq/CyberChef?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/CyberChef/main?label=&style=flat-square)](https://github.com/scillidan/CyberChef) ![](https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white)
 
-## [Bukubrow](https://github.com/samhh/bukubrow-webext) (Cache)
+## [クモ](https://gitlab.com/joshavanier/kumo)
 
-![](https://img.shields.io/github/license/samhh/bukubrow-webext?label=&style=flat-square)
+![](https://img.shields.io/gitlab/license/joshavanier/kumo?label=&style=flat-square) [![](https://img.shields.io/gitlab/last-commit/60561767?label=&style=flat-square)
+](https://gitlab.com/scillidan/kumo) ![](https://img.shields.io/badge/Vercel-black?style=flat&logo=Vercel&logoColor=white)
 
-Install `Bukubrow` browser extension.
+## [RetroAssembly](https://github.com/arianrhodsandlot/retro-assembly)
 
-```sh
-pipx install "buku[server]"
-bukuserver run --host 127.0.0.1 --port 5001
-```
+![](https://img.shields.io/github/license/arianrhodsandlot/retro-assembly?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/retro-assembly/master?label=&style=flat-square)](https://github.com/scillidan/retro-assembly) ![](https://img.shields.io/badge/Vercel-black?style=flat&logo=Vercel&logoColor=white)
 
-↪ [Bukuserver](https://github.com/jarun/buku/tree/master/bukuserver)
+## [QuickPic](https://github.com/t3dotgg/quickpic) (TBD)
 
-```sh
-git clone https://github.com/samhh/bukubrow-host
-cd bukubrow-host
-cargo build --release
-./target/release/bukubrow --install-chrome
-```
+![](https://img.shields.io/github/license/t3dotgg/quickpic?label=&style=flat-square)
+
+## [Muser](https://github.com/jonshamir/muser)
+
+![](https://img.shields.io/github/license/jonshamir/muser?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/muser/master?label=&style=flat-square)](https://github.com/scillidan/muser) ![](https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white)
+
+## [Sales & Dungeons](https://github.com/BigJk/snd)
+
+![](https://img.shields.io/github/license/BigJk/snd?label=&style=flat-square)
 
 ## [changedetection.io](https://github.com/dgtlmoon/changedetection.io)
 
@@ -1289,12 +1298,32 @@ bundle exec rackup
 ```
 
 The data is on `public\docs`.
-
 <!-- --8<-- [end:windows10] -->
 
-## [Trilium](https://github.com/zadam/trilium)
+## [Instant Recipe Search](https://github.com/typesense/showcase-recipe-search) (Cache)
 
-↪ [Packaged server installation](https://github.com/zadam/trilium/wiki/Packaged-server-installation)
+<!-- --8<-- [start:docker] -->
+```sh
+git clone --depth=1 https://github.com/typesense/showcase-recipe-search
+cd showcase-recipe-search
+rbenv install 2.7.2
+rbenv shell 2.7.2
+gem install bundler -v 2.4.22
+bundle install
+corepack enable
+rm yarn.lock
+yarn install
+yarn run typesenseServer
+```
+
+```sh
+cp .env.development .env
+set BATCH_SIZE=1000
+yarn run indexer:transformDataset
+yarn run indexer:importToTypesense
+yarn start
+```
+<!-- --8<-- [end:docker] --> -->
 
 <!-- 
 ## [DGM.js](https://github.com/dgmjs/dgmjs)
@@ -1303,7 +1332,6 @@ The data is on `public\docs`.
 ## [Instant Recipe Search](https://github.com/typesense/showcase-recipe-search)
 ## [MyIP](https://github.com/jason5ng32/MyIP)
 ## [Web-Check](https://github.com/Lissy93/web-check)
-## [OpenCTI](https://github.com/OpenCTI-Platform/opencti)
 ## [freshermeat](https://github.com/cedricbonhomme/freshermeat)
 ## [Torrents.csv](https://github.com/emtee40/torrents-csv-server)
 ## [kitsunekko-tools](https://github.com/Ajatt-Tools/kitsunekko-tools)

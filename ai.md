@@ -194,9 +194,19 @@ make frontend
 
 ↪ [Contributing to Langflow](https://github.com/langflow-ai/langflow/blob/main/CONTRIBUTING.md)
 
-## [Dify](https://github.com/langgenius/dify)
+## [Local RAG Chatbot](https://github.com/datvodinh/rag-chatbot)
 
-↪ [Start with Local Source Code](https://docs.dify.ai/getting-started/install-self-hosted/local-source-code)
+Install [Ollama](https://ollama.com/), [ngrok](https://ngrok.com/).
+
+```sh
+git clone --depth=1 https://github.com/datvodinh/rag-chatbot
+cd rag-chatbot
+python.exe -m venv venv
+venv\Scripts\activate.bat
+pip install .
+pip install hf_transfer
+python -m rag_chatbot --host localhost & ngrok http 4321
+```
 
 ## [Simple_Speech_Recognition](https://github.com/Temmie-Flakes/Simple_Speech_Recognition)
 
@@ -287,8 +297,6 @@ open-cli http://127.0.0.1:7820 && cd faster-whisper-webui && venv\Scripts\python
 ↪ [Segmentation Fault when loading pyannote/speaker-diarization-3.0 in rockylinux9/python3 environment](https://github.com/pyannote/pyannote-audio/issues/1499)
 
 ## [Whishper](https://github.com/pluja/whishper)
-
-## [AudioCraft](https://github.com/facebookresearch/audiocraft)
 
 ## [TTS](https://github.com/coqui-ai/TTS)
 
