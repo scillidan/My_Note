@@ -314,3 +314,261 @@ npm run build:windows
 ```
 
 Open `builds/thinreports-basic-editor-*-win32/thinreports-basic-editor.exe`
+
+## [Cave Story MD](https://github.com/andwn/cave-story-md)
+
+1. Get `doukutsu-zh.bin.zip` from [Cave Story MD - Releases](https://github.com/andwn/cave-story-md/releases).
+2. Copy it to `/recalbox/share/roms/megadrive/`.
+
+## [NXEngine-evo](https://github.com/nxengine/nxengine-evo) (Cache)
+
+### Build local data
+
+```sh
+git clone --depth=1 https://github.com/nxengine/translations
+cd translations
+```
+
+I want to run some steps step by step, so:
+
+<!-- --8<-- [start:arch-linux] -->
+```sh
+cp build-local.sh build-local.sh.bak
+vim build-local.sh
+```
+
+```
+# wget https://github.com/nxengine/tsc-converter/releases/download/v1.1/tsc.tar.gz
+# tar -zxf tsc.tar.gz
+# rm -f tsc.tar.gz
+# 
+# wget https://github.com/nxengine/nx-fontgen/releases/download/v1.3/fontbm.tar.gz
+# tar -zxf fontbm.tar.gz
+# rm -f fontbm.tar.gz
+
+# rm -f fontbm
+# rm -f fontbm.bin
+# rm -f tsc
+# rm -rf assets
+# rm -rf lib
+```
+
+```sh
+cd local
+wget https://github.com/nxengine/tsc-converter/releases/download/v1.1/tsc.tar.gz
+tar -zxf tsc.tar.gz
+wget https://github.com/nxengine/nx-fontgen/releases/download/v1.3/fontbm.tar.gz
+tar -zxf fontbm.tar.gz
+sudo apt install unzip
+wget https://github.com/TakWolf/ark-pixel-font/releases/download/2024.05.12/ark-pixel-font-12px-proportional-ttf-v2024.05.12.zip
+unzip ark-pixel-font-12px-proportional-ttf-v2024.05.12.zip -d ark-pixel-font-12px-proportional-ttf
+cp ark-pixel-font-12px-proportional-ttf/ark-pixel-12px-proportional-zh_cn.ttf assets/
+git clone --depth=1 https://github.com/nxengine/lang_chinese lang_chinese
+cp lang_chinese/metadata lang_chinese/metadata.bak
+vim lang_chinese/metadata
+```
+
+Edit `unifont-10.0.06.ttf` to `ark-pixel-12px-proportional-zh_cn.ttf`.
+
+```sh
+cd ..
+build-local.sh
+```
+<!-- --8<-- [end:arch-linux] -->
+
+<!-- --8<-- [start:ubuntu-server-arm-24] -->
+```sh
+sudo apt update
+sudo apt install build-essential cmake libsdl2-dev libsdl2-ttf-dev libsdl2-mixer-dev libsdl2-image-dev libpng-dev libjpeg-dev
+```
+
+```sh
+git clone --depth=1 https://github.com/nxengine/tsc-converter
+cd tsc-converter
+mkdir build
+cd build
+cmake ..
+make
+cp ../bin/tsc ~/translations/local/tsc
+git clone --depth=1 https://github.com/nxengine/nx-fontgen
+```
+
+```sh
+git clone --depth=1 https://github.com/nxengine/translations
+cd translations
+mkdir build
+cd build
+cmake ..
+make #ERROR
+```
+<!-- --8<-- [start:ubuntu-server-arm-24] -->
+
+<!-- --8<-- [start:windows10] -->
+```sh
+cp build-local.ps1 build-local.ps1.bak
+```
+
+Edit `build-local.ps1`:
+
+```
+#Invoke-WebRequest -UseBasicParsing "https://github.com/nxengine/tsc-converter/releases/download/v1.1/tsc-v1.1-Win32.zip" -Out tsc.zip
+#7z x ./tsc.zip
+#rm ./tsc.zip
+#
+#Invoke-WebRequest -UseBasicParsing "https://github.com/nxengine/nx-fontgen/releases/download/v1.3/fontbm-v1.3-Win32.zip" -Out fontbm.zip
+#7z x ./fontbm.zip
+#rm ./fontbm.zip
+
+#rm -f fontbm.exe
+#rm -f tsc.exe
+#rm -rf assets
+#rm -f *.dll
+```
+
+```sh
+cd local
+git clone --depth=1 https://github.com/nxengine/lang_chinese lang_chinese
+cp lang_chinese/metadata lang_chinese/metadata.bak
+```
+
+1. Get `tsc-v1.1-Win32.zip` from [tsc-converter - Releases](https://github.com/nxengine/tsc-converter/releases).
+2. Get `fontbm-v1.3-Win32.zip` from [nx-fontbm - Releases](https://github.com/nxengine/nx-fontgen/releases).
+3. Get `ark-pixel-font-12px-proportional-ttf-v*.zip` from [方舟像素字体 / Ark Pixel Font - Releases](https://github.com/TakWolf/ark-pixel-font/releases).
+
+```sh
+7z x tsc-v1.1-Win32.zip
+7z x fontbm-v1.3-Win32.zip
+7z x ark-pixel-font-12px-proportional-ttf-v2024.05.12.zip
+cp ark-pixel-12px-proportional-*.ttf assets/
+notepad lang_chinese/metadata
+```
+
+Edit `unifont-10.0.06.ttf` to `ark-pixel-12px-proportional-*.ttf`.
+
+```sh
+cd ..
+pwsh build-local.ps1
+```
+<!-- --8<-- [end:windows10] -->
+
+### Build nxengine-evo
+
+<!-- --8<-- [start:arch-linux] -->
+```sh
+git clone --depth=1 https://github.com/nxengine/nxengine-evo
+cd nxengine-evo
+mkdir build
+cd build
+cmake -DCMAKE_BUILD_TYPE=Release -DPORTABLE=ON ..
+make
+cd ..
+wget https://www.cavestory.org/downloads/cavestoryen.zip
+unzip cavestoryen.zip
+cp -r ../translations/local/data/lang/chinese/* CaveStory/data/
+cp -r CaveStory/Doukutsu.exe CaveStory/data ./
+build/nxextract
+mkdir desk
+cp -r build/nxengine-evo data desk/
+desk/nxengine-evo
+```
+
+<!-- --8<-- [start:windows10] -->
+
+1. Get `Binaries - Zip` from [LibPng for Windows](https://gnuwin32.sourceforge.net/packages/libpng.htm).
+2. Decompress it to `libpng-bin\`.
+3. Get `libjpeg-turbo-3.0.4-gcc64.exe` from [libjpeg-turbo - Releases](https://github.com/libjpeg-turbo/libjpeg-turbo/releases).
+4. Run it. Install to `libjpeg-turbo-gcc64\`.
+
+```sh
+mkdir build
+cd build
+cmake -DCMAKE_BUILD_TYPE=Release -DPORTABLE=ON
+make
+cd ..
+```
+
+Or:
+
+```sh
+vcpkg install sdl2 sdl2-ttf sdl2-mixer sdl2-image libpng libjpeg-turbo vcpkg
+vcpkg integrate install
+mkdir build
+cd build
+cmake -DCMAKE_BUILD_TYPE=Release -DPORTABLE=ON -DCMAKE_TOOLCHAIN_FILE=C:/Users/<User>/Script/vcpkg/scripts/buildsystems/vcpkg.cmake ..
+cmake --build . --config Release #ERROR
+cd ..
+wget https://github.com/nxengine/nxengine-evo/releases/download/v2.6.5-1/NXEngine-Evo-v2.6.5-1-Win64.zip
+unzip NXEngine-Evo-v2.6.5-1-Win64.zip
+wget https://www.cavestory.org/downloads/cavestoryen.zip
+unzip cavestoryen.zip
+cp -r ..\translations\local\data\lang\chinese\* CaveStory\data\
+cp -r CaveStory\Doukutsu.exe CaveStory\data .\
+build\Release\nxextract.exe
+mkdir desk
+cp -r NXEngine\nx.exe data desk\
+desk\nx.exe
+```
+<!-- --8<-- [end:windows10] -->
+
+↪ [Building on Linux](https://github.com/nxengine/nxengine-evo/wiki/Building-on-Linux)
+
+## [ES-DE](https://gitlab.com/es-de/emulationstation-de)
+
+1. Get `ES-DE_*-x64_Portable.zip` from [ES-DE - Releases](https://gitlab.com/es-de/emulationstation-de/-/releases).
+2. Decompress it to `ES-DE\`.
+
+### [Iconic (ES-DE Version)](https://github.com/Siddy212/iconic-es-de)
+
+```sh
+cd ES-DE\themes
+git clone --depth=1 https://github.com/Siddy212/iconic-es-de
+mv iconic-es-de 
+```
+
+Setting → UI Settings:
+
+```
+Theme `Iconic`
+Theme Variant `Grid: Boxart`
+```
+
+## [Pegasus Frontend](https://github.com/mmatyas/pegasus-frontend)
+
+On Windows:
+
+1. Get `pegasus-fe*.zip` from releases of [Pegasus Frontend](https://github.com/mmatyas/pegasus-frontend).
+2. Decompress it to `pegasus-fe\`.
+3. Get portable [RetroArch](https://www.retroarch.com/index.php?page=platforms), liked the `Download (64bit)`.
+4. Decompress it to `pegasus-fe\RetroArch\`.
+5. Get [K-Lite Codec Pack Basic](https://codecguide.com/download_k-lite_codec_pack_basic.htm).
+6. Install it.
+
+Then:
+
+1. See [天马G PC+安卓双平台 精简Rom整合包 + 8大主题功能演示教程](https://www.bilibili.com/video/BV1vg4y1V7TB).
+2. Download the `跳坑者联盟 PegasusG v1.2 完整版`.
+3. Goto `【1】安装程序（安卓+PC）\【PC】专用安装包`.
+4. Decompress `【Win 10及以上专用】天马G_PC主程序 v1.2 230605.7z`.
+5. In `RetroArch`, copy these dirs to `pegasus-fe\RetroArch\`:
+    ```
+    cheats
+    config
+    cores
+    downloads
+    system
+    ```
+6. In `config`, copy `*.txt` to `pegasus-fe\config\`.
+7. Goto `【2】数据文件（安卓+PC）\【1】基础包_110GB`.
+8. Decompress `基础包_110GB Roms.zip.*` to `pegasus-fe/Roms`.
+9. Goto `【3】数据列表（安卓+PC）\【PC】metadata数据列表`.
+10. Replace `pegasus-fe/Roms/**/metadata.pegasus.txt` with them.
+11. If don't lanch game in pegasus-fe, check the line that write `launch: ...` of `metadata.pegasus.txt`. See more on [Metadata files](https://pegasus-frontend.org/docs/user-guide/meta-files/).
+12. Clone some themes from [Pegasus Theme Gallery](https://pegasus-frontend.org/tools/themes) to `pegasus-fe\config\themes`.
+13. Lanch `pegasus-fe.exe`.
+
+For me, I used [setup_pegasus-frontend.bat](https://github.com/scillidan/My_Setup/blob/main/setup_pegasus-frontend.bat) to do them. And I have made a [desktop record](#).
+
+<!--
+↪ [Pegasus Tools Collection](https://pegasus-frontend.org/tools/)
+↪ [Skyscraper](https://github.com/muldjord/skyscraper)
+-->

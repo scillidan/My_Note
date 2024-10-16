@@ -1,32 +1,5 @@
 <!-- I will clean up after a long time -->
 
-## Port
-
-port  | serve
-:-    | :-
-19999 | netdata
-2628  | dictd
-4401  | reminiflux
-4402  | ePubViewer
-4403  | PDF.js viewer (demo)
-4404  | Sreadium
-4405  | Vivliostyle Viewer
-4406  | Kiwix JS PWA
-4501  | QRcode Designer
-4502  | Flood
-7830  | Faster Whisper Webui
-7840  | IOPaint
-7850  | Stable Diffusion web UI
-8020  | Coder Server
-8030  | LanguageTool
-8050  | qBittorrent
-8060  | linkding
-8070  | miniflux
-8080  | Stirling PDF
-8090  | Komga
-8096  | Jellyfin
-9117  | Jackett
-
 ## Command
 
 ↪ [Linux Bash Script, Single Command But Multiple Lines?](https://superuser.com/questions/508507/linux-bash-script-single-command-but-multiple-lines)  
@@ -35,7 +8,11 @@ port  | serve
 
 ## Regex
 
+- CJK character `[^\x00-\xff]+`
+- Duplicate lines `^(.*)(\r?\n\1)+$`
+
 ↪ [How do I find and remove duplicate lines from a file using Regular Expressions? [closed]](https://stackoverflow.com/questions/1573361/how-do-i-find-and-remove-duplicate-lines-from-a-file-using-regular-expressions)
+
 
 ## [Xfce](https://www.xfce.org/)
 

@@ -1,5 +1,21 @@
 <!-- I will clean up after a long time -->
 
+## GPi CASE 2
+
+```
+Hotkey-Start   | Exit
+Hotkey-Y       | Save state
+Hotkey-X       | Load state
+Hotkey-Up/Down | Select slot
+Hotkey-Left    | Rewind
+Hotkey-Right   | Fast forward
+R1             | Search
+Select         | Insert coin
+Hotkey-L1      | Screenshot
+```
+
+↪ [Special Commands](https://wiki.recalbox.com/en/basic-usage/getting-started/special-commands/pdf-memo)
+
 ## MonsGeek M1W
 
 ```
@@ -23,10 +39,10 @@ Fn-1 | 蓝牙设备1
 ```
 start         | 上次使用模式
 start(3s)     | 关机
-start-x, pair | 配对Windows
-start-b, pair | 配对Android
-start-y, pair | 配对Switch
-start-a, pair | 配对macOS
+start-x, pair | Windows mode
+start-b, pair | Bluetooth mode
+start-y, pair | Switch mode
+start-a, pair | macOS mode
 ```
 
 ## Windows 10

@@ -8,6 +8,17 @@ pkg install neofetch
 neofetch
 ```
 
+## [git](https://git-scm.com/)
+
+Undo and re-push:
+
+```sh
+git fetch --all
+git reset --hard <commit-hash>
+# git reset --hard HEAD~1
+git push --force origin <branch>
+````
+
 ## [chezmoi](https://www.chezmoi.io)
 
 ```sh
@@ -280,20 +291,31 @@ pip install -r requirements-gui.txt
 python nsz.py
 ```
 
-## [syncabook](https://github.com/r4victor/syncabook) (TBD)
+## [syncabook](https://github.com/r4victor/syncabook) (Cache)
 
-Full → Language(Chinese) → Upload Files → VAD(silero-vad-skip-gaps) → Initial Prompt(对于普通话句子，以中文简体输出) → Diarization - Speakers(), Min Speakers(1), Max Speakers() → Submit
+Get `aeneas-win64-setup-*.exe` [Aeneas Tools - Releases](https://github.com/sillsdev/aeneas-installer/releases).
+
+↪ [Installing and using Aeneas](https://lingtran.net/Installing-and-using-Aeneas)
 
 ```sh
-git clone https://github.com/r4victor/syncabook
+mkdir syncabook
 cd syncabook
-pvthon37 -m venv venv
+pvthon -m venv venv
 venv\Scripts\activate.bat
-git clone afaligner https://github.com/r4victor/afaligner _afaligner
-cd _afaligner
+```
+
+```sh
+git clone --depth=1 https://github.com/r4victor/afaligner
+cd afaligner
 pip install -e .
 edit setup.py
 cd ..
+```
+
+```sh
+git clone --depth=1 https://github.com/r4victor/syncabook
+cd syncabook
+pip install beautifulsoup4 lxml numpy aeneas
 ```
 
 See [Check out this ShareGPT conversation](https://sharegpt.com/c/97thh2m)
@@ -335,7 +357,6 @@ syncabook create thebook
 ... calibre-web → Apphabetical Books → ALL → `The Black Cat` → Import (EPUB)
 My Books → `The Black Cat` → ButtonOfPlayAudio
 
-↪ 0 [Installing and using Aeneas](https://lingtran.net/Installing-and-using-Aeneas)
 
 ## [Av1an](https://github.com/master-of-zen/Av1an)
 
@@ -357,14 +378,6 @@ emsdk activate latest
 venv/Scripts/streamlit.exe run web_demo2.py
 ```
 
-```sh
-av1an -i %1 ^
-	-v "--cpu-used=3 --end-usage=q --cq-level=30 --threads=8" ^
-	-w 10 ^
-	--target-quality 95 ^
-	-a "-c:a libopus -b:a 192k -ac 2" -l _log_%1 -o _%1"
-```
-
 ## [spongebob-cli](https://github.com/trakBan/spongebob-cli)
 
 ```sh
@@ -379,13 +392,13 @@ python spongebob-cli
 ## [starfetch](https://github.com/Haruno19/starfetch)
 
 ```sh
-git clone https://github.com/Haruno19/starfetch
+git clone --depth=1 https://github.com/Haruno19/starfetch
 ```
 
 Check `starfetch/res/constellations`.
 
 ```sh
-git clone https://github.com/K1ngst0m/starfetch
+git clone --depth=1 https://github.com/K1ngst0m/starfetch
 cd starfetch
 make
 ./starfetch.exe -r
@@ -396,21 +409,18 @@ Or:
 Install and use MSYS2.
 
 ```sh
-git clone https://github.com/CoderCharmander/starfetch
+git clone --depth=1 https://github.com/CoderCharmander/starfetch
 cargo build
 cd target/debug
 starfetch.exe -d
 starfetch.exe -l
 ```
 
-## [sd](https://github.com/chmln/sd)
+## [Warcraft Font Merger](https://github.com/nowar-fonts/Warcraft-Font-Merger)
 
-```sh
-curl -k https://raw.githubusercontent.com/scillidan/WALLPAP-ENG-resource/main/table.md ^
-  | sd "\[\d{10}\]\(" "" ^
-  | sd "(\)\|\S+subsc)" "|![](//img.shields.io/steam/subsc" ^
-  | mdtable2csv ^
-  | sd "//steamc" "https://steamc" ^
-  | xsv select source,version,urlid ^
-  | csview
-```
+1. Get `WarFontMerger-SC-*-windows-x64.7z` from [Warcraft-Font-Merger - Releases](https://github.com/nowar-fonts/Warcraft-Font-Merger/releases).
+2. Decompress and rename it to `Warcraft-Font-Merger\`.
+3. Create `fonts\`.
+4. Copy fonts into `fonts\`.
+5. Run `合并补全.bat fonts/<font1> fonts/<font2>`.
+6. Rename `out.ttf`.

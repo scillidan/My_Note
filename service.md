@@ -1,3 +1,31 @@
+<!--
+port  | serve
+:-    | :-
+19999 | netdata
+2628  | dictd
+4401  | reminiflux
+4402  | ePubViewer
+4403  | PDF.js viewer (demo)
+4404  | Sreadium
+4405  | Vivliostyle Viewer
+4406  | Kiwix JS PWA
+4501  | QRcode Designer
+4502  | Flood
+7820  | Fish Speech
+7830  | Faster Whisper Webui
+7840  | IOPaint
+7850  | Stable Diffusion web UI
+8020  | Coder Server
+8030  | LanguageTool
+8050  | qBittorrent
+8060  | linkding
+8070  | miniflux
+8080  | Stirling PDF
+8090  | Komga
+8096  | Jellyfin
+9117  | Jackett
+-->
+
 ## Ubuntu Server ARM 22
 
 ```sh
@@ -18,6 +46,17 @@ timedatectl set-timezone Asia/Shanghai
 ## Enable WiFi
 
 ```sh
+sudo apt install network-manager
+nmcli d
+sudo nmcli r wifi on
+nmcli d wifi list
+sudo nmcli d wifi connect <ssid> password <password>
+```
+
+↪ [Establish a Wireless Connection](https://ubuntu.com/core/docs/networkmanager/configure-wifi-connections)
+
+<!--
+```sh
 sudo apt install net-tools
 ifconfig wlan0 up
 iwconfig wlan0 essid <SSID> key <Password>
@@ -25,6 +64,7 @@ iwconfig wlan0 essid <SSID> key <Password>
 
 ↪ [Connect to WiFi network through Ubuntu terminal [duplicate]](https://askubuntu.com/questions/294257/connect-to-wifi-network-through-ubuntu-terminal)  
 ↪ [RPi 4 running Ubuntu Server 20.04: can't connect to WiFi](https://raspberrypi.stackexchange.com/questions/111722/rpi-4-running-ubuntu-server-20-04-cant-connect-to-wifi)
+-->
 
 ## Disable WiFi
 
@@ -62,22 +102,13 @@ network:
 
 ```sh
 sudo chmod 600 /etc/netplan/00-installer-config.yaml
-```
-
-```sh
 sudo netplan generate
 sudo netplan --debug apply
-```
-
-```sh
 sudo reboot
 ```
 
 ```sh
 ip a
-```
-
-```sh
 sudo ifconfig wlan0 down
 ```
 
@@ -86,12 +117,12 @@ sudo ifconfig wlan0 down
 
 ## Use repository mirror
 
+For `Ubuntu 22.04 LTS`:
+
 ```sh
 sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
-sudo vi /etc/apt/sources.list
+sudo vim /etc/apt/sources.list
 ```
-
-For `ARM`:
 
 ```
 deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy main restricted universe multiverse
@@ -99,6 +130,29 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy-updates main restri
 deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy-backports main restricted universe multiverse
 deb http://ports.ubuntu.com/ubuntu-ports/ jammy-security main restricted universe multiverse
 ```
+
+For `Ubuntu 24.04 LTS`:
+
+```sh
+sudo cp /etc/apt/sources.list.d/ubuntu.sources /etc/apt/sources.list.d/ubuntu.sources.bak
+sudo vim /etc/apt/sources.list.d/ubuntu.sources
+```
+
+```
+Types: deb
+URIs: https://mirrors.tuna.tsinghua.edu.cn/ubuntu
+Suites: noble noble-updates noble-backports
+Components: main restricted universe multiverse
+Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
+
+Types: deb
+URIs: http://security.ubuntu.com/ubuntu/
+Suites: noble-security
+Components: main restricted universe multiverse
+Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
+```
+
+[清华大学开源软件镜像站 - Ubuntu Ports 软件仓库](https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu-ports/)
 
 For `x64`:
 
@@ -178,6 +232,15 @@ Path: `/mnt/nvme`
 
 ↪ [How To Use SSHFS to Mount Remote File Systems Over SSH](https://www.digitalocean.com/community/tutorials/how-to-use-sshfs-to-mount-remote-file-systems-over-ssh)  
 ↪ [SSHFS-Win](https://github.com/winfsp/sshfs-win)
+
+## NFS (Cache)
+
+```sh
+sudo apt install nfs-kernel-server
+sudo systemctl start nfs-kernel-server.service
+```
+
+↪ [Network File System (NFS)](https://ubuntu.com/server/docs/network-file-system-nfs)
 
 ## Docker
 
@@ -277,13 +340,26 @@ Password: adminadmin
 
 ## [ZeroTier One](https://www.zerotier.com/)
 
+1. Log-in [ZeroTier](https://my.zerotier.com).
+2. Create a Network.
+
 <!-- --8<-- [start:ubuntu-22-arm] -->
 ```sh
 curl -s https://install.zerotier.com | sudo bash
+sudo systemctl enable --now zerotier-one.service
+systemctl status zerotier-one.service
+sudo zerotier-cli join <NetworkID>
+sudo zerotier-cli listnetworks
 ```
 
 ↪ [Debian 11 with ufw firewall is blocking zerotier](https://discuss.zerotier.com/t/debian-11-with-ufw-firewall-is-blocking-zerotier/13072)
 <!-- --8<-- [end:ubuntu-22-arm] -->
+
+<!-- --8<-- [start:archlinux] -->
+```sh
+sudo pacman -S zerotier-one
+```
+<!-- --8<-- [end:archlinux] -->
 
 ## [ztncui](https://github.com/key-networks/ztncui)
 
@@ -444,16 +520,50 @@ sudo systemctl enable --now komga
 ```
 <!-- --8<-- [end:ubuntu-server-arm-22] -->
 
-## [Suwayomi](https://github.com/Suwayomi/Suwayomi-Server)
+## [Suwayomi-Server](https://github.com/Suwayomi/Suwayomi-Server)
 
-<!-- --8<-- [start:windows10] -->
+<!-- --8<-- [start:ubuntu-server-arm-22] -->
+Get `Suwayomi-Server-v*-debian-all.deb` from [Suwayomi-Server - Releases](https://github.com/Suwayomi/Suwayomi-Server/releases).
+
 ```sh
-gradlew server:downloadWebUI server:shadowJar
+sudo dpkg -i Suwayomi-Server-v*-debian-all.deb
+apt --fix-broken install
+sudo vim /etc/systemd/system/suwayomi-server.service
 ```
-<!-- --8<-- [end:windows10] -->
 
-↪ [Contributing](https://github.com/Suwayomi/Suwayomi-Server/blob/master/CONTRIBUTING.md)  
+```
+[Unit]
+Description=Suwayomi Server
+After=network.target
+
+[Service]
+User=root
+Group=root
+ExecStart=suwayomi-server
+Restart=on-abnormal
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```sh
+sudo systemctl enable --now suwayomi-server
+sudo systemctl status suwayomi-server
+```
+
+1. Visit `0.0.0.0:4567`.
+2. The service may take several minutes to start until you can see it.
+
+↪ [can you make it easier to install on ubuntu , and tutorial need to update](https://github.com/Suwayomi/Suwayomi-Server/issues/896)
+
+Suwayomi → Settings → Brower settings → Extension repositories → Add repository:
+
+```
+https://raw.githubusercontent.com/ThePBone/tachiyomi-extensions-revived/repo/index.min.json
+```
+
 ↪ [Tachiyomi Extensions Revived](https://github.com/timschneeb/tachiyomi-extensions-revived)
+<!-- --8<-- [end:ubuntu-server-arm-22] -->
 
 ## [Jellyfin](https://jellyfin.org/)
 
@@ -1151,7 +1261,7 @@ sudo systemctl enable code-server
 
 ## [Trilium](https://github.com/zadam/trilium) (Cache)
 
-Get `trilium-linux-x64-server-*.tar.xz` from [Releases](https://github.com/zadam/trilium/releases).
+Get `trilium-linux-x64-server-*.tar.xz` from [Trilium - Releases](https://github.com/zadam/trilium/releases).
 
 ```sh
 tar -xvf trilium-linux-x64-server-*.tar.xz

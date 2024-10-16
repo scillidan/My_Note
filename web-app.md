@@ -671,6 +671,10 @@ With PM2:
 pm2 start npm --name "qr-designer" -- run start
 ```
 
+## [qrframe](https://github.com/zhengkyl/qrframe) (TBD)
+
+![](https://img.shields.io/github/license/zhengkyl/qrframe?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/qrframe/master?label=&style=flat-square)](https://github.com/scillidan/qrframe) ![](https://img.shields.io/badge/Vercel-black?style=flat&logo=Vercel&logoColor=white)
+
 ## [quiver](https://github.com/varkor/quiver)
 
 ![](https://img.shields.io/github/license/varkor/quiver?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/quiver/master?label=&style=flat-square)](https://github.com/scillidan/quiver) ![](https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white)
@@ -1055,7 +1059,7 @@ With PM2:
 pm2 serve viewer 4321 --name vivliostyle-viewer --spa
 ```
 
-When deploy [vivliostyle.js](https://github.com/vivliostyle/vivliostyle.js) with [Github Pages](https://pages.github.com/), visit ` https://<user>.github.io/vivliostyle.js/viewer/vivliostyle-viewer.html`
+When deploy [vivliostyle.js](https://github.com/vivliostyle/vivliostyle.js) with [Github Pages](https://pages.github.com/), visit `https://<user>.github.io/vivliostyle.js/viewer/vivliostyle-viewer.html`
 
 ## [Vtracer Web App](https://github.com/visioncortex/vtracer)
 

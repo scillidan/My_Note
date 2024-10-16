@@ -371,6 +371,24 @@ pip install gradio
 python webui.py
 ```
 
+## [Fish Speech](https://github.com/fishaudio/fish-speech) (Cache)
+
+Edit `API_FLAGS.txt`:
+
+```
+--listen 0.0.0.0:<port> \
+```
+
+```sh
+python.exe -m venv venv
+venv\Scripts\activate.bat
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+pip install https://github.com/AnyaCoder/fish-speech/releases/download/v0.1.0/triton_windows-0.1.0-py3-none-any.whl
+pip install hf_transfer
+pip install -e .
+start.bat
+```
+
 ## [ToonCrafter](https://github.com/Doubiiu/ToonCrafter)
 
 ```sh

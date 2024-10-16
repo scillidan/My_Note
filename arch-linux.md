@@ -196,7 +196,7 @@ go env
 
 ```sh
 sudo pacman -S --needed git base-devel
-git clone --depth=1 https://aur.archlinux.org/yay-bin.git
+git clone --depth=1 --depth=1 https://aur.archlinux.org/yay-bin.git
 cd yay-bin
 makepkg
 sudo pacman -U yay-bin*.pkg.tar.xz
@@ -287,7 +287,7 @@ sudo pacman -S lightdm lightdm-webkit2-greeter
 ↪ [Arch linux install lightdm (Light Display Manager)](https://gist.github.com/miguelmota/5087fb8d92599efc4748c134846c8daf)
 
 ```sh
-git clone https://github.com/TheTerrior/lightdm-minimal
+git clone --depth=1 https://github.com/TheTerrior/lightdm-minimal
 cd lightdm-minimal
 chmod +x ./risky_installer.sh
 sudo ./risky_installer.sh
@@ -316,7 +316,7 @@ sudo systemctl enable --now lightdm
 ## [xfce-tile](https://github.com/dodophoenix/xfce-tile)
 
 ```sh
-git clone https://github.com/dodophoenix/xfce-tile
+git clone --depth=1 https://github.com/dodophoenix/xfce-tile
 cd xfce-tile
 vim xfce-tile
 chmod +x ./xfce-setup-shortcuts.sh
@@ -473,19 +473,6 @@ sudo pacman -R pulseaudio
 yay -S pipewire-pulse
 sudo systemctl enable --now pipewire
 ```
-
-## ZeroTier
-
-Log-in [ZeroTier](https://my.zerotier.com) to create a Network.
-
-```sh
-sudo pacman -S zerotier-one
-sudo systemctl enable --now zerotier-one.service
-systemctl status zerotier-one.service
-sudo zerotier-cli join <NetworkID>
-```
-
-Go back to `Network` board of ZeroTier, check the newly discovered machine.
 
 ## USB (Optional)
 
@@ -703,7 +690,7 @@ alwaysshared
 ↪ https://www.youtube.com/watch?v=odgD_RdJjCU
 
 ```sh
-git clone https://github.com/AdnanHodzic/auto-cpufreq.git
+git clone --depth=1 https://github.com/AdnanHodzic/auto-cpufreq.git
 cd auto-cpufreq
 sudo ./auto-cpu-freq-installer
 sudo auto-cpufreq --install
@@ -738,6 +725,8 @@ yay -S timeshift
 sudo timeshift --list
 sudo timeshift --restore --snapshot '20XX-XX-XX_XX-XX-XX' --skip-grub
 ```
+
+## [restic](https://restic.net/)
 
 ## Fonts
 
@@ -920,7 +909,7 @@ source virtualenv/bin/activate
 ↪ https://jinmay.github.io/2019/03/16/linux/ubuntu-install-pyenv-1/
 
 ```sh
-git clone https://github.com/yyuu/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
+git clone --depth=1 https://github.com/yyuu/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
 vim ~/.zshrc
 ```
 
@@ -1011,7 +1000,7 @@ sudo pacman -S rofi
 ↪ https://github.com/Zeioth/rofi-shortcuts
 
 ```sh
-git clone https://github.com/Zeioth/rofi-shortcuts
+git clone --depth=1 https://github.com/Zeioth/rofi-shortcuts
 cd rofi-shortcuts
 ```
 
@@ -1050,7 +1039,7 @@ sudo pacman -S rofimoji
 ↪ https://github.com/cjbassi/rofi-copyq
 
 ```sh
-git clone https://github.com/cjbassi/rofi-copyq
+git clone --depth=1 https://github.com/cjbassi/rofi-copyq
 cd rofi-copyq
 ./rofi-copyq
 ```
@@ -1131,7 +1120,7 @@ sudo pacman -S translate-shell
 ↪ https://github.com/xushengfeng/eSearch
 
 ```sh
-git clone https://aur.archlinux.org/e-search-bin.git
+git clone --depth=1 https://aur.archlinux.org/e-search-bin.git
 ```
 
 Download `eSearch-****-linux-x64.deb` from [releases](https://github.com/xushengfeng/eSearch/releases).
@@ -1169,7 +1158,7 @@ yay -S termius
 ```
 
 ```sh
-git clone https://aur.archlinux.org/termius.git
+git clone --depth=1 https://aur.archlinux.org/termius.git
 cd termius
 wget ***.snap
 mv ***.snap termius-8.11.0.snap
@@ -1230,86 +1219,6 @@ yay -S input-leap-git
 Settings → Session and Startup → Application Autostart → Add → `input-leap`
 
 ## Libre Office
-
-## NXEngine-evo
-
-```sh
-git clone https://github.com/nxengine/translations
-cd translations
-cp build-local.sh build-local.sh.bak
-vim build-local.sh
-```
-
-```
-# wget https://github.com/nxengine/tsc-converter/releases/download/v1.1/tsc.tar.gz
-# tar -zxf tsc.tar.gz
-# rm -f tsc.tar.gz
-# 
-# wget https://github.com/nxengine/nx-fontgen/releases/download/v1.3/fontbm.tar.gz
-# tar -zxf fontbm.tar.gz
-# rm -f fontbm.tar.gz
-
-# rm -f fontbm
-# rm -f fontbm.bin
-# rm -f tsc
-# rm -rf assets
-# rm -rf lib
-```
-
-```
-cd local
-wget https://github.com/nxengine/tsc-converter/releases/download/v1.1/tsc.tar.gz
-tar -zxf tsc.tar.gz
-wget https://github.com/nxengine/nx-fontgen/releases/download/v1.3/fontbm.tar.gz
-tar -zxf fontbm.tar.gz
-```
-
-Download `ark-pixel-font-12px-proportional-ttf-****.zip` from [releases](https://github.com/TakWolf/ark-pixel-font/releases). Unzip it. Then copy `ark-pixel-12px-proportional-zh_cn.ttf` into `assets/`.
-
-```
-git clone https://github.com/nxengine/lang_chinese lang_chinese
-cp ./lang_chinese/metadata ./lang_chinese/metadata.bak
-vim ./lang_chinese/metadata
-```
-
-Change `assets/unifont-10.0.06.ttf` to `assets/ark-pixel-12px-proportional-zh_cn.ttf`.
-
-```sh
-cd ..
-./build-local.sh
-```
-
-↪ https://github.com/nxengine/nxengine-evo/wiki/Building-on-Linux
-
-```sh
-git clone https://github.com/nxengine/nxengine-evo
-cd nxengine-evo
-mkdir build
-cd build
-cmake -DCMAKE_BUILD_TYPE=Release -DPORTABLE=ON ..
-make
-cd ..
-```
-
-```sh
-wget https://www.cavestory.org/downloads/cavestoryen.zip
-unzip cavestoryen.zip
-```
-
-Copy files from  `translations/local/data/lang/chinese/` into `CaveStory/data/`.
-
-```sh
-cp -r CaveStory/Doukutsu.exe CaveStory/data ./
-./build/nxextract
-mkdir dest
-cp -r build/nxengine-evo data dest/
-./dest/nxengine-evo
-```
-
-```sh
-cp -r ~/Git/translations/local/data/lang/chinese/** ./dest/data/
-./dest/nxengine-evo
-```
 
 ## qView
 
