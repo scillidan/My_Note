@@ -224,7 +224,7 @@ SSHFS-Win Manager → Add Connection:
 
 ```
 Name: <Name>
-IP: <YourHost>
+IP: <Host>
 User: <User>
 Password: <Password>
 Path: `/mnt/nvme`
@@ -242,7 +242,204 @@ sudo systemctl start nfs-kernel-server.service
 
 ↪ [Network File System (NFS)](https://ubuntu.com/server/docs/network-file-system-nfs)
 
-## Docker
+## Samba
+
+<!-- --8<-- [start:arch-linux] -->
+```sh
+sudo pacman -S samba
+sudo pacman -Qi samba
+wget https://raw.githubusercontent.com/zentyal/samba/refs/heads/master/examples/smb.conf.default -O smb.conf
+sudo vim /etc/samba/smb.conf
+```
+
+```
+workgroup = SAMBAGROUP
+...
+[sambashare1]
+comment = My Samba Share
+path = /data/smb/share1
+writable = yes
+browsable = yes
+create mask = 0700
+directory mask = 0700
+read only = no
+guest ok = no
+```
+
+```sh
+sudo groupadd -r smbusers
+sudo useradd -m sambauser
+sudo usermod -aG smbusers sambauser
+sudo smbpasswd -a sambauser
+sudo mkdir -p /data/smb/share1
+sudo chown -R :smbusers /data/smb/share1
+sudo chmod 1770 /data/smb/share1
+sudo systemctl enable --now smb
+sudo systemctl enable --now nmb
+testparm
+```
+
+On PC, 计算机管理 → 本地用户和组 → 用户 → 右键 → 新用户:
+
+```
+用户名 `sambauser`
+用户不能更改密码 On 
+密码永不过期 On
+```
+
+本地用户和组 → 组 → 右键 → 新建组 → 组名 `SAMBAGROUP` → 添加 → 输入对象名称来选择 `sambauser` → 确认 → 创建
+
+资源管理器 → 此电脑 → 右键 → 添加一个网络位置 → 指定网站的位置 → `\\<ip>\sambashare` → 请键入该网络位置的名称 `sambashare` → 
+
+`sambashare` → 右键 → 映射网络驱动器 → 登录时重新连接 On → 完成
+
+```sh
+sudo mkdir /home/sambauser/server
+sudo chown -R sambauser /home/sambauser/server
+sudo mount -t cifs //<ip>/sambashare /home/sambauser/server -o username=sambauser,password=YourPassword,workgroup=SAMBAGROUP
+sudo systemctl daemon-reload
+sudo mount
+```
+
+↪ [How to Install and Configure SAMBA on Arch Linux](https://linuxways.net/arch/install-configure-samba-arch-linux/)  
+↪ [Samba error code 22](https://forum.manjaro.org/t/samba-error-code-22/106741/1)
+
+If `mount error: cifs filesystem not supported by the system`:
+
+```sh
+sudo reboot
+sudo mount -t cifs //<ip>/sambashare /home/sambauser/server -o username=sambauser,password=YourPassword,workgroup=ARCHGROUP
+```
+
+↪ [Mounting a NAS using systemd - mount error: cifs filesystem not supported by the system](https://forum.manjaro.org/t/mounting-a-nas-using-systemd-mount-error-cifs-filesystem-not-supported-by-the-system/119153)
+
+```sh
+sudo vim /etc/ufw/applications.d/samba
+```
+
+```
+[Samba]
+title=LanManager-like file and printer server for Unix
+description=The Samba software suite is a collection of programs that implements the SMB/CIF$
+ports=137,138/udp|139,445/tcp
+```
+
+```sh
+sudo ufw allow samba
+sudo ufw status
+```
+
+Finally. If not work, try:
+
+```sh
+sudo systemctl status smb.service
+sudo systemctl status nmb.service
+sudo mkdir -p /usr/local/samba/var
+sudo systemctl restart nmb.service
+sudo systemctl status nmb.service
+sudo systemctl restart smb.service
+sudo systemctl status smb.service
+sudo mount
+sudo umount server/
+sudo mount -t cifs //YourIP/sambashare /home/sambauser/server -o username=sambauser,password=YourPassword,workgroup=ARCHGROUP
+sudo systemctl daemon-reload
+sudo mount
+```
+
+↪ [missing_ufw_samba.md](https://gist.github.com/ammgws/1dbd8b3bb38b588c1bb8b3f70dd4fd2c)  
+↪ [UFW firewall still blocking SMB despite adding rules](https://askubuntu.com/questions/36608/ufw-firewall-still-blocking-smb-despite-adding-rules)  
+↪ [nemo SMB not working](https://www.linuxquestions.org/questions/linux-networking-3/nemo-smb-not-working-4175717802/)  
+↪ [Cinnamon Nemo File Manager not open Network shares](https://forum.endeavouros.com/t/cinnamon-nemo-file-manager-not-open-network-shares/12404)
+<!-- --8<-- [end:arch-linux] -->
+
+## VNC
+
+<!-- --8<-- [start:arch-linux] -->
+```sh
+sudo pacman -S tigervnc
+vncpasswd
+sudo useradd -m vncuser
+sudo passwd vncuser
+sudo groupadd -r vncusers
+sudo usermod -aG vncusers vncuser
+sudo vim /etc/tigervnc/vncserver.users
+```
+
+```
+:1=vncuser
+```
+
+Used [LXDE](https://www.lxde.org/) as desktop (Optional):
+
+```sh
+sudo pacman -S lxde
+mkdir ~/.vnc 
+vim ~/.vnc/xstartup
+```
+
+```
+#!/bin/bash
+exec lxde &>/dev/null
+```
+
+```sh
+vim ~/.vnc/config
+```
+
+```
+session=lxde
+geometry=1280x720
+localhost
+alwaysshared
+```
+
+Or used [Xfce](https://www.xfce.org/):
+
+```sh
+rm -rf ~/.vnc
+mkdir ~/.vnc
+vim ~/.vnc/config
+```
+
+```
+session=xfce
+geometry=1280x720
+localhost
+alwaysshared
+```
+
+On remote:
+
+```sh
+vncserver :1
+```
+
+On Windows 10, used [TightVNC](https://www.tightvnc.com/download.php):
+
+```sh
+tvnviewer <ip>::5901 -password=<vncpasswd>
+```
+
+Enable vncserver as service (not recommended):
+
+```sh
+sudo systemctl enable --now vncserver@:1
+systemctl status vncserver@:1
+```
+
+↪ [Setting up tigervncserver on arch linux (raspberry-pi)](https://rushichaudhari.github.io/posts/2020-10-29-setting-up-tigervncserver-on-arch-linux-raspberry-pi/)  
+↪ [TigerVNC Server in Manjaro (Arch Linux) - Headless Guide 2021!](https://www.youtube.com/watch?v=w1HS_xVnFFo)  
+↪ [How to Install & Configure VNC Server on Ubuntu 22.04](https://bytexd.com/how-to-install-configure-vnc-server-on-ubuntu/)
+<!-- --8<-- [end:arch-linux] -->
+
+## [Docker](https://www.docker.com/)
+
+<!-- --8<-- [start:arch-linux] -->
+```sh
+sudo pacman -S docker
+sudo systemctl enable --now docker.service
+```
+<!-- --8<-- [end:arch-linux] -->
 
 ↪ [清华大学开源软件镜像站 - Docker CE 软件仓库](https://mirrors.tuna.tsinghua.edu.cn/help/docker-ce/)  
 ↪ [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)  

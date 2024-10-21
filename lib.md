@@ -11,6 +11,19 @@ python -m build
 
 ↪ [How to Publish an Open-Source Python Package to PyPI](https://realpython.com/pypi-publish-python-package/)
 
+## [pipx](https://github.com/pypa/pipx)
+
+```sh
+python -m pip install --user pipx
+pipx ensurepath
+```
+
+<!-- --8<-- [start:arch-linux] -->
+```sh
+sudo pacman -S python-pipx
+```
+<!-- --8<-- [end:arch-linux] -->
+
 ## [pyenv for Windows](https://github.com/pyenv-win/pyenv-win)
 
 <!-- --8<-- [start:windows10] -->
@@ -32,10 +45,27 @@ pyenv shell <version>
 
 ## [pyenv](https://github.com/pyenv/pyenv)
 
+<!-- --8<-- [start:termux] -->
+↪ [Build older python package - 3.9](https://github.com/termux/termux-packages/discussions/9498)
+<!-- --8<-- [end:termux] -->
+
+<!-- --8<-- [start:arch-linux] -->
+```sh
+sudo pacman -S pyenv
+```
+<!-- --8<-- [end:arch-linux] -->
+
 <!-- --8<-- [start:ubuntu-22-arm] -->
 ```sh
-sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev
+sudo apt update
+sudo apt-get install -y build-essential curl libbz2-dev libffi-dev liblzma-dev libncurses5-dev libncursesw5-dev libreadline-dev libsqlite3-dev libssl-dev libxml2-dev libxmlsec1-dev llvm make tk-dev wget xz-utils zlib1g-dev
 ```
+
+↪ [ubuntu에서 pyenv 설치하기](https://jinmay.github.io/2019/03/16/linux/ubuntu-install-pyenv-1/)  
+↪ [pyenv install: 3.x BUILD FAILED (Ubuntu 20.04 using python-build 20180424)](https://stackoverflow.com/questions/67807596/pyenv-install-3-x-build-failed-ubuntu-20-04-using-python-build-20180424)
+<!-- --8<-- [end:ubuntu-22-arm] -->
+
+Or:
 
 ```sh
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv
@@ -47,34 +77,56 @@ vim ~/.zshrc
 
 ```
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 ```
 
 ```sh
-pyenv install 3.9.13
+source ~/.zshrc
+pyenv install 3.10.11
+```
+
+Or install from files:
+
+```sh
+mkdir ~/.pyenv/cache
+cd ~/.pyenv/cache
+wget https://www.python.org/ftp/python/3.10.11/Python-3.10.11.tar.xz
+pyenv install 3.10.11
+```
+
+```sh
+pyenv global 3.10.11
+pyenv local 3.10.11
+```
+
+## [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv)
+
+```sh
+git clone --depth=1 https://github.com/yyuu/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
+vim ~/.zshrc
+```
+
+```
+eval "$(pyenv virtualenv-init -)"
+```
+
+```sh
+source ~/.zshrc
+pyenv virtualenv 3.9.13 <venv>
+cd <Project>
+pyenv local <venv>
 ```
 
 ↪ [ubuntu에서 pyenv 설치하기](https://jinmay.github.io/2019/03/16/linux/ubuntu-install-pyenv-1/)
 
-Or:
+## [virtualenv](https://github.com/pypa/virtualenv)
 
 ```sh
-sudo apt update
-sudo apt install build-essential curl libbz2-dev libffi-dev liblzma-dev libncursesw5-dev libreadline-dev libsqlite3-dev libssl-dev libxml2-dev libxmlsec1-dev llvm make tk-dev wget xz-utils zlib1g-dev
+pyenv exec pip install virtualenv
+virtualenv <venv>
+source <venv>/bin/activate
 ```
-
-```sh
-pyenv install 3.9.13
-pyenv global 3.9.13
-```
-
-↪ [pyenv install: 3.x BUILD FAILED (Ubuntu 20.04 using python-build 20180424)](https://stackoverflow.com/questions/67807596/pyenv-install-3-x-build-failed-ubuntu-20-04-using-python-build-20180424)
-<!-- --8<-- [end:ubuntu-22-arm] -->
-
-<!-- --8<-- [start:termux] -->
-↪ [Build older python package - 3.9](https://github.com/termux/termux-packages/discussions/9498)
-<!-- --8<-- [end:termux] -->
 
 ## [NPM](https://www.npmjs.com/)
 
@@ -83,6 +135,26 @@ npm login
 npm init
 npm publish
 # npm version patch
+```
+
+## [nvm](https://github.com/nvm-sh/nvm)
+
+```sh
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/refs/heads/master/install.sh | bash
+vim .zshrc
+```
+
+```
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+```
+
+```sh
+source ~/.zshrc
+nvm ls-remote
+nvm install Gallium
+nvm install Hydrogen
+nvm use <version>
 ```
 
 ## [NVM for Windows](https://github.com/coreybutler/nvm-windows)
@@ -108,8 +180,8 @@ node_mirror: https://npmmirror.com/mirrors/node/
 ```sh
 nvm list available
 nvm install lts
-nvm install 18.20.4
-nvm use 18.20.4
+nvm install <version>
+nvm use <version>
 ```
 
 ## [pnpm](https://pnpm.io/)
@@ -118,7 +190,11 @@ nvm use 18.20.4
 Invoke-WebRequest https://get.pnpm.io/install.ps1 -UseBasicParsing | Invoke-Expression
 ```
 
-↪ [On Windows](https://pnpm.io/installation)
+<!-- --8<-- [start:arch-linux] -->
+```sh
+sudo pacman -S pnpm
+```
+<!-- --8<-- [end:arch-linux] -->
 
 ```sh
 pnpm install -g <pkg>
@@ -131,6 +207,14 @@ pip install --user ipykernel
 ipython kernel install
 jupyter-lab
 ```
+
+## [RVM](https://github.com/rvm/rvm)
+
+<!-- --8<-- [start:arch-linux] -->
+```sh
+yay -S rvm
+```
+<!-- --8<-- [end:arch-linux] -->
 
 ## [rbenv for Windows](https://github.com/RubyMetric/rbenv-for-windows)
 
@@ -167,6 +251,15 @@ apt-cyg install git vim zsh
 cd /cygdrive/c/cygwin64/home/User
 source .zshrc
 ```
+
+## [Rust](https://rustup.rs/)
+
+<!-- --8<-- [start:arch-linux] -->
+```sh
+curl https://sh.rustup.rs -sSf | sh
+rustup default stable
+```
+<!-- --8<-- [end:arch-linux] -->
 
 ## [Cargo](https://doc.rust-lang.org/cargo/)
 
@@ -240,6 +333,18 @@ make CFLAGS=-DLUAJIT_ENABLE_LUA52COMPAT TARGET_LDFLAGS=-mwindows
 ```
 
 ↪ [How to build windowless LuaJIT for Windows](https://gist.github.com/Egor-Skriptunoff/22bf55c1abe44d7825605e132e48c084)
+
+## [hererocks](https://github.com/mpeterv/hererocks)
+
+```sh
+pipx install hererocks
+hererocks lua51 -l5.1 -rlatest
+source lua51/bin/activate
+luarocks install luacheck
+deactivate-lua
+```
+
+Add `lua51\bin` into `PATH`.
 
 ## [GCC](https://gcc.gnu.org/)
 

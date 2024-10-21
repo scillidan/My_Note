@@ -1135,9 +1135,43 @@ If app take up `4321` port, open `chrome://serviceworker-internals/?devtools` an
 
 ![](https://img.shields.io/github/license/t3dotgg/quickpic?label=&style=flat-square)
 
-## [Muser](https://github.com/jonshamir/muser)
+## [Muser](https://github.com/jonshamir/muser) (Cache)
 
 ![](https://img.shields.io/github/license/jonshamir/muser?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/muser/master?label=&style=flat-square)](https://github.com/scillidan/muser) ![](https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white)
+
+```sh
+git clone --depth=1 https://github.com/jordipons/musicnn
+cd musicnn
+pyenv install 3.6.8
+pyenv shell 3.6.8
+python setup.py install
+wget https://bootstrap.pypa.io/pip/3.6/get-pip.py
+python get-pip.py
+python setup.py install
+pip install jupyterlab
+jupyter-lab
+```
+
+<!-- --8<-- [start:wsl] -->
+```sh
+pip install msgpack-1.0.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl cffi-1.15.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl llvmlite-0.39.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl pycparser-2.21-py2.py3-none-any.whl soxr-0.3.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl  soundfile-0.12.1-py2.py3-none-manylinux_2_31_x86_64.whl numpy-1.23.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl pooch-1.6.0-py3-none-any.whl scipy-1.10.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl setuptools-67.4.0-py3-none-any.whl urllib3-1.26.14-py2.py3-none-any.whl idna-3.4-py3-none-any.whl librosa-0.10.0-py3-none-any.whl --force-reinstall
+```
+<!-- --8<-- [end:wsl] -->
+
+```sh
+git clone --depth=1 https://github.com/jonshamir/muser
+cd muser
+npm install
+npm install --save-dev cross-env
+npm run start
+```
+
+<!-- --8<-- [start:wsl] -->
+```sh
+pip install --force-reinstall filetype-1.2.0-py2.py3-none-any.whl coverage-5.5-cp310-cp310-manylinux1_x86_64.whl toml-0.10.2-py2.py3-none-any.whl eyed3-0.9.7-py3-none-any.whl
+```
+<!-- --8<-- [end:wsl] -->
+
 
 ## [Sales & Dungeons](https://github.com/BigJk/snd)
 
@@ -1189,7 +1223,7 @@ Visit `localhost:8010/albums`.
 
 ![](https://img.shields.io/github/license/mitsuse/streamlit-image-crop?label=&style=flat-square)
 
-I should have tested it on `python38` and take a [screenshot](https://raw.githubusercontent.com/scillidan/Cos_Asset/main/screenshot/streamlit-image-crop_cache.png):
+I should have tested it on `python38`:
 
 ```sh
 git clone --depth=1 https://github.com/mitsuse/streamlit-image-crop

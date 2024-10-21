@@ -1,8 +1,6 @@
-## Arch Linux
+## Install
 
-<!-- Part 1 -->
-
-## Log In
+### Log In
 
 Login with:
 
@@ -13,7 +11,7 @@ password: root
 
 ↪ [alarm login?](https://github.com/altreact/archbk/issues/9)
 
-## [Wireless](https://wiki.archlinux.org/title/Network_configuration/Wireless) (Optional)
+### [Wireless](https://wiki.archlinux.org/title/Network_configuration/Wireless) (Optional)
 
 ```sh
 ip link
@@ -28,7 +26,7 @@ station wlan0 connect "<SSID>"
 ping archlinux.org
 ```
 
-## [Pacman](https://pacman.archlinux.page/)
+### [Pacman](https://pacman.archlinux.page/)
 
 ```sh
 sudo pacman -S vim
@@ -74,7 +72,7 @@ Removes older versions of packages from the cache, keeping only the two most rec
 sudo paccache -rk 2
 ```
 
-## [Users and groups](https://wiki.archlinux.org/title/Users_and_groups)
+### [Users and groups](https://wiki.archlinux.org/title/Users_and_groups)
 
 ```sh
 sudo useradd -m <User>
@@ -103,7 +101,7 @@ Finally:
 reboot
 ```
 
-## [Localization](https://wiki.archlinux.org/title/Localization)
+### [Localization](https://wiki.archlinux.org/title/Localization)
 
 ```sh
 sudo vim /etc/locale.gen
@@ -128,27 +126,27 @@ LANG=en_US.UTF-8
 
 ↪ [Localization/Simplified Chinese](https://wiki.archlinux.org/title/Localization/Simplified_Chinese)
 
-## [System time](https://wiki.archlinux.org/title/System_time)
+### [System time](https://wiki.archlinux.org/title/System_time)
 
 ```sh
 timedatectl set-timezone Asia/Chongqing
 ```
 
-## [Set the hostname](https://wiki.archlinux.org/title/Network_configuration#Set_the_hostname)
+### [Set the hostname](https://wiki.archlinux.org/title/Network_configuration#Set_the_hostname)
 
 ```sh
 sudo vim /etc/hostname
 ```
 
 ```
-<HostName>
+<hostname>
 ```
 
 ```sh
 sudo systemctl restart systemd-hostnamed
 ```
 
-## [Domain name resolution](https://wiki.archlinux.org/title/Domain_name_resolution)
+### [Domain name resolution](https://wiki.archlinux.org/title/Domain_name_resolution)
 
 ```sh
 sudo vim /etc/hosts
@@ -166,7 +164,7 @@ sudo systemctl restart systemd-resolved
 
 ↪ [hosts](https://man.archlinux.org/man/hosts.5)
 
-## [NetworkManager](https://wiki.archlinux.org/title/NetworkManager)
+### [NetworkManager](https://wiki.archlinux.org/title/NetworkManager)
 
 ```sh
 sudo pacman -S networkmanager
@@ -181,9 +179,9 @@ Enable system tray:
 sudo pacman -S network-manager-applet
 ```
 
-<!-- Part 2 -->
+## Setup
 
-## [yay](https://github.com/Jguer/yay)
+### [yay](https://github.com/Jguer/yay)
 
 ```sh
 sudo pacman -S go
@@ -216,13 +214,13 @@ makepkg
 ```
 <!-- --8<-- [end:virtualbox] -->
 
-## [Paru](https://github.com/Morganamilo/paru) (Optional)
+### [Paru](https://github.com/Morganamilo/paru) (Optional)
 
 ```sh
 yay -S paru
 ```
 
-## [Flatpak](https://github.com/flatpak/flatpak) (Optional)
+### [Flatpak](https://github.com/flatpak/flatpak) (Optional)
 
 ```sh
 sudo pacman -S flatpak
@@ -235,7 +233,7 @@ flatpak install org.freefilesync.FreeFileSync
 
 You can find apps on [Flathub](https://flathub.org/).
 
-## [Uncomplicated Firewall](https://wiki.archlinux.org/title/Uncomplicated_Firewall)
+### [Uncomplicated Firewall](https://wiki.archlinux.org/title/Uncomplicated_Firewall)
 
 ```sh
 sudo pacman -S ufw
@@ -244,7 +242,7 @@ sudo systemctl enable --now ufw
 sudo ufw status
 ```
 
-## SSH
+### SSH
 
 ↪ [enable SSH on Arch Linux](https://medium.com/@pythonaugust/enable-ssh-on-arch-linux-8f1ede0d9c88)
 
@@ -261,7 +259,7 @@ Get your `ip` of `inet`. On client machine:
 ssh <user>@<ip>
 ```
 
-## [Xfce](https://wiki.archlinux.org/title/Xfce)
+### [Xfce](https://wiki.archlinux.org/title/Xfce)
 
 ```sh
 sudo pacman -S xorg
@@ -270,7 +268,21 @@ sudo pacman -S xfce4 xfce4-goodies
 
 ↪ [Install XFCE Desktop on Arch Linux](https://linuxopsys.com/topics/install-xfce-desktop-on-arch-linux)
 
-## [Nemo](https://wiki.archlinux.org/title/Nemo) (Optional)
+### i3 (Optional)
+
+```sh
+sudo pacman -S i3
+```
+
+↪ [How to Use i3 with XFCE](https://www.youtube.com/watch?v=nZTBxJ_gr8w)
+
+### [Hyprland](https://hyprland.org/) (Cache)
+
+### [Sway](https://swaywm.org/) (Cache)
+
+↪ [Sway on Arch Linux: 2023 Edition (From Scratch)](https://www.youtube.com/watch?v=QAmTUkzpIiM)
+
+### [Nemo](https://wiki.archlinux.org/title/Nemo) (Optional)
 
 ```sh
 sudo pacman -S nemo
@@ -278,7 +290,7 @@ sudo pacman -S nemo
 
 ↪ [Set dark theme on dolphin in cinnamon](https://forum.manjaro.org/t/set-dark-theme-on-dolphin-in-cinnamon/122034/7)
 
-## [LightDM](https://wiki.archlinux.org/title/LightDM)
+### [LightDM](https://wiki.archlinux.org/title/LightDM)
 
 ```sh
 sudo pacman -S lightdm lightdm-webkit2-greeter
@@ -313,7 +325,7 @@ sudo systemctl enable --now lightdm
 
 ↪ [A minimal LightDM WebKit2 theme](https://github.com/TheTerrior/lightdm-minimal)
 
-## [xfce-tile](https://github.com/dodophoenix/xfce-tile)
+### [xfce-tile](https://github.com/dodophoenix/xfce-tile) (Optional)
 
 ```sh
 git clone --depth=1 https://github.com/dodophoenix/xfce-tile
@@ -323,111 +335,7 @@ chmod +x ./xfce-setup-shortcuts.sh
 ./xfce-setup-shortcuts.sh
 ```
 
-## [Materia](https://github.com/nana-4/materia-theme)
-
-```sh
-sudo pacman -S materia-gtk-theme
-```
-
-Appearance → Style → Materia-dark-compact → Close → Log Out Account → Log In
-
-## [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
-
-```sh
-sudo pacman -S papirus-icon-theme
-```
-
-Appearance → Icons → `Papirus-Dark`
-
-## [SIF](https://github.com/BlueManCZ/SIF) (Optional)
-
-## i3 (Optional)
-
-```sh
-sudo pacman -S i3
-```
-
-↪ [How to Use i3 with XFCE](https://www.youtube.com/watch?v=nZTBxJ_gr8w)
-
-I used `xfce` desktop, but I configured it with reference to [dotfiles-linux](https://github.com/fathulfahmy/dotfiles-linux).
-
-```sh
-yay -S alacritty starship rofi
-```
-
-## [picom](https://github.com/yshui/picom)
-
-```sh
-sudo pacman -S picom
-```
-
-## [dunst](https://github.com/dunst-project/dunst)
-
-```sh
-sudo pacman -S dunst
-```
-
-## Applications Menu
-
-↪ https://wiki.archlinux.org/title/desktop_entries
-
-Put `.png` into `~/.icons`.
-
-Icon → Select icon from `All Icons` → Search icon
-
-↪ https://github.com/scillidan/icon-bloodborne-caryll-runes/blob/main/png-white/Lake.png
-
-## Cursor
-
-↪ https://github.com/ful1e5/Bibata_Cursor_Rainbow
-↪ https://www.gnome-look.org/p/2045954
-
-```sh
-mkdir ~/.icons
-cd ~/.icons
-```
-
-Move the `.tar.gz` and `.tar.xz` here, then:
-
-```sh
-tar -xvf Bibata-Rainbow-Modern.tar.gz
-tar -xvf Bibata-Rainbow-Original.tar.gz
-tar -xvf Chroma-Black-M.tar.xz
-tar -xvf Chroma-Black-S.tar.xz
-```
-
-Mouse and Touchpad → Theme → `TheTheme`
-
-## Wallpaper
-
-```sh
-mkdir -p ~/Pictures/wallpaper
-```
-
-Put wallpapers in.
-
-```sh
-sudo pacman -S nitrogen
-```
-
-nitrogen → Preferences → Add → `~/Pictures/wallpaper` → OK → Apply
-
-```sh
-sudo chown -R *.jpg
-```
-
-↪ https://github.com/scillidan/Cos_Cache/blob/main/wallpaper/%E9%A2%A8%E8%88%B9%E3%81%AE%E6%97%85%E7%AB%8B%E3%81%A1_2k.png
-
-## Hyprland (x)
-
-## sway 
-
-↪ https://www.youtube.com/watch?v=QAmTUkzpIiM
-
-## terminus-font (Optional)
-
-↪ https://www.youtube.com/watch?v=nxUTnZVdS64
-↪ https://wiki.archlinux.org/title/Linux_console#Fonts
+### Console font (Optional)
 
 ```sh
 showconsolefont
@@ -436,23 +344,26 @@ sudo pacman -S terminus-font
 setfont drdos8x14 -m 8859-2
 ```
 
-## Bluetooth
+↪ [How to Change Linux Console Fonts on Arch Linux](https://www.youtube.com/watch?v=nxUTnZVdS64)  
+↪ [Linux console - Fonts](https://wiki.archlinux.org/title/Linux_console#Fonts)
+
+### Bluetooth
 
 ```sh
 sudo pacman -S bluez bluez-utils blueman
 sudo systemctl enable --now bluetooth
 systemctl status bluetooth
-```
-
-```sh
 sudo vim /etc/bluetooth/main.conf
 ```
 
-```sh
+```
 AutoEnable=true
 ```
 
-If `Bluetooth service was skipped because of an unmet condition check ...`:
+↪ [Bluetooth headset connection occasionally fails: br-connection-page-timeout](https://www.reddit.com/r/archlinux/comments/qnffce/bluetooth_headset_connection_occasionally_fails/)  
+↪ [How to Set up Bluetooth in Arch Linux](https://www.jeremymorgan.com/tutorials/linux/how-to-bluetooth-arch-linux/)
+
+If return `Bluetooth service was skipped because of an unmet condition check ...`:
 
 ```sh
 sudo modprobe bluetooth
@@ -460,247 +371,46 @@ sudo systemctl restart bluetooth
 systemctl status bluetooth
 ```
 
-↪ https://www.linuxquestions.org/questions/linux-hardware-18/bluetooth-not-working-on-computer-4175724971/
+↪ [Bluetooth not working on computer](https://www.linuxquestions.org/questions/linux-hardware-18/bluetooth-not-working-on-computer-4175724971/)  
 
-## Audio
+### Audio
 
 ```sh
 sudo pacman -S pulseaudio
 sudo pacman -R pulseaudio
-```
-
-```sh
 yay -S pipewire-pulse
 sudo systemctl enable --now pipewire
 ```
 
-## USB (Optional)
-
-↪ https://ejmastnak.com/tutorials/arch/usb/
+### USB drive
 
 ```sh
 sudo pacman -S udisks2
+```
+
+```sh
 sudo fdisk -l
 udisksctl mount -b /dev/sda1
 udisksctl unmount -b /dev/sda1
 udisksctl power-off -b /dev/sda
 ```
 
-## Samba
+↪ [Using USB drives on Arch](https://ejmastnak.com/tutorials/arch/usb/)
 
-↪ https://linuxways.net/arch/install-configure-samba-arch-linux/  
-↪ https://forum.manjaro.org/t/samba-error-code-22/106741/9
-
-```sh
-sudo pacman -S samba
-sudo pacman -Qi samba
-sudo vim /etc/samba/smb.conf
-```
-
-Copy from https://git.samba.org/samba.git/?p=samba.git;a=blob_plain;f=examples/smb.conf.default;hb=HEAD.
-
-```
-workgroup = SAMBAGROUP
-```
-
-```
-[sambashare1]
-comment = My Samba Share
-path = /data/smb/share1
-writable = yes
-browsable = yes
-create mask = 0700
-directory mask = 0700
-read only = no
-guest ok = no
-```
-
-```sh
-sudo groupadd -r smbusers
-sudo useradd -m sambauser
-sudo usermod -aG smbusers sambauser
-sudo smbpasswd -a sambauser
-sudo mkdir -p /data/smb/share1
-sudo chown -R :smbusers /data/smb/share1
-sudo chmod 1770 /data/smb/share1
-sudo systemctl enable --now smb
-sudo systemctl enable --now nmb
-testparm
-```
-
-On PC, 计算机管理 → 本地用户和组 → 用户 → 右键 → 新用户:
-
-```
-用户名 `sambauser`
-用户不能更改密码 On 
-密码永不过期 On
-```
-
-本地用户和组 → 组 → 右键 → 新建组 → 组名 `SAMBAGROUP` → 添加 → 输入对象名称来选择 `sambauser` → 确认 → 创建
-
-资源管理器 → 此电脑 → 右键 → 添加一个网络位置 → 指定网站的位置 → `\\YourIP\sambashare` → 请键入该网络位置的名称 `sambashare` → 
-
-`sambashare` → 右键 → 映射网络驱动器 → 登录时重新连接 On → 完成
-
-```sh
-sudo mkdir /home/sambauser/server
-sudo chown -R sambauser /home/sambauser/server
-sudo mount -t cifs //YourIP/sambashare /home/sambauser/server -o username=sambauser,password=YourPassword,workgroup=SAMBAGROUP
-sudo systemctl daemon-reload
-sudo mount
-```
-
-↪ https://forum.manjaro.org/t/mounting-a-nas-using-systemd-mount-error-cifs-filesystem-not-supported-by-the-system/119153
-
-If `mount error: cifs filesystem not supported by the system`:
-
-```sh
-sudo reboot
-sudo mount -t cifs //YourIP/sambashare /home/sambauser/server -o username=sambauser,password=YourPassword,workgroup=ARCHGROUP
-```
-
-↪ https://gist.github.com/ammgws/1dbd8b3bb38b588c1bb8b3f70dd4fd2c  
-↪ https://askubuntu.com/questions/36608/ufw-firewall-still-blocking-smb-despite-adding-rules
-
-```sh
-sudo vim /etc/ufw/applications.d/samba
-```
-
-```
-[Samba]
-title=LanManager-like file and printer server for Unix
-description=The Samba software suite is a collection of programs that implements the SMB/CIF$
-ports=137,138/udp|139,445/tcp
-```
-
-```sh
-sudo ufw allow samba
-sudo ufw status
-```
-
-Finally. If not work, try:
-
-```sh
-sudo systemctl status smb.service
-sudo systemctl status nmb.service
-sudo mkdir -p /usr/local/samba/var
-sudo systemctl restart nmb.service
-sudo systemctl status nmb.service
-sudo systemctl restart smb.service
-sudo systemctl status smb.service
-sudo mount
-sudo umount server/
-sudo mount -t cifs //YourIP/sambashare /home/sambauser/server -o username=sambauser,password=YourPassword,workgroup=ARCHGROUP
-sudo systemctl daemon-reload
-sudo mount
-```
-
-↪ https://www.linuxquestions.org/questions/linux-networking-3/nemo-smb-not-working-4175717802/
-↪ https://forum.endeavouros.com/t/cinnamon-nemo-file-manager-not-open-network-shares/12404
-
-## NFS (Cache)
-
-↪ https://www.youtube.com/watch?v=ZparikqAo3E
-
-## VNC
-
-↪ https://rushichaudhari.github.io/posts/2020-10-29-setting-up-tigervncserver-on-arch-linux-raspberry-pi/  
-↪ https://www.youtube.com/watch?v=w1HS_xVnFFo  
-↪ https://bytexd.com/how-to-install-configure-vnc-server-on-ubuntu/
-
-```sh
-sudo pacman -S tigervnc
-vncpasswd
-```
-
-```sh
-sudo useradd -m vncuser
-sudo passwd vncuser
-sudo groupadd -r vncusers
-sudo usermod -aG vncusers vncuser
-```
-
-```sh
-sudo vim /etc/tigervnc/vncserver.users
-```
-
-```
-:1=vncuser
-```
-
-LXDE相比Xfce有着更低的功耗。
-
-```sh
-sudo pacman -S lxde
-```
-
-```sh
-mkdir ~/.vnc 
-vim ~/.vnc/xstartup
-```
-
-```
-#!/bin/bash
-exec lxde &>/dev/null
-```
-
-```sh
-vim ~/.vnc/config
-```
-
-```
-session=lxde
-geometry=1280x720
-localhost
-alwaysshared
-```
-
-```sh
-vncserver :1
-```
-
-On PC:
-
-```sh
-tvnviewer YourIP::5901 -password=YourVNCPassword
-```
-
-```sh
-sudo systemctl enable --now vncserver@:1
-systemctl status vncserver@:1
-```
-
-But I:
-
-```sh
-rm -rf ~/.vnc
-mkdir ~/.vnc
-vim ~/.vnc/config
-```
-
-```sh
-session=xfce
-geometry=1280x720
-# localhost
-alwaysshared
-```
-
-## auto-cpufreq
-
-↪ https://www.youtube.com/watch?v=odgD_RdJjCU
+### [auto-cpufreq](https://github.com/AdnanHodzic/auto-cpufreq)
 
 ```sh
 git clone --depth=1 https://github.com/AdnanHodzic/auto-cpufreq.git
 cd auto-cpufreq
-sudo ./auto-cpu-freq-installer
+sudo ./auto-cpufreq-installer
 sudo auto-cpufreq --install
 sudo systemctl status auto-cpufreq
 sudo auto-cpufreq --stats
 ```
 
-## preload
+↪ [10 Things You MUST DO After Installing Arch Linux (2023)](https://www.youtube.com/watch?v=odgD_RdJjCU)
 
-↪ https://www.youtube.com/watch?v=odgD_RdJjCU
+### [preload](http://sourceforge.net/projects/preload)
 
 ```sh
 yay -S preload
@@ -713,9 +423,9 @@ sudo systemctl stop preload && sudo systemctl disable preload
 sudo reboot
 ```
 
-## timeshift
+↪ [10 Things You MUST DO After Installing Arch Linux (2023)](https://www.youtube.com/watch?v=odgD_RdJjCU)
 
-↪ https://www.youtube.com/watch?v=odgD_RdJjCU
+### [Timeshift](https://github.com/teejee2008/timeshift)
 
 ```sh
 yay -S timeshift
@@ -726,20 +436,74 @@ sudo timeshift --list
 sudo timeshift --restore --snapshot '20XX-XX-XX_XX-XX-XX' --skip-grub
 ```
 
-## [restic](https://restic.net/)
+↪ [10 Things You MUST DO After Installing Arch Linux (2023)](https://www.youtube.com/watch?v=odgD_RdJjCU)
 
-## Fonts
+### [restic](https://restic.net/) (TBD)
 
-```sh
-sudo pacman -S adobe-source-han-serif-cn-fonts
-sudo pacman -S noto-fonts-cjk noto-fonts-emoji noto-fonts-extra
+### Application Autostart
+
+Settings → Session and Startup → Application Autostart → Add:
+
+```
+Name `<Name>`
+Command `<Command>`
 ```
 
-## Rime
+## Install Applications
+
+### [picom](https://github.com/yshui/picom)
+
+```sh
+sudo pacman -S picom
+```
+
+### [dunst](https://github.com/dunst-project/dunst)
+
+```sh
+sudo pacman -S dunst
+```
+
+### [qutebrowser](https://qutebrowser.org/) (Cache)
+
+```sh
+pacman -S qutebrowser
+```
+
+qutebrowser → `:open aur.archlinux.org`
+
+### [mpv](https://mpv.io/)
+
+```sh
+sudo pacman -S mpv
+cp -r /usr/share/doc/mpv/ ~/.config/
+```
+
+### [ClamAV](https://www.clamav.net/)
+
+```sh
+sudo pacman -S clamav
+```
+
+```sh
+clamd
+clamscan <file>
+```
+
+If return `ERROR: Can't create freshclam.dat in /usr/local/share/clamav`:
+
+```sh
+sudo chown -R <user> /usr/local/share/clamav
+```
+
+↪ [Can't create freshclam.dat in /usr/local/share/clamav](https://docs.clamav.net/faq/faq-freshclam.html#cant-create-freshclamdat-in-usrlocalshareclamav)
+
+### [Rime](https://rime.im/)
 
 ```sh
 sudo pacman -S fcitx5-im
+```
 
+```
 sudo vim /etc/environment
 ```
 
@@ -750,254 +514,64 @@ XMODIFIERS=fcitx
 SDL_IM_MODULE=fcitx
 ```
 
-## Clipboard
+### Clipboard
 
 ```sh
 sudo pacman -S copyq
 sudo pacman -R xfce4-clipman-plugin
 ```
 
-## qutebrowser (Optional)
+### [qView](https://interversehq.com/qview/) (Optional)
 
 ```sh
-pacman -S qutebrowser
+yay -S qview
 ```
+
+### [Flameshot](https://flameshot.org/) (Optional)
+
+### [eSearch](https://github.com/xushengfeng/eSearch) (Optional)
 
 ```sh
-:open aur.archlinux.org
+git clone --depth=1 https://aur.archlinux.org/e-search-bin.git
 ```
 
-左键点击 > Y > Enter
-
-## Zsh
-
-↪ https://ohmyz.sh/#install
+Download `eSearch-*-linux-x64.deb` from [releases](https://github.com/xushengfeng/eSearch/releases).
 
 ```sh
-pacman -S zsh
-sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+mv eSearch-*-linux-x64.deb e-search-*.deb
+mv e-search-*.deb e-search-bin/
+cd e-search-bin
+makepkg
+sudo pacman -U e-search-bin-*-1-x86_64.pkg.tar.zst
 ```
 
-If network error:
+### [Umi-OCR](https://github.com/hiroi-sora/Umi-OCR)
+
+Get `Umi-OCR_Linux_Paddle_*.tar.xz` from [Umi-OCR - Releases](https://github.com/hiroi-sora/Umi-OCR/releases).
 
 ```sh
-wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh 
-sudo chmod +x ./install.sh
-sudo ./install.sh
+tar -xf Umi-OCR_Linux_Paddle_*.tar.xz
+mv Umi-OCR_Linux_Paddle_* Umi-OCR_Linux_Paddle
+./umi-ocr.sh
 ```
 
-↪ https://github.com/ohmyzsh/ohmyzsh/issues/8477
+### [Goldendict](https://github.com/goldendict/goldendict)
 
-If errors about `permission` on the ARM architecture:
+Download `goldendict-1_1.5.0-3-x86_64.pkg.tar.zst`, `qt5-webkit-5.212.0alpha4-22-x86_64.pkg.tar.zst` from https://sourceforge.net/projects/fabiololix-os-archive/files/Packages/
 
 ```sh
-export ZSH=$HOME/.oh-my-zsh
-echo $ZSH
-sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+sudo pacman -U qt5-webkit-5.212.0alpha4-22-x86_64.pkg.tar.zst
+sudo pacman -U goldendict-1_1.5.0-3-x86_64.pkg.tar.zst
+yay -Ql goldendict
 ```
 
-↪ https://gist.github.com/daopk/0a95772d582cafb202142ff7871da2fc
-
-```sh
-git config --global http.version 1.1
-git config --global http.postBuffer 157286400
-```
-
-```sh
-git config --global http.version 2
-git config --global http.postBuffer 1M
-```
-
-↪ https://wiki.archlinux.org/title/Command-line_shell#Changing_your_default_shell
-
-```sh
-chsh -l
-chsh -s /usr/bin/zsh
-```
-
-Or:
-
-```sh
-vim ~/.bashrc
-```
-
-```
-exec zsh
-```
-
-## fzf
-
-```sh
-sudo pacman -S fzf
-```
-
-## Atuin
-
-```sh
-sudo pacman -S atuin
-```
-
-## Starship (Optional)
-
-↪ https://starship.rs/
-
-## Alacritty
-
-```sh
-sudo pacman -S alacritty
-sudo pacman -R xfce4-terminal
-```
-
-## Zellij
-
-```sh
-sudo pacman -S zellij
-```
-
-```sh
-mkdir -p ~/.config/zellij/plugins
-cd ~/.config/zellij/plugins
-wget https://github.com/dj95/zjstatus/releases/download/v0.13.1/zjstatus.wasm
-```
-
-### pyenv
-
-↪ https://github.com/pyenv/pyenv
-
-```sh
-sudo pacman -S pyenv
-```
-
-```sh
-vim ~/.zshrc
-```
-
-```
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-```
-
-```sh
-source ~/.zshrc
-pyenv install 3.9.13
-```
-
-If network errors:
-
-```sh
-mkdir ~/.pyenv/cache
-cd ~/.pyenv/cache
-wget https://www.python.org/ftp/python/3.9.13/Python-3.9.13.tar.xz
-wget https://www.python.org/ftp/python/3.10.11/Python-3.10.11.tar.xz
-```
-
-```sh
-pyenv install 3.9.13
-pyenv install 3.10.11
-```
-
-```sh
-pyenv local 3.9.13
-pyenv exec pip install virtualenv
-virtualenv virtualenv
-source virtualenv/bin/activate
-```
-
-## pyenv-virtualenv
-
-↪ https://jinmay.github.io/2019/03/16/linux/ubuntu-install-pyenv-1/
-
-```sh
-git clone --depth=1 https://github.com/yyuu/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
-vim ~/.zshrc
-```
-
-```
-eval "$(pyenv virtualenv-init -)"
-```
-
-```sh
-source ~/.zshrc
-pyenv virtualenv 3.9.13 test-venv
-cd MyProject
-pyenv local test-venv
-```
-
-## pipx
-
-```
-sudo pacman -S python-pipx
-```
-
-## nvm
-
-↪ https://github.com/nvm-sh/nvm#installing-and-updating
-
-```sh
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-```
-
-```sh
-vim .zshrc
-```
-
-```
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-```
-
-```sh
-source ~/.zshrc
-nvm ls-remote
-nvm install Gallium
-nvm install Hydrogen
-nvm use 18.20.1
-```
-
-## pnpm
-
-↪ https://pnpm.io/installation
-
-```sh
-sudo pacman -S pnpm
-```
-
-## Rust
-
-↪ https://rustup.rs/
-
-```sh
-curl https://sh.rustup.rs -sSf | sh
-rustup default stable
-```
-
-## rvm
-
-```
-yay -S rvm
-```
-
-## Docker (x)
-
-↪ https://itsfoss.com/install-docker-arch-linux/
-
-```sh
-sudo pacman -S docker
-sudo systemctl enable --now docker.service
-```
-
-## Rofi
-
-↪ https://github.com/davatorium/rofi
+### [Rofi](https://github.com/davatorium/rofi)
 
 ```sh
 sudo pacman -S rofi
 ```
 
-## rofi-shortcuts
-
-↪ https://github.com/Zeioth/rofi-shortcuts
+### [rofi-shortcuts](https://github.com/Zeioth/rofi-shortcuts) (Optional)
 
 ```sh
 git clone --depth=1 https://github.com/Zeioth/rofi-shortcuts
@@ -1017,26 +591,20 @@ ln -sf ~/.local/share/rofi/rofi-shortcuts/rofi-shortcuts.sh ~/.local/bin/rofi-sh
 rofi-shortcuts
 ```
 
-## rofi-calc
-
-↪ https://github.com/svenstaro/rofi-calc
+### [rofi-calc](https://github.com/svenstaro/rofi-calc) (Optional)
 
 ```sh
 sudo pacman -S rofi-calc
 rofi -show calc -modi calc -no-show-match -no-sort
 ```
 
-## Rofimoji
-
-↪ https://github.com/fdw/rofimoji
+### [Rofimoji](https://github.com/fdw/rofimoji)
 
 ```sh
 sudo pacman -S rofimoji
 ```
 
-## rofi-copyq
-
-↪ https://github.com/cjbassi/rofi-copyq
+### [rofi-copyq](https://github.com/cjbassi/rofi-copyq)
 
 ```sh
 git clone --depth=1 https://github.com/cjbassi/rofi-copyq
@@ -1044,203 +612,226 @@ cd rofi-copyq
 ./rofi-copyq
 ```
 
-## Recoll (Optional)
-
-```sh
-nvim ~/.recoll/recoll.conf
-```
-
-```
-topdirs = ~/Github
-indexext = .md .txt .csv
-```
-
-```sh
-recollindex -z
-recoll <search>
-```
-
-## zzzfoo (Optional)
-
-↪ https://github.com/andersju/zzzfoo
-
-## Cmus
-
-```sh
-sudo pacman -S cmus
-```
-
-## dbus (x)
-
-↪ https://bbs.archlinux.org/viewtopic.php?id=261924
-
-## vbox to img (x)
-
-↪ https://www.youtube.com/watch?v=eZUXtXU4YHQ
-
-## Goldendict
-
-↪ https://aur.archlinux.org/packages/goldendict
-
-Download `goldendict-1_1.5.0-3-x86_64.pkg.tar.zst`, `qt5-webkit-5.212.0alpha4-22-x86_64.pkg.tar.zst` from https://sourceforge.net/projects/fabiololix-os-archive/files/Packages/
-
-```sh
-sudo pacman -U qt5-webkit-5.212.0alpha4-22-x86_64.pkg.tar.zst
-sudo pacman -U goldendict-1_1.5.0-3-x86_64.pkg.tar.zst
-```
-
-## GoldenDict Windows Full Dark Theme
-
-https://github.com/scillidan/GoldenDict-Full-Dark-Theme
-
-```sh
-yay -Ql goldendict
-```
-
-## sdcv
-
-```sh
-sudo pacman -S sdcv
-```
-
-## deep-translator
-
-```sh
-pipx install deep-translator
-```
-
-## Translate Shell (Optional)
-
-```sh
-sudo pacman -S translate-shell
-```
-
-## eSearch
-
-↪ https://github.com/xushengfeng/eSearch
-
-```sh
-git clone --depth=1 https://aur.archlinux.org/e-search-bin.git
-```
-
-Download `eSearch-****-linux-x64.deb` from [releases](https://github.com/xushengfeng/eSearch/releases).
-
-```sh
-mv eSearch-****-linux-x64.deb e-search-****.deb
-mv e-search-****.deb e-search-bin/
-cd e-search-bin
-makepkg
-```
-
-```sh
-sudo pacman -U e-search-bin-****-1-x86_64.pkg.tar.zst
-```
-
-## mpv
-
-```sh
-sudo pacman -S mpv
-cp -r /usr/share/doc/mpv/ ~/.config/
-```
-
-## ahk_x11-bin (Optional)
-
-↪ https://github.com/Gustice/AHK-KeyMap
+### [AHK_X11](https://github.com/phil294/AHK_X11) (Cache)
 
 ```sh
 yay -S ahk_x11-bin
 ```
 
-## Termius
-
-```sh
-yay -S termius
-```
-
-```sh
-git clone --depth=1 https://aur.archlinux.org/termius.git
-cd termius
-wget ***.snap
-mv ***.snap termius-8.11.0.snap
-makepkg
-sudo pacman -U ***.tar.zst
-```
-
-## WeChat
-
-? https://flathub.org/apps/com.tencent.WeChat
-
-```sh
-flatpak install flathub com.tencent.WeChat
-```
-
-## ClamAV
-
-↪ https://docs.clamav.net/manual/Usage/Scanning.html
-
-```sh
-sudo pacman -S clamav
-```
-
-```sh
-clamd
-clamscan <file>
-```
-
-↪ https://docs.clamav.net/faq/faq-freshclam.html#cant-create-freshclamdat-in-usrlocalshareclamav
-
-```sh
-sudo chown -R <user> /usr/local/share/clamav
-```
-
-## Photoshop CC
-
-↪ https://github.com/Gictorbit/photoshopCClinux
-↪ https://github.com/Gictorbit/photoshopCClinux/issues/175
-↪ https://github.com/Gictorbit/photoshopCClinux/issues/40
-
-## keymapper
-
-↪ https://github.com/houmain/keymapper?tab=readme-ov-file#key-aliases
+### [keymapper](https://github.com/houmain/keymapper) (TBD)
 
 ```sh
 yay -S keymapper
 sudo systemctl enable --now keymapperd
 ```
 
-## Input Leap
+### [Libre Office](https://www.libreoffice.org/) (Cache)
+
+### [Input Leap](https://github.com/input-leap/input-leap)
 
 ```sh
 yay -S input-leap-git
+input-leap
 ```
 
-↪ https://github.com/debauchee/barrier
+On PC, install [Barrier](https://github.com/debauchee/barrier).
 
-Settings → Session and Startup → Application Autostart → Add → `input-leap`
-
-## Libre Office
-
-## qView
+### [WeChat](https://flathub.org/apps/com.tencent.WeChat)
 
 ```sh
-yay -S qview
+flatpak install flathub com.tencent.WeChat
 ```
 
-<!-- Part 3 -->
+### Photoshop CC (Cache)
 
-## Bluetooth
+↪ [Photoshop CC v19 installer for Linux](https://github.com/Gictorbit/photoshopCClinux)  
+↪ [error: sorry something went wrong during download photoshopCC-V19.1.6-2018x64.tgz](https://github.com/Gictorbit/photoshopCClinux/issues/175)  
+↪ [Dropbox link to download photoshopCC-V19.1.6-2018x64.tgz is broken](https://github.com/Gictorbit/photoshopCClinux/issues/40)
 
-↪ [Bluetooth headset connection occasionally fails: br-connection-page-timeout](https://www.reddit.com/r/archlinux/comments/qnffce/bluetooth_headset_connection_occasionally_fails/)  
-↪ [How to Set up Bluetooth in Arch Linux](https://www.jeremymorgan.com/tutorials/linux/how-to-bluetooth-arch-linux/)
+## Configure Desktop
 
-## IME
+### [Materia](https://github.com/nana-4/materia-theme)
 
-↪ [Arch Linux - 中文输入法](https://zhuanlan.zhihu.com/p/393746270)
+```sh
+sudo pacman -S materia-gtk-theme
+```
 
-## [Flameshot](https://flameshot.org/)
+Appearance → Style → Materia-dark-compact → Close → Log Out Account → Log In
 
-↪ [Easy OCR](https://github.com/flameshot-org/flameshot/issues/1344)
+### [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
 
-<!-- 
-[Linux 软件构建一次到处运行](https://www.rectcircle.cn/posts/linux-build-once-run-anywhere/)
- -->
+```sh
+sudo pacman -S papirus-icon-theme
+```
+
+Appearance → Icons → `Papirus-Dark`
+
+### [SIF](https://github.com/BlueManCZ/SIF) (Optional)
+
+### Cursor
+
+1. Get `Bibata-Rainbow-*.tar.gz` from [Bibata Cursor Rainbow - Releases](https://github.com/ful1e5/Bibata_Cursor_Rainbow/releases).  
+2. Get `Chroma-*.tar.xz` from [Chroma Cursors for Linux](https://www.gnome-look.org/p/2045954).
+
+```sh
+mkdir ~/.icons
+cd ~/.icons
+move *.tar.* ./
+tar -xvf Bibata-Rainbow-Modern.tar.gz
+tar -xvf Bibata-Rainbow-Original.tar.gz
+tar -xvf Chroma-Black-M.tar.xz
+tar -xvf Chroma-Black-S.tar.xz
+```
+
+Mouse and Touchpad → Theme → `<Theme>`
+
+### Applications Menu
+
+```sh
+mv <png> into ~/.icons
+```
+
+Icon → Select icon from `All Icons` → Search icon → [Lake.png](https://github.com/scillidan/icon-bloodborne-caryll-runes/blob/main/png-white/Lake.png) (for example)
+
+↪ [Desktop entries](https://wiki.archlinux.org/title/desktop_entries)
+
+### Wallpaper
+
+```sh
+mkdir -p ~/Pictures/wallpaper
+mv <wallpaper> ~/Pictures/wallpaper/
+# sudo chown -R ~/Pictures/wallpaper/*.jpg
+sudo pacman -S nitrogen
+```
+
+nitrogen → Preferences → Add → `~/Pictures/wallpaper` → OK → Apply
+
+### Fonts
+
+```sh
+sudo pacman -S adobe-source-han-serif-cn-fonts
+sudo pacman -S noto-fonts-cjk noto-fonts-emoji noto-fonts-extra
+```
+
+## Configure Terminal
+
+## [Alacritty](https://alacritty.org/)
+
+```sh
+sudo pacman -S alacritty
+sudo pacman -R xfce4-terminal
+```
+
+### [Starship](https://starship.rs/)
+
+```sh
+yay -S starship
+```
+
+### [Oh My Zsh](https://ohmyz.sh/)
+
+```sh
+pacman -S zsh
+sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+```
+
+If network error:
+
+```sh
+wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh 
+sudo chmod +x ./install.sh
+sudo ./install.sh
+```
+
+<!-- --8<-- [start:ubuntu-22-arm] -->
+If errors about `permission` (on the ARM architecture):
+
+```sh
+export ZSH=$HOME/.oh-my-zsh
+echo $ZSH
+sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+```
+
+↪ [Won't install for my user, only for root...](https://github.com/ohmyzsh/ohmyzsh/issues/8477)
+
+```sh
+git config --global http.version 1.1
+git config --global http.postBuffer 157286400
+```
+
+```sh
+git config --global http.version 2
+git config --global http.postBuffer 1M
+```
+
+↪ [git-config-http-version.md](https://gist.github.com/daopk/0a95772d582cafb202142ff7871da2fc)
+<!-- --8<-- [end:ubuntu-22-arm] -->
+
+```sh
+chsh -l
+chsh -s /usr/bin/zsh
+```
+
+Or:
+
+```sh
+vim ~/.bashrc
+```
+
+```
+exec zsh
+```
+
+↪ [Changing your default shell](https://wiki.archlinux.org/title/Command-line_shell#Changing_your_default_shell)
+
+### [fzf](https://github.com/junegunn/fzf)
+
+```sh
+sudo pacman -S fzf
+```
+
+### [Atuin](https://github.com/atuinsh/atuin)
+
+```sh
+sudo pacman -S atuin
+```
+
+## [Zellij](https://zellij.dev/)
+
+```sh
+sudo pacman -S zellij
+```
+
+```sh
+mkdir -p ~/.config/zellij/plugins
+cd ~/.config/zellij/plugins
+wget https://github.com/dj95/zjstatus/releases/download/v0.13.1/zjstatus.wasm
+```
+
+### [Cmus](https://cmus.github.io/)
+
+```sh
+sudo pacman -S cmus
+```
+
+### [sdcv](https://dushistov.github.io/sdcv/)
+
+```sh
+sudo pacman -S sdcv
+```
+
+### [deep-translator](https://github.com/nidhaloff/deep-translator)
+
+```sh
+pipx install deep-translator
+```
+
+### [Translate Shell](https://github.com/soimort/translate-shell) (Optional)
+
+```sh
+sudo pacman -S translate-shell
+```
+
+## dotfile
+
+↪ [dotfiles-linux](https://github.com/fathulfahmy/dotfiles-linux)

@@ -320,7 +320,7 @@ Open `builds/thinreports-basic-editor-*-win32/thinreports-basic-editor.exe`
 1. Get `doukutsu-zh.bin.zip` from [Cave Story MD - Releases](https://github.com/andwn/cave-story-md/releases).
 2. Copy it to `/recalbox/share/roms/megadrive/`.
 
-## [NXEngine-evo](https://github.com/nxengine/nxengine-evo) (Cache)
+## [NXEngine-evo](https://github.com/nxengine/nxengine-evo)
 
 ### Build local data
 
@@ -359,10 +359,7 @@ wget https://github.com/nxengine/tsc-converter/releases/download/v1.1/tsc.tar.gz
 tar -zxf tsc.tar.gz
 wget https://github.com/nxengine/nx-fontgen/releases/download/v1.3/fontbm.tar.gz
 tar -zxf fontbm.tar.gz
-sudo apt install unzip
-wget https://github.com/TakWolf/ark-pixel-font/releases/download/2024.05.12/ark-pixel-font-12px-proportional-ttf-v2024.05.12.zip
-unzip ark-pixel-font-12px-proportional-ttf-v2024.05.12.zip -d ark-pixel-font-12px-proportional-ttf
-cp ark-pixel-font-12px-proportional-ttf/ark-pixel-12px-proportional-zh_cn.ttf assets/
+mv <font.ttf> assets/
 git clone --depth=1 https://github.com/nxengine/lang_chinese lang_chinese
 cp lang_chinese/metadata lang_chinese/metadata.bak
 vim lang_chinese/metadata
@@ -372,7 +369,7 @@ Edit `unifont-10.0.06.ttf` to `ark-pixel-12px-proportional-zh_cn.ttf`.
 
 ```sh
 cd ..
-build-local.sh
+./build-local.sh
 ```
 <!-- --8<-- [end:arch-linux] -->
 

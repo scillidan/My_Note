@@ -257,16 +257,46 @@ Read more:
 ↪ [Placing games and other resources on network shares](https://gitlab.com/es-de/emulationstation-de/-/blob/master/USERGUIDE.md#placing-games-and-other-resources-on-network-shares)  
 ↪ [Arcade manager](https://github.com/cosmo0/arcade-manager)  
 ↪ [RetroArch asset server](https://github.com/NickHeap2/retroarch-asset-server)  
-↪ [RetroPie Docs - Love](https://retropie.org.uk/docs/Love/)  
 ↪ [Renpy Documentation - Raspberry Pi](https://www.renpy.org/doc/html/raspi.html)  
 ↪ [FAQ - How can I recover my RetroPie after enabling the desktop OpenGL driver?](https://retropie.org.uk/docs/FAQ/#how-can-i-recover-my-retropie-after-enabling-the-desktop-opengl-driver)
 
 ### Emulator [Löve](https://love2d.org/) (Experimental) (Cache)
 
-1. Get `CurseOfTheArrow-V1.8.3-universal.love` form [Curse of the Arrow](https://egordorichev.itch.io/curse-of-the-arrow).
-2. Move it to `<path>/roms/love/`
+1. Config → RetroPie Setup → Manage packages → Manage optional packages → love-0.10.2, love
+2. `mv <game>.love <path>/roms/love/``
 
-↪ [RetroPie Docs - Love](https://retropie.org.uk/docs/Love/)
+Some games:
+
+Get `CurseOfTheArrow-V1.8.3-universal.love` form [Curse of the Arrow](https://egordorichev.itch.io/curse-of-the-arrow).
+
+```sh
+unzip CurseOfTheArrow-V1.8.3-universal.love -d CurseOfTheArrow-V1.8.3-universal
+cd CurseOfTheArrow-V1.8.3-universal
+vim conf.lua
+```
+
+```
+t.window.width = 96*5
+t.window.height = 64*5
+t.window.minwidth = 96
+t.window.minheight = 64
+```
+
+```sh
+7z a -tzip CurseOfTheArrow-V1.8.3-universal-640x480.love *
+mv CurseOfTheArrow-V1.8.3-universal-640x480.love <RetroPie>/home/pi/RetroPie/roms/love/
+```
+
+Get `Source code (zip)` from [mari0 - Releases](https://github.com/Stabyourself/mari0/releases).
+
+```sh
+unzip mari0-1.6.2.zip -d mari0-1.6.2
+cd mari0-1.6.2/mari0-1.6.2
+7z a -tzip mari0-1.6.2.love *
+mv mari0-1.6.2.love <RetroPie>/home/pi/RetroPie/roms/love/
+```
+
+↪ [RetroPie Docs - Love](https://retropie.org.uk/docs/Love/)  
 ↪ [PyGame LÖVE (love2d) in RecalBox](https://forum.recalbox.com/topic/19222/pygame-l%C3%B6ve-love2d-in-recalbox)
 
 ### [Recalbox](https://www.recalbox.com/)
@@ -295,6 +325,10 @@ Menu → Controller settings → Pair a bluetooth controller
 [Add themes into frontend](https://wiki.recalbox.com/en/tutorials/frontend-customization/add-themes-into-emulationstation):
 
 `share\themes
+
+Hide preinstalled games:
+
+Menu → UI Settings → Game Filters → Hide Preinstalled Games
 
 Read more:
 
@@ -352,18 +386,6 @@ Enable SSH:
 ↪ [RetroPie - SSH](https://retropie.org.uk/docs/SSH/)  
 ↪ [RetroPie - SFTP](https://retropie.org.uk/docs/Transferring-Roms/#sftp)
 
-Unofficial installation scripts for RetroPie:
-
-```sh
-git clone --depth=1 https://github.com/Exarkuniv/RetroPie-Extra.git
-cd RetroPie-Extra
-./install-extras.sh
-```
-
-Choose which modules to install → `nxengine-evo.sh` → Ok
-
-System Menu → RetroPie Setup → Manage packages → Manage experimental packages → nxengine-evo → Install from source
-
 Refresh the game listing:
 
 Menu → Quit → Restart EmulationStation
@@ -392,6 +414,20 @@ If you use other controllers:
 ↪ [Setting up an 8bitdo Bluetooth controller](https://retropie.org.uk/docs/8Bitdo-Controller/)  
 ↪ [Virtual Gamepad](https://retropie.org.uk/docs/Virtual-Gamepad/)  
 ↪ [Mobile Gamepad](https://github.com/sbidolach/mobile-gamepad)
+
+### [Nxengine-Evo-RPi](https://github.com/Exarkuniv/Nxengine-Evo-RPi)
+
+Unofficial installation scripts for RetroPie:
+
+```sh
+git clone --depth=1 https://github.com/Exarkuniv/RetroPie-Extra.git
+cd RetroPie-Extra
+./install-extras.sh
+```
+
+Choose which modules to install → `nxengine-evo.sh` → Ok
+
+System Menu → RetroPie Setup → Manage packages → Manage experimental packages → nxengine-evo → Install from source
 
 ## [GitHub Actions Runner Images](https://github.com/actions/runner-images#preinstallation-policy) (TBD)
 

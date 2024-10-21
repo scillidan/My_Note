@@ -40,6 +40,16 @@ VSCode → Sidebar → Continue → Configure Continue:
 
 ↪ [Configuring Ollama and Continue VS Code Extension for Local Coding Assistant](https://dev.to/manjushsh/configuring-ollama-and-continue-vs-code-extension-for-local-coding-assistant-48li)
 
+```sh
+ollama pull qwen2.5:7b
+ollama run qwen2.5:7b
+```
+
+1. Immersive Translate → Developer settings → Enable Beta Testing Features
+2. Translation Services → Custom API → Edit → API URL → `http://127.0.0.1:11434` → Verify service
+
+↪ [Immersive Translate - Custom Interface Translation](https://immersivetranslate.com/en/docs/services/custom/)
+
 <!-- --8<-- [start:ubuntu-22-arm] -->
 Get `ollama-linux-arm64.tgz` from [Ollama - Releases](https://github.com/ollama/ollama/releases).
 
@@ -587,6 +597,8 @@ With [Anime Segmentation](https://www.iopaint.com/plugins/anime_seg):
 ```sh
 iopaint start --model=lama --device=cpu --port=7840 --enable-anime-seg
 ```
+
+## [SmartDoc](https://github.com/rsharvesh16/SmartDoc-Document-Processing-With-LLM) (Cache)
 
 ## [RapidVideOCR](https://github.com/SWHL/RapidVideOCR) (Cache)
 
