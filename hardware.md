@@ -473,3 +473,21 @@ System Menu → RetroPie Setup → Manage packages → Manage experimental packa
 
 ↪ [Home Assistant - Raspberry Pi](https://www.home-assistant.io/installation/raspberrypi/)  
 ↪ [Android TV Remote](https://www.home-assistant.io/integrations/androidtv_remote/)
+
+## [Charybdis](https://bastardkb.com/charybdis/)
+
+↪ [Required tools](https://docs.bastardkb.com/bg_charybdis/03required_tools.html)  
+↪ [Video build guides](https://docs.bastardkb.com/bg_charybdis/video_guides.html)  
+↪ [Installing the screw inserts](https://docs.bastardkb.com/bg_charybdis/04screw_inserts.html)  
+↪ [Installing the diodes](https://docs.bastardkb.com/bg_charybdis/05diodes.html)  
+↪ [Installing the RGB components](https://docs.bastardkb.com/bg_charybdis/06rgb_components.html)  
+↪ [Installing the Ribbon Cables](https://docs.bastardkb.com/bg_charybdis/07ribbon_cables.html)  
+↪ [Preparing the Splinktegrated](https://docs.bastardkb.com/bg_charybdis/08splinktegrated.html)  
+↪ [Preparing the Splinky](https://docs.bastardkb.com/bg_charybdis/08splinky.html)  
+↪ [Connecting the ribbon cables to the Splinky](https://docs.bastardkb.com/bg_charybdis/09cables_to_splinky.html)  
+↪ [Installing the switches](https://docs.bastardkb.com/bg_charybdis/10install_the_switches.html)  
+↪ [Installing the sensor assembly](https://docs.bastardkb.com/bg_charybdis/11sensor_assembly.html)  
+↪ [Closing up the case](https://docs.bastardkb.com/bg_charybdis/12final_screws.html)  
+↪ [Using your keyboard](https://docs.bastardkb.com/bg_charybdis/13customize.html)
+
+## [Custom QMk 20KeyPad](https://github.com/smrini/QMK-20keyPad) (Cache)

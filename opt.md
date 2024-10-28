@@ -166,13 +166,15 @@ Install `WinSSHTerm`. Start, to install [PuTTY](https://www.putty.org/), [WinSCP
 ↪ [配置GoldenDict](https://scillidan.github.io/YAFA-site/blog/goldendict/)  
 ↪ [配置GoldenDict·番外](https://scillidan.github.io/YAFA-site/blog/goldendict-expand/)
 
-## [OmegaT](https://omegat.org/)
+## [OmegaT](https://omegat.org/) (TBD)
 
 ↪ [OmegaT for CAT Beginners](https://hackmd.io/@omegat/for_cat_beginners)  
 ↪ [OmegaT guides [cApStAn]](https://capstanlqc.github.io/omegat-guides/en/)  
 	↪ [OmegaT setup](https://github.com/capstanlqc/omegat-user-config-dev572)  
 ↪ [OmegaT Wiki - Plugins](https://sourceforge.net/p/omegat/wiki/Plugins/)  
 ↪ [OmegaT flat theme plugin](https://codeberg.org/miurahr/omegat-flat-theme)
+
+↪ [OmegaT - User Manual](https://omegat.sourceforge.io/manual-standard/en/index.html)
 
 ## [qBittorrent](https://github.com/c0re100/qBittorrent-Enhanced-Edition)
 

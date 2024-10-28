@@ -29,6 +29,18 @@ And:
 
 Open `altium_sch.html`.
 
+## [font combination generator](https://github.com/scillidan/web-app-resource/tree/main/font-combination-generator/dist)
+
+This is copy from [font combination generator](https://codepen.io/knyttneve/pen/Yagovg) by [Mert Cukuren](https://codepen.io/knyttneve) / [MIT](https://blog.codepen.io/documentation/licensing). Modify for local use.
+
+## [VoCSSels](https://github.com/scillidan/web-app-resource/tree/main/vocssels/dist)
+
+This is copy from [VoCSSels](https://codepen.io/jcoulterdesign/pen/vYyzZdo) by [Jamie Coulter](https://codepen.io/jcoulterdesign) / [MIT](https://blog.codepen.io/documentation/licensing). Modify for local use.
+
+## [Pixelizer](https://github.com/scillidan/web-app-resource/tree/main/dist)
+
+This is copy from [Pixelizer](https://codepen.io/jcoulterdesign/pen/oqPNXL) by [Jamie Coulter](https://codepen.io/jcoulterdesign) / [MIT](https://blog.codepen.io/documentation/licensing). Modify for local use.
+
 ## [Calcutext](https://github.com/jaredreich/calcutext)
 
 ![](https://img.shields.io/github/license/jaredreich/calcutext?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/calcutext/master?label=&style=flat-square)](https://github.com/scillidan/calcutext) ![](https://img.shields.io/badge/Vercel-black?style=flat&logo=Vercel&logoColor=white)
@@ -917,6 +929,10 @@ With PM2:
 ```sh
 pm2 serve -s . -p 4321 --name sreadium --spa
 ```
+
+## [Villain](https://github.com/scillidan/Villain)
+
+![](https://img.shields.io/github/license/btzr-io/Villain?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/Villain/main?label=&style=flat-square)](https://github.com/scillidan/Villain) ![](https://img.shields.io/badge/Vercel-black?style=flat&logo=Vercel&logoColor=white)
 
 ## [SvgPathEditor](https://github.com/Yqnn/svg-path-editor)
 
