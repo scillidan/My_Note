@@ -379,7 +379,7 @@ DCT方式 `浮点（慢速高品质）`
 2. 设置 → 关于手机 → 版本号(x7)
 3. 系统 → 开发者选项 → USB调试(On) → 网络ADB调试(On) → 无线调试(On) → 是否允许USB调试(确定) →  一律允许使用这台计算机进行调试(允许)
 
-## [LaTeX](https://www.latex-project.org/)
+## [LaTeX](https://www.latex-project.org/) (TBD)
 
 ↪ [LaTeX for tabletop](https://vladar.bearblog.dev/latex-for-tabletop/)  
 ↪ [LaTeX images](https://vladar.bearblog.dev/latex-images/)  

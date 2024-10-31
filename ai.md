@@ -854,8 +854,44 @@ iopaint start --model=lama --device=cpu --port=7840 --enable-anime-seg
 
 ## [RapidVideOCR](https://github.com/SWHL/RapidVideOCR) (Cache)
 
-↪ [VideoSubFinder提取字幕关键帧教程](https://juejin.cn/post/7203362527082053691)  
-↪ [在线demo](https://swhl.github.io/RapidVideOCR/docs/online_demo/)
+1. Get `VideoSubFinder` form [SourceForge](https://sourceforge.net/projects/videosubfinder/).
+2. Decompress `VideoSubFinder_*.zip` to `VideoSubFinder`.
+3. Run `VideoSubFinderWXW.exe`.
+4. Settings → Parameters Influencing Image Processing (Optional):
+  ```
+  Use CUDA GPU Acceleration `On`
+  ```
+5. File → Open Video
+6. Run Search → When shows subtitle, Stop Search → Modify the ScanBox
+7. Begin Time → `00:00:00:000` → Run Search
+8. Output will be on `.\RGBImages\` 
+
+Power by CPU:
+
+```sh
+pip install rapid_videocr
+rapid_videocr -o srt -i <RGBImagesDir>
+```
+
+↪ [RapidVideOCR - 高级教程](https://swhl.github.io/RapidVideOCR/docs/tutorial/senior/)
+
+Power by GPU:
+
+```sh
+git clone --depth=1 https://github.com/SWHL/RapidVideOCR
+pip install paddlepaddle-gpu==3.0.0b1 -i https://www.paddlepaddle.org.cn/packages/stable/cu123/
+pip install get-pypi-latest-version
+python setup.py install
+# pip uninstall onnxruntime
+# pip install onnxruntime-directml
+pip install rapidocr_paddle
+rapid_videocr --use_cuda -o srt -i <RGBImagesDir> -s <SaveDir>
+```
+
+↪ [飞桨 - 快速安装](https://www.paddlepaddle.org.cn/install/quick)  
+↪ [rapidocr_paddle - 安装及使用](https://rapidai.github.io/RapidOCRDocs/install_usage/rapidocr_paddle/usage/)
+
+## [RapidOCR](https://github.com/RapidAI/RapidOCR) (Cache)
 
 ## [docTR](https://github.com/mindee/doctr)
 
