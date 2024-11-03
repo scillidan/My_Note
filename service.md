@@ -1562,6 +1562,10 @@ sudo systemctl enable --now ntfy
 ↪ [Installing ntfy - Debian/Ubuntu repository](https://docs.ntfy.sh/install/#debianubuntu-repository)
 <!-- --8<-- [end:ubuntu-server-arm-22] -->
 
+## [Paperless-ngx](https://github.com/paperless-ngx/paperless-ngx) (TBD)
+
+[Paperless-ngx - Bare Metal Route](https://docs.paperless-ngx.com/setup/#bare_metal)
+
 <!--
 ## [Teable](https://github.com/teableio/teable)
 ## [Plane](https://github.com/makeplane/plane)

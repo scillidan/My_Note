@@ -331,9 +331,9 @@ pip install hf_transfer
 2. Create other `.bat` you need liked `RunMediumModel.bat`.
 3. Run `.bat`.
 
-## [faster-whisper-webui](https://huggingface.co/spaces/aadnk/faster-whisper-webui) (TBD)
+## [faster-whisper-webui](https://huggingface.co/spaces/aadnk/faster-whisper-webui) (Cache)
 
-Seems need `CUDA 11.x`. So as notes at present.
+Seems need `CUDA 11.x`.
 
 ```sh
 git clone --depth=1 https://huggingface.co/spaces/aadnk/faster-whisper-webui
@@ -402,6 +402,17 @@ open-cli http://127.0.0.1:7820 && cd faster-whisper-webui && venv\Scripts\python
 ↪ [Enabling custom Japanese model](https://huggingface.co/spaces/aadnk/faster-whisper-webui/discussions/5)  
 ↪ [services.py](https://github.com/usoonees/logseq-whisper-subtitles-server/blob/main/logseq_whisper_subtitles_server/services.py)  
 ↪ [Segmentation Fault when loading pyannote/speaker-diarization-3.0 in rockylinux9/python3 environment](https://github.com/pyannote/pyannote-audio/issues/1499)
+
+## [Whisper-WebUI](https://github.com/jhj0517/Whisper-WebUI)
+
+```sh
+git clone --depth=1 https://github.com/jhj0517/Whisper-WebUI
+cd Whisper-WebUI
+python -m venv venv
+venv\Scripts\activate.bat
+pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu121
+pip install -r requirements.txt
+```
 
 ## [Whishper](https://github.com/pluja/whishper)
 
