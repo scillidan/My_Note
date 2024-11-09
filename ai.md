@@ -412,6 +412,8 @@ python -m venv venv
 venv\Scripts\activate.bat
 pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu121
 pip install -r requirements.txt
+pip install hf_transfer
+user-start-webui.bat
 ```
 
 ## [Whishper](https://github.com/pluja/whishper)
