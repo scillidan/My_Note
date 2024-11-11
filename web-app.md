@@ -1151,6 +1151,10 @@ If app take up `4321` port, open `chrome://serviceworker-internals/?devtools` an
 
 ![](https://img.shields.io/github/license/t3dotgg/quickpic?label=&style=flat-square)
 
+## [JSON Crack](https://github.com/AykutSarac/jsoncrack.com)
+
+![](https://img.shields.io/github/license/AykutSarac/jsoncrack.com?label=&style=flat-square) ![](https://img.shields.io/badge/Vercel-black?style=flat&logo=Vercel&logoColor=white)
+
 ## [Muser](https://github.com/jonshamir/muser) (Cache)
 
 ![](https://img.shields.io/github/license/jonshamir/muser?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/muser/master?label=&style=flat-square)](https://github.com/scillidan/muser) ![](https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white)
