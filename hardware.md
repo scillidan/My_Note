@@ -330,6 +330,19 @@ Hide preinstalled games:
 
 Menu → UI Settings → Game Filters → Hide Preinstalled Games
 
+Transferring Roms:
+
+WinSCP → Synchronize:
+
+```
+Local directory `roms\`
+Remote directory `/recalbox/share/roms`
+Direction/Target directory `Remote`
+Mode `Synchronize files`
+Synchronize options `Preview changes`
+Caomparion criteria `Modification time`
+```
+
 Read more:
 
 ↪ [Gamelists](https://github.com/recalbox/recalbox-emulationstation/blob/master/GAMELISTS.md)  

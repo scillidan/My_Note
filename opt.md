@@ -213,6 +213,16 @@ Subtitle Edit → Auto-translate → Select `Ollama` or `LM Studio` → Translat
 ↪ [小红书发布的动图为什么不动？](https://www.bilibili.com/read/cv21625230/)  
 ↪ [How to convert video to animated GIF using FFmpeg](https://shotstack.io/learn/convert-video-gif-ffmpeg/)
 
+## [Audacity](https://www.audacityteam.org/)
+
+- Effect → Noise Removal and Repair
+    - Noise Reduction
+    - Noise Gate
+- Edit → Preferences → Modules → mod-script-pipe → Enabled
+
+↪ [Noise Reduction](https://manual.audacityteam.org/man/noise_reduction.html)  
+↪ [Noise Gate](https://manual.audacityteam.org/man/alternative_noise_reduction_techniques.html)
+
 ## [XnConvert](https://www.xnview.com/en/xnconvert/)
 
 ↪ [XnConvert使用JPG压缩时“使用估计质量”与“优化哈夫曼表”等选项含义](https://zhuanlan.zhihu.com/p/490282841)

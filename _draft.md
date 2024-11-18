@@ -1,5 +1,3 @@
-<!-- I will clean up after a long time -->
-
 ## Directory Opus
 
 Open With:

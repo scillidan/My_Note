@@ -13,6 +13,20 @@ echo %CUDA_PATH%
 # echo %CUDA_PATH_V12_1%
 ```
 
+## Update
+
+```sh
+git pull
+```
+
+Or:
+
+```sh
+git reset --hard
+git merge <branch>
+git pull
+```
+
 ## [Ollama](https://ollama.com/)
 
 ```sh
@@ -71,6 +85,10 @@ ollama run tinyllama
 <!-- --8<-- [end:ubuntu-22-arm] -->
 
 ## [LM Studio](https://lmstudio.ai/)
+
+1. Install LM Studio
+2. Go to `C:\Users\<User>\AppData\Local\LM-Studio\app-*\resources\app\.webpack\main`
+3. Find in folder, replace `huggingface.co` to `hf-mirror.com`
 
 ↪ [LM Studio有魔法加持依然无法连网的解决办法](https://juejin.cn/post/7373961220585603124)
 
@@ -147,6 +165,20 @@ python translate_epub.py --trust_remote_code --model_name_or_path models/sakura-
 
 ↪ [Deploy LobeChat with Vercel](https://lobehub.com/docs/self-hosting/platform/vercel)  
 ↪ [Deploying Server Database Version on Vercel](https://lobehub.com/docs/self-hosting/server-database/vercel)
+
+## [Next.js AI Chatbot](https://github.com/vercel/ai-chatbot) (Cache)
+
+Fork it.
+
+```sh
+git clone --depth=1 https://github.com/<user>/ai-chatbot
+cd ai-chatbot
+npm install -g vercel
+vercel link
+vercel env pull
+pnpm install
+pnpm dev
+```
 
 ## [GPT-Subtrans](https://github.com/machinewrapped/gpt-subtrans)
 
@@ -315,6 +347,18 @@ python playground.py
 
 ↪ [Agent UI](https://docs.phidata.com/ui)
 
+## [Whishper](https://github.com/openai/whisper)
+
+```sh
+git clone --depth=1 https://github.com/openai/whisper
+cd whisper
+python -m venv venv
+venv\Scripts\activate.bat
+pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu121
+pip install .
+C:\Users\<User>\Git\whisper\venv\Scripts\whisper.exe --model large-v3 --device cuda --language Chinese --output_format srt <input>
+```
+
 ## [Simple_Speech_Recognition](https://github.com/Temmie-Flakes/Simple_Speech_Recognition)
 
 ```sh
@@ -417,6 +461,40 @@ user-start-webui.bat
 ```
 
 ## [Whishper](https://github.com/pluja/whishper)
+
+## [whisply](https://github.com/tsmdt/whisply) (Cache)
+
+```sh
+git clone --depth=1 https://github.com/tsmdt/whisply
+cd whisply
+```
+
+Edit `setup.py`:
+
+```py
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+```
+
+To:
+
+```py
+with open("README.md", "r", encoding='utf-8') as fh:
+    long_description = fh.read()
+```
+
+```sh
+python.exe -m venv venv
+venv\Scripts\activate.bat
+pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu121
+pip install .
+pip uninstall numpy
+pip install numpy==1.26.3
+pip install hf_transfer
+whisply --hf_token <token> --translate --subtitle --annotate --model large-v3 --lang zh --device gpu --files <input>
+```
+
+↪ [Incompatible with NumPy 2.0...](https://github.com/Vaibhavs10/insanely-fast-whisper/issues/233)
 
 ## [TTS](https://github.com/coqui-ai/TTS)
 
@@ -702,6 +780,8 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 python launch.py
 ```
 
+BallonsTranslator → Setting → DL Module → Translator.
+
 ## [Image/Manga Translator](https://github.com/zyddnys/manga-image-translator)
 
 ![](https://img.shields.io/github/license/zyddnys/manga-image-translator?label=&style=flat-square)[![](https://img.shields.io/github/last-commit/scillidan/manga-image-translator/main?label=&style=flat-square)](https://github.com/scillidan/manga-image-translator)
@@ -722,6 +802,24 @@ SAKURA_API_BASE=http://127.0.0.1:5000
 
 ```sh
 python -m manga_translator -v --mode web --use-gpu
+```
+
+## [video-subtitle-master](https://github.com/buxuku/video-subtitle-master)
+
+```sh
+git clone --depth=1 https://github.com/buxuku/video-subtitle-master
+cd video-subtitle-master
+yarn
+yarn build:local
+```
+
+1. Get Large-v3 model from [Hugging Face](https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-large-v3.bin?download=true) or [HF-Mirror](https://hf-mirror.com/ggerganov/whisper.cpp/resolve/main/ggml-large-v3.bin?download=true).
+2. Move it into `C:\Users\<User>\AppData\Roaming\video-subtitle-master\whisper.cpp\models`
+
+```sh
+ollama pull qwen2.5
+ollama pull llama3.1
+ollama serve llama3.1
 ```
 
 ## [Stable Diffusion web UI](https://github.com/AUTOMATIC1111/stable-diffusion-webui)

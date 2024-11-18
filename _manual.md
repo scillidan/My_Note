@@ -1,19 +1,3 @@
-<!-- I will clean up after a long time -->
-
-## Command
-
-↪ [Linux Bash Script, Single Command But Multiple Lines?](https://superuser.com/questions/508507/linux-bash-script-single-command-but-multiple-lines)  
-↪ [How to write a multiline command?](https://stackoverflow.com/questions/605686/how-to-write-a-multiline-command)  
-↪ [Multiple commands in command prompt using vbscript](https://stackoverflow.com/questions/28437066/multiple-commands-in-command-prompt-using-vbscript)
-
-## Regex
-
-- CJK character `[^\x00-\xff]+`
-- Duplicate lines `^(.*)(\r?\n\1)+$`
-
-↪ [How do I find and remove duplicate lines from a file using Regular Expressions? [closed]](https://stackoverflow.com/questions/1573361/how-do-i-find-and-remove-duplicate-lines-from-a-file-using-regular-expressions)
-
-
 ## [Xfce](https://www.xfce.org/)
 
 - Screensaver → Enable Screensaver (Off)
@@ -48,9 +32,12 @@ Settings → Power → Power Saving Options → Automatic Suspend
 
 ## Windows 10
 
-- 新装系统
-  - 账户 → 跳过、不勾选、不联网、不填写密码
-  - 运行 → `control userpasswords2` → 属性 → 要使用本计算机，用户必须输入用户名和密码(Off)
+1. 现在安装 → 我没有产品密钥 → Windows 10 专业版 → 自定义：仅安装Windows（高级） → 选择目标驱动器 → 格式化 → 新建
+2. 我没有Internet连接
+3. 继续执行有线设置
+4. 使用脱机账户 → 不填写密码
+5. 运行 → `control userpasswords2` → 属性 → 要使用本计算机，用户必须输入用户名和密码(Off)
+
 - `Win+Q`
   - 搜索权限和历史记录 → (All Off)
   - Windows Search设置 → 高级搜索索引器设置 → 经典 → 在此自定义搜索位置 → 修改 → 包含的位置/用户 Off → 确定
@@ -99,10 +86,12 @@ Settings → Power → Power Saving Options → Automatic Suspend
 - 声音
   - 声音 → 声音控制面板 → 声音 → 声音方案 → 无声
 - Game bar
-  - 游戏 → Game Bar(Off) → 允许控制器打开Game Bar(Off)
+  - 游戏 → Game Bar (Off) → 允许控制器打开Game Bar (Off)
 - 更改DNS服务器
   - 查看网络连接 → 以太网 → 属性 → 网络 → Internet协议版本4 → 属性 → 自动获得DNS服务器地址
   - 命令提示符 → `ipconfig /flushdns`
+- 打印机
+  - 属性 → 共享 → 共享这台打印机 (On) → 在客户端计算机上呈现打印作业 (On)
 
 ## Windows Environment
 
@@ -165,6 +154,10 @@ Revision Tool → Security → Windows Defender (On)
     3. Options → 完成后弹出磁盘 (On)
 3. Next
 
+## [MiniTool Partition Wizard](https://minitool.com/partition-manager/partition-wizard-home.html)
+
+Disk → Copy
+
 ## [Chrome](https://www.google.com/intl/en/chrome/) / [Brave](https://github.com/brave/brave-browser)
   
 `brave://flags/#enable-parallel-downloading` → Parallel downloading → Enabled
@@ -207,6 +200,7 @@ Revision Tool → Security → Windows Defender (On)
 
 - 设置 → 选项 → 工具栏 → 图标 → 导入
 - 设置 → 自定义工具栏 → 快捷键
+- 设置 → 文件类型 → 文件类型群组 → Archives → `SmartZip.exe x {allfilepath}`
 
 ## [HiBit Uninstaller](https://hibitsoft.ir/Uninstaller.html)
 
@@ -250,7 +244,7 @@ EverythingToolbar → 调整窗口大小 → 全高, 1/3宽
 
 ## [clawPDF](https://github.com/clawsoftware/clawPDF)
 
-<PDF阅读器> → 打印 → clawPDF → 属性 → 页面设置 → 方向(横向) → 确定 → 缩放类型(每张纸多页面) → 每张页面数(2)
+PDF阅读器 → 打印 → clawPDF → 属性 → 页面设置 → 方向(横向) → 确定 → 缩放类型(每张纸多页面) → 每张页面数(2)
 
 ## [Krita](https://krita.org/en/)
 
@@ -263,6 +257,11 @@ EverythingToolbar → 调整窗口大小 → 全高, 1/3宽
 - 复制图层 → 选中新图层 → 颜色 → 去色 → 去色 → 模式 → luma
 - 添加图层模板 → 选区工具 → 填充黑色
 - 模式 → 点光/叠加/色相
+
+## [Photoshop]
+
+导入选项 → 选择文件 → `file.csv` → 替换先有的数据组 → 确定
+储存选项 → 选择文件夹 → `output\`, 文件命名 → `文档名称+下划线+数据组编号` → 确定
 
 ## [IrfanView](https://irfanview.com)
 
@@ -362,6 +361,23 @@ DCT方式 `浮点（慢速高品质）`
 
 流多路复用 → 字幕轨 → 保存轨道
 
+## [HandBrake](https://handbrake.fr/)
+
+首选项 → 输出文件 → 自动命名输出文件 → 文件格式 → `{source}.{preset}`
+
+## [Kdenlive](https://kdenlive.org)
+
+导出 → 导出项目 → Generic → Matroska-H264/AAC → 嵌入字幕而不是合成到画面
+
+## [mpv](https://mpv.io)
+
+`mpv.exe` → 新建快捷方式 → 属性 → 快捷方式:
+
+```
+目标 `mpv.exe`
+起始位置 `mpv_config_dir_for_stream\`
+```
+
 ## [Lively](https://github.com/rocksdanister/lively)
 
 设置 → 壁纸 → 壁纸输入 → 键盘 → 应用聚焦时的鼠标交互
@@ -373,11 +389,25 @@ DCT方式 `浮点（慢速高品质）`
 3. 文件 → 打开最近的项目 → .json
 4. 创意工坊 → 在创意工坊上分享壁纸 → 预览图片 → 导入文件 → 发布更新 → 关闭
 
+## [qBittorrent](https://github.com/c0re100/qBittorrent-Enhanced-Edition)
+
+选项 → BitTorrent → 自动将以下Tracker添加到新的任务 → `udp://tracker.sbsub.com:2710/announce`
+
 ## [QtScrcpy](https://github.com/barry-ran/QtScrcpy)
 
 1. 设置 → 连接 → WLAN → 当前网络 → IP地址
 2. 设置 → 关于手机 → 版本号(x7)
 3. 系统 → 开发者选项 → USB调试(On) → 网络ADB调试(On) → 无线调试(On) → 是否允许USB调试(确定) →  一律允许使用这台计算机进行调试(允许)
+
+## [Fluent Reader](https://github.com/yang991178/fluent-reader)
+
+Fluent Reader → View:
+
+```
+View `List view`
+Filtering `Unread only`
+Search `Show hidden articles`
+```
 
 ## [LaTeX](https://www.latex-project.org/) (TBD)
 
@@ -402,19 +432,21 @@ DCT方式 `浮点（慢速高品质）`
 
 Build Distributions:
 
-1. 下载`SDK.zip`从[Renpy latest release](https://www.renpy.org/latest.html) → 解压到`renpy-8.2.3-sdk` → 运行 `renpy.exe`
-2. preferences → Projects Directory → 修改项目文件夹路径，例如`C:\Users\User\Project\renpy` → Return
-3. 在`C:\Users\User\Project\renpy`文件夹下，克隆仓库，`git clone https://codeberg.org/fhs/katawa-shoujo-re-engineered`
-4. renpy.exe → PROJECTS → refresh → 选中`katawa-shoujo-re-engineered`
-5. Renpy → Build Distributions → 默认会构建Linux、Macintosh、Windows三个发行版 → Build
+1. Download `SDK.zip` from [Download Ren'Py](https://www.renpy.org/latest.html)
+2. Decompress it to `renpy-*-sdk\`
+3. Run `renpy-*-sdk\renpy.exe`
+4. preferences → General → Projects Directory → `C:\Users\<User>\Project\renpy` → Return
+5. Go to `C:\Users\<User>\Project\renpy`，`git clone --depth=1 https://codeberg.org/fhs/katawa-shoujo-re-engineered`
+6. Renpy → PROJECTS → refresh → Select `katawa-shoujo-re-engineered`
+7. Build Distributions → Build
 
 Build Android:
 
 1. Renpy → Android → Build
   1. Install SDK
-  2. Generate Keys → 全部默认即可
+  2. Generate Keys
   3. Build Package
-2. 这个步骤会检测环境要求，需要JDK和Gradle。
+2. 这个步骤会检测环境要求，需要JDK和Gradle
   1. 这里会涉及到Library文件的存放位置。我个人没分CDEF盘，只有C盘，也优先使用软件的便携版，一般就是压缩包。下面步骤就根据你的实际情况做修改
   2. 按照提示下载JDK和Gradle的文件。解压`OpenJDK21U-jdk_x64_windows_hotspot_21.0.4_7.zip`到`C:\Users\User\Lib\jdk-21.04`
   3. 解压`gradle-8.5-bin.zip`到`C:\Users\User\Lib\gradle-8.5`。

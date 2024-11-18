@@ -424,3 +424,8 @@ starfetch.exe -l
 4. Copy fonts into `fonts\`.
 5. Run `合并补全.bat fonts/<font1> fonts/<font2>`.
 6. Rename `out.ttf`.
+
+## [FFmpeg](https://www.ffmpeg.org/)
+
+1. Get `ffmpeg-master-latest-win64-gpl-shared.zip` from [FFmpeg Static Auto-Builds - Releases](https://github.com/BtbN/FFmpeg-Builds/releases).
+2. Add `ffmpeg-gpl-shared\bin` into PATH.

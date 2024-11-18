@@ -48,6 +48,7 @@ Build `html`, `epub`, `pdf`:
 
 ```sh
 vivliostyle build
+vivliostyle build --format epub -o <file>.epub
 ```
 
 Build with Github Action, host on Github Pages:
