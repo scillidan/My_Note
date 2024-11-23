@@ -48,11 +48,9 @@ sudo vim /etc/pacman.d/mirrorlist
 
 ```
 Server = https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
-Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
 ```
 
-↪ [USTC Mirror Help - Arch Linux](https://mirrors.ustc.edu.cn/help/archlinux.html)  
-↪ [清华大学开源软件镜像站 - Arch Linux 软件仓库](https://mirrors.tuna.tsinghua.edu.cn/help/archlinux/)
+↪ [USTC Mirror Help - Arch Linux](https://mirrors.ustc.edu.cn/help/archlinux.html)
 
 Refreshes the package database and upgrades all installed packages:
 

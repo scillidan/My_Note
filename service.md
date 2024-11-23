@@ -120,15 +120,22 @@ sudo ifconfig wlan0 down
 For `Ubuntu 22.04 LTS`:
 
 ```sh
-sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
-sudo vim /etc/apt/sources.list
+sudo cp /etc/apt/sources.list.d/ubuntu.sources /etc/apt/sources.list.d/ubuntu.sources.bak
+sudo vim /etc/apt/sources.list.d/ubuntu.sources
 ```
 
 ```
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy main restricted universe multiverse
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy-updates main restricted universe multiverse
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy-backports main restricted universe multiverse
-deb http://ports.ubuntu.com/ubuntu-ports/ jammy-security main restricted universe multiverse
+Types: deb
+URIs: https://mirrors.ustc.edu.cn/ubuntu-ports
+Suites: jammy jammy-updates jammy-backports
+Components: main restricted universe multiverse
+Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
+
+Types: deb
+URIs: https://mirrors.ustc.edu.cn/ubuntu-ports
+Suites: jammy-security
+Components: main universe restricted multiverse
+Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
 ```
 
 For `Ubuntu 24.04 LTS`:
@@ -140,30 +147,19 @@ sudo vim /etc/apt/sources.list.d/ubuntu.sources
 
 ```
 Types: deb
-URIs: https://mirrors.tuna.tsinghua.edu.cn/ubuntu
+URIs: https://mirrors.ustc.edu.cn/ubuntu-ports
 Suites: noble noble-updates noble-backports
 Components: main restricted universe multiverse
 Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
 
 Types: deb
-URIs: http://security.ubuntu.com/ubuntu/
+URIs: https://mirrors.ustc.edu.cn/ubuntu-ports
 Suites: noble-security
-Components: main restricted universe multiverse
+Components: main universe restricted multiverse
 Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
 ```
 
-[清华大学开源软件镜像站 - Ubuntu Ports 软件仓库](https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu-ports/)
-
-For `x64`:
-
-```
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy main restricted universe multiverse
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse
-deb http://security.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse
-```
-
-↪ [清华大学开源软件镜像站 - Ubuntu 软件仓库](https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/)
+↪ [USTC Mirror Help - Ubuntu Ports](https://mirrors.ustc.edu.cn/help/ubuntu-ports.html)
 
 ## NVMe
 
@@ -432,19 +428,6 @@ systemctl status vncserver@:1
 ↪ [How to Install & Configure VNC Server on Ubuntu 22.04](https://bytexd.com/how-to-install-configure-vnc-server-on-ubuntu/)
 <!-- --8<-- [end:arch-linux] -->
 
-## [Docker](https://www.docker.com/)
-
-<!-- --8<-- [start:arch-linux] -->
-```sh
-sudo pacman -S docker
-sudo systemctl enable --now docker.service
-```
-<!-- --8<-- [end:arch-linux] -->
-
-↪ [清华大学开源软件镜像站 - Docker CE 软件仓库](https://mirrors.tuna.tsinghua.edu.cn/help/docker-ce/)  
-↪ [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)  
-↪ [Ubuntu安装Docker详细教程](https://www.huixinglaile.com/archives/117a5c58.html)
-
 ## [PM2](https://pm2.keymetrics.io/)
 
 <!-- --8<-- [start:windows10] -->
@@ -542,7 +525,7 @@ Password: adminadmin
 
 <!-- --8<-- [start:ubuntu-22-arm] -->
 ```sh
-curl -s https://install.zerotier.com | sudo bash
+wget -qO- https://install.zerotier.com | sudo bash
 sudo systemctl enable --now zerotier-one.service
 systemctl status zerotier-one.service
 sudo zerotier-cli join <NetworkID>

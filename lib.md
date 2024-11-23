@@ -311,6 +311,15 @@ go env -w GOPROXY=https://goproxy.cn,direct
 
 ## [Lua](https://www.lua.org/)
 
+<!-- --8<-- [start:windows10] -->
+```sh
+git clone https://github.com/Pharap/CompilingLua
+cd CompilingLua
+vcvarsall.bat
+Compile.bat
+```
+<!-- --8<-- [end:windows10] -->
+
 ```sh
 pkg install lua53 luarocks
 pkg install clang

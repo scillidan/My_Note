@@ -32,8 +32,9 @@ git pull
 ```sh
 ollama pull codellama 
 ollama pull starcoder2:3b
-ollama pull starcoder2:7b
+# ollama pull starcoder2:7b
 ollama pull nomic-embed-text
+# ollama pull mxbai-embed-large
 ollama list
 ```
 
@@ -166,6 +167,42 @@ python translate_epub.py --trust_remote_code --model_name_or_path models/sakura-
 ↪ [Deploy LobeChat with Vercel](https://lobehub.com/docs/self-hosting/platform/vercel)  
 ↪ [Deploying Server Database Version on Vercel](https://lobehub.com/docs/self-hosting/server-database/vercel)
 
+## [Perplexica](https://github.com/ItzCrazyKns/Perplexica)
+
+```sh
+git clone --depth=1 https://github.com/ItzCrazyKns/Perplexica
+cd Perplexica/ui
+cp .env.example .env
+npm install
+npm run build
+cd ..
+cp sample.config.toml config.toml
+npm install
+npm run build
+```
+
+You can edit `config.toml` to fill some fields liked:
+
+```
+[API_ENDPOINTS]
+OLLAMA = "http://127.0.0.1:11434"
+```
+
+Create `start.bat`:
+
+```sh
+@echo off
+
+cd "C:\Users\User\Git\Perplexica\ui"
+start npm run start
+cd "C:\Users\User\Git\Perplexica"
+start npm run start
+
+pause
+```
+
+↪ [How to Contribute to Perplexica](https://github.com/ItzCrazyKns/Perplexica/blob/master/CONTRIBUTING.md)
+
 ## [Next.js AI Chatbot](https://github.com/vercel/ai-chatbot) (Cache)
 
 Fork it.
@@ -219,6 +256,8 @@ npm run dev
 ```
 
 Visit `localhost:3000/chatgpt-subtitle-translator`.
+
+## [VideoLingo](https://github.com/Huanshere/VideoLingo) [TBD]
 
 ## [Local RAG Chatbot](https://github.com/datvodinh/rag-chatbot)
 
@@ -347,6 +386,8 @@ python playground.py
 
 ↪ [Agent UI](https://docs.phidata.com/ui)
 
+## [TinyTroupe](https://github.com/microsoft/TinyTroupe) (TBD)
+
 ## [Whishper](https://github.com/openai/whisper)
 
 ```sh
@@ -358,6 +399,63 @@ pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu121
 pip install .
 C:\Users\<User>\Git\whisper\venv\Scripts\whisper.exe --model large-v3 --device cuda --language Chinese --output_format srt <input>
 ```
+
+## [Insanely Fast Whisper (CLI)](https://github.com/ochen1/insanely-fast-whisper-cli)
+
+```sh
+git clone --depth=1 https://github.com/ochen1/insanely-fast-whisper-cli
+cd insanely-fast-whisper-cli
+```
+
+Edit `requirements.txt`:
+
+```
+# git+https://github.com/huggingface/transformers
+```
+
+```sh
+python.exe -m venv venv
+venv\Scripts\activate.bat
+pip install torch>=2.1.1 torchaudio --index-url https://download.pytorch.org/whl/cu121
+pip install -r requirements.txt
+pip install transformers>=4.36 hf_transfer
+python insanely-fast-whisper.py <audio>
+python insanely-fast-whisper.py --model openai/whisper-large-v3-turbo --device cuda:0 --dtype float32 --batch-size 8 --chunk-length 30 <audio>
+```
+
+## [whisply](https://github.com/tsmdt/whisply) (Cache)
+
+```sh
+git clone --depth=1 https://github.com/tsmdt/whisply
+cd whisply
+```
+
+Edit `setup.py`:
+
+```py
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+```
+
+To:
+
+```py
+with open("README.md", "r", encoding='utf-8') as fh:
+    long_description = fh.read()
+```
+
+```sh
+python.exe -m venv venv
+venv\Scripts\activate.bat
+pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu121
+pip install .
+pip uninstall numpy
+pip install numpy==1.26.3
+pip install hf_transfer
+whisply --hf_token <token> --translate --subtitle --annotate --model large-v3 --lang zh --device gpu --files <input>
+```
+
+↪ [Incompatible with NumPy 2.0...](https://github.com/Vaibhavs10/insanely-fast-whisper/issues/233)
 
 ## [Simple_Speech_Recognition](https://github.com/Temmie-Flakes/Simple_Speech_Recognition)
 
@@ -375,17 +473,18 @@ pip install hf_transfer
 2. Create other `.bat` you need liked `RunMediumModel.bat`.
 3. Run `.bat`.
 
-## [faster-whisper-webui](https://huggingface.co/spaces/aadnk/faster-whisper-webui) (Cache)
-
-Seems need `CUDA 11.x`.
+## [faster-whisper-webui](https://huggingface.co/spaces/aadnk/faster-whisper-webui)
 
 ```sh
-git clone --depth=1 https://huggingface.co/spaces/aadnk/faster-whisper-webui
+git clone https://huggingface.co/spaces/aadnk/faster-whisper-webui
 cd faster-whisper-webui
 python -m venv venv
 venv\Scripts\activate.bat
-pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu121
+set "CUDA_PATH=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8"
+echo %CUDA_PATH%
+pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu118
 pip install -r requirements-fasterWhisper.txt
+pip install -r requirements.txt
 pip install hf_transfer
 cp config.json5 config.json5.bak
 ```
@@ -423,13 +522,13 @@ Edit `config.json5` liked:
 Used with command liked:
 
 ```sh
-python cli.py --whisper_implementation "faster-whisper" --vad "silero-vad" --auto_parallel true --vad_parallel_devices 0 --model "local-medium" --language "Chinese" --initial_prompt="对于普通话句子，以中文简体输出" --diarization_num_speakers 1 --output_dir "C:/Users/User/Downloads" <input>
+python cli.py --whisper_implementation "faster-whisper" --vad "silero-vad-skip-gaps" --auto_parallel true --vad_parallel_devices 0 --model "large-v2" --language "Chinese" --initial_prompt="对于普通话句子，以中文简体输出" --diarization_num_speakers 1 --auth_token <hf_token> --output_dir "C:/Users/User/Downloads" <input>
 ```
 
 Used with webui:
 
 ```sh
-python.exe app.py --input_audio_max_duration -1 --server_name 127.0.0.1 --server_port 7830 --whisper_implementation "faster-whisper" --default_model_name "medium" --vad_parallel_devices 0 --auto_parallel true --output_dir "C:/Users/User/Downloads"
+python.exe app.py --input_audio_max_duration -1 --server_name 127.0.0.1 --server_port 7830 --whisper_implementation "faster-whisper" --default_model_name "large-v2" --vad_parallel_devices 0 --auto_parallel true --auth_token <hf_token> --output_dir "C:/Users/User/Downloads"
 ```
 
 Visit `localhost:7830`.
@@ -447,6 +546,8 @@ open-cli http://127.0.0.1:7820 && cd faster-whisper-webui && venv\Scripts\python
 ↪ [services.py](https://github.com/usoonees/logseq-whisper-subtitles-server/blob/main/logseq_whisper_subtitles_server/services.py)  
 ↪ [Segmentation Fault when loading pyannote/speaker-diarization-3.0 in rockylinux9/python3 environment](https://github.com/pyannote/pyannote-audio/issues/1499)
 
+## [faster-whisper-GUI](https://github.com/CheshireCC/faster-whisper-GUI) (Cache)
+
 ## [Whisper-WebUI](https://github.com/jhj0517/Whisper-WebUI)
 
 ```sh
@@ -462,39 +563,18 @@ user-start-webui.bat
 
 ## [Whishper](https://github.com/pluja/whishper)
 
-## [whisply](https://github.com/tsmdt/whisply) (Cache)
+## [Voice-Pro](https://github.com/abus-aikorea/voice-pro) (Cache)
 
 ```sh
-git clone --depth=1 https://github.com/tsmdt/whisply
-cd whisply
-```
-
-Edit `setup.py`:
-
-```py
-with open("README.md", "r") as fh:
-    long_description = fh.read()
-```
-
-To:
-
-```py
-with open("README.md", "r", encoding='utf-8') as fh:
-    long_description = fh.read()
-```
-
-```sh
-python.exe -m venv venv
+git clone --depth=1 https://github.com/abus-aikorea/voice-pro
+cd voice-pro
+python -m venv venv
 venv\Scripts\activate.bat
 pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu121
-pip install .
-pip uninstall numpy
-pip install numpy==1.26.3
+pip install -r requirements.txt
 pip install hf_transfer
-whisply --hf_token <token> --translate --subtitle --annotate --model large-v3 --lang zh --device gpu --files <input>
+start.bat
 ```
-
-↪ [Incompatible with NumPy 2.0...](https://github.com/Vaibhavs10/insanely-fast-whisper/issues/233)
 
 ## [TTS](https://github.com/coqui-ai/TTS)
 
@@ -540,6 +620,17 @@ python melo/app.py
 ```
 
 ↪ [运行web_demo_gradio.py报gbk解码错误，cli和streamlit则可以正常运行](https://github.com/THUDM/ChatGLM3/discussions/1009)
+
+## [F5-TTS](https://github.com/SWivid/F5-TTS)
+
+```sh
+git clone --depth=1 https://github.com/SWivid/F5-TTS
+cd F5-TTS
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+pip install -e .
+pip install hf_transfer
+f5-tts_infer-gradio
+```
 
 ## [Bark](https://github.com/suno-ai/bark)
 
@@ -741,6 +832,42 @@ python -m pip install -e .
 ```
 
 ↪ [pip dependencies](https://github.com/facebookresearch/audiocraft/issues/493)
+
+## [epub2tts](https://github.com/aedocw/epub2tts) (Cache)
+
+```sh
+git clone --depth=1 https://github.com/aedocw/epub2tts
+cd epub2tts
+```
+
+Edit `requirements.txt`:
+
+```
+# deepspeed
+```
+
+```sh
+pyenv local 3.11.9
+python.exe -m venv venv
+venv\Scripts\activate.bat
+pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu121
+pip install coqui-tts --only-binary spacy && pip install .
+epub2tts <epub> --export txt
+epub2tts <txt> --engine tts --speaker "<Speaker>" --cover cover-image.jpg --sayparts
+```
+
+↪ ["Unable to import torch" error on Windows](https://github.com/aedocw/epub2tts/issues/218)
+
+## [EPUB to Audiobook Converter](https://github.com/p0n1/epub_to_audiobook) (Cache)
+
+```sh
+git clone --depth=1 https://github.com/p0n1/epub_to_audiobook
+cd epub_to_audiobook
+python.exe -m venv venv
+venv\Scripts\activate.bat
+pip install -r requirements.txt
+python main.py --tts edge --language en-US <epub> <output_folder>
+```
 
 ## [ToonCrafter](https://github.com/Doubiiu/ToonCrafter)
 

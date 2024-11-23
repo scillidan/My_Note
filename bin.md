@@ -357,6 +357,7 @@ syncabook create thebook
 ... calibre-web → Apphabetical Books → ALL → `The Black Cat` → Import (EPUB)
 My Books → `The Black Cat` → ButtonOfPlayAudio
 
+↪ [Audio Ebook ID Inserter](https://github.com/Audun97/audio-ebook-id-inserter)
 
 ## [Av1an](https://github.com/master-of-zen/Av1an)
 
