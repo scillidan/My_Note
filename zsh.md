@@ -12,7 +12,7 @@ sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/ins
 
 ```sh
 cd ~
-wget https://gist.github.com/scillidan/b49eabe3a90e7e7499b5155af7f36480/raw/7b4cb38b5010a1c6b2c3a6709b0abb0305028239/.zshrc_mini -O .zshrc
+wget https://gist.githubusercontent.com/scillidan/b49eabe3a90e7e7499b5155af7f36480/raw/1ad03938633a16651b311e4a6108ed40152110f8/.zshrc_mini -O .zshrc
 source .zshrc
 ```
 

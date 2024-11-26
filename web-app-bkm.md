@@ -73,5 +73,6 @@ reminiflux                   | https://gm-reminiflux.vercel.app
 sketch-to-lineart            | https://gm-sketch-to-lineart.vercel.app
 sreadium                     | https://gm-sreadium.vercel.app
 visionmagic                  | https://gm-visionmagic.vercel.app
+webvm                        | https://scillidan.github.io/webvm
 woah!                        | https://gm-woah.vercel.app
 クモ                         | https://gm-kumo.vercel.app

@@ -15,6 +15,10 @@ And:
   2. Branch → `gh-pages`, `/(root)`
 4. Visit `https://<user>.github.io/qr-designer/`
 
+## [WebVM](https://github.com/leaningtech/webvm)
+
+!![](https://img.shields.io/github/license/leaningtech/webvm?label=&style=flat-square) ![](https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white)
+
 ## [Pic Smaller](https://github.com/joye61/pic-smaller)
 
 ![](https://img.shields.io/github/license/joye61/pic-smaller?label=&style=flat-square) ![](https://img.shields.io/badge/Vercel-black?style=flat&logo=Vercel&logoColor=white)

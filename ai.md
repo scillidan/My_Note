@@ -167,6 +167,140 @@ python translate_epub.py --trust_remote_code --model_name_or_path models/sakura-
 ↪ [Deploy LobeChat with Vercel](https://lobehub.com/docs/self-hosting/platform/vercel)  
 ↪ [Deploying Server Database Version on Vercel](https://lobehub.com/docs/self-hosting/server-database/vercel)
 
+<!-- --8<-- [start:docker-arm] -->
+```sh
+sudo docker run -d -p 3210:3210 -e ACCESS_CODE=lobe66 --name lobe-chat lobehub/lobe-chat
+docker ps
+```
+
+Crontab Automatic Update Script (Optional):
+
+```sh
+vim ~/auto-update-lobe-chat.sh
+```
+
+```
+#!/bin/bash
+# auto-update-lobe-chat.sh
+
+# Set up proxy (optional)
+export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
+
+# Pull the latest image and store the output in a variable
+output=$(docker pull lobehub/lobe-chat:latest 2>&1)
+
+# Check if the pull command was executed successfully
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
+# Check if the output contains a specific string
+echo "$output" | grep -q "Image is up to date for lobehub/lobe-chat:latest"
+
+# If the image is already up to date, do nothing
+if [ $? -eq 0 ]; then
+  exit 0
+fi
+
+echo "Detected Lobe-Chat update"
+
+# Remove the old container
+echo "Removed: $(docker rm -f Lobe-Chat)"
+
+# Run the new container
+echo "Started: $(docker run -d --network=host --env-file /path/to/lobe.env --name=Lobe-Chat --restart=always lobehub/lobe-chat)"
+
+# Print the update time and version
+echo "Update time: $(date)"
+echo "Version: $(docker inspect lobehub/lobe-chat:latest | grep 'org.opencontainers.image.version' | awk -F'"' '{print $4}')"
+
+# Clean up unused images
+docker images | grep 'lobehub/lobe-chat' | grep -v 'lobehub/lobe-chat-database' | grep -v 'latest' | awk '{print $3}' | xargs -r docker rmi > /dev/null 2>&1
+echo "Removed old images."
+```
+
+```sh
+crontab -e
+```
+
+```
+0 * * * * /home/<username>/auto-update-lobe-chat.sh >> /home/<username>/auto-update-lobe-chat.log 2>&1
+```
+
+↪ [Lobe Chat - Docker Deployment Guide](https://lobehub.com/docs/self-hosting/platform/docker)  
+↪ [[Bug] Ollama service is unavailable](https://github.com/lobehub/lobe-chat/issues/2337)  
+↪ [Hitting a Wall Trying to get Ollama to work with LobeChat or any other app (works fine in CLI in the container)](https://www.reddit.com/r/unRAID/comments/1ccxqu6/hitting_a_wall_trying_to_get_ollama_to_work_with/)
+<!-- --8<-- [end:docker-arm] -->
+
+## [Dify](https://github.com/langgenius/dify)
+
+<!-- --8<-- [start:docker-arm] -->
+```sh
+git clone --depth=1 https://github.com/langgenius/dify
+cd dify/docker
+cp .env.example .env
+docker compose up -d
+```
+
+Update:
+
+```sh
+cd dify/docker
+docker compose down
+git pull origin main
+docker compose pull
+docker compose up -d
+```
+
+↪ [Deploy with Docker Compose](https://docs.dify.ai/getting-started/install-self-hosted/docker-compose)
+<!-- --8<-- [end:docker-arm] -->
+
+## [Khoj](https://github.com/khoj-ai/khoj) (Cache)
+
+<!-- --8<-- [start:docker-arm] -->
+```sh
+mkdir ~/.khoj
+cd ~/.khoj
+wget https://raw.githubusercontent.com/khoj-ai/khoj/master/docker-compose.yml
+podman-compose up -d
+podman ps
+```
+
+↪ [Khoj - Self-Host](https://docs.khoj.dev/get-started/setup/?server=docker&os=linux)
+<!-- --8<-- [end:docker-arm] -->
+
+## [autoflow](https://github.com/pingcap/autoflow) (Cache)
+
+<!-- --8<-- [start:docker-arm] -->
+↪ [Deploy with Docker & Docker Compose](https://tidb.ai/docs/deploy-with-docker)
+<!-- --8<-- [end:docker-arm] -->
+
+## [Verba](https://github.com/weaviate/Verba) (Cache)
+
+<!-- --8<-- [start:docker-arm] -->
+```sh
+git clone --depth=1 https://github.com/weaviate/Verba
+cd Verba
+vim .env
+```
+
+```
+OLLAMA_URL=http://<ollama_host>:11434
+OLLAMA_MODEL=llama3.1
+OLLAMA_EMBED_MODEL=mxbai-embed-large
+```
+
+```sh
+sudo docker compose --env-file .env up -d --build
+```
+<!-- --8<-- [end:docker-arm] -->
+
+## [AutoRAG](https://github.com/Marker-Inc-Korea/AutoRAG) (Cache)
+
+<!-- --8<-- [start:docker-arm] -->
+↪ [Run AutoRAG with 🐳 Docker](https://github.com/Marker-Inc-Korea/AutoRAG/blob/main/docs/source/install.md#1-build-the-docker-image)
+<!-- --8<-- [end:docker-arm] -->
+
 ## [Perplexica](https://github.com/ItzCrazyKns/Perplexica)
 
 ```sh
@@ -385,6 +519,8 @@ python playground.py
 ```
 
 ↪ [Agent UI](https://docs.phidata.com/ui)
+
+## [GraphRAG Local](https://github.com/severian42/GraphRAG-Local-UI) (TBD)
 
 ## [TinyTroupe](https://github.com/microsoft/TinyTroupe) (TBD)
 
@@ -868,6 +1004,27 @@ venv\Scripts\activate.bat
 pip install -r requirements.txt
 python main.py --tts edge --language en-US <epub> <output_folder>
 ```
+
+## [ebook2audiobook](https://github.com/DrewThomasson/ebook2audiobook) (Cache)
+
+```sh
+git clone --depth=1 https://github.com/DrewThomasson/ebook2audiobook
+cd ebook2audiobook
+python.exe -m venv venv
+venv\Scripts\activate.bat
+pip install coqui-tts==0.24.2 pydub nltk beautifulsoup4 ebooklib tqdm gradio==4.44.0
+python -m nltk.downloader punkt
+python -m nltk.downloader punkt_tab
+pip install mecab mecab-python3 unidic
+python -m unidic download
+python app.py
+```
+
+```sh
+python app.py --headless True --use_custom_model True --ebook <ebook_file_path> --voice <target_voice_file_path> --language <language> --custom_model <custom_model_path> --custom_config <custom_config_path> --custom_vocab <custom_vocab_path>
+```
+
+## [VoxNovel](https://github.com/DrewThomasson/VoxNovel) (TBD)
 
 ## [ToonCrafter](https://github.com/Doubiiu/ToonCrafter)
 

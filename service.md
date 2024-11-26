@@ -444,8 +444,8 @@ pm2 save
 
 Windows 10 → Control Panel → Administrative Tools > Services → PM2 → Properties → Log On → local system account → Go back to first tab → Start
 
-↪ [pm2-installer](https://github.com/jessety/pm2-installer)
-↪ [Persistent applications](https://pm2.keymetrics.io/docs/usage/startup/)
+↪ [pm2-installer](https://github.com/jessety/pm2-installer)  
+↪ [Persistent applications](https://pm2.keymetrics.io/docs/usage/startup/)  
 ↪ [State is now: Stopped](https://github.com/jessety/pm2-installer/issues/69)
 <!-- --8<-- [end:windows10] -->
 
@@ -464,6 +464,115 @@ pm2 startup
 ↪ [Vue packages version mismatch](https://github.com/nuxt/nuxt/issues/10305)  
 ↪ [how to modify nuxt server start port ,default port is 3000](https://github.com/nuxt/nuxt/issues/490)
 <!-- --8<-- [end:ubuntu-server-arm-22] -->
+
+## [Docker](https://www.docker.com/)
+
+<!-- --8<-- [start:arch-linux] -->
+```sh
+sudo pacman -S docker
+sudo systemctl enable --now docker.service
+```
+<!-- --8<-- [end:arch-linux] -->
+
+<!-- --8<-- [start:ubuntu-server-arm-24] -->
+```sh
+for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
+sudo apt-get update
+sudo apt-get install ca-certificates wget
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo wget -O /etc/apt/keyrings/docker.asc https://download.docker.com/linux/ubuntu/gpg
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+↪ [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+
+```sh
+sudo mkdir -p /etc/docker
+sudo vim /etc/docker/daemon.json
+```
+
+```
+{
+  "registry-mirrors": [
+    "https://docker.1panel.top",
+    "https://docker.1panel.live",
+    "https://proxy.1panel.live",
+    "https://dockerproxy.1panel.live"
+  ]
+}
+```
+
+```sh
+sudo mkdir -p /etc/containers/registries.conf.d
+sudo vim /etc/containers/registries.conf.d/docker.conf
+```
+
+```
+unqualified-search-registries = ["docker.io"]
+
+[[registry]]
+location = "docker.io"
+
+[[registry.mirror]]
+location = "docker.1panel.top"
+```
+
+```sh
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+```
+
+↪ [Docker / Podman 安装与换源](https://wcbing.top/linux/containers/install/)
+
+```sh
+sudo docker run -p 8080:80 --rm nginx
+sudo ufw allow 8080
+sudo run -d -v /mnt/nvme:/mnt/nvme <docker_image>
+sudo docker ps
+sudo docker stop <container_id>
+```
+
+```sh
+sudo docker compose up -d
+sudo docker compose stop
+```
+
+↪ [Docker Hub - Quickstart](https://docs.docker.com/docker-hub/quickstart/)
+
+<!-- --8<-- [end:ubuntu-server-arm-24] -->
+
+## [Podman](https://podman.io/)
+
+```sh
+sudo apt install podman podman-compose
+cd <dir>
+podman-compose --help
+podman-compose up --help
+podman-compose up -d
+podman ps
+podman-compose down
+```
+
+```sh
+podman run -d --name <name>_server -p 63
+```
+
+<!-- --8<-- [start:ubuntu-server-arm-22] -->
+```sh
+pip3 install podman-compose
+~/.local/bin/podman-compose --help
+```
+
+↪ [How to Install Podman Compose on Ubuntu 22.04?](https://itslinuxfoss.com/install-podman-compose-ubuntu-22-04/)
+<!-- --8<-- [end:ubuntu-server-arm-22] -->
+
+↪ [Starting Containers with systemd](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_atomic_host/7/html/managing_containers/running_containers_as_systemd_services_with_podman#starting_containers_with_systemd)
 
 ## qbittorrent-nox
 
@@ -1476,6 +1585,7 @@ sudo systemctl enable --now trilium
 
 ![](https://img.shields.io/github/license/advplyr/audiobookshelf?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/audiobookshelf/main?label=&style=flat-square)](https://github.com/scillidan/audiobookshelf)
 
+<!-- --8<-- [start:windows10] -->
 ```sh
 nvm install 16.20.0
 nvm use 16.20.0
@@ -1506,6 +1616,60 @@ module.exports = {
   server: {
     ...
   },
+```
+<!-- --8<-- [end:windows10] -->
+
+<!-- --8<-- [start:docker-arm] -->
+```sh
+sudo docker run -d --name audiobookshelf -p 13378:80 -v /mnt/nvme/audiobook:/mnt/nvme/audiobook -v ./audiobooks:/audiobooks -v ./podcasts:/podcasts -v ./metadata:/metadata -v ./config:/config --restart=unless-stopped docker.1panel.top/advplyr/audiobookshelf:latest
+sudo docker stop audiobookshelf
+```
+<!-- --8<-- [end:docker-arm] -->
+
+## [Storyteller](https://gitlab.com/smoores/storyteller) (Cache, noARM)
+
+↪ [Getting started](https://smoores.gitlab.io/storyteller/docs/getting-started/)  
+↪ [Installing the NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
+
+## [LinguaCafe](https://github.com/simjanos-dev/LinguaCafe) (Cache, noARM)
+
+<!-- --8<-- [start:docker-arm] -->
+```sh
+mkdir -p ~/Documents/docker-linguacafe
+cd ~/Documents/docker-linguacafe
+wget https://raw.githubusercontent.com/simjanos-dev/LinguaCafe/refs/heads/main/docker-compose.yml
+sudo docker compose up -d
+```
+<!-- --8<-- [end:docker-arm] -->
+
+## [dir2opds](https://github.com/dubyte/dir2opds)
+
+```sh
+mkdir dir2opds
+cd dir2opds
+wget https://github.com/dubyte/dir2opds/releases/download/v1.2.0/dir2opds_1.2.0_linux_arm64.tar.gz
+tar xvf dir2opds_1.2.0_linux_arm64.tar.gz
+sudo vim /etc/systemd/system/dir2opds.service
+```
+
+```
+[Unit]
+Description=dir2opds
+Documentation=https://github.com/dubyte/dir2opds
+After=network-online.target
+
+[Service]
+User=root
+Group=root
+Restart=on-failure
+ExecStart=/home/<username>/dir2opds/dir2opds -dir /mnt/nvme/audioebook -port 8080
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```sh
+sudo systemctl enable --now dir2opds.service
 ```
 
 ## [Bukubrow](https://github.com/samhh/bukubrow-webext) (Cache)
@@ -1545,9 +1709,199 @@ sudo systemctl enable --now ntfy
 ↪ [Installing ntfy - Debian/Ubuntu repository](https://docs.ntfy.sh/install/#debianubuntu-repository)
 <!-- --8<-- [end:ubuntu-server-arm-22] -->
 
-## [Paperless-ngx](https://github.com/paperless-ngx/paperless-ngx) (TBD)
+## [Paperless-ngx](https://github.com/paperless-ngx/paperless-ngx)
 
-[Paperless-ngx - Bare Metal Route](https://docs.paperless-ngx.com/setup/#bare_metal)
+<!-- --8<-- [start:docker-arm] -->
+```sh
+mkdir -v ~/paperless-ngx
+wget https://raw.githubusercontent.com/paperless-ngx/paperless-ngx/refs/heads/main/docker/compose/docker-compose.postgres.yml -O docker-compose.yml
+vim docker-compose.yml
+```
+
+```
+    volumes:
+      - /mnt/nvme/paper:/usr/src/paperless/consume
+```
+
+```sh
+wget https://raw.githubusercontent.com/paperless-ngx/paperless-ngx/refs/heads/main/docker/compose/docker-compose.env
+vim docker-compose.env
+```
+
+```
+PAPERLESS_OCR_LANGUAGES=chi-sim chi-sim-vert chi-tra chi-tra-vert
+PAPERLESS_SECRET_KEY=vK9dUZiSkAO7bjv35VCNKTaA6GdyzTrHcP0jjiCi
+```
+
+```sh
+docker compose pull
+sudo docker compose run --rm webserver createsuperuser
+sudo docker compose up -d
+sudo docker compose down
+```
+
+↪ [Docker using the Installation Script](https://docs.paperless-ngx.com/setup/#docker_script)  
+↪ [Paperless-ngx - Bare Metal Route](https://docs.paperless-ngx.com/setup/#bare_metal)
+<!-- --8<-- [end:docker-arm] -->
+
+## [Teable](https://github.com/teableio/teable) (Cache)
+
+<!-- --8<-- [start:docker-arm] -->
+```sh
+mkdir teable
+cd teable
+vim docker-compose.yml
+```
+
+```yaml
+version: '3.9'
+
+services:
+  teable:
+    image: ghcr.io/teableio/teable:latest
+    restart: always
+    ports:
+      - '3000:3000'
+    volumes:
+      - teable-data:/app/.assets:rw
+    env_file:
+      - .env
+    environment:
+      - NEXT_ENV_IMAGES_ALL_REMOTE=true
+    networks:
+      - teable
+    depends_on:
+      teable-db-migrate:
+        condition: service_completed_successfully
+      teable-cache:
+        condition: service_healthy
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost:3000/health']
+      start_period: 5s
+      interval: 5s
+      timeout: 3s
+      retries: 3
+
+  teable-db:
+    image: postgres:15.4
+    restart: always
+    ports:
+      - '42345:5432'
+    volumes:
+      - teable-db:/var/lib/postgresql/data:rw
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    networks:
+      - teable
+    healthcheck:
+      test: ['CMD-SHELL', "sh -c 'pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}'"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+  teable-db-migrate:
+    image: ghcr.io/teableio/teable-db-migrate:latest
+    environment:
+      - PRISMA_DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
+    networks:
+      - teable
+    depends_on:
+      teable-db:
+        condition: service_healthy
+
+  teable-cache:
+    image: redis:7.2.4
+    restart: always
+    expose:
+      - '6379'
+    volumes:
+      - teable-cache:/data:rw
+    networks:
+      - teable
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD}
+    healthcheck:
+      test: ['CMD', 'redis-cli', '--raw', 'incr', 'ping']
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+networks:
+  teable:
+    name: teable-network
+
+volumes:
+  teable-db: {}
+  teable-data: {}
+  teable-cache: {}
+```
+
+```sh
+vim .env
+```
+
+```yaml
+# replace the default password
+POSTGRES_PASSWORD=replace_this_password
+REDIS_PASSWORD=replace_this_password
+SECRET_KEY=replace_this_secret_key
+
+# replace the following with a publicly accessible address
+PUBLIC_ORIGIN=http://127.0.0.1:3000
+
+# ---------------------
+
+# Postgres
+POSTGRES_HOST=teable-db
+POSTGRES_PORT=5432
+POSTGRES_DB=teable
+POSTGRES_USER=teable
+
+# Redis
+REDIS_HOST=teable-cache
+REDIS_PORT=6379
+REDIS_DB=0
+
+# App
+PRISMA_DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
+BACKEND_CACHE_PROVIDER=redis
+BACKEND_CACHE_REDIS_URI=redis://default:${REDIS_PASSWORD}@${REDIS_HOST}:${REDIS_PORT}/${REDIS_DB}
+```
+
+```sh
+sudo docker-compose pull
+sudo docker compose up -d
+sudo docker compose stop
+```
+
+↪ [CORS error after Dockerizing? How to fix?](https://www.reddit.com/r/docker/comments/yk0x2l/cors_error_after_dockerizing_how_to_fix/)
+<!-- --8<-- [end:docker-arm] -->
+
+## [beaverhabits](https://github.com/daya0576/beaverhabits)
+
+<!-- --8<-- [start:docker-arm] -->
+```sh
+mkdir beaverhabits
+```
+
+```sh
+docker run -d --name beaverhabits \
+  -e FIRST_DAY_OF_WEEK=0 \
+  -e HABITS_STORAGE=USER_DISK \
+  -e MAX_USER_COUNT=1 \
+  -v ./beaverhabits:/app/.user/ \
+  -p 8080:8080 \
+  --restart unless-stopped \
+  daya0576/beaverhabits:latest
+```
+<!-- --8<-- [end:docker-arm] -->
+
+## [Sabnzbd](https://github.com/linuxserver/docker-sabnzbd) (Cache)
+
+## [Windows](https://github.com/dockur/windows) (Cache)
+
+## [OSX](https://github.com/dockur/macos) (Cache)
 
 <!--
 ## [Teable](https://github.com/teableio/teable)

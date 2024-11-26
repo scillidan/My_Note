@@ -359,6 +359,10 @@ My Books → `The Black Cat` → ButtonOfPlayAudio
 
 ↪ [Audio Ebook ID Inserter](https://github.com/Audun97/audio-ebook-id-inserter)
 
+## syncabook-like (TBD)
+
+↪ [Package aeneas - language](https://www.readbeyond.it/aeneas/docs/language.html)
+
 ## [Av1an](https://github.com/master-of-zen/Av1an)
 
 Install `vapoursynth`, `vmaf`.

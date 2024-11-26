@@ -95,6 +95,15 @@ C-Drag        | Table range select and copy
 C-S-f         | find+
 ```
 
+## sreadium
+
+```
+m   | Pause
+y   | Previous audio phrase
+u   | Next audio phrase
+Spc | Enable touch-to-play
+```
+
 ## Directory Opus
 
 ```
