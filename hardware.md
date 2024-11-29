@@ -488,6 +488,10 @@ System Menu → RetroPie Setup → Manage packages → Manage experimental packa
 
 ↪ [Printing Hextraction for my kids](https://www.jonashietala.se/blog/2024/02/09/printing_hextraction_for_my_kids/)
 
+## Printer
+
+↪ [终于可以在 Linux 下愉快打印了：Linux 发行版配置打印机攻略](https://sspai.com/post/90194)
+
 ## [postmarketOS](https://postmarketos.org/) (Cache)
 
 1. Windows 10 → 计算机管理 → 系统工具 → 设备管理器 → 便携设备 → ONEPLUS A5010

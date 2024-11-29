@@ -71,7 +71,7 @@ readium-js-viewer            | https://scillidan.github.io/readium-js-viewer
 recoded                      | https://gm-recoded.vercel.app
 reminiflux                   | https://gm-reminiflux.vercel.app
 sketch-to-lineart            | https://gm-sketch-to-lineart.vercel.app
-sreadium                     | https://gm-sreadium.vercel.app
+sreadium                     | https://gm-sreadium.vercel.app/?epubs=https%3A%2F%2Fgm-media-audioebook.vercel.app%2Fepub_library.opds
 visionmagic                  | https://gm-visionmagic.vercel.app
 webvm                        | https://scillidan.github.io/webvm
 woah!                        | https://gm-woah.vercel.app

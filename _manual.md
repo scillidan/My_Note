@@ -409,7 +409,12 @@ Filtering `Unread only`
 Search `Show hidden articles`
 ```
 
-## [LaTeX](https://www.latex-project.org/) (TBD)
+## [LaTeX](https://www.latex-project.org/)
+
+↪ [Learn LaTeX in 30 minutes](https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes)  
+↪ [Choosing a LaTeX Compiler](https://www.overleaf.com/learn/latex/Choosing_a_LaTeX_Compiler)  
+↪ [Paragraphs and new lines](https://www.overleaf.com/learn/latex/Paragraphs_and_new_lines)  
+↪ [Bold, italics and underlining](https://www.overleaf.com/learn/latex/Bold%2C_italics_and_underlining)  
 
 ↪ [LaTeX for tabletop](https://vladar.bearblog.dev/latex-for-tabletop/)  
 ↪ [LaTeX images](https://vladar.bearblog.dev/latex-images/)  
@@ -454,3 +459,23 @@ Build Android:
   5. 重启`renpy.exe` → Andriod → Build Package
 3. 如果在gradle相关的步骤提示`需要下载gradle`，这可能是个bug。可以把`gradle-8.5-bin.zip`放进`C:\Users\User\.gradle\wrapper\dists\gradle-8.5-bin\<一串字符>\`下。重启renpy.exe，再试一次
 4. 如果出现未知错误，可尝试关闭梯子。重启renpy.exe再试
+
+## KOReader
+
+Search → OPDS catalog → Add:
+
+```
+Catalog name `dir2opds`
+Catalog URL `<host>:8080`
+```
+
+dir2opds → <epub> → Download → Read now
+
+## Readium
+
+Catalogs → Add:
+
+```
+Title `dir2opds`
+Enter `<host>:8080`
+```

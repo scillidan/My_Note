@@ -73,6 +73,10 @@ chezmoi init --apply https://github.com/<user>/dotfiles.git
 
 ↪ [Dotfiles with Chezmoi](https://blog.lazkani.io/posts/dotfiles-with-chezmoi/)
 
+## [Ansible](https://www.ansible.com/)
+
+↪ [使用 Ansible 管理 Linux 系统的配置文件](https://sspai.com/post/91932)
+
 ## [sdcv](https://github.com/Dushistov/sdcv)
 
 ```sh

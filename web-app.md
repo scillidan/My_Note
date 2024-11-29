@@ -917,7 +917,7 @@ Visit `localhost:5000`.
 
 ## [sreadium](https://github.com/suisuyy/sreadium)
 
-![](https://img.shields.io/github/license/suisuyy/sreadium?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/sreadium/main?label=&style=flat-square)](https://github.com/scillidan/sreadium) ![](https://img.shields.io/badge/Vercel-black?style=flat&logo=Vercel&logoColor=white)
+![](https://img.shields.io/github/license/suisuyy/sreadium?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/sreadium/main?label=&style=flat-square)](https://github.com/scillidan/sreadium) ![](https://img.shields.io/badge/Vercel-black?style=flat&logo=Vercel&logoColor=white) ![](https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white)
 
 Put your books into `epub_content/`
 

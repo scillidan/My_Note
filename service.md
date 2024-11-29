@@ -1644,6 +1644,7 @@ sudo docker compose up -d
 
 ## [dir2opds](https://github.com/dubyte/dir2opds)
 
+<!-- --8<-- [start:ubuntu-server-arm-22] -->
 ```sh
 mkdir dir2opds
 cd dir2opds
@@ -1671,6 +1672,13 @@ WantedBy=multi-user.target
 ```sh
 sudo systemctl enable --now dir2opds.service
 ```
+<!-- --8<-- [end:ubuntu-server-arm-22] -->
+
+## [COPS](https://github.com/seblucas/cops) (Cache)
+
+<!-- --8<-- [start:ubuntu-server-arm-22] -->
+↪ [Here is COPS : Calibre OPDS (and HTML) PHP Server](https://blog.slucas.fr/projects/calibre-opds-php-server/)
+<!-- --8<-- [end:ubuntu-server-arm-22] -->
 
 ## [Bukubrow](https://github.com/samhh/bukubrow-webext) (Cache)
 
@@ -1886,16 +1894,18 @@ mkdir beaverhabits
 ```
 
 ```sh
-docker run -d --name beaverhabits \
+sudo docker run -d --name beaverhabits \
   -e FIRST_DAY_OF_WEEK=0 \
   -e HABITS_STORAGE=USER_DISK \
   -e MAX_USER_COUNT=1 \
   -v ./beaverhabits:/app/.user/ \
-  -p 8080:8080 \
+  -p 8070:8080 \
   --restart unless-stopped \
   daya0576/beaverhabits:latest
 ```
 <!-- --8<-- [end:docker-arm] -->
+
+Beaver Habit Tracker → More → Add ...
 
 ## [Sabnzbd](https://github.com/linuxserver/docker-sabnzbd) (Cache)
 

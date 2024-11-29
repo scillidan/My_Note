@@ -35,6 +35,7 @@ ollama pull starcoder2:3b
 # ollama pull starcoder2:7b
 ollama pull nomic-embed-text
 # ollama pull mxbai-embed-large
+# ollama pull jina/jina-embeddings-v2-base-en
 ollama list
 ```
 
@@ -84,6 +85,13 @@ ollama run tinyllama
 ↪ [Running Ollama on the Raspberry Pi](https://pimylifeup.com/raspberry-pi-ollama)  
 ↪ [Run LLMs Locally on Raspberry Pi Using Ollama AI](https://itsfoss.com/raspberry-pi-ollama-ai-setup/)
 <!-- --8<-- [end:ubuntu-22-arm] -->
+
+Used on local network, Add these into PATH:
+
+- `OLLAMA_HOST=0.0.0.0`
+- `OLLAMA_ORIGINES=*`
+
+↪ [Ollama Connection issues FAQ help](https://github.com/Mintplex-Labs/anything-llm/issues/1640)
 
 ## [LM Studio](https://lmstudio.ai/)
 
@@ -232,28 +240,19 @@ crontab -e
 ↪ [Hitting a Wall Trying to get Ollama to work with LobeChat or any other app (works fine in CLI in the container)](https://www.reddit.com/r/unRAID/comments/1ccxqu6/hitting_a_wall_trying_to_get_ollama_to_work_with/)
 <!-- --8<-- [end:docker-arm] -->
 
-## [Dify](https://github.com/langgenius/dify)
+## [Next.js AI Chatbot](https://github.com/vercel/ai-chatbot) (Cache)
 
-<!-- --8<-- [start:docker-arm] -->
-```sh
-git clone --depth=1 https://github.com/langgenius/dify
-cd dify/docker
-cp .env.example .env
-docker compose up -d
-```
-
-Update:
+Fork it.
 
 ```sh
-cd dify/docker
-docker compose down
-git pull origin main
-docker compose pull
-docker compose up -d
+git clone --depth=1 https://github.com/<user>/ai-chatbot
+cd ai-chatbot
+npm install -g vercel
+vercel link
+vercel env pull
+pnpm install
+pnpm dev
 ```
-
-↪ [Deploy with Docker Compose](https://docs.dify.ai/getting-started/install-self-hosted/docker-compose)
-<!-- --8<-- [end:docker-arm] -->
 
 ## [Khoj](https://github.com/khoj-ai/khoj) (Cache)
 
@@ -337,75 +336,81 @@ pause
 
 ↪ [How to Contribute to Perplexica](https://github.com/ItzCrazyKns/Perplexica/blob/master/CONTRIBUTING.md)
 
-## [Next.js AI Chatbot](https://github.com/vercel/ai-chatbot) (Cache)
+## [Dify](https://github.com/langgenius/dify)
 
-Fork it.
+<!-- --8<-- [start:docker-arm] -->
+```sh
+git clone --depth=1 https://github.com/langgenius/dify
+cd dify/docker
+cp .env.example .env
+docker compose up -d
+```
+
+Update:
 
 ```sh
-git clone --depth=1 https://github.com/<user>/ai-chatbot
-cd ai-chatbot
-npm install -g vercel
-vercel link
-vercel env pull
-pnpm install
-pnpm dev
+cd dify/docker
+docker compose down
+git pull origin main
+docker compose pull
+docker compose up -d
 ```
 
-## [GPT-Subtrans](https://github.com/machinewrapped/gpt-subtrans)
+↪ [Deploy with Docker Compose](https://docs.dify.ai/getting-started/install-self-hosted/docker-compose)
+<!-- --8<-- [end:docker-arm] -->
 
-```sh
-git clone --depth=1 https://github.com/machinewrapped/gpt-subtrans
-python.exe -m venv venv
-venv\Scripts\activate.bat
-pip install -r requirements.txt
-scripts\generate-cmd.bat gui-subtrans
-scripts\generate-cmd.bat llm-subtrans
-```
+1. Dify → <user> → Settings → Model Provider
+2. Ollama → Setup
+    ```
+    Model Name `llama3.1:8b`
+    Base URL `http://<host>:11434`
+    ```
+3. Ollama → Add Model
+    ```
+    Model Type `Text Embedding`
+    Model Name `mxbai-embed-large:latest`
+    Base URL `http://<host>:11434`
+    ```
+    ```
+    Model Type `Text Embedding`
+    Model Name `jina/jina-embeddings-v2-base-en`
+    Base URL `http://<host>:11434`
+    ```
+4. OpenAI → Setup
+    ```
+    API Key `<api_key>`
+    API base `https://api.openai.com`
+    ```
+5. OpenAI → Show Models
+6. Dify → Studio → Chatbot → Create from Blank
+    ```
+    APP icon & name `llama 3.1`
+    ```
+7. Studio → llama 3.1 → `<model>` CHAT → `llama3.1:8b`
+8. Dify → Knowledge → Create Knowledge → Upload files → Save & Process → Go to Documents
+    ```
+    Index mode `Economical`
+    ```
+9. Studio → llama 3.1 → Context → Add → <knowledge>
 
-With GUI:
+↪ [本地部署Dify基于Llama 3.1和OpenAI创建聊天机器人与知识库](https://dify101.com/market/marketing-copy-clone-machine)
 
-```sh
-gui-subtrans
-```
+### More
 
-Settings → Processing:
-
-```
-Preprocess Subtitles (On)
-Postprocess Translation (On)
-Save Preprocessed Subtitles (On)
-```
-
-Open file → Select <Subtitle> → Project Settings → Entry `Movie Name`, `Target Language` → Start
-
-## [ChatGPT API SRT Subtitle Translator](https://github.com/Cerlancism/chatgpt-subtitle-translator)
-
-```sh
-git clone --depth=1 https://github.com/Cerlancism/chatgpt-subtitle-translator
-cd chatgpt-subtitle-translator
-cd web
-npm ci
-npm run build
-npm run dev
-```
-
-Visit `localhost:3000/chatgpt-subtitle-translator`.
-
-## [VideoLingo](https://github.com/Huanshere/VideoLingo) [TBD]
-
-## [Local RAG Chatbot](https://github.com/datvodinh/rag-chatbot)
-
-Install [Ollama](https://ollama.com/), [ngrok](https://ngrok.com/).
-
-```sh
-git clone --depth=1 https://github.com/datvodinh/rag-chatbot
-cd rag-chatbot
-python.exe -m venv venv
-venv\Scripts\activate.bat
-pip install .
-pip install hf_transfer
-python -m rag_chatbot --host localhost & ngrok http 4321
-```
+- [Content Editing](https://dify101.com/market/claude-thinking-Content-Editing)
+- [E-commerce Specialist](https://dify101.com/market/claude-thinking-E-commerce-Specialist)
+- [ai-stemm-writing-supervisor](https://dify101.com/market/ai-stemm-writing-supervisor)
+- [Data Analyst](https://dify101.com/market/claude-thinking-Data-Analyst)
+- [Technical Support](https://dify101.com/market/claude-thinking-Technical-Support)
+- [Translator](https://dify101.com/market/claude-thinking-Translator)
+- [Educator](https://dify101.com/market/claude-thinking-Educator)
+- [Child Psychotherapist](https://dify101.com/market/claude-thinking-Child-Psychotherapist)
+- [Legal Assistant](https://dify101.com/market/claude-thinking-Legal-Assistant)
+- [Insurance Claims Specialist](https://dify101.com/market/claude-thinking-Insurance-Claims-Specialist)
+- [Cross-Platform Copywriting with Dify](https://dify101.com/market/url-to-cross-platform-copywriting-with-dify)
+- [Wordplay](https://dify101.com/market/wordplay)
+- [Claude Prompt: 汉语新解](https://dify101.com/market/hanyuxinjie)
+- [Ancient Script Scholar](https://dify101.com/market/claude-thinking-Ancient-Script-Scholar)
 
 ## [Langflow](https://github.com/langflow-ai/langflow)
 
@@ -422,6 +427,20 @@ make frontend
 ```
 
 ↪ [Contributing to Langflow](https://github.com/langflow-ai/langflow/blob/main/CONTRIBUTING.md)
+
+## [Local RAG Chatbot](https://github.com/datvodinh/rag-chatbot)
+
+Install [Ollama](https://ollama.com/), [ngrok](https://ngrok.com/).
+
+```sh
+git clone --depth=1 https://github.com/datvodinh/rag-chatbot
+cd rag-chatbot
+python.exe -m venv venv
+venv\Scripts\activate.bat
+pip install .
+pip install hf_transfer
+python -m rag_chatbot --host localhost & ngrok http 4321
+```
 
 ## [phidata](https://github.com/phidatahq/phidata) (Cache)
 
@@ -520,9 +539,56 @@ python playground.py
 
 ↪ [Agent UI](https://docs.phidata.com/ui)
 
-## [GraphRAG Local](https://github.com/severian42/GraphRAG-Local-UI) (TBD)
+## [GraphRAG Local](https://github.com/severian42/GraphRAG-Local-UI) (Cache)
 
-## [TinyTroupe](https://github.com/microsoft/TinyTroupe) (TBD)
+## GraphRAG-Scrapy-FastAPI-Chainlit (Cache)
+
+↪ [GraphRAG高级用法:GraphRAG+scrapy爬虫构建GitHub项目智能知识库！AI赋能程序员:FastAPI+Chainlit打造代码助手](https://www.youtube.com/watch?v=CvCVFH7bsAk)  
+↪ [GraphRAG+chainlit实现跨文档智能检索分析](https://blog.stoeng.site/20240704.html)
+
+## [GPT-Subtrans](https://github.com/machinewrapped/gpt-subtrans)
+
+```sh
+git clone --depth=1 https://github.com/machinewrapped/gpt-subtrans
+python.exe -m venv venv
+venv\Scripts\activate.bat
+pip install -r requirements.txt
+scripts\generate-cmd.bat gui-subtrans
+scripts\generate-cmd.bat llm-subtrans
+```
+
+With GUI:
+
+```sh
+gui-subtrans
+```
+
+Settings → Processing:
+
+```
+Preprocess Subtitles (On)
+Postprocess Translation (On)
+Save Preprocessed Subtitles (On)
+```
+
+Open file → Select <Subtitle> → Project Settings → Entry `Movie Name`, `Target Language` → Start
+
+## [ChatGPT API SRT Subtitle Translator](https://github.com/Cerlancism/chatgpt-subtitle-translator)
+
+```sh
+git clone --depth=1 https://github.com/Cerlancism/chatgpt-subtitle-translator
+cd chatgpt-subtitle-translator
+cd web
+npm ci
+npm run build
+npm run dev
+```
+
+Visit `localhost:3000/chatgpt-subtitle-translator`.
+
+## [PDFMathTranslate](https://github.com/Byaidu/PDFMathTranslate) (TBD)
+
+## [TinyTroupe](https://github.com/microsoft/TinyTroupe) (Cache)
 
 ## [Whishper](https://github.com/openai/whisper)
 
