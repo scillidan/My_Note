@@ -15,6 +15,10 @@ And:
   2. Branch → `gh-pages`, `/(root)`
 4. Visit `https://<user>.github.io/qr-designer/`
 
+## [AudioMass](https://github.com/scillidan/AudioMass) (Cache)
+
+![](https://img.shields.io/github/license/pkalogiros/AudioMass?label=&style=flat-square)
+
 ## [WebVM](https://github.com/leaningtech/webvm)
 
 !![](https://img.shields.io/github/license/leaningtech/webvm?label=&style=flat-square) ![](https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white)

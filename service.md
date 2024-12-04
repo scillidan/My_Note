@@ -161,6 +161,18 @@ Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
 
 ↪ [USTC Mirror Help - Ubuntu Ports](https://mirrors.ustc.edu.cn/help/ubuntu-ports.html)
 
+## [curl](https://curl.se/) (Optional)
+
+```sh
+dpkg -l | grep libcurl4t64
+sudo apt-get remove --purge libcurl4t64
+sudo apt-get update
+sudo apt-get install libcurl4t64
+dpkg --get-selections | grep hold
+sudo apt-get install -f
+sudo apt-get autoremove
+```
+
 ## NVMe
 
 ```sh
@@ -347,6 +359,13 @@ sudo mount
 ↪ [nemo SMB not working](https://www.linuxquestions.org/questions/linux-networking-3/nemo-smb-not-working-4175717802/)  
 ↪ [Cinnamon Nemo File Manager not open Network shares](https://forum.endeavouros.com/t/cinnamon-nemo-file-manager-not-open-network-shares/12404)
 <!-- --8<-- [end:arch-linux] -->
+
+<!-- --8<-- [start:ubuntu-server-arm-24] -->
+```sh
+sudo apt install aptitude
+sudo aptitude install samba
+```
+<!-- --8<-- [end:ubuntu-server-arm-24] -->
 
 ## VNC
 
@@ -544,7 +563,6 @@ sudo docker compose stop
 ```
 
 ↪ [Docker Hub - Quickstart](https://docs.docker.com/docker-hub/quickstart/)
-
 <!-- --8<-- [end:ubuntu-server-arm-24] -->
 
 ## [Podman](https://podman.io/)
@@ -1908,6 +1926,15 @@ sudo docker run -d --name beaverhabits \
 Beaver Habit Tracker → More → Add ...
 
 ## [Sabnzbd](https://github.com/linuxserver/docker-sabnzbd) (Cache)
+
+## [CasaOS](https://github.com/IceWhaleTech/CasaOS)
+
+```sh
+wget -qO- https://get.casaos.io | sudo bash
+sudo ufw allow 80
+```
+
+↪ [[Bug] WebUI not reachable, service is running](https://github.com/IceWhaleTech/CasaOS/issues/1497)
 
 ## [Windows](https://github.com/dockur/windows) (Cache)
 

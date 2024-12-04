@@ -412,21 +412,17 @@ docker compose up -d
 - [Claude Prompt: 汉语新解](https://dify101.com/market/hanyuxinjie)
 - [Ancient Script Scholar](https://dify101.com/market/claude-thinking-Ancient-Script-Scholar)
 
-## [Langflow](https://github.com/langflow-ai/langflow)
+## [Langflow](https://github.com/langflow-ai/langflow) (Cache, noARM)
 
 ```sh
-git clone --depth=1 https://github.com/langflow-ai/langflow
+mkdir langflow
 cd langflow
-make backend
+python.exe -m venv venv
+venv\Scripts\activate.bat
+pip install langflow
 ```
 
-And:
-
-```sh
-make frontend
-```
-
-↪ [Contributing to Langflow](https://github.com/langflow-ai/langflow/blob/main/CONTRIBUTING.md)
+↪ [Install Langflow](https://docs.langflow.org/get-started-installation)
 
 ## [Local RAG Chatbot](https://github.com/datvodinh/rag-chatbot)
 
@@ -1380,6 +1376,8 @@ os.environ["USE_TORCH"] = "1"
 ```sh
 streamlit run demo/app.py
 ```
+
+## [DocETL](https://github.com/ucbepic/docetl) (TBD)
 
 <!-- 
 https://github.com/lamm-mit/PDF2Audio

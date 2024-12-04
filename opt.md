@@ -13,7 +13,7 @@
 
 ## [SmartZip](https://github.com/vvyoko/SmartZip)
 
-1. Download `SmartZip*.zip` from releases of [Releases](https://github.com/vvyoko/SmartZip/releases).
+1. Download `SmartZip*.zip` from [SmartZip - Releases](https://github.com/vvyoko/SmartZip/releases).
 2. Decompress it to `SmartZip\`.
 
 Create from `light.ico` form `dark.ico`:
@@ -198,8 +198,54 @@ Install `WinSSHTerm`. Start, to install [PuTTY](https://www.putty.org/), [WinSCP
 
 ## [StaxRip](https://github.com/staxrip/staxrip)
 
-↪ [x265-encoding-tutorial](https://staxrip.github.io/x265-encoding-tutorial/)  
-↪ [StaxRip烧录硬字幕踩坑记录](https://sspai.com/post/88056)
+Get `StaxRip-v2.42.0-x64.7z` from [StaxRip - Releases](https://github.com/staxrip/staxrip/releases).
+
+<!--
+- Tools → Settings → Danger Zone → Allow using tools with unknown version (On)
+- Get `Windows x86 / x64 - 7-Zip Extra` from [7zip - Download](https://www.7-zip.org/download.html).
+- Get `autocrop_3-14-2010.rar` from [AviSynth+ x64 plugins](http://avisynth.nl/index.php/AviSynth%2B_x64_plugins).
+- Get `avs2pipemod-*.zip` from [avs2pipemod - Releases](https://github.com/chikuzen/avs2pipemod/releases).
+- Get `AVSMeter*.7z` from [Groucho's Avisynth Stuff](https://www.mediafire.com/folder/x6f7yqjufdg7c/Groucho%27s_Avisynth_Stuff).
+- Get `AviSynthPlus_*.exe` from [AviSynth+ - Releases](https://github.com/AviSynth/AviSynthPlus/releases), then install it.
+- Get `bdsup2sub._x64.zip` from [BDSup2Sub++ - Releases](https://github.com/amichaeltm/BDSup2SubPlusPlus/releases).
+- Get `ffmpeg-n*-latest-win64-gpl-shared-*.zip` from [FFmpeg Static Auto-Builds](https://github.com/BtbN/FFmpeg-Builds).
+- Get `Windows - 64bit - GUI - * Universal` form [MediaInfo - Download](https://mediaarea.net/en/MediaInfo/Download/Windows).
+- Get `MKVToolNix * Windows 64-bit` from [MKVToolNix](https://www.videohelp.com/software/MKVToolNix).
+- Get `NVEncC_*_x64.7z` from [NVEnc - Releases](https://github.com/rigaya/NVEnc/releases).
+- Get `opus-tools-0.2-opus-*.zip` from [Opus downloads](https://opus-codec.org/downloads/).
+- Get `apngopt-*-bin-win32.zip` from [APNG Files](https://sourceforge.net/projects/apng/files/APNG_Optimizer/).
+- Get `rav1e.exe` from [rav1e - Releases](https://github.com/xiph/rav1e/releases).
+- Get `SubtitleEditBeta.zip` from [Subtitle Edit - Releases](https://github.com/SubtitleEdit/subtitleedit/releases).
+- Get `VapourSynth64-Portable-R65.zip` from [vapoursynth - Releases](https://github.com/vapoursynth/vapoursynth/releases).
+- ...
+- Decompress them.
+- Go StaxRip → Apps → Manage:
+    ```
+    7zip           , C:\Users\User\Bin\7z-extra\7za.exe
+    AutoCrop       , C:\Users\User\Bin\autocrop\autocrop.dll
+    avs2pipemod    , C:\Users\User\Bin\avs2pipemod\avs2pipemod.exe
+    AVSMeter       , C:\Users\User\Bin\AVSMeter\AVSMeter.exe
+    BDSup2Sub++    , C:\Users\User\Opt\BDSup2Sub++\bdsup2sub++.exe
+    ffmpeg         , C:\Users\User\Lib\ffmpeg-gpl-shared\bin\ffmpeg.exe
+    MediaInfo      , C:\Users\User\Opt\MediaInfo_GUI\MeidaInfo.dll
+    mkvextract     , C:\Users\User\Opt\mkvtoolnix\mkvextract.exe
+    mkvinfo        , C:\Users\User\Opt\mkvtoolnix\mkvinfo.exe
+    mkvmerge       , C:\Users\User\Opt\mkvtoolnix\mkvmerge.exe
+    MKVToolnix GUI , C:\Users\User\Opt\mkvtoolnix\mkvtoolnix-gui.exe
+    NVEncC         , C:\Users\User\Bin\NVEncC\NVEncC64.exe
+    OpusDec        , C:\Users\User\Bin\opus-tools\opusdec.exe
+    OpusEnc        , C:\Users\User\Bin\opus-tools\opusenc.exe
+    PNGopt         , C:\Users\User\Bin\apngopt\apngopt.exe
+    rav1e          , C:\Users\User\Bin\rav1e\rav1e.exe
+    Subtitle Edit  , C:\Users\User\Opt\SubtitleEditBeta\SubtitleEdit.exe
+    VapourSynth    , C:\Users\User\Bin\VapourSynth64\VapourSynth.dll
+    Python         , C:\Users\User\.pyenv\pyenv-win\versions\3.12.0\python.exe
+    ...
+    ```
+-->
+
+↪ [StaxRip烧录硬字幕踩坑记录](https://sspai.com/post/88056)  
+↪ [x265-encoding-tutorial](https://staxrip.github.io/x265-encoding-tutorial/)
 
 ## [Subtitle Edit](https://github.com/SubtitleEdit/subtitleedit)
 
