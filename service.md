@@ -554,12 +554,17 @@ sudo docker run -p 8080:80 --rm nginx
 sudo ufw allow 8080
 sudo run -d -v /mnt/nvme:/mnt/nvme <docker_image>
 sudo docker ps
-sudo docker stop <container_id>
+sudo docker stop <container_id/name>
+sudo docker volume ls
+sudo docker volume <volume_name>
 ```
 
 ```sh
 sudo docker compose up -d
 sudo docker compose stop
+```
+
+```sh
 ```
 
 ↪ [Docker Hub - Quickstart](https://docs.docker.com/docker-hub/quickstart/)
@@ -1925,7 +1930,44 @@ sudo docker run -d --name beaverhabits \
 
 Beaver Habit Tracker → More → Add ...
 
-## [Sabnzbd](https://github.com/linuxserver/docker-sabnzbd) (Cache)
+## [ttyd](https://github.com/tsl0922/ttyd)
+
+<!-- --8<-- [start:ubuntu-server-arm-22] -->
+```sh
+sudo apt-get update
+sudo apt-get install -y build-essential cmake git libjson-c-dev libwebsockets-dev
+git clone --depth=1 https://github.com/tsl0922/ttyd
+cd ttyd && mkdir build && cd build
+cmake ..
+make && sudo make install
+```
+
+```sh
+sudo vim /etc/systemd/system/ttyd.service
+```
+
+```
+[Unit]
+Description=ttyd service
+After=network.target
+
+[Service]
+Type=simple
+User=scillidan
+Group=scillidan
+ExecStart=/usr/local/bin/ttyd --cwd /home/scillidan --writable zsh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```sh
+sudo systemctl enable --now ttyd
+```
+
+↪ [ttyd - Basic Usage](https://github.com/tsl0922/ttyd/wiki/Example-Usage)
+<!-- --8<-- [end:ubuntu-server-arm-22] -->
 
 ## [CasaOS](https://github.com/IceWhaleTech/CasaOS)
 
@@ -1933,6 +1975,21 @@ Beaver Habit Tracker → More → Add ...
 wget -qO- https://get.casaos.io | sudo bash
 sudo ufw allow 80
 ```
+
+### [ttydBridge](https://github.com/Cp0204/ttydBridge) (Cache)
+
+```sh
+sudo docker run -d \
+  --name ttdybridge \
+  -e PORT=2222 \
+  -v /opt:/opt \
+  --pid host \
+  --privileged \
+  --restart unless-stopped \
+  cp0204/ttdybridge:latest
+```
+
+### [Sabnzbd](https://github.com/linuxserver/docker-sabnzbd) (Cache)
 
 ↪ [[Bug] WebUI not reachable, service is running](https://github.com/IceWhaleTech/CasaOS/issues/1497)
 
