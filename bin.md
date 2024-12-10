@@ -21,12 +21,33 @@ git push --force origin <branch>
 
 ## [chezmoi](https://www.chezmoi.io)
 
+<!-- --8<-- [start:termux] -->
 ```sh
 pkg install chezmoi
 ```
+<!-- --8<-- [end:termux] -->
+
+<!-- --8<-- [start:ubuntu-server-arm-22] -->
+Get `chezmoi_*_linux_arm64.deb` from [chezmoi - Releases](https://github.com/twpayne/chezmoi).
+
+```sh
+sudo apt install chezmoi_*_linux_arm64.deb
+```
+
+<!-- --8<-- [end:ubuntu-server-arm-22] -->
 
 ```sh
 chezmoi init
+vim ~/.local/share/chezmoi/.chezmoiignore
+```
+
+```
+**/zjframes.wasm # Example
+```
+
+↪ [Chezmoi: ignore files and subdirectories](https://stackoverflow.com/questions/75519055/chezmoi-ignore-files-and-subdirectories)
+
+```sh
 chezmoi add <files>
 chezmoi diff
 chezmoi apply -v
@@ -73,6 +94,27 @@ chezmoi init --apply https://github.com/<user>/dotfiles.git
 
 ↪ [Dotfiles with Chezmoi](https://blog.lazkani.io/posts/dotfiles-with-chezmoi/)
 
+## [Dolt](https://www.dolthub.com/) (Cache)
+
+1. Get `dolt-windows-amd64.zip` from [Dolt - Releases](https://github.com/dolthub/dolt/releases).
+2. Decompress it to `dolt\`.
+
+<!-- --8<-- [start:ubuntu-server-arm-22] -->
+Get `dolt-linux-arm64.tar.gz` from [Dolt - Releases](https://github.com/dolthub/dolt/releases).
+
+```sh
+tar -xzvf dolt-linux-arm64.tar.gz
+chmod +x dolt-linux-arm64/bin/dolt
+ln -s ~/dolt-linux-arm64/bin/dolt ~/.local/bin/dolt
+```
+<!-- --8<-- [end:ubuntu-server-arm-22] -->
+
+```sh
+dolt config --global --add user.email "you@example.com"
+dolt config --global --add user.name "your_name"
+dolt init
+```
+
 ## [Ansible](https://www.ansible.com/)
 
 ↪ [使用 Ansible 管理 Linux 系统的配置文件](https://sspai.com/post/91932)
@@ -80,6 +122,7 @@ chezmoi init --apply https://github.com/<user>/dotfiles.git
 ## [sdcv](https://github.com/Dushistov/sdcv)
 
 ```sh
+sudo apt install sdcv
 pkg install sdcv
 ```
 
@@ -118,7 +161,7 @@ If it fails, run again.
 
 ## [dict-ecdict](https://github.com/tuberry/dict-ecdict)
 
-<!-- --8<-- [start:ubuntu-server-arm] -->
+<!-- --8<-- [start:ubuntu-server-arm-22] -->
 ```sh
 sudo apt install unzip p7zip-full dictfmt dictzip python-is-python3
 git clone --depth=1 --single-branch -b master https://github.com/tuberry/dict-ecdict
@@ -143,7 +186,7 @@ sudo systemctl restart dictd.service
 ```
 
 ↪ [How can I uncompress a \*.7z file?](https://askubuntu.com/questions/219392/how-can-i-uncompress-a-7z-file)
-<!-- --8<-- [end:ubuntu-server-arm] -->
+<!-- --8<-- [end:ubuntu-server-arm-22] -->
 
 ## [dict-wrapper](https://github.com/dekerser/dict-wrapper)
 
@@ -182,17 +225,8 @@ pyglossary <mdict.txt> <dictionary.index> --write-options=dictzip=true
 
 ```sh
 pacman -S newsboat
+sudo apt install newsboat
 pkg install newsboat
-```
-
-```sh
-vim ~/.newsboat/urls
-```
-
-```
-<Url1>
-<Url2>
-...
 ```
 
 ```sh
@@ -202,7 +236,7 @@ vim ~/.config/newsboat/config
 
 ```sh
 include /usr/share/doc/newsboat/contrib/colorschemes/plain
-include /data/data/com.termux/files/usr/share/doc/newsboat/contrib/colorschemes/plain
+# include /data/data/com.termux/files/usr/share/doc/newsboat/contrib/colorschemes/plain
 ```
 
 ```sh
@@ -211,7 +245,6 @@ vim ~/.config/newsboat/urls
 
 ```
 https://hnrss.org/newest
-...
 ```
 
 ```sh
@@ -223,6 +256,7 @@ newsboat
 ## [cmus](https://cmus.github.io/)
 
 ```sh
+sudo apt install cmus
 pkg install cmus
 ```
 
@@ -246,12 +280,19 @@ mklink /J `C:/Users/<User>/.cache/tldr/pages.en` `C:/Users/<User>/AppData/Roamin
 
 ## [broot](https://dystroy.org/broot)
 
+Get `aarch64-unknown-linux-gnu` from [Install broot - Precompiled binaries](https://dystroy.org/broot/install/).
+
+```sh
+cp broot ~/.local/bin
+```
+
 ↪ [edit a text file](https://dystroy.org/broot/file-operations/#edit-a-text-file)  
 ↪ [Launching movie playback via "am start"](https://stackoverflow.com/questions/8207548/launching-movie-playback-via-am-start)
 
 ## [asciinema](https://github.com/asciinema/asciinema)
 
 ```sh
+sudo apt install asciinema
 pkg install asciinema
 ```
 
@@ -438,3 +479,9 @@ starfetch.exe -l
 
 1. Get `ffmpeg-master-latest-win64-gpl-shared.zip` from [FFmpeg Static Auto-Builds - Releases](https://github.com/BtbN/FFmpeg-Builds/releases).
 2. Add `ffmpeg-gpl-shared\bin` into PATH.
+
+## [ShellGPT](https://github.com/TheR1D/shell_gpt) (Cache)
+
+```sh
+pip install shell-gpt
+```

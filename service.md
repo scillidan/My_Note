@@ -597,6 +597,26 @@ pip3 install podman-compose
 
 ↪ [Starting Containers with systemd](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_atomic_host/7/html/managing_containers/running_containers_as_systemd_services_with_podman#starting_containers_with_systemd)
 
+## [postgresql](https://www.postgresql.org/)
+
+```sh
+sudo apt install postgresql
+sudo systemctl enable --now postgresql
+sudo systemctl status postgresql
+sudo vim /etc/postgresql/17/main/postgresql.conf
+```
+
+```
+listen_addresses = '0.0.0.0'
+```
+
+```sh
+sudo systemctl restart postgresql
+sudo su postgres
+```
+
+↪ [Install and configure PostgreSQL](https://ubuntu.com/server/docs/install-and-configure-postgresql)
+
 ## qbittorrent-nox
 
 ```sh
@@ -1350,6 +1370,17 @@ Backup data:
 pg_dump -U miniflux -h 127.0.0.1 -p 5432 -F t miniflux > miniflux.tar
 ```
 
+If clear `postgresql-16`:
+
+```sh
+sudo systemctl stop postgresql
+sudo systemctl disable postgresql
+pg_lsclusters
+sudo systemctl stop postgresql@16-main
+sudo pg_dropcluster 16 main --stop
+sudo apt-get remove --purge postgresql-16
+```
+
 ## [linkding](https://github.com/sissbruecker/linkding)
 
 <!-- --8<-- [start:windows10] -->
@@ -1892,7 +1923,7 @@ POSTGRES_USER=teable
 # Redis
 REDIS_HOST=teable-cache
 REDIS_PORT=6379
-REDIS_DB=0
+REDIS_DB=05
 
 # App
 PRISMA_DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
@@ -1909,7 +1940,40 @@ sudo docker compose stop
 ↪ [CORS error after Dockerizing? How to fix?](https://www.reddit.com/r/docker/comments/yk0x2l/cors_error_after_dockerizing_how_to_fix/)
 <!-- --8<-- [end:docker-arm] -->
 
-## [beaverhabits](https://github.com/daya0576/beaverhabits)
+## [NocoDB](https://nocodb.com/)
+
+```sh
+bash <(curl -sSL http://install.nocodb.com/noco.sh) <(mktemp)
+```
+
+```
+Enter the IP address or ... `<host>`
+Show Advanced Options `Y`
+Enter the MinIO domain name `Y`
+Service Management Menu `Stop Service`
+```
+
+```sh
+cd nocodb
+vim docker.env
+```
+
+```
+NC_S3_REGION=cn-north-1
+```
+
+```sh
+bash <(curl -sSL http://install.nocodb.com/noco.sh) <(mktemp)
+```
+
+```
+Do you want to reinstall NocoDB `N`
+Service Management Menu `Start Service`
+```
+
+↪ [Self Hosting - Auto-Upstall](https://docs.nocodb.com/getting-started/self-hosted/installation/auto-upstall)
+
+## [beaverhabits](https://github.com/daya0576/beaverhabits) (Cache)
 
 <!-- --8<-- [start:docker-arm] -->
 ```sh
@@ -1930,7 +1994,7 @@ sudo docker run -d --name beaverhabits \
 
 Beaver Habit Tracker → More → Add ...
 
-## [ttyd](https://github.com/tsl0922/ttyd)
+## [ttyd](https://github.com/tsl0922/ttyd) (Cache)
 
 <!-- --8<-- [start:ubuntu-server-arm-22] -->
 ```sh
@@ -1969,11 +2033,132 @@ sudo systemctl enable --now ttyd
 ↪ [ttyd - Basic Usage](https://github.com/tsl0922/ttyd/wiki/Example-Usage)
 <!-- --8<-- [end:ubuntu-server-arm-22] -->
 
+## [n8n](https://n8n.io/)
+
+<!-- --8<-- [start:docker-arm] -->
+```sh
+mkdir n8n-docker
+cd n8n-docker
+vim docker-compose.yml
+```
+
+Refer to [here](https://docs.n8n.io/hosting/installation/server-setups/docker-compose/#5-create-docker-compose-file):
+
+```
+version: "3.7"
+
+services:
+  traefik:
+    image: "traefik"
+    restart: always
+    command:
+      - "--api=true"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:8070"
+      - "--entrypoints.web.http.redirections.entryPoint.to=websecure"
+      - "--entrypoints.web.http.redirections.entrypoint.scheme=https"
+      - "--entrypoints.websecure.address=:453"
+      - "--certificatesresolvers.mytlschallenge.acme.tlschallenge=true"
+      - "--certificatesresolvers.mytlschallenge.acme.email=${SSL_EMAIL}"
+      - "--certificatesresolvers.mytlschallenge.acme.storage=/letsencrypt/acme.json"
+    ports:
+      - "8070:8070"
+      - "453:453"
+    volumes:
+      - traefik_data:/letsencrypt
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+  n8n:
+    image: docker.1panel.top/n8nio/n8n
+    restart: always
+    ports:
+      - "127.0.0.1:5678:5678"
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.n8n.rule=Host(`${SUBDOMAIN}.${DOMAIN_NAME}`)
+      - traefik.http.routers.n8n.tls=true
+      - traefik.http.routers.n8n.entrypoints=web,websecure
+      - traefik.http.routers.n8n.tls.certresolver=mytlschallenge
+      - traefik.http.middlewares.n8n.headers.SSLRedirect=true
+      - traefik.http.middlewares.n8n.headers.STSSeconds=315360000
+      - traefik.http.middlewares.n8n.headers.browserXSSFilter=true
+      - traefik.http.middlewares.n8n.headers.contentTypeNosniff=true
+      - traefik.http.middlewares.n8n.headers.forceSTSHeader=true
+      - traefik.http.middlewares.n8n.headers.SSLHost=${DOMAIN_NAME}
+      - traefik.http.middlewares.n8n.headers.STSIncludeSubdomains=true
+      - traefik.http.middlewares.n8n.headers.STSPreload=true
+      - traefik.http.routers.n8n.middlewares=n8n@docker
+    environment:
+      - N8N_HOST=${SUBDOMAIN}.${DOMAIN_NAME}
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=https
+      - N8N_SECURE_COOKIE=false
+      - NODE_ENV=production
+      - WEBHOOK_URL=https://${SUBDOMAIN}.${DOMAIN_NAME}/
+      - GENERIC_TIMEZONE=${GENERIC_TIMEZONE}
+    volumes:
+      - /mnt/nvme/share/n8n:/files
+      - n8n_data:/home/node/.n8n
+
+volumes:
+  traefik_data:
+    external: true
+  n8n_data:
+    external: true
+```
+
+```sh
+vim .env
+```
+
+```
+GENERIC_TIMEZONE=Asia/Shanghai
+```
+
+```sh
+sudo docker volume create n8n_data
+sudo docker volume create traefik_data
+sudo docker compose up -d
+```
+
+↪ [Server setups - Docker-Compose](https://docs.n8n.io/hosting/installation/server-setups/docker-compose/)
+<!-- --8<-- [end:docker-arm] -->
+
+## [Gitea](https://about.gitea.com/)
+
+## [immich](https://immich.app/)
+
+<!-- --8<-- [start:ubuntu-server-arm-22] -->
+```sh
+mkdir ./immich-app
+cd ./immich-app
+wget -O docker-compose.yml https://github.com/immich-app/immich/releases/latest/download/docker-compose.yml
+wget -O .env https://github.com/immich-app/immich/releases/latest/download/example.env
+sudo docker compose up -d
+```
+
+Upgrade:
+
+```sh
+docker compose pull && sudo docker compose up -d
+```
+
+↪ [Docker Compose [Recommended]](https://immich.app/docs/install/docker-compose)
+<!-- --8<-- [end:ubuntu-server-arm-22] -->
+
 ## [CasaOS](https://github.com/IceWhaleTech/CasaOS)
 
 ```sh
 wget -qO- https://get.casaos.io | sudo bash
 sudo ufw allow 80
+```
+
+Uninstall:
+
+```sh
+sudo casaos-uninstall
 ```
 
 ### [ttydBridge](https://github.com/Cp0204/ttydBridge) (Cache)
@@ -1998,7 +2183,6 @@ sudo docker run -d \
 ## [OSX](https://github.com/dockur/macos) (Cache)
 
 <!--
-## [Teable](https://github.com/teableio/teable)
 ## [Plane](https://github.com/makeplane/plane)
 ## [Maybe](https://github.com/maybe-finance/maybe)
 ## [Mpv Shelf](https://github.com/aramrw/mpv-shelf)

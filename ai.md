@@ -1,7 +1,7 @@
 ## Requirement
 
 1. Install `python 3.10` from [Python Releases for Windows](https://www.python.org/downloads/windows/). I test on `3.10.11`.
-2. Install `CUDA` from [CUDA Toolkit - Downloads](https://developer.nvidia.com/cuda-downloads)`. I used `CUDA 12.1.0`.
+2. Install `CUDA` from [CUDA Toolkit - Downloads](https://developer.nvidia.com/cuda-downloads). I used `CUDA 12.1.0`.
 3. Check [PyTorch - Start Locally](https://pytorch.org/get-started/locally/).
 
 Check it:
@@ -28,6 +28,13 @@ git pull
 ```
 
 ## [Ollama](https://ollama.com/)
+
+<!-- --8<-- [start:termux] -->
+```sh
+pkg install ollama
+ollama pull tinyllama
+```
+<!-- --8<-- [end:termux] -->
 
 ```sh
 ollama pull codellama 

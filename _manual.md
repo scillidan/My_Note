@@ -411,7 +411,6 @@ Search `Show hidden articles`
 
 ## [LaTeX](https://www.latex-project.org/)
 
-↪ [Learn LaTeX in 30 minutes](https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes)  
 ↪ [Choosing a LaTeX Compiler](https://www.overleaf.com/learn/latex/Choosing_a_LaTeX_Compiler)  
 ↪ [Paragraphs and new lines](https://www.overleaf.com/learn/latex/Paragraphs_and_new_lines)  
 ↪ [Bold, italics and underlining](https://www.overleaf.com/learn/latex/Bold%2C_italics_and_underlining)  

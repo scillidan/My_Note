@@ -255,7 +255,8 @@ Subtitle Edit → Auto-translate → Select `Ollama` or `LM Studio` → Translat
 
 ## [OBS Studio](https://obsproject.com/)
 
-↪ [Advanced Recording Settings Guide](https://obsproject.com/kb/advanced-recording-settings-guide)
+↪ [Advanced Recording Settings Guide](https://obsproject.com/kb/advanced-recording-settings-guide)  
+↪ [Best OBS Settings for Streamers: Tips & Tricks](https://wpstream.net/obs-settings/)
 
 ## [FFmpeg](https://www.ffmpeg.org/)
 

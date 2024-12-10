@@ -5,6 +5,7 @@ Get `gvim_*_x64_signed.zip` from [Downloading Vim](https://www.vim.org/download.
 ## [Neovim](https://neovim.io)
 
 ```sh
+sudo apt install neovim
 pkg install neovim
 ```
 
@@ -54,6 +55,8 @@ make install
 ```sh
 export PATH="$HOME/neovim/bin:$PATH"
 ```
+
+Or:
 
 ```sh
 ln -s ./build/bin/nvim ~/.local/bin/
@@ -216,6 +219,18 @@ Save `...` to `%LOCALAPPDATA%\nvim-data\devdocs\docs`
 
 ```sh
 pkg install rust
+```
+
+### [rime-ls](https://github.com/wlh320/rime-ls)
+
+1. Get `Source code` from [rime-ls - Releases](https://github.com/wlh320/rime-ls/releases).
+2. Decompress it to `rime-ls\`.
+
+```sh
+cd rime-ls
+sudo apt install librime-dev
+cargo build --release
+ln ~/.cargo/tmp/release/rime_ls ~/.local/bin/rime_ls
 ```
 
 ### [cmp-lsp-rimels](https://github.com/liubianshi/cmp-lsp-rimels)
