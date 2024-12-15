@@ -32,6 +32,7 @@ Mokuro reader                | https://gm-mokuro-reader.vercel.app
 Musical Artifacts Preview    | https://preview.musical-artifacts.com
 NoteCalc                     | https://gm-notecalc.vercel.app
 Notepad Calculator Prototype | https://gm-notepad-calculator.vercel.app
+OldMapsOnline                | https://www.oldmapsonline.org
 PNG or JPG to SVG            | https://www.pngtosvg.com
 PNG to SVG                   | https://png2svg.com
 Pic Smaller                  | https://gm-pic-smaller.vercel.app
@@ -73,7 +74,9 @@ recoded                      | https://gm-recoded.vercel.app
 reminiflux                   | https://gm-reminiflux.vercel.app
 sketch-to-lineart            | https://gm-sketch-to-lineart.vercel.app
 sreadium                     | https://gm-sreadium.vercel.app/?epubs=https%3A%2F%2Fgm-media-audioebook.vercel.app%2Fepub_library.opds
+studio                       | https://gm-studio1.vercel.app
 visionmagic                  | https://gm-visionmagic.vercel.app
 webvm                        | https://scillidan.github.io/webvm
 woah!                        | https://gm-woah.vercel.app
+You need 4 colors            | https://www.iamsajid.com/colors/
 クモ                         | https://gm-kumo.vercel.app

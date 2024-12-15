@@ -15,6 +15,10 @@ And:
   2. Branch → `gh-pages`, `/(root)`
 4. Visit `https://<user>.github.io/qr-designer/`
 
+## [studio](https://github.com/outerbase/studio)
+
+![](https://img.shields.io/github/license/outerbase/studio?label=&style=flat-square) ![![](https://img.shields.io/github/last-commit/scillidan/studio/main?label=&style=flat-square)](https://github.com/scillidan/studio) ![](https://img.shields.io/badge/Vercel-black?style=flat&logo=Vercel&logoColor=white)
+
 ## [AudioMass](https://github.com/scillidan/AudioMass) (Cache)
 
 ![](https://img.shields.io/github/license/pkalogiros/AudioMass?label=&style=flat-square)
@@ -600,7 +604,7 @@ serve -s build -p 4321
 
 ## [PDF.js](https://github.com/mozilla/pdf.js)
 
-![](https://img.shields.io/github/license/mozilla/pdf.js?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/pdf.js/main?label=&style=flat-square)](https://github.com/scillidan/pdf.js)
+![](https://img.shields.io/github/license/mozilla/pdf.js?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/pdf.js/main?label=&style=flat-square)](https://github.com/scillidan/pdf.js) ![](https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white)
 
 1. Get `dufs-v*-x86_64-pc-windows-msvc.zip` from [dufs - Releases](https://github.com/sigoden/dufs/releases). Decompress it.
 2. Download `pdfjs-*-dist.zip` from [Releases](https://github.com/mozilla/pdf.js/releases). Decompress it to `pdfjs-dist/`.

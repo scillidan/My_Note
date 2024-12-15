@@ -33,7 +33,8 @@ sudo apt-get install ninja-build gettext cmake unzip curl
 
 ↪ [Neovim - Build prerequisites](https://github.com/neovim/neovim/blob/master/BUILD.md#build-prerequisites)
 
-Get `Source code (zip)` from [Neovim - Releases](https://github.com/neovim/neovim/releases). Decompress it.
+1. Get `Source code` from [Neovim - Releases](https://github.com/neovim/neovim/releases).
+2. Decompress it to `neovim\`.
 
 ```sh
 cd neovim
@@ -53,13 +54,7 @@ make install
 ↪ [Install from source](https://github.com/neovim/neovim/blob/master/INSTALL.md#install-from-source)
 
 ```sh
-export PATH="$HOME/neovim/bin:$PATH"
-```
-
-Or:
-
-```sh
-ln -s ./build/bin/nvim ~/.local/bin/
+ln -s ~/neovim/build/bin/nvim ~/.local/bin/
 ```
 
 ```sh

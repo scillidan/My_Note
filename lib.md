@@ -65,10 +65,14 @@ sudo apt-get install -y build-essential curl libbz2-dev libffi-dev liblzma-dev l
 ↪ [pyenv install: 3.x BUILD FAILED (Ubuntu 20.04 using python-build 20180424)](https://stackoverflow.com/questions/67807596/pyenv-install-3-x-build-failed-ubuntu-20-04-using-python-build-20180424)
 <!-- --8<-- [end:ubuntu-22-arm] -->
 
-Or:
+<!-- --8<-- [start:ubuntu-24-arm] -->
+```sh
+sudo apt install -y build-essential libssl-dev libbz2-dev libreadline-dev libsqlite3-dev libffi-dev zlib1g-dev liblzma-dev tk-dev
+```
+<!-- --8<-- [end:ubuntu-24-arm] -->
 
 ```sh
-git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+git clone --depth=1 https://github.com/pyenv/pyenv.git ~/.pyenv
 ```
 
 ```sh

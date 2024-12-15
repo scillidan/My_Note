@@ -10,6 +10,13 @@ neofetch
 
 ## [git](https://git-scm.com/)
 
+Set:
+
+```sh
+git config --global user.email "your_email"
+git config --global user.name "your_name"
+```
+
 Undo and re-push:
 
 ```sh
@@ -31,7 +38,7 @@ pkg install chezmoi
 Get `chezmoi_*_linux_arm64.deb` from [chezmoi - Releases](https://github.com/twpayne/chezmoi).
 
 ```sh
-sudo apt install chezmoi_*_linux_arm64.deb
+sudo dpkg -i chezmoi_*_linux_arm64.deb
 ```
 
 <!-- --8<-- [end:ubuntu-server-arm-22] -->
@@ -43,6 +50,7 @@ vim ~/.local/share/chezmoi/.chezmoiignore
 
 ```
 **/zjframes.wasm # Example
+**/zjstatus.wasm
 ```
 
 ↪ [Chezmoi: ignore files and subdirectories](https://stackoverflow.com/questions/75519055/chezmoi-ignore-files-and-subdirectories)

@@ -447,6 +447,62 @@ systemctl status vncserver@:1
 ↪ [How to Install & Configure VNC Server on Ubuntu 22.04](https://bytexd.com/how-to-install-configure-vnc-server-on-ubuntu/)
 <!-- --8<-- [end:arch-linux] -->
 
+<!-- --8<-- [start:ubuntu-server-arm-22] -->
+```sh
+sudo apt install xfce4 xfce4-goodies
+sudo apt install tightvncserver
+vncserver
+vncserver -kill :1
+mv ~/.vnc/xstartup ~/.vnc/xstartup.bak
+vim ~/.vnc/xstartup
+```
+
+```bash
+#!/bin/bash
+xrdb $HOME/.Xresources
+startxfce4 &
+```
+
+```sh
+chmod +x ~/.vnc/xstartup
+vncserver
+```
+
+Create service:
+
+```sh
+sudo vim /etc/systemd/system/vncserver@.service
+```
+
+```
+[Unit]
+Description=Start TightVNC server at startup
+After=syslog.target network.target
+
+[Service]
+Type=forking
+User=<username>
+Group=<username>
+WorkingDirectory=/home/<username>
+
+PIDFile=/home/<username>/.vnc/%H:%i.pid
+ExecStartPre=-/usr/bin/vncserver -kill :%i > /dev/null 2>&1
+ExecStart=/usr/bin/vncserver -depth 24 -geometry 1280x800 -localhost :%i
+ExecStop=/usr/bin/vncserver -kill :%i
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```sh
+sudo systemctl daemon-reload
+sudo systemctl enable --now vncserver@1.service
+sudo systemctl status vncserver@1
+```
+
+↪ [How to Install and Configure VNC on Ubuntu 22.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-vnc-on-ubuntu-22-04)
+<!-- --8<-- [end:ubuntu-server-arm-22] -->
+
 ## [PM2](https://pm2.keymetrics.io/)
 
 <!-- --8<-- [start:windows10] -->
@@ -1602,6 +1658,8 @@ sudo systemctl enable code-server
 
 ↪ [Setup Guide](https://github.com/coder/code-server/blob/main/docs/guide.md)
 
+## [VS Code LaTeX Devcontainer](https://github.com/a-nau/latex-devcontainer) (Cache)
+
 ## [Trilium](https://github.com/zadam/trilium) (Cache)
 
 Get `trilium-linux-x64-server-*.tar.xz` from [Trilium - Releases](https://github.com/zadam/trilium/releases).
@@ -1812,124 +1870,10 @@ sudo docker compose down
 ```sh
 mkdir teable
 cd teable
-vim docker-compose.yml
 ```
 
-```yaml
-version: '3.9'
-
-services:
-  teable:
-    image: ghcr.io/teableio/teable:latest
-    restart: always
-    ports:
-      - '3000:3000'
-    volumes:
-      - teable-data:/app/.assets:rw
-    env_file:
-      - .env
-    environment:
-      - NEXT_ENV_IMAGES_ALL_REMOTE=true
-    networks:
-      - teable
-    depends_on:
-      teable-db-migrate:
-        condition: service_completed_successfully
-      teable-cache:
-        condition: service_healthy
-    healthcheck:
-      test: ['CMD', 'curl', '-f', 'http://localhost:3000/health']
-      start_period: 5s
-      interval: 5s
-      timeout: 3s
-      retries: 3
-
-  teable-db:
-    image: postgres:15.4
-    restart: always
-    ports:
-      - '42345:5432'
-    volumes:
-      - teable-db:/var/lib/postgresql/data:rw
-    environment:
-      - POSTGRES_DB=${POSTGRES_DB}
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-    networks:
-      - teable
-    healthcheck:
-      test: ['CMD-SHELL', "sh -c 'pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}'"]
-      interval: 10s
-      timeout: 3s
-      retries: 3
-
-  teable-db-migrate:
-    image: ghcr.io/teableio/teable-db-migrate:latest
-    environment:
-      - PRISMA_DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
-    networks:
-      - teable
-    depends_on:
-      teable-db:
-        condition: service_healthy
-
-  teable-cache:
-    image: redis:7.2.4
-    restart: always
-    expose:
-      - '6379'
-    volumes:
-      - teable-cache:/data:rw
-    networks:
-      - teable
-    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD}
-    healthcheck:
-      test: ['CMD', 'redis-cli', '--raw', 'incr', 'ping']
-      interval: 10s
-      timeout: 3s
-      retries: 3
-
-networks:
-  teable:
-    name: teable-network
-
-volumes:
-  teable-db: {}
-  teable-data: {}
-  teable-cache: {}
-```
-
-```sh
-vim .env
-```
-
-```yaml
-# replace the default password
-POSTGRES_PASSWORD=replace_this_password
-REDIS_PASSWORD=replace_this_password
-SECRET_KEY=replace_this_secret_key
-
-# replace the following with a publicly accessible address
-PUBLIC_ORIGIN=http://127.0.0.1:3000
-
-# ---------------------
-
-# Postgres
-POSTGRES_HOST=teable-db
-POSTGRES_PORT=5432
-POSTGRES_DB=teable
-POSTGRES_USER=teable
-
-# Redis
-REDIS_HOST=teable-cache
-REDIS_PORT=6379
-REDIS_DB=05
-
-# App
-PRISMA_DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
-BACKEND_CACHE_PROVIDER=redis
-BACKEND_CACHE_REDIS_URI=redis://default:${REDIS_PASSWORD}@${REDIS_HOST}:${REDIS_PORT}/${REDIS_DB}
-```
+1. Create `docker-compose.yml` and `.env`.
+2. Copy from [Install Teable - Incloude Redis (Recommend)](https://help.teable.io/deployment/docker-compose#docker-compose).
 
 ```sh
 sudo docker-compose pull
@@ -1937,6 +1881,7 @@ sudo docker compose up -d
 sudo docker compose stop
 ```
 
+↪ [Install Teable - Docker Compose](https://help.teable.io/deployment/docker-compose#docker-compose)  
 ↪ [CORS error after Dockerizing? How to fix?](https://www.reddit.com/r/docker/comments/yk0x2l/cors_error_after_dockerizing_how_to_fix/)
 <!-- --8<-- [end:docker-arm] -->
 
@@ -1973,66 +1918,6 @@ Service Management Menu `Start Service`
 
 ↪ [Self Hosting - Auto-Upstall](https://docs.nocodb.com/getting-started/self-hosted/installation/auto-upstall)
 
-## [beaverhabits](https://github.com/daya0576/beaverhabits) (Cache)
-
-<!-- --8<-- [start:docker-arm] -->
-```sh
-mkdir beaverhabits
-```
-
-```sh
-sudo docker run -d --name beaverhabits \
-  -e FIRST_DAY_OF_WEEK=0 \
-  -e HABITS_STORAGE=USER_DISK \
-  -e MAX_USER_COUNT=1 \
-  -v ./beaverhabits:/app/.user/ \
-  -p 8070:8080 \
-  --restart unless-stopped \
-  daya0576/beaverhabits:latest
-```
-<!-- --8<-- [end:docker-arm] -->
-
-Beaver Habit Tracker → More → Add ...
-
-## [ttyd](https://github.com/tsl0922/ttyd) (Cache)
-
-<!-- --8<-- [start:ubuntu-server-arm-22] -->
-```sh
-sudo apt-get update
-sudo apt-get install -y build-essential cmake git libjson-c-dev libwebsockets-dev
-git clone --depth=1 https://github.com/tsl0922/ttyd
-cd ttyd && mkdir build && cd build
-cmake ..
-make && sudo make install
-```
-
-```sh
-sudo vim /etc/systemd/system/ttyd.service
-```
-
-```
-[Unit]
-Description=ttyd service
-After=network.target
-
-[Service]
-Type=simple
-User=scillidan
-Group=scillidan
-ExecStart=/usr/local/bin/ttyd --cwd /home/scillidan --writable zsh
-Restart=on-failure
-
-[Install]
-WantedBy=multi-user.target
-```
-
-```sh
-sudo systemctl enable --now ttyd
-```
-
-↪ [ttyd - Basic Usage](https://github.com/tsl0922/ttyd/wiki/Example-Usage)
-<!-- --8<-- [end:ubuntu-server-arm-22] -->
-
 ## [n8n](https://n8n.io/)
 
 <!-- --8<-- [start:docker-arm] -->
@@ -2042,71 +1927,21 @@ cd n8n-docker
 vim docker-compose.yml
 ```
 
-Refer to [here](https://docs.n8n.io/hosting/installation/server-setups/docker-compose/#5-create-docker-compose-file):
+Copy from [here](https://docs.n8n.io/hosting/installation/server-setups/docker-compose/#5-create-docker-compose-file) ande edit:
 
-```
-version: "3.7"
-
+```yaml
 services:
   traefik:
-    image: "traefik"
-    restart: always
     command:
-      - "--api=true"
-      - "--api.insecure=true"
-      - "--providers.docker=true"
-      - "--providers.docker.exposedbydefault=false"
       - "--entrypoints.web.address=:8070"
-      - "--entrypoints.web.http.redirections.entryPoint.to=websecure"
-      - "--entrypoints.web.http.redirections.entrypoint.scheme=https"
       - "--entrypoints.websecure.address=:453"
-      - "--certificatesresolvers.mytlschallenge.acme.tlschallenge=true"
-      - "--certificatesresolvers.mytlschallenge.acme.email=${SSL_EMAIL}"
-      - "--certificatesresolvers.mytlschallenge.acme.storage=/letsencrypt/acme.json"
     ports:
       - "8070:8070"
       - "453:453"
-    volumes:
-      - traefik_data:/letsencrypt
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-
   n8n:
-    image: docker.1panel.top/n8nio/n8n
-    restart: always
-    ports:
-      - "127.0.0.1:5678:5678"
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.n8n.rule=Host(`${SUBDOMAIN}.${DOMAIN_NAME}`)
-      - traefik.http.routers.n8n.tls=true
-      - traefik.http.routers.n8n.entrypoints=web,websecure
-      - traefik.http.routers.n8n.tls.certresolver=mytlschallenge
-      - traefik.http.middlewares.n8n.headers.SSLRedirect=true
-      - traefik.http.middlewares.n8n.headers.STSSeconds=315360000
-      - traefik.http.middlewares.n8n.headers.browserXSSFilter=true
-      - traefik.http.middlewares.n8n.headers.contentTypeNosniff=true
-      - traefik.http.middlewares.n8n.headers.forceSTSHeader=true
-      - traefik.http.middlewares.n8n.headers.SSLHost=${DOMAIN_NAME}
-      - traefik.http.middlewares.n8n.headers.STSIncludeSubdomains=true
-      - traefik.http.middlewares.n8n.headers.STSPreload=true
-      - traefik.http.routers.n8n.middlewares=n8n@docker
-    environment:
-      - N8N_HOST=${SUBDOMAIN}.${DOMAIN_NAME}
-      - N8N_PORT=5678
-      - N8N_PROTOCOL=https
-      - N8N_SECURE_COOKIE=false
-      - NODE_ENV=production
-      - WEBHOOK_URL=https://${SUBDOMAIN}.${DOMAIN_NAME}/
-      - GENERIC_TIMEZONE=${GENERIC_TIMEZONE}
     volumes:
       - /mnt/nvme/share/n8n:/files
       - n8n_data:/home/node/.n8n
-
-volumes:
-  traefik_data:
-    external: true
-  n8n_data:
-    external: true
 ```
 
 ```sh
@@ -2148,6 +1983,70 @@ docker compose pull && sudo docker compose up -d
 ↪ [Docker Compose [Recommended]](https://immich.app/docs/install/docker-compose)
 <!-- --8<-- [end:ubuntu-server-arm-22] -->
 
+## [ttyd](https://github.com/tsl0922/ttyd) (Cache)
+
+<!-- --8<-- [start:ubuntu-server-arm-22] -->
+```sh
+sudo apt-get update
+sudo apt-get install -y build-essential cmake git libjson-c-dev libwebsockets-dev
+git clone --depth=1 https://github.com/tsl0922/ttyd
+cd ttyd && mkdir build && cd build
+cmake ..
+make && sudo make install
+```
+
+```sh
+sudo vim /etc/systemd/system/ttyd.service
+```
+
+```
+[Unit]
+Description=ttyd service
+After=network.target
+
+[Service]
+Type=simple
+User=scillidan
+Group=scillidan
+ExecStart=/usr/local/bin/ttyd --cwd /home/scillidan --writable zsh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```sh
+sudo systemctl enable --now ttyd
+```
+
+↪ [ttyd - Basic Usage](https://github.com/tsl0922/ttyd/wiki/Example-Usage)
+<!-- --8<-- [end:ubuntu-server-arm-22] -->
+
+## [beaverhabits](https://github.com/daya0576/beaverhabits) (Cache)
+
+<!-- --8<-- [start:docker-arm] -->
+```sh
+mkdir beaverhabits
+```
+
+```sh
+sudo docker run -d --name beaverhabits \
+  -e FIRST_DAY_OF_WEEK=0 \
+  -e HABITS_STORAGE=USER_DISK \
+  -e MAX_USER_COUNT=1 \
+  -v ./beaverhabits:/app/.user/ \
+  -p 8070:8080 \
+  --restart unless-stopped \
+  daya0576/beaverhabits:latest
+```
+<!-- --8<-- [end:docker-arm] -->
+
+Beaver Habit Tracker → More → Add ...
+
+## [Cal.com](https://cal.com)
+
+↪ [Getting Started - Docker](https://cal.com/docs/self-hosting/docker)
+
 ## [CasaOS](https://github.com/IceWhaleTech/CasaOS)
 
 ```sh
@@ -2173,10 +2072,6 @@ sudo docker run -d \
   --restart unless-stopped \
   cp0204/ttdybridge:latest
 ```
-
-### [Sabnzbd](https://github.com/linuxserver/docker-sabnzbd) (Cache)
-
-↪ [[Bug] WebUI not reachable, service is running](https://github.com/IceWhaleTech/CasaOS/issues/1497)
 
 ## [Windows](https://github.com/dockur/windows) (Cache)
 

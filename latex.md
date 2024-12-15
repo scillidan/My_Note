@@ -1,3 +1,5 @@
+https://ftp.jaist.ac.jp/pub/CTAN/language/chinese/zhlineskip/zhlineskip.pdf | zhlineskip | 张瑞熹 | line spacing
+
 ## [Bible de Genève 1564](https://github.com/raphink/geneve_1564)
 
 Tag: book, bible
@@ -53,3 +55,7 @@ Tag: graph, table
 ## [minted](https://github.com/gpoore/minted)
 
 Tag: code
+
+## [DnD 5e LaTeX Template](https://github.com/rpgtex/DND-5e-LaTeX-Template)
+
+Tag: dnd
