@@ -995,6 +995,12 @@ Visit `http://<YourHost>:32400/web`
 ↪ [Install of plex on Ubuntu server 22.04](https://www.reddit.com/r/PleX/comments/yp13yb/install_of_plex_on_ubuntu_server_2204/)
 <!-- --8<-- [end:ubuntu-server-arm-22] -->
 
+## [mpd](https://github.com/MusicPlayerDaemon/MPD) (Cache)
+
+## [Mopidy](https://mopidy.com/) (Cache)
+
+↪ [Installation - Debian/Ubuntu](https://docs.mopidy.com/stable/installation/debian/)
+
 ## [dictd](https://linux.die.net/man/8/dictd)
 
 <!-- --8<-- [start:ubuntu-server-arm-22] -->
@@ -2012,9 +2018,9 @@ After=network.target
 
 [Service]
 Type=simple
-User=scillidan
-Group=scillidan
-ExecStart=/usr/local/bin/ttyd --cwd /home/scillidan --writable zsh
+User=<username>
+Group=<username>
+ExecStart=/usr/local/bin/ttyd --cwd /home/<username> --writable zsh
 Restart=on-failure
 
 [Install]
