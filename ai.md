@@ -96,9 +96,14 @@ ollama run tinyllama
 Used on local network, Add these into PATH:
 
 - `OLLAMA_HOST=0.0.0.0`
-- `OLLAMA_ORIGINES=*`
+- `OLLAMA_ORIGINS=*`
 
 ↪ [Ollama Connection issues FAQ help](https://github.com/Mintplex-Labs/anything-llm/issues/1640)
+
+Read more:
+
+↪ [Translation Services API Request - Ollama](https://immersivetranslate.com/en/docs/services/ai/#ollama)  
+↪ [本地部署 Qwen 翻译网页](https://lionad.art/articles/local-translator)
 
 ## [LM Studio](https://lmstudio.ai/)
 

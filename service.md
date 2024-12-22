@@ -503,6 +503,8 @@ sudo systemctl status vncserver@1
 ↪ [How to Install and Configure VNC on Ubuntu 22.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-vnc-on-ubuntu-22-04)
 <!-- --8<-- [end:ubuntu-server-arm-22] -->
 
+## [Ansible](https://github.com/ansible/ansible) (TBD)
+
 ## [PM2](https://pm2.keymetrics.io/)
 
 <!-- --8<-- [start:windows10] -->
@@ -1180,7 +1182,7 @@ Used in browser:
 2. Browser Extension → Settings → Advanced settings → Other server → `http://<host>:<port>/v2`
 3. General settings → Show in right-click menu (On)
 
-## [DeepLX](https://github.com/OwO-Network/DeepLX)
+## [DeepLX](https://github.com/OwO-Network/DeepLX) (Cache)
 
 <!-- --8<-- [start:windows10] -->
 1. Get `deeplx_windows_amd64.exe` from [DeepLX - Releases](https://github.com/OwO-Network/DeepLX/releases).
@@ -1228,6 +1230,10 @@ WantedBy=multi-user.target
 sudo systemctl enable --now deeplx.service
 ```
 <!-- --8<-- [end:ubuntu-server-arm-22] -->
+
+## [LibreTranslate](https://github.com/LibreTranslate/LibreTranslate) (Cache)
+
+↪ [Contributing.md](https://github.com/LibreTranslate/LibreTranslate/blob/main/CONTRIBUTING.md)
 
 ## [Weblate](https://weblate.org) (Cache)
 
@@ -2072,6 +2078,11 @@ sudo docker run -d \
   --restart unless-stopped \
   cp0204/ttdybridge:latest
 ```
+
+## [Dashy](https://github.com/Lissy93/dashy)
+
+↪ [Dashy - Quick Start](https://dashy.to/docs/quick-start)  
+↪ [Dashy Showcase - System Monitor](https://dashy.to/docs/showcase/#system-monitor)
 
 ## [Windows](https://github.com/dockur/windows) (Cache)
 

@@ -475,16 +475,16 @@ Choose which modules to install → `nxengine-evo.sh` → Ok
 
 System Menu → RetroPie Setup → Manage packages → Manage experimental packages → nxengine-evo → Install from source
 
-## [GitHub Actions Runner Images](https://github.com/actions/runner-images#preinstallation-policy) (TBD)
+## [GitHub Actions Runner Images](https://github.com/actions/runner-images#preinstallation-policy)
 
 ↪ [Ubuntu 24.04](https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md)  
 ↪ [About GitHub-hosted runners](https://docs.github.com/en/actions/using-github-hosted-runners/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)
 
-## Steam Deck (TBD)
+## Steam Deck
 
 ↪ [The killer features of the Steam Deck](https://www.jonashietala.se/blog/2023/10/24/the_killer_features_of_the_steam_deck/)
 
-## 3D Printer (TBD)
+## 3D Printer
 
 ↪ [Printing Hextraction for my kids](https://www.jonashietala.se/blog/2024/02/09/printing_hextraction_for_my_kids/)
 
@@ -522,6 +522,7 @@ System Menu → RetroPie Setup → Manage packages → Manage experimental packa
 ## [Home Assistant](https://www.home-assistant.io/) (Cache)
 
 ↪ [Home Assistant - Raspberry Pi](https://www.home-assistant.io/installation/raspberrypi/)  
+↪ [Xiaomi Home Integration for Home Assistant](https://github.com/XiaoMi/ha_xiaomi_home)  
 ↪ [Android TV Remote](https://www.home-assistant.io/integrations/androidtv_remote/)
 
 ## [Charybdis](https://bastardkb.com/charybdis/) (Cache)

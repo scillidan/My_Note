@@ -1,8 +1,6 @@
-https://ftp.jaist.ac.jp/pub/CTAN/language/chinese/zhlineskip/zhlineskip.pdf | zhlineskip | 张瑞熹 | line spacing
-
 ## [Bible de Genève 1564](https://github.com/raphink/geneve_1564)
 
-Tag: book, bible
+Tag: 
 
 Install fonts:
 
@@ -24,38 +22,4 @@ latexmk -c
 xelatex geneve_1564.tex
 ```
 
-## [Thesis invitation](https://github.com/logological/thesis-invitation)
-
-Tag: card, rsvp-cards
-
-## [invitation](https://gitlab.com/bengreenman/wedding-invitation) (Cache)
-
-Tag: card, wedding-invitation
-
-## [Minimalist LaTeX Template for Academic Presentations](https://github.com/pmichaillat/latex-presentation)
-
-Tag: presentation
-
-## [HSRM Beamer Theme](https://github.com/benjamin-weiss/hsrmbeamertheme)
-
-Tag: presentation
-
-## [arguelles](https://github.com/piazzai/arguelles)
-
-Tag: presentation
-
-## [kmbeamer](https://github.com/kmaed/kmbeamer/)
-
-Tag: presentation
-
-## [pgf-PeriodicTable](https://ctan.org/tex-archive/graphics/pgf/contrib/pgf-periodictable)
-
-Tag: graph, table
-
-## [minted](https://github.com/gpoore/minted)
-
-Tag: code
-
-## [DnD 5e LaTeX Template](https://github.com/rpgtex/DND-5e-LaTeX-Template)
-
-Tag: dnd
+## [OCRAutoScore](https://github.com/vkgo/OCRAutoScore) (Cache)
