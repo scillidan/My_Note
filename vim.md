@@ -54,7 +54,7 @@ make install
 ↪ [Install from source](https://github.com/neovim/neovim/blob/master/INSTALL.md#install-from-source)
 
 ```sh
-ln -s ~/neovim/build/bin/nvim ~/.local/bin/
+ln -s ~/neovim/bin/nvim ~/.local/bin/
 ```
 
 ```sh

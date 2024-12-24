@@ -1804,6 +1804,8 @@ sudo systemctl enable --now dir2opds.service
 ↪ [Here is COPS : Calibre OPDS (and HTML) PHP Server](https://blog.slucas.fr/projects/calibre-opds-php-server/)
 <!-- --8<-- [end:ubuntu-server-arm-22] -->
 
+## [Calibre-Web-Automated-Book-Downloader](https://github.com/calibrain/calibre-web-automated-book-downloader) (Cache)
+
 ## [Bukubrow](https://github.com/samhh/bukubrow-webext) (Cache)
 
 ![](https://img.shields.io/github/license/samhh/bukubrow-webext?label=&style=flat-square)
@@ -1929,6 +1931,63 @@ Service Management Menu `Start Service`
 ```
 
 ↪ [Self Hosting - Auto-Upstall](https://docs.nocodb.com/getting-started/self-hosted/installation/auto-upstall)
+
+## [Datasette](https://datasette.io)
+
+```sh
+mkdir <dir>
+cd <dir>
+python.exe -m venv venv
+venv\Scripts\activate.bat
+pip install datasette
+# pip install csvs-to-sqlite
+# csvs-to-sqlite database.csv database.db
+datasette serve <database.db>
+```
+
+```sh
+datasette serve <database.db> -m metadata.json
+```
+
+↪ [Metadata](https://docs.datasette.io/en/stable/metadata.html)
+
+Optional:
+
+```sh
+pip install datasette-sitemap
+pip install datasette-block-robots
+pip install datasette-backup
+pip install datasette-parquet
+pip install datasette-search-all
+pip install qlite-utils
+sqlite-utils enable-fts <database.db> <table> <column_1> <column_2>
+pip install datasette-render-images
+# pip install datasette-media
+pip install datasette-render-markdown
+pip install datasette-multiline-links
+pip install datasette-external-links-new-tabs
+pip install datasette-copyable
+```
+
+↪ [Datasette charcoal theme](https://github.com/julien040/charcoal-datasette-theme)  
+↪ [datasette-block-robots](https://github.com/simonw/datasette-block-robots)  
+↪ [datasette-sitemap](https://github.com/simonw/datasette-sitemap)  
+↪ [datasette-search-all](https://github.com/simonw/datasette-search-all)  
+↪ [Configuring FTS using sqlite-utils](https://docs.datasette.io/en/stable/full_text_search.html#configuring-fts-using-sqlite-utils)  
+↪ [datasette-render-markdown](https://github.com/simonw/datasette-render-markdown)  
+↪ [datasette-external-links-new-tabs](https://github.com/ocdtrekkie/datasette-external-links-new-tabs)  
+↪ [datasette-multiline-links](https://github.com/simonw/datasette-multiline-links)  
+↪ [datasette-parquet](https://github.com/cldellow/datasette-parquet)  
+↪ [datasette-publish-vercel](https://github.com/simonw/datasette-publish-vercel)  
+
+<!--
+↪ [datasette-atom](https://github.com/simonw/datasette-atom)  
+↪ [datasette-write-ui](https://github.com/datasette/datasette-write-ui)  
+↪ [datasette-upload-csvs](https://github.com/simonw/datasette-upload-csvs)  
+↪ [datasette-insert](https://github.com/simonw/datasette-insert)  
+↪ [datasette-export](https://github.com/simonw/datasette-export)  
+↪ [datasette-mutable-downloads](https://github.com/cldellow/datasette-mutable-downloads)
+-->
 
 ## [n8n](https://n8n.io/)
 
@@ -2084,6 +2143,22 @@ sudo docker run -d \
   --restart unless-stopped \
   cp0204/ttdybridge:latest
 ```
+
+## [File Browser](https://github.com/filebrowser/filebrowser)
+
+```sh
+mkdir filebrowser-docker
+cd filebrowser-docker
+vim docker-compose.yml
+```
+
+Copy from [here](https://docs.techdox.nz/filebrowser/#docker-compose-file-docker-composeyml).
+
+```sh
+sudo docker compose up -d
+```
+
+↪ [Setting Up Filebrowser with Docker Compose](https://docs.techdox.nz/filebrowser/)
 
 ## [Dashy](https://github.com/Lissy93/dashy)
 

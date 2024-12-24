@@ -29,6 +29,14 @@ sudo vim /etc/fonts/conf.d/50-enable-fixed.conf
 sudo dpkg-reconfigure fontconfig
 ```
 
+```sh
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/JetBrainsMono.tar.xz
+tar -xJvf JetBrainsMono.tar.xz
+rm README.md
+rm OFL.txt
+mv JetBrains** ~/.local/share/fonts
+```
+
 ↪ [ubuntu wiki - Fonts](https://wiki.ubuntu.com/Fonts)
 
 ## [Zsh](https://www.zsh.org/)
