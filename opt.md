@@ -44,6 +44,14 @@ Open Shell → Setting → Backup → Load from XML File → Select `Menu Settin
 
 ## [Keypirinha](https://keypirinha.com)
 
+### Software Development Kit
+
+```sh
+git clone --depth=1 https://github.com/Keypirinha/SDK Keypirinha-SDK
+```
+
+Add `Keypirinha-SDK\cmd′ into PATH.
+
 ### Theme
 
 ↪ [keypirinha-theme-builder](https://github.com/Fuhrmann/keypirinha-theme-builder)

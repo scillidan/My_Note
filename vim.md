@@ -228,6 +228,15 @@ cargo build --release
 ln ~/.cargo/tmp/release/rime_ls ~/.local/bin/rime_ls
 ```
 
+<!-- --8<-- [start:ubuntu-22-arm] -->
+```sh
+git clone --depth=1 https://github.com/wlh320/rime-ls
+cd rime-ls
+rustup target add aarch64-unknown-linux-gnu
+cargo build --target aarch64-unknown-linux-gnu --release
+```
+<!-- --8<-- [end:ubuntu-22-arm] -->
+
 ### [cmp-lsp-rimels](https://github.com/liubianshi/cmp-lsp-rimels)
 
 ↪ [莫名奇妙的参数类型错误](https://github.com/liubianshi/cmp-lsp-rimels/issues/1)

@@ -1,8 +1,9 @@
 ## Requirement
 
-1. Install `python 3.10` from [Python Releases for Windows](https://www.python.org/downloads/windows/). I test on `3.10.11`.
-2. Install `CUDA` from [CUDA Toolkit - Downloads](https://developer.nvidia.com/cuda-downloads). I used `CUDA 12.1.0`.
-3. Check [PyTorch - Start Locally](https://pytorch.org/get-started/locally/).
+1. Have a GPU. Check [Your GPU Compute Capability](https://developer.nvidia.com/cuda-gpus).  
+2. Install `python 3.10` from [Python Releases for Windows](https://www.python.org/downloads/windows/). I test on `3.10.11`.
+3. Install `CUDA` from [CUDA Toolkit - Downloads](https://developer.nvidia.com/cuda-downloads). I used `CUDA 12.1.0`.
+4. Check [PyTorch - Start Locally](https://pytorch.org/get-started/locally/).
 
 Check it:
 
@@ -439,14 +440,13 @@ docker compose up -d
 - [Claude Prompt: 汉语新解](https://dify101.com/market/hanyuxinjie)
 - [Ancient Script Scholar](https://dify101.com/market/claude-thinking-Ancient-Script-Scholar)
 
-## [Langflow](https://github.com/langflow-ai/langflow) (Cache, noARM)
+## [Langflow](https://github.com/langflow-ai/langflow)
 
 ```sh
-mkdir langflow
-cd langflow
-python.exe -m venv venv
-venv\Scripts\activate.bat
-pip install langflow
+uv venv --python cpython-3.10.11-windows-x86_64-none langflow
+langflow\Scripts\activate.bat
+uv pip install langflow
+uv run langflow run
 ```
 
 ↪ [Install Langflow](https://docs.langflow.org/get-started-installation)
@@ -609,7 +609,12 @@ npm run dev
 
 Visit `localhost:3000/chatgpt-subtitle-translator`.
 
-## [PDFMathTranslate](https://github.com/Byaidu/PDFMathTranslate) (TBD)
+## [PDFMathTranslate](https://github.com/Byaidu/PDFMathTranslate) (Cache)
+
+```sh
+pip install pdf2zh
+pdf2zh -i
+```
 
 ## [TinyTroupe](https://github.com/microsoft/TinyTroupe) (Cache)
 
@@ -1113,7 +1118,16 @@ python app.py
 python app.py --headless True --use_custom_model True --ebook <ebook_file_path> --voice <target_voice_file_path> --language <language> --custom_model <custom_model_path> --custom_config <custom_config_path> --custom_vocab <custom_vocab_path>
 ```
 
-## [VoxNovel](https://github.com/DrewThomasson/VoxNovel) (TBD)
+## [Easy eBook to Audiobook Converter with F5-TTS](https://github.com/quantumlump/eBook_to_Audiobook_with_F5-TTS) (Cache)
+
+```sh
+git clone --depth=1 https://github.com/jondana/eBook_to_Audiobook_with_F5-TTS
+cd eBook_to_Audiobook_with_F5-TTS
+sudo docker build -t ebook_to_audiobook:latest .
+sudo docker run -d -p 7860:7860 --name ebook_to_audiobook_container ebook_to_audiobook:latest
+```
+
+## [VoxNovel](https://github.com/DrewThomasson/VoxNovel)
 
 ## [ToonCrafter](https://github.com/Doubiiu/ToonCrafter)
 
@@ -1404,7 +1418,7 @@ os.environ["USE_TORCH"] = "1"
 streamlit run demo/app.py
 ```
 
-## [DocETL](https://github.com/ucbepic/docetl) (TBD)
+## [DocETL](https://github.com/ucbepic/docetl)
 
 <!-- 
 https://github.com/lamm-mit/PDF2Audio

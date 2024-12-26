@@ -215,7 +215,7 @@ makepkg
 ### [Paru](https://github.com/Morganamilo/paru) (Optional)
 
 ```sh
-yay -S paru
+sudo pacman -S paru
 ```
 
 ### [Flatpak](https://github.com/flatpak/flatpak) (Optional)

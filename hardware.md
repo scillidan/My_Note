@@ -376,7 +376,7 @@ Read more:
 ↪ [Gamelists](https://github.com/recalbox/recalbox-emulationstation/blob/master/GAMELISTS.md)  
 ↪ [Netplay (online games)](https://wiki.recalbox.com/en/basic-usage/features/netplay-online-games)
 
-### [RetroPie](https://retropie.org.uk/) (TBD)
+### [RetroPie](https://retropie.org.uk/)
 
 Install display patch and safe-shutdown script:
 

@@ -127,6 +127,18 @@ dolt init
 
 ↪ [使用 Ansible 管理 Linux 系统的配置文件](https://sspai.com/post/91932)
 
+## [uv](https://github.com/astral-sh/uv)
+
+```sh
+uv python list
+uv python pin cpython-3.10.11-windows-x86_64-none
+```
+
+```sh
+uv venv
+uv pip install -e .
+```
+
 ## [sdcv](https://github.com/Dushistov/sdcv)
 
 ```sh

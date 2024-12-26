@@ -275,6 +275,13 @@ sudo apt install rustc cargo
 ↪ [How to Install Rust on Ubuntu](https://phoenixnap.com/kb/install-rust-ubuntu)
 <!-- --8<-- [end:ubuntu-22-arm] -->
 
+<!-- --8<-- [start:ubuntu-24-arm] -->
+```sh
+sudo apt install rustup
+rustup default stable
+```
+<!-- --8<-- [end:ubuntu-24-arm] -->
+
 ## [goenv](https://github.com/go-nv/goenv)
 
 ```sh

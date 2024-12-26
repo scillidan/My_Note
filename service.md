@@ -487,7 +487,7 @@ WorkingDirectory=/home/<username>
 
 PIDFile=/home/<username>/.vnc/%H:%i.pid
 ExecStartPre=-/usr/bin/vncserver -kill :%i > /dev/null 2>&1
-ExecStart=/usr/bin/vncserver -depth 24 -geometry 1280x800 -localhost :%i
+ExecStart=/usr/bin/vncserver -depth 24 -geometry 1280x860 -localhost :%i
 ExecStop=/usr/bin/vncserver -kill :%i
 
 [Install]
@@ -503,9 +503,25 @@ sudo systemctl status vncserver@1
 ↪ [How to Install and Configure VNC on Ubuntu 22.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-vnc-on-ubuntu-22-04)
 <!-- --8<-- [end:ubuntu-server-arm-22] -->
 
-## [Ansible](https://github.com/ansible/ansible) (TBD)
+## [Ansible](https://github.com/ansible/ansible)
 
 ## [PM2](https://pm2.keymetrics.io/)
+
+<!-- --8<-- [start:ubuntu-server-arm-22] -->
+```sh
+wget https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh -O install_nvm.sh
+chmod +x ./install_nvm.sh
+./install_nvm.sh
+source .bashrc
+nvm install --lts
+npm install pm2 -g
+pm2 dump
+pm2 startup
+```
+
+↪ [Vue packages version mismatch](https://github.com/nuxt/nuxt/issues/10305)  
+↪ [how to modify nuxt server start port ,default port is 3000](https://github.com/nuxt/nuxt/issues/490)
+<!-- --8<-- [end:ubuntu-server-arm-22] -->
 
 <!-- --8<-- [start:windows10] -->
 Run commands as Admin:
@@ -526,32 +542,9 @@ Windows 10 → Control Panel → Administrative Tools > Services → PM2 → Pro
 ↪ [State is now: Stopped](https://github.com/jessety/pm2-installer/issues/69)
 <!-- --8<-- [end:windows10] -->
 
-<!-- --8<-- [start:ubuntu-server-arm-22] -->
-```sh
-wget https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh -O install_nvm.sh
-chmod +x ./install_nvm.sh
-./install_nvm.sh
-source .bashrc
-nvm install --lts
-npm install pm2 -g
-pm2 dump
-pm2 startup
-```
-
-↪ [Vue packages version mismatch](https://github.com/nuxt/nuxt/issues/10305)  
-↪ [how to modify nuxt server start port ,default port is 3000](https://github.com/nuxt/nuxt/issues/490)
-<!-- --8<-- [end:ubuntu-server-arm-22] -->
-
 ## [Docker](https://www.docker.com/)
 
-<!-- --8<-- [start:arch-linux] -->
-```sh
-sudo pacman -S docker
-sudo systemctl enable --now docker.service
-```
-<!-- --8<-- [end:arch-linux] -->
-
-<!-- --8<-- [start:ubuntu-server-arm-24] -->
+<!-- --8<-- [start:ubuntu-server-arm-22] -->
 ```sh
 for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
 sudo apt-get update
@@ -626,7 +619,7 @@ sudo docker compose stop
 ```
 
 ↪ [Docker Hub - Quickstart](https://docs.docker.com/docker-hub/quickstart/)
-<!-- --8<-- [end:ubuntu-server-arm-24] -->
+<!-- --8<-- [end:ubuntu-server-arm-22] -->
 
 ## [Podman](https://podman.io/)
 
@@ -654,6 +647,13 @@ pip3 install podman-compose
 <!-- --8<-- [end:ubuntu-server-arm-22] -->
 
 ↪ [Starting Containers with systemd](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_atomic_host/7/html/managing_containers/running_containers_as_systemd_services_with_podman#starting_containers_with_systemd)
+
+<!-- --8<-- [start:arch-linux] -->
+```sh
+sudo pacman -S docker
+sudo systemctl enable --now docker.service
+```
+<!-- --8<-- [end:arch-linux] -->
 
 ## [postgresql](https://www.postgresql.org/)
 
@@ -1750,21 +1750,26 @@ sudo docker stop audiobookshelf
 ```
 <!-- --8<-- [end:docker-arm] -->
 
-## [Storyteller](https://gitlab.com/smoores/storyteller) (Cache, noARM)
+## [Storyteller](https://gitlab.com/smoores/storyteller) (WaitV2)
+
+<!-- --8<-- [start:docker-noarm] -->
 
 ↪ [Getting started](https://smoores.gitlab.io/storyteller/docs/getting-started/)  
 ↪ [Installing the NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
+<!-- --8<-- [end:docker-noarm] -->
 
-## [LinguaCafe](https://github.com/simjanos-dev/LinguaCafe) (Cache, noARM)
+## [LinguaCafe](https://github.com/simjanos-dev/LinguaCafe)
 
-<!-- --8<-- [start:docker-arm] -->
+<!-- --8<-- [start:docker-noarm] -->
 ```sh
-mkdir -p ~/Documents/docker-linguacafe
-cd ~/Documents/docker-linguacafe
+mkdir docker-linguacafe
+cd docker-linguacafe
 wget https://raw.githubusercontent.com/simjanos-dev/LinguaCafe/refs/heads/main/docker-compose.yml
 sudo docker compose up -d
 ```
-<!-- --8<-- [end:docker-arm] -->
+
+↪ [Updating to the latest version](https://github.com/simjanos-dev/LinguaCafe#updating-to-the-latest-version)
+<!-- --8<-- [end:docker-noarm] -->
 
 ## [dir2opds](https://github.com/dubyte/dir2opds)
 
