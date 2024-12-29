@@ -6,6 +6,7 @@ CL Calc                      | https://gm-clcalc.vercel.app
 Calcutext                    | https://gm-calcutext.vercel.app
 Codi.link                    | https://gm-codi-link.vercel.app
 CyberChef                    | https://scillidan.github.io/CyberChef
+Datasette Lite               | https://scillidan.github.io/datasette-lite
 DevDocs                      | https://devdocs.io
 DownSub                      | https://downsub.com
 EPUB Manga Creator           | https://gm-epub-manga-creator.vercel.app

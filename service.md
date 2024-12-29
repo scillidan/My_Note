@@ -976,6 +976,17 @@ systemctl status jellyfin
 ↪ [Plugins](https://jellyfin.org/docs/general/server/plugins/)
 <!-- --8<-- [end:ubuntu-server-arm-22] -->
 
+## [Black Candy](https://github.com/blackcandy-org/blackcandy)
+
+```sh
+sudo docker run -d -p 3000:3000 -v /mnt/nvme/<dir>:/media_data -e MEDIA_PATH=/media_data ghcr.io/blackcandy-org/blackcandy:latest 
+```
+
+↪ [Media Files Mounts](https://github.com/blackcandy-org/blackcandy#media-files-mounts)
+
+1. Visit `http://<your_host>:3000`
+2. User → Settings → Library → Sync
+
 ## [Plex](https://www.plex.tv/) (Cache)
 
 <!-- --8<-- [start:ubuntu-server-arm-22] -->
@@ -1758,17 +1769,23 @@ sudo docker stop audiobookshelf
 ↪ [Installing the NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
 <!-- --8<-- [end:docker-noarm] -->
 
-## [LinguaCafe](https://github.com/simjanos-dev/LinguaCafe)
+## [LinguaCafe](https://github.com/simjanos-dev/LinguaCafe) (Cache)
 
 <!-- --8<-- [start:docker-noarm] -->
 ```sh
 mkdir docker-linguacafe
 cd docker-linguacafe
 wget https://raw.githubusercontent.com/simjanos-dev/LinguaCafe/refs/heads/main/docker-compose.yml
+mkdir storage
 sudo docker compose up -d
 ```
 
-↪ [Updating to the latest version](https://github.com/simjanos-dev/LinguaCafe#updating-to-the-latest-version)
+1. Visit `http://<your_host>:9191`
+2. Create first/admin user, then login-in with it
+3. Admin settings → Languages → Chinese → Install
+
+↪ [Updating to the latest version](https://github.com/simjanos-dev/LinguaCafe#updating-to-the-latest-version)  
+↪ [Importing dictionaries](https://github.com/simjanos-dev/LinguaCafe/wiki/2.-Setup#importing-dictionaries)
 <!-- --8<-- [end:docker-noarm] -->
 
 ## [dir2opds](https://github.com/dubyte/dir2opds)

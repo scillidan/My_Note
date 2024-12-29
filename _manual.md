@@ -158,6 +158,18 @@ Revision Tool → Security → Windows Defender (On)
 
 Disk → Copy
 
+## [Thunderbird](https://www.thunderbird.net/)
+
+1. For [outlook](https://outlook.live.com) email
+2. Settings → Mail → Forwarding and IMAP → POP and IMAP
+3. Enable `POP`, `IMAP`
+
+Or:
+
+1. For [yandex](https://mail.yandex.com) email
+2. Settings → All settings → Email clients
+3. Enable `IMAP`, `POP`
+
 ## [Chrome](https://www.google.com/intl/en/chrome/) / [Brave](https://github.com/brave/brave-browser)
   
 `brave://flags/#enable-parallel-downloading` → Parallel downloading → Enabled
