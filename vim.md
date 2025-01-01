@@ -276,13 +276,3 @@ lvim
 
 ↪ [Installation](https://www.lunarvim.org/docs/installation)  
 ↪ [No C compiler found](https://github.com/LunarVim/Neovim-from-scratch/issues/274#issuecomment-1364584526)
-
-## [Wim](https://github.com/wolandark/wim)
-
-```sh
-vim .vimrc
-```
-
-```
-" SirVer/ultisnips
-```

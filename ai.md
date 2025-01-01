@@ -328,6 +328,31 @@ sudo docker compose --env-file .env up -d --build
 ↪ [Run AutoRAG with 🐳 Docker](https://github.com/Marker-Inc-Korea/AutoRAG/blob/main/docs/source/install.md#1-build-the-docker-image)
 <!-- --8<-- [end:docker-arm] -->
 
+## [Sage](https://github.com/Storia-AI/sage) (Cache)
+
+<!-- --8<-- [start:ubuntu-24-arm] -->
+```sh
+git clone --depth=1 https://github.com/Storia-AI/sage
+cd sage
+uv venv --python cpython-3.10.16-linux-aarch64-gnu
+source .venv/bin/activate
+cp .sage-env .sage-env.bak
+vim .sage-env
+```
+
+```
+OLLAMA_BASE_URL=http://<your_host>:11434
+```
+
+```sh
+uv pip install -e .
+sage-index huggingface/transformers --mode=local
+sage-chat huggingface/transformers --mode=local --llm-model llama3.1:8b
+```
+
+↪ [Get Started - Quickstart](https://sage-docs.storia.ai/quickstart)
+<!-- --8<-- [end:ubuntu-24-arm] -->
+
 ## [Perplexica](https://github.com/ItzCrazyKns/Perplexica)
 
 ```sh

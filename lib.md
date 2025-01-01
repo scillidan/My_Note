@@ -11,9 +11,9 @@ python -m build
 
 ↪ [How to Publish an Open-Source Python Package to PyPI](https://realpython.com/pypi-publish-python-package/)
 
-
 ## [uv](https://github.com/astral-sh/uv)
 
+<!-- --8<-- [start:windows10] -->
 ```sh
 uv python list
 uv python pin cpython-3.10.11-windows-x86_64-none
@@ -24,6 +24,22 @@ uv venv --python cpython-3.10.11-windows-x86_64-none
 .venv\Scripts\activate.bat
 uv pip install -e .
 ```
+<!-- --8<-- [end:windows10] -->
+
+<!-- --8<-- [start:ubuntu-24-arm] -->
+```sh
+wget $(curl -s https://api.github.com/repos/astral-sh/uv/releases/latest | grep 'browser_download_url.*uv-aarch64-unknown-linux-gnu.tar.gz' | cut -d '"' -f 4)
+sha256sum -c uv-aarch64-unknown-linux-gnu.tar.gz.sha256
+tar -xzf uv-aarch64-unknown-linux-gnu.tar.gz -C uv
+chmod +x uv-aarch64-unknown-linux-gnu
+mv uv-aarch64-unknown-linux-gnu/* .local/bin/
+uv python list
+uv python install cpython-3.10.16-linux-aarch64-gnu
+uv python pin cpython-3.10.16-linux-aarch64-gnu
+```
+
+↪ [Installing uv](https://docs.astral.sh/uv/getting-started/installation/)
+<!-- --8<-- [end:ubuntu-24-arm] -->
 
 ## [pipx](https://github.com/pypa/pipx)
 
