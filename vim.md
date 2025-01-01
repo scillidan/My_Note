@@ -177,7 +177,8 @@ pip install --upgrade pynvim
 
 ### [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 
-Install [zig](https://ziglang.org/), [gcc](https://gcc.gnu.org/).
+1. Install [MinGW GCC G++ Compiler](https://techdecodetutorials.com/download/)
+2. Install [zig](https://ziglang.org/)
 
 ↪ [nvim-treesitter doesn't seem to work in windows.](https://github.com/nvim-treesitter/nvim-treesitter/issues/2135)
 
