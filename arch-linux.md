@@ -824,12 +824,6 @@ sudo pacman -S sdcv
 pipx install deep-translator
 ```
 
-### [Translate Shell](https://github.com/soimort/translate-shell) (Optional)
-
-```sh
-sudo pacman -S translate-shell
-```
-
 ## dotfile
 
 ↪ [dotfiles-linux](https://github.com/fathulfahmy/dotfiles-linux)

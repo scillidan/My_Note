@@ -203,3 +203,37 @@ tar -xvzf starship-aarch64-unknown-linux-musl.tar.gz
 mv starship ~/.local/bin/
 ```
 <!-- --8<-- [end:ubuntu-22-arm] -->
+
+## [Translate Shell](https://github.com/soimort/translate-shell)
+
+<!-- --8<-- [start:arch-linux] -->
+```sh
+sudo pacman -S translate-shell
+```
+<!-- --8<-- [end:arch-linux] -->
+
+<!-- --8<-- [start:ubuntu-server-arm-24] -->
+```sh
+vim .zshrc
+```
+
+```sh
+zinit light soimort/translate-shell
+```
+
+```
+mkdir ~/.config/translate-shell
+vim ~/.config/translate-shell/init.trans
+````
+
+```
+{
+ :translate-shell "0.9.0"
+ :verbose         false
+ :show-original   false
+ :hl              "en"
+ :tl              ["zh"]
+ :engine          "bing"
+}
+```
+<!-- --8<-- [end:ubuntu-server-arm-24] -->

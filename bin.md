@@ -520,3 +520,4 @@ jsc -t nyaa-si -s "chainsaw man" | xargs -n 1 -r aria2
 
 ↪ [CLI - Usage](https://docs.asciinema.org/manual/cli/usage/)  
 ↪ [agg - Usage](https://docs.asciinema.org/manual/agg/usage/)
+

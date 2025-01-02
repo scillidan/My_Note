@@ -211,12 +211,6 @@ Save `...` to `%LOCALAPPDATA%\nvim-data\devdocs\docs`
 
 ↪ [How to change telescope theme](https://github.com/LazyVim/LazyVim/discussions/1127)
 
-### [avante.nvim](https://github.com/yetone/avante.nvim)
-
-```sh
-pkg install rust
-```
-
 ### [rime-ls](https://github.com/wlh320/rime-ls)
 
 1. Get `Source code` from [rime-ls - Releases](https://github.com/wlh320/rime-ls/releases).
