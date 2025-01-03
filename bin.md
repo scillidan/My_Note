@@ -73,7 +73,7 @@ git push -u origin main
 On another PC:
 
 ```sh
-chezmoi init https://github.com/<user>/dotfiles.git
+chezmoi init https://github.com/<user>/<dotfiles>
 chezmoi diff
 chezmoi apply -v
 ```

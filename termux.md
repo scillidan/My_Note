@@ -5,7 +5,7 @@ pkg update && pkg upgrade
 pkg install curl wget git vim
 ```
 
-### [Termux:Styling](https://github.com/termux/termux-styling)
+### [Termux:Styling](https://github.com/termux/termux-styling) (Cache)
 
 ### [Nerd Font](https://www.nerdfonts.com/font-downloads)
 
