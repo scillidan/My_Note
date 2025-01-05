@@ -521,3 +521,19 @@ jsc -t nyaa-si -s "chainsaw man" | xargs -n 1 -r aria2
 ↪ [CLI - Usage](https://docs.asciinema.org/manual/cli/usage/)  
 ↪ [agg - Usage](https://docs.asciinema.org/manual/agg/usage/)
 
+## [MinIO Client](https://min.io/docs/minio/linux/reference/minio-mc.html)
+
+<!-- --8<-- [start:ubuntu-server-arm-22] -->
+```sh
+wget https://dl.min.io/client/mc/release/linux-arm64/mc
+chmod +x mc
+mv mc ~/.local/bin/
+```
+
+```sh
+mkdir -p ~/minio_recursive
+mc alias set <database_name> http://<your_host>:9000 <MINIO_ROOT_USER> <MINIO_ROOT_PASSWORD>
+mc list <database_name>
+mc cp --recursive <database_name>/ ~/minio_recursive/
+```
+<!-- --8<-- [end:ubuntu-server-arm-22] -->

@@ -476,6 +476,12 @@ uv run langflow run
 
 ↪ [Install Langflow](https://docs.langflow.org/get-started-installation)
 
+<!-- --8<-- [start:ubuntu-22-arm] -->
+```sh
+sudo docker run -d -p 7860:7860 langflowai/langflow-nightly:latest
+```
+<!-- --8<-- [end:ubuntu-22-arm] -->
+
 ## [Local RAG Chatbot](https://github.com/datvodinh/rag-chatbot)
 
 Install [Ollama](https://ollama.com/), [ngrok](https://ngrok.com/).
@@ -489,6 +495,8 @@ pip install .
 pip install hf_transfer
 python -m rag_chatbot --host localhost & ngrok http 4321
 ```
+
+## [kotaemon](https://github.com/Cinnamon/kotaemon) (TBD)
 
 ## [phidata](https://github.com/phidatahq/phidata) (Cache)
 
