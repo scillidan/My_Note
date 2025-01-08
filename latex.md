@@ -23,3 +23,6 @@ xelatex geneve_1564.tex
 ```
 
 ## [OCRAutoScore](https://github.com/vkgo/OCRAutoScore) (Cache)
+
+## [menukeys](https://ctan.org/pkg/menukeys)
+## [ctex](https://ctan.org/pkg/ctex)

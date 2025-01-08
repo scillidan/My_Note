@@ -489,7 +489,7 @@ Install [Ollama](https://ollama.com/), [ngrok](https://ngrok.com/).
 ```sh
 git clone --depth=1 https://github.com/datvodinh/rag-chatbot
 cd rag-chatbot
-python.exe -m venv venv
+python -m venv venv
 venv\Scripts\activate.bat
 pip install .
 pip install hf_transfer
@@ -502,7 +502,7 @@ python -m rag_chatbot --host localhost & ngrok http 4321
 
 ```sh
 git clone --depth=1 https://github.com/phidatahq/phidata
-python.exe -m venv venv
+python -m venv venv
 venv\Scripts\activate.bat
 pip install torch --index-url https://download.pytorch.org/whl/cu121
 pip install -r requirements.txt
@@ -606,7 +606,7 @@ python playground.py
 
 ```sh
 git clone --depth=1 https://github.com/machinewrapped/gpt-subtrans
-python.exe -m venv venv
+python -m venv venv
 venv\Scripts\activate.bat
 pip install -r requirements.txt
 scripts\generate-cmd.bat gui-subtrans
@@ -642,10 +642,14 @@ npm run dev
 
 Visit `localhost:3000/chatgpt-subtitle-translator`.
 
-## [PDFMathTranslate](https://github.com/Byaidu/PDFMathTranslate) (Cache)
+## [PDFMathTranslate](https://github.com/Byaidu/PDFMathTranslate)
 
 ```sh
-pip install pdf2zh
+git clone --depth=1 https://github.com/Byaidu/PDFMathTranslate
+cd PDFMathTranslate
+uv venv --python cpython-3.10.11-windows-x86_64-none
+.venv\Scripts\activate.bat
+uv pip install -e .
 pdf2zh -i
 ```
 
@@ -677,7 +681,7 @@ Edit `requirements.txt`:
 ```
 
 ```sh
-python.exe -m venv venv
+python -m venv venv
 venv\Scripts\activate.bat
 pip install torch>=2.1.1 torchaudio --index-url https://download.pytorch.org/whl/cu121
 pip install -r requirements.txt
@@ -708,7 +712,7 @@ with open("README.md", "r", encoding='utf-8') as fh:
 ```
 
 ```sh
-python.exe -m venv venv
+python -m venv venv
 venv\Scripts\activate.bat
 pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu121
 pip install .
@@ -901,7 +905,7 @@ f5-tts_infer-gradio
 git lfs install
 git clone https://huggingface.co/spaces/suno/bark
 cd bark
-python.exe -m venv venv
+python -m venv venv
 venv\Scripts\activate.bat
 pip install torch --index-url https://download.pytorch.org/whl/cu121
 pip install hf_transfer
@@ -915,7 +919,7 @@ ffplay -autoexit temp.wav
 ```sh
 git clone --depth=1 https://github.com/makawy7/bark-webui
 cd bark-webui
-python.exe -m venv venv
+python -m venv venv
 venv\Scripts\activate.bat
 pip install torch --index-url https://download.pytorch.org/whl/cu121
 pip install .
@@ -932,7 +936,7 @@ Edit `API_FLAGS.txt`:
 ```
 
 ```sh
-python.exe -m venv venv
+python -m venv venv
 venv\Scripts\activate.bat
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
 pip install https://github.com/AnyaCoder/fish-speech/releases/download/v0.1.0/triton_windows-0.1.0-py3-none-any.whl
@@ -964,7 +968,7 @@ Edit `requirements.txt`:
 
 ```sh
 pyenv local 3.11.9
-python.exe -m venv venv
+python -m venv venv
 venv\Scripts\activate.bat
 pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu121
 pip install coqui-tts --only-binary spacy && pip install .
@@ -979,7 +983,7 @@ epub2tts <txt> --engine tts --speaker "<Speaker>" --cover cover-image.jpg --sayp
 ```sh
 git clone --depth=1 https://github.com/p0n1/epub_to_audiobook
 cd epub_to_audiobook
-python.exe -m venv venv
+python -m venv venv
 venv\Scripts\activate.bat
 pip install -r requirements.txt
 python main.py --tts edge --language en-US <epub> <output_folder>
@@ -990,7 +994,7 @@ python main.py --tts edge --language en-US <epub> <output_folder>
 ```sh
 git clone --depth=1 https://github.com/DrewThomasson/ebook2audiobook
 cd ebook2audiobook
-python.exe -m venv venv
+python -m venv venv
 venv\Scripts\activate.bat
 pip install coqui-tts==0.24.2 pydub nltk beautifulsoup4 ebooklib tqdm gradio==4.44.0
 python -m nltk.downloader punkt
@@ -1021,7 +1025,7 @@ sudo docker run -d -p 7860:7860 --name ebook_to_audiobook_container ebook_to_aud
 git clone --depth=1 https://github.com/sdbds/ToonCrafter-for-windows
 pyenv install 3.8.10
 pyenv shell 3.8.10
-python.exe -m venv venv
+python -m venv venv
 venv\Scripts\activate.bat
 pip install -r requirements-windows.txt
 ```
@@ -1264,7 +1268,7 @@ Power by GPU:
 
 ```sh
 git clone --depth=1 https://github.com/SWHL/RapidVideOCR
-python.exe -m venv venv
+python -m venv venv
 venv\Scripts\activate.bat
 pip install paddlepaddle-gpu==3.0.0b1 -i https://www.paddlepaddle.org.cn/packages/stable/cu123/
 pip install get-pypi-latest-version

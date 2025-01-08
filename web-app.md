@@ -15,6 +15,10 @@ And:
   2. Branch → `gh-pages`, `/(root)`
 4. Visit `https://<user>.github.io/qr-designer/`
 
+## [MiniPerplx](https://github.com/zaidmukaddam/miniperplx) (Cache)
+
+![](https://img.shields.io/github/license/zaidmukaddam/miniperplx?label=&style=flat-square) ![](https://img.shields.io/badge/Vercel-black?style=flat&logo=Vercel&logoColor=white)
+
 ## [Datasette Lite](https://github.com/simonw/datasette-lite)
 
 ![](https://img.shields.io/github/license/simonw/datasette-lite?label=&style=flat-square) ![](https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white)
