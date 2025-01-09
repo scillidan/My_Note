@@ -16,11 +16,12 @@ python -m build
 <!-- --8<-- [start:windows10] -->
 ```sh
 uv python list
-uv python pin cpython-3.10.11-windows-x86_64-none
+uv python install <cpython-*-windows-x86_64-none>
+uv python pin cpython-*-windows-x86_64-none
 ```
 
 ```sh
-uv venv --python cpython-3.10.11-windows-x86_64-none
+uv venv --python cpython-*-windows-x86_64-none
 .venv\Scripts\activate.bat
 uv pip install -e .
 ```
