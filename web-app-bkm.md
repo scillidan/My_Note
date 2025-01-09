@@ -76,6 +76,7 @@ quiver                       | https://scillidan.github.io/quiver
 readium-js-viewer            | https://scillidan.github.io/readium-js-viewer
 recoded                      | https://gm-recoded.vercel.app
 reminiflux                   | https://gm-reminiflux.vercel.app
+Visual Fashion Findel        | https://shopwithpixie.com/visual-fashion-finder
 sketch-to-lineart            | https://gm-sketch-to-lineart.vercel.app
 sreadium                     | https://gm-sreadium.vercel.app/?epubs=https%3A%2F%2Fgm-media-audioebook.vercel.app%2Fepub_library.opds
 studio                       | https://gm-studio1.vercel.app
