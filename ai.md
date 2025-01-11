@@ -282,6 +282,8 @@ pnpm install
 pnpm dev
 ```
 
+## [Wren AI](https://github.com/Canner/WrenAI)
+
 ## [Khoj](https://github.com/khoj-ai/khoj) (Cache)
 
 <!-- --8<-- [start:docker-arm] -->

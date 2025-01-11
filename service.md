@@ -1,7 +1,7 @@
 ## Ubuntu Server ARM 22
 
 ```sh
-sudo apt update && sudo apt upgrade
+sudo apt update && sudo apt upgrade -y
 ```
 
 ```sh
@@ -92,6 +92,7 @@ sudo ifconfig wlan0 down
 For `Ubuntu 22.04 LTS`:
 
 ```sh
+mkdir -p /etc/apt/sources.list.d
 sudo cp /etc/apt/sources.list.d/ubuntu.sources /etc/apt/sources.list.d/ubuntu.sources.bak
 sudo vim /etc/apt/sources.list.d/ubuntu.sources
 ```
@@ -156,7 +157,7 @@ ls -l /mnt/nvme
 ```
 
 ```sh
-sudo mount -o uid=<User>,gid=<User>,umask=000 /dev/sda2 /mnt/nvme
+sudo mount -o uid=root,gid=root,umask=000 /dev/sda2 /mnt/nvme
 ```
 
 ## FTP
@@ -541,6 +542,7 @@ sudo vim /etc/docker/daemon.json
 
 ```
 {
+  "data-root": "/mnt/nvme/docker",
   "registry-mirrors": [
     "https://docker.1panel.top",
     "https://docker.1panel.live",
@@ -1654,6 +1656,8 @@ sudo systemctl enable code-server
 ↪ [Setup Guide](https://github.com/coder/code-server/blob/main/docs/guide.md)
 
 ## [VS Code LaTeX Devcontainer](https://github.com/a-nau/latex-devcontainer) (Cache)
+
+## [Zasper](https://github.com/zasper-io/zasper) (Todo)
 
 ## [Trilium](https://github.com/zadam/trilium) (Cache)
 
