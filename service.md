@@ -543,6 +543,7 @@ sudo vim /etc/docker/daemon.json
 ```
 {
   "data-root": "/mnt/nvme/docker",
+  "dns": ["8.8.8.8", "8.8.4.4"],
   "registry-mirrors": [
     "https://docker.1panel.top",
     "https://docker.1panel.live",
@@ -891,7 +892,7 @@ Get `Suwayomi-Server-v*-debian-all.deb` from [Suwayomi-Server - Releases](https:
 
 ```sh
 sudo dpkg -i Suwayomi-Server-v*-debian-all.deb
-apt --fix-broken install
+sudo apt --fix-broken install
 sudo vim /etc/systemd/system/suwayomi-server.service
 ```
 
@@ -915,7 +916,7 @@ sudo systemctl enable --now suwayomi-server
 sudo systemctl status suwayomi-server
 ```
 
-1. Visit `0.0.0.0:4567`.
+1. Visit `<your_host>:4567`.
 2. The service may take several minutes to start until you can see it.
 
 ↪ [can you make it easier to install on ubuntu , and tutorial need to update](https://github.com/Suwayomi/Suwayomi-Server/issues/896)
@@ -1103,6 +1104,7 @@ pm2 start server.py --name silverdict --interpreter "venv/Scripts/python.exe" --
 3. Decompress `LanguageTool-stable.zip` to `LanguageTool\`
 
 ```sh
+unzip LanguageTool-stable.zip
 java.exe -cp LanguageTool\languagetool-server.jar org.languagetool.server.HTTPServer --languagemodel <ngrams-dir> --port <port> --allow-origin
 ```
 
@@ -1127,7 +1129,8 @@ sudo mv LanguageTool-* /opt/languagetool
 ```
 
 ```sh
-git clone --depth=1 https://github.com/facebookresearch/fastText.git
+sudo apt install make g++
+git clone --depth=1 https://github.com/facebookresearch/fastText
 cd fastText
 make
 sudo vim /opt/languagetool/server.properties
@@ -1732,7 +1735,7 @@ module.exports = {
 
 <!-- --8<-- [start:docker-arm] -->
 ```sh
-sudo docker run -d --name audiobookshelf -p 13378:80 -v /mnt/nvme/audiobook:/mnt/nvme/audiobook -v ./audiobooks:/audiobooks -v ./podcasts:/podcasts -v ./metadata:/metadata -v ./config:/config --restart=unless-stopped docker.1panel.top/advplyr/audiobookshelf:latest
+sudo docker run -d --name audiobookshelf -p 13378:80 -v /mnt/nvme/audiobook:/mnt/nvme/audiobook -v ./audiobooks:/audiobooks -v ./podcasts:/podcasts -v ./metadata:/metadata -v ./config:/config --restart=unless-stopped <docker_image_proxy>/advplyr/audiobookshelf:latest
 sudo docker stop audiobookshelf
 ```
 <!-- --8<-- [end:docker-arm] -->
@@ -2008,17 +2011,15 @@ services:
       - "8070:8070"
       - "453:453"
   n8n:
+    images: <docker_image_proxy>/n8nio/n8n
+    ports:
+      - "0.0.0.0:5678:5678"
+    environment:
+      - N8N_SECURE_COOKIE=false
     volumes:
       - /mnt/nvme/share/n8n:/files
       - n8n_data:/home/node/.n8n
-```
 
-```sh
-vim .env
-```
-
-```
-GENERIC_TIMEZONE=Asia/Shanghai
 ```
 
 ```sh
