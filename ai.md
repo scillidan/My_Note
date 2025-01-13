@@ -78,8 +78,9 @@ ollama run qwen2.5:7b
 Get `ollama-linux-arm64.tgz` from [Ollama - Releases](https://github.com/ollama/ollama/releases).
 
 ```sh
-chmod +x ollama-linux-arm64
-sudo mv ollama-linux-arm64 /usr/bin/ollama
+tar -xvzf ollama-linux-arm64.tgz -C ollama
+chmod +x ollama/bin/ollama
+mv ollama/bin/ollama ~/.local/bin 
 ollama serve
 ```
 
@@ -130,6 +131,10 @@ Chat → Select a model to load → Select the LLM
 As server:
 
 Developer → Enable CORS (On) → Serve on Local Network (on) → Select a model to load → Start Server
+
+## [Tabby](https://github.com/TabbyML/tabby)
+
+↪ [Step 1 - Installation - Windows](https://tabby.tabbyml.com/docs/quick-start/installation/windows/)
 
 ## [Text generation web UI](https://github.com/oobabooga/text-generation-webui)
 
@@ -283,6 +288,8 @@ pnpm dev
 ```
 
 ## [Wren AI](https://github.com/Canner/WrenAI)
+
+↪ [Getting Started - Installation](https://docs.getwren.ai/oss/installation)
 
 ## [Khoj](https://github.com/khoj-ai/khoj) (Cache)
 

@@ -44,6 +44,7 @@ REAFLOW                      | https://scillidan.github.io/reaflow
 Rearrange PDF as Duplex Scan | https://gm-pdf-duplex-scan.vercel.app
 Reference                    | https://gm-reference.vercel.app
 RetroAssembly                | https://gm-retro-assembly.vercel.app
+Scira                        | https://scira.how
 Screen Sharing Application   | https://gm-screen-sharing.vercel.app
 Signature Pad                | https://gm-signature-pad.vercel.app
 SvgPathEditor                | https://gm-svg-path-editor.vercel.app
