@@ -572,3 +572,25 @@ beatprints
 ```
 
 ↪ [CLI Setup](https://beatprints.readthedocs.io/en/latest/guidebook/cli.html)
+
+## [SeaGOAT](https://github.com/kantord/SeaGOAT) (Cache)
+
+```sh
+uvpipx install seagoat
+seagoat-server start <your_repo>
+```
+
+## [grc](https://github.com/garabik/grc)
+
+```sh
+sudo apt install grc
+vim ~/.zshrc
+```
+
+```
+[[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
+```
+
+```sh
+grc ping <domain>
+```

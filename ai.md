@@ -195,8 +195,8 @@ python translate_epub.py --trust_remote_code --model_name_or_path models/sakura-
 
 <!-- --8<-- [start:docker-arm] -->
 ```sh
-mkdir lobe-chat-docker
-cd lobe-chat-docker
+mkdir Docker/lobe-chat
+cd Docker/lobe-chat
 vim docker-compose.yml
 ```
 
@@ -205,6 +205,7 @@ Copy from [here](https://lobehub.com/docs/self-hosting/platform/docker-compose#r
 ```sh
 sudo docker compose up -d
 vim auto-update-lobe-chat.sh
+sudo chmod +x auto-update-lobe-chat.sh
 ```
 
 Copy from [here](https://lobehub.com/docs/self-hosting/platform/docker-compose#crontab-automatic-update-script-optional).
@@ -223,8 +224,8 @@ crontab -e
 <!-- --8<-- [end:docker-arm] -->
 
 ```sh
-mkdir lobe-chat-db-docker
-cd lobe-chat-db-docker
+mkdir Docker/lobe-chat-db
+cd Docker/lobe-chat-db
 bash <(curl -fsSL https://raw.githubusercontent.com/lobehub/lobe-chat/HEAD/docker-compose/local/setup.sh) -f
 vim .env
 ```
@@ -271,7 +272,8 @@ Casdoor:
     ```
 10. Casdoor → Identity → Applications → LobeChat → Edit → Providers → Add → Select `minio` → Save & Exit
 
-↪ [Deploying LobeChat Server Database Version with Docker Compose](https://lobehub.com/docs/self-hosting/server-database/docker-compose)
+↪ [Deploying LobeChat Server Database Version with Docker Compose](https://lobehub.com/docs/self-hosting/server-database/docker-compose)  
+↪ [[Bug] 无法使用管理员账号登录casdoor](https://github.com/lobehub/lobe-chat/issues/5098)
 
 ## [Next.js AI Chatbot](https://github.com/vercel/ai-chatbot) (Cache)
 
@@ -286,6 +288,32 @@ vercel env pull
 pnpm install
 pnpm dev
 ```
+
+## [Chat2DB](https://github.com/CodePhiliaX/Chat2DB)
+
+<!-- --8<-- [start:ubuntu-24-arm] -->
+```sh
+mkdir Chat2DB
+cd Chat2DB
+vim docker-compose.yml
+```
+
+```yaml
+version: '3.8'
+
+services:
+  chat2db:
+    image: chat2db/chat2db:latest
+    container_name: chat2db
+    ports:
+      - "10824:10824"
+    volumes:
+      - ~/.chat2db-docker:/root/.chat2db
+    tty: true
+```
+
+Visit `<your_host>:10824`, login with user `chat2db`, password `chat2db`.
+<!-- --8<-- [end:ubuntu-24-arm] -->
 
 ## [Wren AI](https://github.com/Canner/WrenAI)
 

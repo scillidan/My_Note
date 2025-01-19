@@ -407,11 +407,10 @@ Install safe-shutdown script:
 	```
 	140.82.112.4	github.com
 	185.199.108.133	raw.githubusercontent.com
-	# 202.38.95.110	mirrors.ustc.edu.cn
+	91.189.91.81 archive.ubuntu.com
+	# 13.226.22.98 download.docker.com
 	# 142.251.32.17	proxy.golang.org
-	# 13.32.151.28	download.docker.com
-	# 140.82.113.133ghcr.io
-	# 104.20.17.74	dockerpull.org
+	# 202.38.95.110	mirrors.ustc.edu.cn
 	```
 2. Reboot.
 3. Configuration → File Manager → Run `/boot/gpi.sh`.

@@ -74,6 +74,7 @@ ContextMenu   | SingleFile
 ContextMenu   | Cookie AutoDelete
 ContextMenu   | Block Site - (Un)Block this Page
 ContextMenu   | Tab to Window/Popup
+ContextMenu   | Auto Clipboard
 A-p           | Tab to Window/Popup
 A-S-z         | immersive-translate - Translate Webpage/Show Original Text
 A-S-f         | Chikamichi Search Anything

@@ -133,6 +133,9 @@ Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
 ```
 
 ↪ [USTC Mirror Help - Ubuntu Ports](https://mirrors.ustc.edu.cn/help/ubuntu-ports.html)
+<!-- 
+↪ [How to fix "Failed to fetch <sources.list links> 404 Not Found [IP: <some_ip>]"](https://askubuntu.com/questions/1348375/how-to-fix-failed-to-fetch-sources-list-links-404-not-found-ip-some-ip)
+ -->
 
 ## [curl](https://curl.se/) (Optional)
 
@@ -284,6 +287,7 @@ sudo mount
 
 ↪ [How to Install and Configure SAMBA on Arch Linux](https://linuxways.net/arch/install-configure-samba-arch-linux/)  
 ↪ [Samba error code 22](https://forum.manjaro.org/t/samba-error-code-22/106741/1)
+<!-- ↪ [How to Set Up a Samba Share on a Linux Server](https://chuck.is/samba/) -->
 
 If `mount error: cifs filesystem not supported by the system`:
 
@@ -476,6 +480,10 @@ sudo systemctl status vncserver@1
 ↪ [How to Install and Configure VNC on Ubuntu 22.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-vnc-on-ubuntu-22-04)
 <!-- --8<-- [end:ubuntu-server-arm-22] -->
 
+## [Watchtower](https://github.com/containrrr/watchtower)
+
+↪ [How to Automatically Update Docker Container Images with Watchtower on Ubuntu 22.04](https://www.digitalocean.com/community/tutorials/how-to-automatically-update-docker-container-images-with-watchtower-on-ubuntu-22-04)
+
 ## [Ansible](https://github.com/ansible/ansible)
 
 ## [PM2](https://pm2.keymetrics.io/)
@@ -573,7 +581,8 @@ sudo systemctl daemon-reload
 sudo systemctl restart docker
 ```
 
-↪ [Docker / Podman 安装与换源](https://wcbing.top/linux/containers/install/)
+↪ [Docker / Podman 安装与换源](https://wcbing.top/linux/containers/install/)  
+↪ [How to Change Docker’s Default Data Directory](https://linuxiac.com/how-to-change-docker-data-directory/)
 
 ```sh
 sudo docker run -p 8080:80 --rm nginx
@@ -728,20 +737,49 @@ sudo pacman -S zerotier-one
 
 ## [ztncui](https://github.com/key-networks/ztncui)
 
-## [headscale](https://github.com/juanfont/headscale) (Cache)
-
-Get `headscale_<version>_linux_arm64.deb` from [Headscale - Releases](https://github.com/juanfont/headscale/releases).
+## [Tailscale](https://tailscale.com)
 
 ```sh
-sudo apt install ./headscale.deb
+curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/noble.noarmor.gpg | sudo tee /usr/share/keyrings/tailscale-archive-keyring.gpg >/dev/null
+curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/noble.tailscale-keyring.list | sudo tee /etc/apt/sources.list.d/tailscale.list
+sudo apt-get update
+sudo apt-get install tailscale
+sudo tailscale up
+ip addr show tailscale0
+sudo tailscale login
+```
+
+↪ [Setting up Tailscale on Ubuntu 24.04 (noble)](https://tailscale.com/kb/1476/install-ubuntu-2404)  
+↪ [Coding on iPad using VSCode, Caddy, and code-server](https://tailscale.com/kb/1166/vscode-ipad)
+
+## [headscale](https://github.com/juanfont/headscale) (Cache)
+
+<!-- --8<-- [start:ubuntu-server-arm-24] -->
+Get `headscale_<version>_linux_arm64` from [Headscale - Releases](https://github.com/juanfont/headscale/releases).
+
+```sh
+sudo mv headscale_<version>_linux_arm64 headscale
+sudo chmod +x headscale
+mv headscale /usr/local/bin/
+sudo useradd --create-home --home-dir --system --user-group --shell /usr/sbin/nologin headscale
+sudo mkdir -p /etc/headscale
+sudo wget https://headscale.net/stable/packaging/headscale.systemd.service -O /etc/systemd/system/headscale.service
+sudo vim /etc/headscale/config.yaml
+```
+
+```yaml
+unix_socket: /var/run/headscale/headscale.sock
+```
+
+```sh
+sudo systemctl daemon-reload
 sudo systemctl enable --now headscale
 systemctl status headscale
 ```
 
-```sh
-sudo dpkg --remove headscale
-sudo dpkg --purge headscale
-```
+↪ [Using standalone binaries (advanced)](https://headscale.net/stable/setup/install/official/#using-standalone-binaries-advanced)  
+↪ [How To Install Headscale on Ubuntu 24.04|22.04|20.04](https://computingforgeeks.com/install-and-configure-headscale-on-ubuntu/)
+<!-- --8<-- [end:ubuntu-server-arm-24] -->
 
 ## [Headscale-UI](https://github.com/gurucomputing/headscale-ui) (Cache)
 
@@ -1662,6 +1700,17 @@ sudo systemctl enable code-server
 
 ## [Zasper](https://github.com/zasper-io/zasper) (Todo)
 
+<!-- --8<-- [start:ubuntu-server-arm-24] -->
+```sh
+git clone --depth=1 https://github.com/zasper-io/zasper
+cd zasper/docker
+sudo docker compose build
+sudo docker compose up -d
+```
+
+↪ [Dokcer](https://github.com/zasper-io/zasper/tree/main/docker)
+<!-- --8<-- [end:ubuntu-server-arm-24] -->
+
 ## [Trilium](https://github.com/zadam/trilium) (Cache)
 
 Get `trilium-linux-x64-server-*.tar.xz` from [Trilium - Releases](https://github.com/zadam/trilium/releases).
@@ -1694,6 +1743,26 @@ WantedBy=multi-user.target
 ```sh
 sudo systemctl enable --now trilium
 ```
+
+## [Graphite](https://github.com/GraphiteEditor/Graphite) (Cache)
+
+<!-- --8<-- [start:ubuntu-server-arm-24] -->
+```sh
+cargo install cargo-watch
+cargo install wasm-pack
+cargo install -f wasm-bindgen-cli@0.2.99
+sudo apt install libgtk-3-dev libsoup2.4-dev libjavascriptcoregtk-4.0-dev libwebkit2gtk-4.0-dev
+git clone --depth=1 https://github.com/GraphiteEditor/Graphite
+cd Graphite/frontend
+cargo install cargo-about
+cargo install wasm-opt
+npm install vite --save-dev
+npm run build
+pm2 serve dist 4321 --name graphite --spa
+```
+
+↪ [Project setup](https://graphite.rs/volunteer/guide/project-setup/)
+<!-- --8<-- [end:ubuntu-server-arm-24] -->
 
 ## [audiobookshelf](https://github.com/advplyr/audiobookshelf) (Cache)
 
@@ -2031,7 +2100,78 @@ sudo docker compose up -d
 ↪ [Server setups - Docker-Compose](https://docs.n8n.io/hosting/installation/server-setups/docker-compose/)
 <!-- --8<-- [end:docker-arm] -->
 
-## [Gitea](https://about.gitea.com/)
+## [Gitea](https://about.gitea.com/) (Cache)
+<!-- --8<-- [start:ubuntu-server-arm-24] -->
+Get `gitea-*-linux-arm64` from [here](https://dl.gitea.com/gitea/1.22.6/gitea-1.22.6-darwin-10.12-arm64).
+
+```sh
+gpg --keyserver keys.openpgp.org --recv 7C9E68152594688862D62AF62D9AE806EC1592E2
+gpg --verify gitea-*-linux-amd64.asc gitea-*-linux-amd64
+mv gitea-*-linux-arm64 gitea
+sudo chmod +x gitea
+sudo adduser --system --shell /bin/bash --gecos 'Git Version Control' --group --disabled-password --home /home/git git
+sudo mkdir -p /var/lib/gitea/{custom,data,log}
+sudo chown -R git:git /var/lib/gitea/
+sudo chmod -R 750 /var/lib/gitea/
+sudo mkdir /etc/gitea
+sudo chown root:git /etc/gitea
+sudo chmod 770 /etc/gitea
+sudo cp gitea /usr/local/bin/gitea
+sudo vim /etc/systemd/system/gitea.service
+```
+
+```
+[Unit]
+Description=Gitea
+After=network.target
+
+[Service]
+User=git
+Group=git
+WorkingDirectory=/var/lib/gitea/
+Environment=GITEA_WORK_DIR=/var/lib/gitea/
+ExecStart=/usr/local/bin/gitea web -c /etc/gitea/app.ini
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```sh
+sudo systemctl start --now gitea.service
+sudo chmod 750 /etc/gitea
+sudo chmod 640 /etc/gitea/app.ini
+```
+
+↪ [Installation from binary](https://docs.gitea.com/installation/install-from-binary)
+<!-- --8<-- [end:ubuntu-server-arm-24] -->
+## [Sourcebot](https://github.com/sourcebot-dev/sourcebot)
+
+<!-- --8<-- [start:ubuntu-24-arm] -->
+```sh
+mkdir Docker/sourcebot
+cd Docker/sourcebot
+vim docker-compose.yml
+```
+
+```yaml
+version: '3.8'
+
+services:
+  sourcebot:
+    image: ghcr.io/sourcebot-dev/sourcebot:latest
+    ports:
+      - "3100:3100"
+    restart: unless-stopped
+```
+
+```sh
+sudo docker compose up -d
+```
+
+↪ [Getting Started](https://github.com/sourcebot-dev/sourcebot#getting-started)
+<!-- --8<-- [end:ubuntu-24-arm] -->
 
 ## [immich](https://immich.app/)
 
