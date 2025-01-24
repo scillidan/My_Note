@@ -1676,12 +1676,12 @@ ding <String>
 
 ## [Coder](https://coder.com/) (Cache)
 
+<!-- --8<-- [start:ubuntu-server-arm-24] -->
+Get `code-server-*-linux-arm64.tar.gz` from [releases](https://github.com/coder/code-server/releases).
+
 ```sh
-mkdir ~/code-server
-cd ~/code-server
-wget https://github.com/coder/code-server/releases/download/v4.8.2/code-server-4.92.2-linux-arm64.tar.gz
-tar -xzvf code-server-4.92.2-linux-arm64.tar.gz
-sudo cp -r code-server-4.8.2-linux-amd64 /usr/lib/code-server
+tar -xzvf code-server-*-linux-arm64.tar.gz
+sudo cp -r code-server-*-linux-amd64 /usr/lib/code-server
 sudo ln -s /usr/lib/code-server/bin/code-server /usr/bin/code-server
 sudo mkdir /var/lib/code-server
 sudo vim /lib/systemd/system/code-server.service
@@ -1694,8 +1694,8 @@ After=nginx.service
 
 [Service]
 Type=simple
-Environment=PASSWORD=<Password>
-ExecStart=/usr/bin/code-server --bind-addr 0.0.0.0:8080 --user-data-dir /var/lib/code-server --auth password
+Environment=PASSWORD=<password>
+ExecStart=/usr/bin/code-server --bind-addr 0.0.0.0:8010 --user-data-dir /var/lib/code-server --auth password
 Restart=always
 
 [Install]
@@ -1703,12 +1703,11 @@ WantedBy=multi-user.target
 ```
 
 ```sh
-sudo systemctl start code-server
-sudo systemctl status code-server
-sudo systemctl enable code-server
+sudo systemctl enable --now code-server
 ```
 
 ↪ [How To Set Up the code-server Cloud IDE Platform on Ubuntu 22.04](https://www.digitalocean.com/community/tutorials/how-to-set-up-the-code-server-cloud-ide-platform-on-ubuntu-22-04)
+<!-- --8<-- [end:ubuntu-server-arm-24] -->
 
 1. Settings → Profile → <TargetProfile> → More → Export → <ProfileName> → Local file
 2. Settings → Profile (Default) → Import Profile
