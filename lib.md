@@ -42,7 +42,7 @@ uv python pin cpython-3.10.16-linux-aarch64-gnu
 ↪ [Installing uv](https://docs.astral.sh/uv/getting-started/installation/)
 <!-- --8<-- [end:ubuntu-24-arm] -->
 
-## [uvpipx](https://github.com/pytgaen/uv-pipx)
+## [uvpipx](https://github.com/pytgaen/uv-pipx) (Cache)
 
 ```sh
 pip install uvpipx

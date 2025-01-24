@@ -25,19 +25,19 @@ And:
 
 ## [Datasette Lite](https://github.com/simonw/datasette-lite)
 
-![](https://img.shields.io/github/license/simonw/datasette-lite?label=&style=flat-square) ![](https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white)
+![](https://img.shields.io/github/license/simonw/datasette-lite?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/datasette-lite/main?label=&style=flat-square)](https://github.com/scillidan/datasette-lite) ![](https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white)
 
 ## [Screen Sharing Application](https://github.com/tonghohin/screen-sharing)
 
-![](https://img.shields.io/github/license/tonghohin/screen-sharing?label=&style=flat-square) ![](https://img.shields.io/badge/Vercel-black?style=flat&logo=Vercel&logoColor=white)
+![](https://img.shields.io/github/license/tonghohin/screen-sharing?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/screen-sharing/main?label=&style=flat-square)](https://github.com/scillidan/screen-sharing) ![](https://img.shields.io/badge/Vercel-black?style=flat&logo=Vercel&logoColor=white)
 
 ## [Invoify](https://github.com/al1abb/invoify)
 
-![](https://img.shields.io/github/license/al1abb/invoify?label=&style=flat-square) ![](https://img.shields.io/badge/Vercel-black?style=flat&logo=Vercel&logoColor=white)
+![](https://img.shields.io/github/license/al1abb/invoify?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/invoify/main?label=&style=flat-square)](https://github.com/scillidan/invoify) ![](https://img.shields.io/badge/Vercel-black?style=flat&logo=Vercel&logoColor=white)
 
 ## [studio](https://github.com/outerbase/studio)
 
-![](https://img.shields.io/github/license/outerbase/studio?label=&style=flat-square) ![![](https://img.shields.io/github/last-commit/scillidan/studio/main?label=&style=flat-square)](https://github.com/scillidan/studio) ![](https://img.shields.io/badge/Vercel-black?style=flat&logo=Vercel&logoColor=white)
+![](https://img.shields.io/github/license/outerbase/studio?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/studio/main?label=&style=flat-square)](https://github.com/scillidan/studio) ![](https://img.shields.io/badge/Vercel-black?style=flat&logo=Vercel&logoColor=white)
 
 ## [AudioMass](https://github.com/scillidan/AudioMass) (Cache)
 
@@ -45,15 +45,15 @@ And:
 
 ## [WebVM](https://github.com/leaningtech/webvm)
 
-!![](https://img.shields.io/github/license/leaningtech/webvm?label=&style=flat-square) ![](https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white)
+!![](https://img.shields.io/github/license/leaningtech/webvm?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/webvm/main?label=&style=flat-square)](https://github.com/scillidan/webvm) ![](https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white)
 
 ## [Pic Smaller](https://github.com/joye61/pic-smaller)
 
-![](https://img.shields.io/github/license/joye61/pic-smaller?label=&style=flat-square) ![](https://img.shields.io/badge/Vercel-black?style=flat&logo=Vercel&logoColor=white)
+![](https://img.shields.io/github/license/joye61/pic-smaller?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/pic-smaller/main?label=&style=flat-square)](https://github.com/scillidan/pic-smaller) ![](https://img.shields.io/badge/Vercel-black?style=flat&logo=Vercel&logoColor=white)
 
 ## [IT-TOOLS](https://github.com/CorentinTh/it-tools)
 
-![](https://img.shields.io/github/license/CorentinTh/it-tools?label=&style=flat-square) ![](https://img.shields.io/badge/Vercel-black?style=flat&logo=Vercel&logoColor=white)
+![](https://img.shields.io/github/license/CorentinTh/it-tools?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/it-tools/main?label=&style=flat-square)](https://github.com/scillidan/it-tools) ![](https://img.shields.io/badge/Vercel-black?style=flat&logo=Vercel&logoColor=white)
 
 ## [altium.js](https://github.com/gsuberland/altium_js)
 
@@ -715,7 +715,7 @@ With PM2:
 pm2 start npm --name "qr-designer" -- run start
 ```
 
-## [qrframe](https://github.com/zhengkyl/qrframe) (TBD)
+## [qrframe](https://github.com/zhengkyl/qrframe) (Todo)
 
 ![](https://img.shields.io/github/license/zhengkyl/qrframe?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/qrframe/master?label=&style=flat-square)](https://github.com/scillidan/qrframe) ![](https://img.shields.io/badge/Vercel-black?style=flat&logo=Vercel&logoColor=white)
 
@@ -1179,9 +1179,11 @@ If app take up `4321` port, open `chrome://serviceworker-internals/?devtools` an
 
 ![](https://img.shields.io/github/license/arianrhodsandlot/retro-assembly?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/retro-assembly/master?label=&style=flat-square)](https://github.com/scillidan/retro-assembly) ![](https://img.shields.io/badge/Vercel-black?style=flat&logo=Vercel&logoColor=white)
 
-## [QuickPic](https://github.com/t3dotgg/quickpic) (TBD)
+## [QuickPic](https://github.com/t3dotgg/quickpic)
 
-![](https://img.shields.io/github/license/t3dotgg/quickpic?label=&style=flat-square)
+Comment out the line about `Inter-Light`, `Inter-SemiBold` in `src/app/utils/og-generator.tsx`.
+
+![](https://img.shields.io/github/license/t3dotgg/quickpic?label=&style=flat-square) [![](https://img.shields.io/github/last-commit/scillidan/quickpic/main?label=&style=flat-square)](https://github.com/scillidan/quickpic) ![](https://img.shields.io/badge/Vercel-black?style=flat&logo=Vercel&logoColor=white)
 
 ## [JSON Crack](https://github.com/AykutSarac/jsoncrack.com)
 
@@ -1223,7 +1225,6 @@ npm run start
 pip install --force-reinstall filetype-1.2.0-py2.py3-none-any.whl coverage-5.5-cp310-cp310-manylinux1_x86_64.whl toml-0.10.2-py2.py3-none-any.whl eyed3-0.9.7-py3-none-any.whl
 ```
 <!-- --8<-- [end:wsl] -->
-
 
 ## [Sales & Dungeons](https://github.com/BigJk/snd)
 
@@ -1303,30 +1304,6 @@ streamlit run example.py
 
 ↪ [click.get_os_args is deprecated on module 'click 8.1.0'](https://github.com/streamlit/streamlit/issues/4555)
 
-## [Calibre](https://calibre-ebook.com/)
-
-1. Calibre → Preferences → Sharing/Sharing over ht net → The port on which to listen for connections `<Port>`
-2. Calibre → Connect/share → Start Content server
-
-But can't add books with `calibredb add <Book> --with-library <CalibreData>` when `calibre-server.exe --port <Port> <CalibreData>` running.
-
-## [Calibre-Web](https://github.com/janeczku/calibre-web)
-
-```sh
-git clone --depth=1 https://github.com/janeczku/calibre-web
-cd calibre-web
-python -m venv venv
-venv\Scripts\activate.bat
-pip install calibreweb[metadata]
-cps
-```
-
-1. Visit `localhost:8083`. If your want to shotdown the process, `Ctrl+C` and refresh the web-page.
-2. Login with default Username `admin` and Password `admin123`. If you want to edit account:
-  - admin → Edit `Username`, `Email`, `Password`
-3. Calibre → Add books. You should get `Calibre Library\` now.
-4. Calibre-Web → Admin → Edit Cabibre Database Configuration → Select folder contains the `metadata.db`.
-
 ## [SQLite Web](https://github.com/coleifer/sqlite-web)
 
 ```sh
@@ -1344,76 +1321,6 @@ venv\Scripts\activate.bat
 pip install .
 venv\Scripts\sqlite_web.exe <database.db>
 ```
-
-## [DevDocs](https://github.com/freeCodeCamp/devdocs)
-
-<!-- --8<-- [start:windows10] -->
-```sh
-git clone --depth=1 https://github.com/freeCodeCamp/devdocs
-cd devdocs
-cp Gemfile Gemfile.bak
-```
-
-Edit `Gemfile`:
-
-```
-ruby '3.3.4'
-```
-
-In `pwsh.exe`:
-
-```pwsh
-rbenv install 3.3.4
-rbenv shell 3.3.4
-gem install bundler
-bundle install
-```
-
-1. Get `curl-*-win64-mingw.zip` from [curl for Windows](https://curl.se/windows/).
-2. Decompress it to `curl\`.
-3. `cp curl\bin\libcurl-x64.dll <RBENV_ROOT>\3.3.4-1\bin\libcurl.dll`
-
-↪ [Any pod command fails for lack of libcurl.dll on a Windows machine.](https://github.com/CocoaPods/CocoaPods/issues/9955)
-
-1. Get `Binaries` from [Gzip for Windows](https://gnuwin32.sourceforge.net/packages/gzip.htm).
-2. Decompress it to `gzip\`.
-3. Add `gzip\bin` into `PATH`.
-4. `mklink gzip\bin\gunzip.exe gzip\bin\gzip.exe`
-
-↪ [Not installable on Windows](https://github.com/freeCodeCamp/devdocs/issues/1152)
-
-```pwsh
-bundle exec thor docs:download bash
-bundle exec rackup
-```
-
-The data is on `public\docs`.
-<!-- --8<-- [end:windows10] -->
-
-## [Instant Recipe Search](https://github.com/typesense/showcase-recipe-search) (Cache)
-
-<!-- --8<-- [start:docker] -->
-```sh
-git clone --depth=1 https://github.com/typesense/showcase-recipe-search
-cd showcase-recipe-search
-rbenv install 2.7.2
-rbenv shell 2.7.2
-gem install bundler -v 2.4.22
-bundle install
-corepack enable
-rm yarn.lock
-yarn install
-yarn run typesenseServer
-```
-
-```sh
-cp .env.development .env
-set BATCH_SIZE=1000
-yarn run indexer:transformDataset
-yarn run indexer:importToTypesense
-yarn start
-```
-<!-- --8<-- [end:docker] --> -->
 
 <!-- 
 ## [DGM.js](https://github.com/dgmjs/dgmjs)

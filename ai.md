@@ -990,6 +990,8 @@ cd audiocraft
 python -m pip install -e .
 ```
 
+## [Audiblez](https://github.com/santinic/audiblez)
+
 ## [epub2tts](https://github.com/aedocw/epub2tts) (Cache)
 
 ```sh
@@ -1349,6 +1351,18 @@ streamlit run demo/app.py
 ```
 
 ## [DocETL](https://github.com/ucbepic/docetl)
+
+## [Easy Webpage Summarizer](https://github.com/cobanov/easy-web-summarizer)
+
+```sh
+git clone --depth=1 https://github.com/cobanov/easy-web-summarizer
+cd easy-web-summarizer
+uv venv --python cpython-3.10.11-windows-x86_64-none
+.venv\Scripts\activate.bat
+uv pip install -r requirements.txt
+ollama run llama3:instruct
+uv python app/webui.py
+```
 
 <!-- 
 https://github.com/lamm-mit/PDF2Audio

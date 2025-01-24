@@ -74,7 +74,9 @@ newTrackon                   | https://newtrackon.com
 ordered-dither-maker         | https://gm-ordered-dither-maker.vercel.app
 pdf-margins                  | https://gm-pdf-margins.vercel.app
 Photo Gradient               | https://photogradient.com
+qrframe                      | https://qrframe.kylezhe.ng
 quiver                       | https://scillidan.github.io/quiver
+QuickPic                     | https://quickpic-alpha.vercel.app
 readium-js-viewer            | https://scillidan.github.io/readium-js-viewer
 recoded                      | https://gm-recoded.vercel.app
 reminiflux                   | https://gm-reminiflux.vercel.app

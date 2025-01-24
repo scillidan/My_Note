@@ -233,6 +233,14 @@ sudo systemctl start nfs-kernel-server.service
 sudo pacman -S samba
 sudo pacman -Qi samba
 wget https://raw.githubusercontent.com/zentyal/samba/refs/heads/master/examples/smb.conf.default -O smb.conf
+```
+<!-- --8<-- [end:arch-linux] -->
+
+<!-- --8<-- [start:ubuntu-22-arm] -->
+```sh
+sudo apt install samba
+sudo systemctl status smbd
+sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.backup
 sudo vim /etc/samba/smb.conf
 ```
 
@@ -240,43 +248,35 @@ sudo vim /etc/samba/smb.conf
 workgroup = SAMBAGROUP
 ...
 [sambashare1]
-comment = My Samba Share
-path = /data/smb/share1
-writable = yes
-browsable = yes
-create mask = 0700
-directory mask = 0700
+comment = Samba Share
+path = /mnt/nvme/sambashare
 read only = no
+browsable = yes
+writable = yes
 guest ok = no
+# path = /data/smb/share1
+# create mask = 0700
+# directory mask = 0700
 ```
+
+↪ [Installing and Configuring Samba on Ubuntu 22](https://reintech.io/blog/installing-configuring-samba-ubuntu-22)
+<!-- --8<-- [end:ubuntu-22-arm] -->
 
 ```sh
-sudo groupadd -r smbusers
+sudo groupadd -r sambausers
 sudo useradd -m sambauser
-sudo usermod -aG smbusers sambauser
+sudo usermod -aG sambausers sambauser
 sudo smbpasswd -a sambauser
-sudo mkdir -p /data/smb/share1
-sudo chown -R :smbusers /data/smb/share1
-sudo chmod 1770 /data/smb/share1
-sudo systemctl enable --now smb
-sudo systemctl enable --now nmb
-testparm
+sudo mkdir -p /mnt/nvme/sambashare
+sudo systemctl restart smbd
+# sudo chown -R :sambausers /mnt/nvme/sambashare
+# sudo chmod 1770 /mnt/nvme/sambashare
+# sudo systemctl enable --now smb
+# sudo systemctl enable --now nmb
+# testparm
 ```
 
-On PC, 计算机管理 → 本地用户和组 → 用户 → 右键 → 新用户:
-
-```
-用户名 `sambauser`
-用户不能更改密码 On 
-密码永不过期 On
-```
-
-本地用户和组 → 组 → 右键 → 新建组 → 组名 `SAMBAGROUP` → 添加 → 输入对象名称来选择 `sambauser` → 确认 → 创建
-
-资源管理器 → 此电脑 → 右键 → 添加一个网络位置 → 指定网站的位置 → `\\<ip>\sambashare` → 请键入该网络位置的名称 `sambashare` → 
-
-`sambashare` → 右键 → 映射网络驱动器 → 登录时重新连接 On → 完成
-
+<!-- --8<-- [start:arch-linux] -->
 ```sh
 sudo mkdir /home/sambauser/server
 sudo chown -R sambauser /home/sambauser/server
@@ -337,12 +337,17 @@ sudo mount
 ↪ [Cinnamon Nemo File Manager not open Network shares](https://forum.endeavouros.com/t/cinnamon-nemo-file-manager-not-open-network-shares/12404)
 <!-- --8<-- [end:arch-linux] -->
 
-<!-- --8<-- [start:ubuntu-server-arm-24] -->
-```sh
-sudo apt install aptitude
-sudo aptitude install samba
-```
-<!-- --8<-- [end:ubuntu-server-arm-24] -->
+<!-- --8<-- [start:windows10] -->
+1. PC → 计算机管理 → 本地用户和组 → 用户 → 右键 → 新用户:
+  ```
+  用户名 `sambauser`
+  用户不能更改密码 On 
+  密码永不过期 On
+  ```
+2. 本地用户和组 → 组 → 右键 → 新建组 → 组名 `SAMBAGROUP` → 添加 → 输入对象名称来选择 `sambauser` → 确认 → 创建
+3. 资源管理器 → 此电脑 → 右键 → 添加一个网络位置 → 指定网站的位置 → `\\<your_host>\sambashare` → 请键入该网络位置的名称 `sambashare`
+4. 网络位置 → `sambashare` → 右键 → 映射网络驱动器 → 登录时重新连接 On → 完成
+<!-- --8<-- [end:windows10] -->
 
 ## VNC
 
@@ -550,7 +555,7 @@ sudo vim /etc/docker/daemon.json
 
 ```
 {
-  "data-root": "/mnt/nvme/docker",
+  # "data-root": "/mnt/nvme/docker",
   "dns": ["8.8.8.8", "8.8.4.4"],
   "registry-mirrors": [
     "https://docker.1panel.top",
@@ -1020,6 +1025,20 @@ Visit `http://<YourHost>:32400/web`
 <!-- --8<-- [end:ubuntu-server-arm-22] -->
 
 ## [mpd](https://github.com/MusicPlayerDaemon/MPD) (Cache)
+
+## [PlaylistDir](https://github.com/TheWicklowWolf/PlaylistDir) (Cache)
+
+```sh
+mkdir PlaylistDir
+cd PlaylistDir
+vim docker-compose.yml
+```
+
+Copy from [here](https://github.com/TheWicklowWolf/PlaylistDir#run-using-docker-compose).
+
+```sh
+sudo docker compose up -d
+```
 
 ## [Mopidy](https://mopidy.com/) (Cache)
 
@@ -1698,9 +1717,9 @@ sudo systemctl enable code-server
 
 ## [VS Code LaTeX Devcontainer](https://github.com/a-nau/latex-devcontainer) (Cache)
 
-## [Zasper](https://github.com/zasper-io/zasper) (Todo)
+## [Zasper](https://github.com/zasper-io/zasper) (Cache)
 
-<!-- --8<-- [start:ubuntu-server-arm-24] -->
+<!-- --8<-- [start:docker-arm] -->
 ```sh
 git clone --depth=1 https://github.com/zasper-io/zasper
 cd zasper/docker
@@ -1709,7 +1728,7 @@ sudo docker compose up -d
 ```
 
 ↪ [Dokcer](https://github.com/zasper-io/zasper/tree/main/docker)
-<!-- --8<-- [end:ubuntu-server-arm-24] -->
+<!-- --8<-- [end:docker-arm] -->
 
 ## [Trilium](https://github.com/zadam/trilium) (Cache)
 
@@ -1743,6 +1762,110 @@ WantedBy=multi-user.target
 ```sh
 sudo systemctl enable --now trilium
 ```
+
+## [DevDocs](https://github.com/freeCodeCamp/devdocs)
+
+<!-- --8<-- [start:windows10] -->
+```sh
+git clone --depth=1 https://github.com/freeCodeCamp/devdocs
+cd devdocs
+cp Gemfile Gemfile.bak
+```
+
+Edit `Gemfile`:
+
+```
+ruby '3.3.4'
+```
+
+In `pwsh.exe`:
+
+```pwsh
+rbenv install 3.3.4
+rbenv shell 3.3.4
+gem install bundler
+bundle install
+```
+
+1. Get `curl-*-win64-mingw.zip` from [curl for Windows](https://curl.se/windows/).
+2. Decompress it to `curl\`.
+3. `cp curl\bin\libcurl-x64.dll <RBENV_ROOT>\3.3.4-1\bin\libcurl.dll`
+
+↪ [Any pod command fails for lack of libcurl.dll on a Windows machine.](https://github.com/CocoaPods/CocoaPods/issues/9955)
+
+1. Get `Binaries` from [Gzip for Windows](https://gnuwin32.sourceforge.net/packages/gzip.htm).
+2. Decompress it to `gzip\`.
+3. Add `gzip\bin` into `PATH`.
+4. `mklink gzip\bin\gunzip.exe gzip\bin\gzip.exe`
+
+↪ [Not installable on Windows](https://github.com/freeCodeCamp/devdocs/issues/1152)
+
+```pwsh
+bundle exec thor docs:download bash
+bundle exec rackup
+```
+
+The data is on `public\docs`.
+<!-- --8<-- [end:windows10] -->
+
+<!-- --8<-- [start:docker-arm] -->
+```sh
+mkdir devdocs
+cd devdocs
+vim docker-compose.yml
+```
+
+```yaml
+version: '3.8'
+
+services:
+  devdocs:
+    image: ghcr.io/freecodecamp/devdocs:latest
+    container_name: devdocs
+    ports:
+      - "9292:9292"
+    restart: always
+```
+
+```sh
+sudo docker compose up -d
+```
+
+↪ [Using Docker (Recommended)](https://github.com/freeCodeCamp/devdocs#using-docker-recommended)
+<!-- --8<-- [end:docker-arm] -->
+
+## [Instant Recipe Search](https://github.com/typesense/showcase-recipe-search)
+
+<!-- --8<-- [start:windows10 -->
+```sh
+git clone --depth=1 https://github.com/typesense/showcase-recipe-search
+cd showcase-recipe-search
+rbenv install 2.7.2
+rbenv shell 2.7.2
+gem install bundler -v 2.4.22
+bundle install
+corepack enable
+cp yarn.lock yarn.lock.bk
+rm yarn.lock
+yarn install
+yarn run typesenseServer
+```
+
+```sh
+cp .env.development .env
+set BATCH_SIZE=1000
+yarn run indexer:transformDataset
+yarn run indexer:importToTypesense
+yarn start
+```
+<!-- --8<-- [end:windows10] -->
+
+<!-- --8<-- [start:arch-linux] -->
+```sh
+sudo pacman -S rbenv
+rbenv init
+```
+<!-- --8<-- [end:arch-linux] -->
 
 ## [Graphite](https://github.com/GraphiteEditor/Graphite) (Cache)
 
@@ -1804,22 +1927,50 @@ module.exports = {
 
 <!-- --8<-- [start:docker-arm] -->
 ```sh
-sudo docker run -d --name audiobookshelf -p 13378:80 -v /mnt/nvme/audiobook:/mnt/nvme/audiobook -v ./audiobooks:/audiobooks -v ./podcasts:/podcasts -v ./metadata:/metadata -v ./config:/config --restart=unless-stopped <docker_image_proxy>/advplyr/audiobookshelf:latest
+sudo docker run -d --name audiobookshelf -p 13378:80 -v /mnt/nvme/audiobook:/mnt/nvme/audiobook -v ./audiobooks:/audiobooks -v ./podcasts:/podcasts -v ./metadata:/metadata -v ./config:/config --restart=unless-stopped docker.1panel.top/advplyr/audiobookshelf:latest
 sudo docker stop audiobookshelf
+```
+
+Or:
+
+```sh
+vim docker-compose.yml
+```
+
+```yaml
+version: '3.8'
+
+services:
+  audiobookshelf:
+    image: <docker_image_proxy>/advplyr/audiobookshelf:latest
+    container_name: audiobookshelf
+    ports:
+      - "13378:80"
+    volumes:
+      - /mnt/nvme/audiobook:/mnt/nvme/audiobook
+      - ./audiobooks:/audiobooks
+      - ./podcasts:/podcasts
+      - ./metadata:/metadata
+      - ./config:/config
+    restart: unless-stopped
+```
+
+```sh
+sudo docker compose up -d
 ```
 <!-- --8<-- [end:docker-arm] -->
 
-## [Storyteller](https://gitlab.com/smoores/storyteller) (WaitV2)
+## [Storyteller](https://gitlab.com/smoores/storyteller) (Todo)
 
-<!-- --8<-- [start:docker-noarm] -->
+<!-- --8<-- [start:docker] -->
 
 ↪ [Getting started](https://smoores.gitlab.io/storyteller/docs/getting-started/)  
 ↪ [Installing the NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
-<!-- --8<-- [end:docker-noarm] -->
+<!-- --8<-- [end:docker] -->
 
 ## [LinguaCafe](https://github.com/simjanos-dev/LinguaCafe) (Cache)
 
-<!-- --8<-- [start:docker-noarm] -->
+<!-- --8<-- [start:docker] -->
 ```sh
 mkdir docker-linguacafe
 cd docker-linguacafe
@@ -1834,7 +1985,7 @@ sudo docker compose up -d
 
 ↪ [Updating to the latest version](https://github.com/simjanos-dev/LinguaCafe#updating-to-the-latest-version)  
 ↪ [Importing dictionaries](https://github.com/simjanos-dev/LinguaCafe/wiki/2.-Setup#importing-dictionaries)
-<!-- --8<-- [end:docker-noarm] -->
+<!-- --8<-- [end:docker] -->
 
 ## [dir2opds](https://github.com/dubyte/dir2opds)
 
@@ -1876,6 +2027,65 @@ sudo systemctl enable --now dir2opds.service
 
 ## [Calibre-Web-Automated-Book-Downloader](https://github.com/calibrain/calibre-web-automated-book-downloader) (Cache)
 
+## [Calibre](https://calibre-ebook.com/)
+
+<!-- --8<-- [start:windows10] -->
+1. Calibre → Preferences → Sharing/Sharing over ht net → The port on which to listen for connections `<Port>`
+2. Calibre → Connect/share → Start Content server
+
+But can't add books with `calibredb add <Book> --with-library <CalibreData>` when `calibre-server.exe --port <Port> <CalibreData>` running.
+<!-- --8<-- [end:windows10] -->
+
+<!-- --8<-- [start:docker-arm] -->
+```sh
+mkdir calibre
+cd calibre
+vim docker-compose.yml
+```
+
+Copy from [here](https://docs.linuxserver.io/images/docker-calibre/#docker-compose-recommended-click-here-for-more-info).
+
+```sh
+sudo docker compose up -d
+```
+↪ [linuxserver/calibre](https://docs.linuxserver.io/images/docker-calibre)
+<!-- ↪ [How To Install Calibre Server & Calibre Web On Ubuntu 22.04](https://kenfavors.com/code/how-to-install-calibre-server-calibre-web-on-ubuntu-22-04/) -->
+<!-- --8<-- [end:docker-arm] -->
+
+## [Calibre-Web](https://github.com/janeczku/calibre-web)
+
+<!-- --8<-- [start:windows10] -->
+```sh
+git clone --depth=1 https://github.com/janeczku/calibre-web
+cd calibre-web
+python -m venv venv
+venv\Scripts\activate.bat
+pip install calibreweb[metadata]
+cps
+```
+
+1. Visit `localhost:8083`. If your want to shotdown the process, `Ctrl+C` and refresh the web-page.
+2. Login with default Username `admin` and Password `admin123`. If you want to edit account:
+  - admin → Edit `Username`, `Email`, `Password`
+3. Calibre → Add books. You should get `Calibre Library\` now.
+4. Calibre-Web → Admin → Edit Cabibre Database Configuration → Select folder contains the `metadata.db`.
+<!-- --8<-- [end:windows10] -->
+<!-- --8<-- [start:docker-arm] -->
+```sh
+mkdir calibre-web
+cd calibre-web
+vim docker-compose.yml
+```
+
+Copy from [here](https://docs.linuxserver.io/images/docker-calibre-web/#docker-compose-recommended-click-here-for-more-info).
+
+```sh
+sudo docker compose up -d
+```
+
+↪ [linuxserver/calibre-web](https://docs.linuxserver.io/images/docker-calibre-web)
+<!-- --8<-- [end:docker-arm] -->
+
 ## [Bukubrow](https://github.com/samhh/bukubrow-webext) (Cache)
 
 ![](https://img.shields.io/github/license/samhh/bukubrow-webext?label=&style=flat-square)
@@ -1896,9 +2106,9 @@ cargo build --release
 ./target/release/bukubrow --install-chrome
 ```
 
-## [ntfy.sh](https://ntfy.sh/) (Cache)
+## [ntfy.sh](https://ntfy.sh/)
 
-<!-- --8<-- [start:ubuntu-server-arm-22] -->
+<!-- --8<-- [start:ubuntu-server-arm-24] -->
 ```sh
 sudo mkdir -p /etc/apt/keyrings
 curl -fsSL https://archive.heckel.io/apt/pubkey.txt | sudo gpg --dearmor -o /etc/apt/keyrings/archive.heckel.io.gpg
@@ -1911,7 +2121,7 @@ sudo systemctl enable --now ntfy
 ```
 
 ↪ [Installing ntfy - Debian/Ubuntu repository](https://docs.ntfy.sh/install/#debianubuntu-repository)
-<!-- --8<-- [end:ubuntu-server-arm-22] -->
+<!-- --8<-- [end:ubuntu-server-arm-24] -->
 
 ## [Paperless-ngx](https://github.com/paperless-ngx/paperless-ngx)
 
@@ -2148,7 +2358,7 @@ sudo chmod 640 /etc/gitea/app.ini
 <!-- --8<-- [end:ubuntu-server-arm-24] -->
 ## [Sourcebot](https://github.com/sourcebot-dev/sourcebot)
 
-<!-- --8<-- [start:ubuntu-24-arm] -->
+<!-- --8<-- [start:docker-arm] -->
 ```sh
 mkdir Docker/sourcebot
 cd Docker/sourcebot
@@ -2171,11 +2381,11 @@ sudo docker compose up -d
 ```
 
 ↪ [Getting Started](https://github.com/sourcebot-dev/sourcebot#getting-started)
-<!-- --8<-- [end:ubuntu-24-arm] -->
+<!-- --8<-- [end:docker-arm] -->
 
 ## [immich](https://immich.app/)
 
-<!-- --8<-- [start:ubuntu-server-arm-22] -->
+<!-- --8<-- [start:docker-arm] -->
 ```sh
 mkdir ./immich-app
 cd ./immich-app
@@ -2191,7 +2401,7 @@ docker compose pull && sudo docker compose up -d
 ```
 
 ↪ [Docker Compose [Recommended]](https://immich.app/docs/install/docker-compose)
-<!-- --8<-- [end:ubuntu-server-arm-22] -->
+<!-- --8<-- [end:docker-arm] -->
 
 ## [ttyd](https://github.com/tsl0922/ttyd) (Cache)
 
@@ -2259,6 +2469,7 @@ Beaver Habit Tracker → More → Add ...
 
 ## [CasaOS](https://github.com/IceWhaleTech/CasaOS)
 
+<!-- --8<-- [srart:docker-arm] -->
 ```sh
 wget -qO- https://get.casaos.io | sudo bash
 sudo ufw allow 80
@@ -2269,9 +2480,11 @@ Uninstall:
 ```sh
 sudo casaos-uninstall
 ```
+<!-- --8<-- [end:docker-arm] -->
 
 ### [ttydBridge](https://github.com/Cp0204/ttydBridge) (Cache)
 
+<!-- --8<-- [start:docker-arm] -->
 ```sh
 sudo docker run -d \
   --name ttdybridge \
@@ -2282,9 +2495,11 @@ sudo docker run -d \
   --restart unless-stopped \
   cp0204/ttdybridge:latest
 ```
+<!-- --8<-- [end:docker-arm] -->
 
 ## [File Browser](https://github.com/filebrowser/filebrowser)
 
+<!-- --8<-- [start:docker-arm] -->
 ```sh
 mkdir filebrowser-docker
 cd filebrowser-docker
@@ -2295,6 +2510,7 @@ Copy from [here](https://docs.techdox.nz/filebrowser/#docker-compose-file-docker
 
 ```sh
 sudo docker compose up -d
+<!-- --8<-- [end:docker-arm] -->
 ```
 
 ↪ [Setting Up Filebrowser with Docker Compose](https://docs.techdox.nz/filebrowser/)

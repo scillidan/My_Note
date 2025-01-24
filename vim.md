@@ -236,10 +236,12 @@ cargo build --target aarch64-unknown-linux-gnu --release
 
 ↪ [莫名奇妙的参数类型错误](https://github.com/liubianshi/cmp-lsp-rimels/issues/1)
 
-### [NVIM-RSS](https://github.com/EMPAT94/nvim-rss)
+### [nvimager](https://github.com/mbpowers/nvimager) (Todo)
 
 ```sh
-pkg install sqlite
+sudo apt install poppler-utils ffmpeg imagemagick texlive
+sudo apt install python3 python3-pip python3-setuptools python3-pillow
+pip3 install ueberzug
 ```
 
 ## [LunarVim](https://www.lunarvim.org/)
