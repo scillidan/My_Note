@@ -513,11 +513,19 @@ uv run langflow run
 
 ↪ [Install Langflow](https://docs.langflow.org/get-started-installation)
 
-<!-- --8<-- [start:ubuntu-22-arm] -->
+<!-- --8<-- [start:docker-arm] -->
 ```sh
-sudo docker run -d -p 7860:7860 langflowai/langflow-nightly:latest
+mkdir langflow
+cd langflow
+vim docker-compose.yml
 ```
-<!-- --8<-- [end:ubuntu-22-arm] -->
+
+Copy from [here](https://github.com/langflow-ai/langflow/blob/main/docker_example/docker-compose.yml).
+
+```sh
+sudo docker compose up -d
+```
+<!-- --8<-- [end:docker-arm] -->
 
 ## [Local RAG Chatbot](https://github.com/datvodinh/rag-chatbot)
 

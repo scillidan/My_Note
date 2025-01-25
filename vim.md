@@ -13,6 +13,39 @@ pkg install neovim
 ↪ [Nvim warning](https://github.com/LunarWatcher/auto-pairs#nvim-warning)  
 ↪ [Why you switched from Neovim to Vim?](https://www.reddit.com/r/vim/comments/16cdbyd/why_you_switched_from_neovim_to_vim/)
 
+<!-- --8<-- [start:ubuntu-24-arm] -->
+```sh
+vim ~/.config/systemd/user/nvim_headless.service
+```
+
+```
+[Unit]
+Description=Start Neovim Headless Server
+
+[Service]
+ExecStart=nvim --headless --listen 0.0.0.0:1234
+Restart=on-failure
+User=<username>
+
+[Install]
+WantedBy=default.target
+```
+
+```sh
+systemctl --user daemon-reload
+systemctl --user enable --now nvim_headless
+```
+<!-- --8<-- [end:ubuntu-24-arm] -->
+
+On PC:
+
+```sh
+C:\Users\User\Bin\Git\usr\bin\ssh.exe <username>@<your_host> -L 1234:0.0.0.0:1234 -- /home/<your_host>/.local/bin/nvim --headless --listen 0.0.0.0:1234
+neovide --server <your_host>:1234
+```
+
+↪ [Run Neovide on remote SSH system](https://github.com/neovide/neovide/discussions/2853)
+
 ### [Bob](https://github.com/MordechaiHadad/bob)
 
 Get `bob` from [Bob - Releases](https://github.com/MordechaiHadad/bob/releases).
@@ -236,13 +269,13 @@ cargo build --target aarch64-unknown-linux-gnu --release
 
 ↪ [莫名奇妙的参数类型错误](https://github.com/liubianshi/cmp-lsp-rimels/issues/1)
 
-### [nvimager](https://github.com/mbpowers/nvimager) (Todo)
+### [nvimager](https://github.com/mbpowers/nvimager) (Cache)
 
+<!-- --8<-- [start:ubuntu-24-arm] -->
 ```sh
-sudo apt install poppler-utils ffmpeg imagemagick texlive
-sudo apt install python3 python3-pip python3-setuptools python3-pillow
-pip3 install ueberzug
+sudo apt install poppler-utils ffmpeg imagemagick texlive ueberzug
 ```
+<!-- --8<-- [end:ubuntu-24-arm] -->
 
 ## [LunarVim](https://www.lunarvim.org/)
 
@@ -273,3 +306,5 @@ lvim
 
 ↪ [Installation](https://www.lunarvim.org/docs/installation)  
 ↪ [No C compiler found](https://github.com/LunarVim/Neovim-from-scratch/issues/274#issuecomment-1364584526)
+
+https://github.com/neovide/neovide/discussions/2853
