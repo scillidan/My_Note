@@ -275,6 +275,7 @@ Casdoor:
 ↪ [Deploying LobeChat Server Database Version with Docker Compose](https://lobehub.com/docs/self-hosting/server-database/docker-compose)  
 ↪ [[Bug] 无法使用管理员账号登录casdoor](https://github.com/lobehub/lobe-chat/issues/5098)
 
+
 ## [Next.js AI Chatbot](https://github.com/vercel/ai-chatbot) (Cache)
 
 Fork it.
@@ -288,6 +289,10 @@ vercel env pull
 pnpm install
 pnpm dev
 ```
+
+## [Ollama Grid Search](https://github.com/dezoito/ollama-grid-search)
+
+## [Archyve](https://github.com/nickthecook/archyve)
 
 ## [Chat2DB](https://github.com/CodePhiliaX/Chat2DB)
 
@@ -359,6 +364,8 @@ sudo docker compose --env-file .env up -d --build
 ```
 <!-- --8<-- [end:docker-arm] -->
 
+## [RAGFlow](https://github.com/infiniflow/ragflow) (Cache)
+
 ## [AutoRAG](https://github.com/Marker-Inc-Korea/AutoRAG) (Cache)
 
 <!-- --8<-- [start:docker-arm] -->
@@ -392,6 +399,7 @@ sage-chat huggingface/transformers --mode=local --llm-model llama3.1:8b
 
 ## [Perplexica](https://github.com/ItzCrazyKns/Perplexica)
 
+<!-- --8<-- [start:windows10] -->
 ```sh
 git clone --depth=1 https://github.com/ItzCrazyKns/Perplexica
 cd Perplexica/ui
@@ -425,6 +433,18 @@ pause
 ```
 
 ↪ [How to Contribute to Perplexica](https://github.com/ItzCrazyKns/Perplexica/blob/master/CONTRIBUTING.md)
+<!-- --8<-- [end:windows10] -->
+
+<!-- --8<-- [start:docker-arm] -->
+```sh
+git clone --depth=1 https://github.com/ItzCrazyKns/Perplexica
+cd Perplexica
+cp sample.config.toml config.toml
+sudo docker compose up -d
+```
+
+↪ [Getting Started with Docker (Recommended)](https://github.com/ItzCrazyKns/Perplexica#getting-started-with-docker-recommended)
+<!-- --8<-- [end:docker-arm] -->
 
 ## [Dify](https://github.com/langgenius/dify)
 
@@ -526,6 +546,8 @@ Copy from [here](https://github.com/langflow-ai/langflow/blob/main/docker_exampl
 sudo docker compose up -d
 ```
 <!-- --8<-- [end:docker-arm] -->
+
+## [Abbey](https://github.com/US-Artificial-Intelligence/abbey) (Todo)
 
 ## [Local RAG Chatbot](https://github.com/datvodinh/rag-chatbot)
 

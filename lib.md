@@ -42,20 +42,6 @@ uv python pin cpython-3.10.16-linux-aarch64-gnu
 ↪ [Installing uv](https://docs.astral.sh/uv/getting-started/installation/)
 <!-- --8<-- [end:ubuntu-24-arm] -->
 
-## [uvpipx](https://github.com/pytgaen/uv-pipx) (Cache)
-
-```sh
-pip install uvpipx
-uvpipx install <pkg>
-```
-
-## [pipx](https://github.com/pypa/pipx)
-
-```sh
-python -m pip install --user pipx
-pipx ensurepath
-```
-
 <!-- --8<-- [start:arch-linux] -->
 ```sh
 sudo pacman -S python-pipx
@@ -222,6 +208,7 @@ node_mirror: https://npmmirror.com/mirrors/node/
 ```sh
 nvm list available
 nvm install lts
+nvm use lts
 nvm install <version>
 nvm use <version>
 ```
@@ -320,6 +307,27 @@ rustup default stable
 ```
 <!-- --8<-- [end:ubuntu-24-arm] -->
 
+## [gvm](https://github.com/olimpias/gvm)
+
+<!-- --8<-- [start:windows10] -->
+1. Get `gvm.windows.amd64.exe.zip` from [Releases](https://github.com/olimpias/gvm/releases).
+2. Decompress it to `gvm\`.
+
+Get versions list from [All releases](https://go.dev/dl/).
+
+```sh
+gvm dl 1.21.0
+gvm use 1.21.0
+```
+<!-- --8<-- [end:windows10] -->
+
+## [gvm](https://github.com/moovweb/gvm)
+
+```sh
+sudo apt install gvm
+sudo gvm-setup
+```
+
 ## [goenv](https://github.com/go-nv/goenv)
 
 ```sh
@@ -357,6 +365,8 @@ go env
 go env -w GO111MODULE=on
 go env -w GOPROXY=https://goproxy.cn,direct
 ```
+
+↪ [Goproxy.cn](https://goproxy.cn/)
 
 ## [Lua](https://www.lua.org/)
 

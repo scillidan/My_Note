@@ -2447,6 +2447,27 @@ sudo systemctl enable --now ttyd
 ↪ [ttyd - Basic Usage](https://github.com/tsl0922/ttyd/wiki/Example-Usage)
 <!-- --8<-- [end:ubuntu-server-arm-22] -->
 
+## [RegExr](https://github.com/gskinner/regexr)
+
+```sh
+mkdir regexr
+vim docker-compose.yml
+```
+
+```yaml
+version: '3.8'
+
+services:
+  regexr:
+    image: gufertum/regexr
+```
+
+```sh
+sudo docker compose up -d
+```
+
+↪ [docker-regexr](https://github.com/gufertum/docker-regexr)
+
 ## [beaverhabits](https://github.com/daya0576/beaverhabits) (Cache)
 
 <!-- --8<-- [start:docker-arm] -->
@@ -2467,6 +2488,14 @@ sudo docker run -d --name beaverhabits \
 <!-- --8<-- [end:docker-arm] -->
 
 Beaver Habit Tracker → More → Add ...
+
+## [TeXdoc online](https://gitlab.com/islandoftex/images/texdoc-online) (Todo)
+
+```sh
+git clone --depth=1 https://gitlab.com/islandoftex/images/texdoc-online
+cd texdoc-online
+sudo docker compose up -d
+```
 
 ## [Cal.com](https://cal.com)
 

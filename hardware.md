@@ -405,7 +405,7 @@ Install safe-shutdown script:
 
 1. Configuration → File Manager → Edit `/etc/hosts`:
 	```
-	140.82.112.4	github.com
+	140.82.114.3	github.com
 	185.199.108.133	raw.githubusercontent.com
 	91.189.91.81 archive.ubuntu.com
 	# 13.226.22.98 download.docker.com
