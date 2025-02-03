@@ -1,3 +1,32 @@
+## [scoop]
+
+```sh
+powershell -Command "Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser"
+powershell -Command "irm get.scoop.sh -outfile 'install_scoop.ps1'"
+powershell -Command ".\install_scoop.ps1 -ScoopDir '$env:HOME_DIR\Scoop' -ScoopGlobalDir '$env:HOME_DIR\Scoop' -ScoopCacheDir='$env:HOME_DIR\Scoop\cache' -NoProxy"
+cd $env:HOME_DIR\Scoop\buckets
+scoop config cache_path C:\Users\User\Scoop\cache
+git clone --depth=1 https://github.com/ScoopInstaller/Main
+git clone --depth=1 https://github.com/ScoopInstaller/Extras
+git clone --depth=1 https://github.com/ScoopInstaller/Versions
+git clone --depth=1 https://github.com/ScoopInstaller/Java
+git clone --depth=1 https://github.com/kodybrown/scoop-nirsoft
+git clone --depth=1 https://github.com/Calinou/scoop-games
+git clone --depth=1 https://github.com/ScoopInstaller/Nonportable
+scoop install scoop-search
+cd %SCOOP_APPS_DIR%\scoop\current
+git fetch
+git pull
+```
+
+↪ [Scoop (un)installer](https://github.com/ScoopInstaller/Install#advanced-installation)  
+↪ [CMD.exe wrapper](https://github.com/shilangyu/scoop-search#cmdexe-wrapper)  
+↪ [About the Download Directory](https://github.com/ScoopInstaller/Scoop/issues/3666)  
+↪ [scoop update fails to connect to GitHub](https://github.com/ScoopInstaller/Scoop/issues/3124)  
+↪ [CONTRIBUTING.md](https://github.com/ScoopInstaller/.github/blob/main/.github/CONTRIBUTING.md)  
+↪ [App Manifests](https://github.com/ScoopInstaller/Scoop/wiki/App-Manifests)  
+↪ [App Manifest Autoupdate](https://github.com/ScoopInstaller/Scoop/wiki/App-Manifest-Autoupdate)
+
 ## [neofetch](https://github.com/dylanaraps/neofetch)
 
 ```sh
