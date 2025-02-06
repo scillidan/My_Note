@@ -495,17 +495,16 @@ sudo systemctl status vncserver@1
 
 <!-- --8<-- [start:ubuntu-server-arm-22] -->
 ```sh
+wget https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh -O install_nvm.sh
+chmod +x ./install_nvm.sh
+./install_nvm.sh
+source .bashrc
+nvm install --lts
 sudo apt install npm
 npm install pm2 -g
 pm2 dump
 pm2 startup
 ```
-
-<!-- wget https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh -O install_nvm.sh
-chmod +x ./install_nvm.sh
-./install_nvm.sh
-source .bashrc
-nvm install --lts -->
 
 ↪ [Vue packages version mismatch](https://github.com/nuxt/nuxt/issues/10305)  
 ↪ [how to modify nuxt server start port ,default port is 3000](https://github.com/nuxt/nuxt/issues/490)
@@ -645,6 +644,12 @@ sudo pacman -S docker
 sudo systemctl enable --now docker.service
 ```
 <!-- --8<-- [end:arch-linux] -->
+
+## [Dokploy](https://github.com/Dokploy/dokploy)
+
+```sh
+curl -sSL https://dokploy.com/install.sh | sh
+```
 
 ## [postgresql](https://www.postgresql.org/)
 
