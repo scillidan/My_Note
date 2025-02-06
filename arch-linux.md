@@ -181,24 +181,6 @@ sudo pacman -S network-manager-applet
 
 ### [yay](https://github.com/Jguer/yay)
 
-```sh
-sudo pacman -S go
-go env -w GO111MODULE=on
-go env -w GOPROXY=https://goproxy.cn,direct
-go env
-```
-
-↪ [How to Install and Use Yay on Arch Linux](https://www.makeuseof.com/install-and-use-yay-arch-linux/)
-
-```sh
-sudo pacman -S --needed git base-devel
-git clone --depth=1 --depth=1 https://aur.archlinux.org/yay-bin.git
-cd yay-bin
-makepkg
-sudo pacman -U yay-bin*.pkg.tar.xz
-yay
-```
-
 <!-- --8<-- [start:virtualbox] -->
 In [VirtualBox](https://www.virtualbox.org/), need to use `arch-chroot`.
 

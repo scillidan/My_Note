@@ -1,42 +1,3 @@
-## [scoop]
-
-```sh
-powershell -Command "Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser"
-powershell -Command "irm get.scoop.sh -outfile 'install_scoop.ps1'"
-powershell -Command ".\install_scoop.ps1 -ScoopDir '$env:HOME_DIR\Scoop' -ScoopGlobalDir '$env:HOME_DIR\Scoop' -ScoopCacheDir='$env:HOME_DIR\Scoop\cache' -NoProxy"
-cd $env:HOME_DIR\Scoop\buckets
-scoop config cache_path C:\Users\User\Scoop\cache
-git clone --depth=1 https://github.com/ScoopInstaller/Main
-git clone --depth=1 https://github.com/ScoopInstaller/Extras
-git clone --depth=1 https://github.com/ScoopInstaller/Versions
-git clone --depth=1 https://github.com/ScoopInstaller/Java
-git clone --depth=1 https://github.com/kodybrown/scoop-nirsoft
-git clone --depth=1 https://github.com/Calinou/scoop-games
-git clone --depth=1 https://github.com/ScoopInstaller/Nonportable
-scoop install scoop-search
-cd %SCOOP_APPS_DIR%\scoop\current
-git fetch
-git pull
-```
-
-↪ [Scoop (un)installer](https://github.com/ScoopInstaller/Install#advanced-installation)  
-↪ [CMD.exe wrapper](https://github.com/shilangyu/scoop-search#cmdexe-wrapper)  
-↪ [About the Download Directory](https://github.com/ScoopInstaller/Scoop/issues/3666)  
-↪ [scoop update fails to connect to GitHub](https://github.com/ScoopInstaller/Scoop/issues/3124)  
-↪ [CONTRIBUTING.md](https://github.com/ScoopInstaller/.github/blob/main/.github/CONTRIBUTING.md)  
-↪ [App Manifests](https://github.com/ScoopInstaller/Scoop/wiki/App-Manifests)  
-↪ [App Manifest Autoupdate](https://github.com/ScoopInstaller/Scoop/wiki/App-Manifest-Autoupdate)
-
-## [neofetch](https://github.com/dylanaraps/neofetch)
-
-```sh
-pkg install neofetch
-```
-
-```sh
-neofetch
-```
-
 ## [git](https://git-scm.com/)
 
 Set:
@@ -156,30 +117,6 @@ dolt init
 
 ↪ [使用 Ansible 管理 Linux 系统的配置文件](https://sspai.com/post/91932)
 
-## [sdcv](https://github.com/Dushistov/sdcv)
-
-```sh
-sudo apt install sdcv
-pkg install sdcv
-```
-
-1. Get [ecdict-stardict-28.zip](https://github.com/skywind3000/ECDICT/releases) form [ECDICT](https://github.com/skywind3000/ECDICT).
-2. Depress it into `/storage/emulated/0/Download/sdcv/`
-
-```sh
-vim /storage/emulated/0/Download/sdcv/stardict-ecdict-2.4.2/stardict-ecdict-2.4.2.ifo
-```
-
-```
-bookname=ecdict
-```
-
-```sh
-sdcv <word>
-```
-
-↪ [A command line dictionary.](https://nchrs.xyz/stardict.html)
-
 ## [portable-python-maker](https://github.com/dreamsavior/portable-python-maker) (BUG)
 
 ```sh
@@ -195,37 +132,6 @@ pwsh.exe portablepy.ps1 -source "https://www.python.org/ftp/python/3.9.13/python
 ```
 
 If it fails, run again.
-
-## [dict-ecdict](https://github.com/tuberry/dict-ecdict)
-
-<!-- --8<-- [start:ubuntu-server-arm-22] -->
-```sh
-sudo apt install unzip p7zip-full dictfmt dictzip python-is-python3
-git clone --depth=1 --single-branch -b master https://github.com/tuberry/dict-ecdict
-cd ./dict-ecdict
-make && sudo make install
-```
-
-```sh
-sudo mkdir -p /etc/dict 
-sudo vim /var/lib/dictd/db.list
-```
-
-```
-database ecdict {
-	data /usr/share/dictd/ecdict.dict.dz
-	index /usr/share/dictd/ecdict.index
-}
-```
-
-```sh
-sudo systemctl restart dictd.service
-```
-
-↪ [How can I uncompress a \*.7z file?](https://askubuntu.com/questions/219392/how-can-i-uncompress-a-7z-file)
-<!-- --8<-- [end:ubuntu-server-arm-22] -->
-
-## [dict-wrapper](https://github.com/dekerser/dict-wrapper)
 
 ## [PyGlossary](https://github.com/ilius/pyglossary)
 
@@ -257,83 +163,6 @@ Replace `\n`1`` → `\t`
 ```sh
 pyglossary <mdict.txt> <dictionary.index> --write-options=dictzip=true
 ```
-
-## [Newsboat](https://github.com/newsboat/newsboat)
-
-```sh
-pacman -S newsboat
-sudo apt install newsboat
-pkg install newsboat
-```
-
-```sh
-mkdir ~/.config/newsboat
-vim ~/.config/newsboat/config
-```
-
-```sh
-include /usr/share/doc/newsboat/contrib/colorschemes/plain
-# include /data/data/com.termux/files/usr/share/doc/newsboat/contrib/colorschemes/plain
-```
-
-```sh
-vim ~/.config/newsboat/urls
-```
-
-```
-https://hnrss.org/newest
-```
-
-```sh
-newsboat
-```
-
-↪ [ArchWiki - Newsboat](https://wiki.archlinux.org/title/Newsboat)
-
-## [cmus](https://cmus.github.io/)
-
-```sh
-sudo apt install cmus
-pkg install cmus
-```
-
-```sh
-cmus
-:a storage/Download
-```
-
-↪ [A command line music player.](https://nchrs.xyz/cmus.html)  
-↪ [How can I create a playlist and add songs to it in cmus?](https://unix.stackexchange.com/questions/593727/how-can-i-create-a-playlist-and-add-songs-to-it-in-cmus)
-
-## [tldr](https://github.com/tldr-pages/tldr)
-
-```sh
-tldr -c
-```
-
-```sh
-mklink /J `C:/Users/<User>/.cache/tldr/pages.en` `C:/Users/<User>/AppData/Roaming/tldr/pages.en`
-```
-
-## [broot](https://dystroy.org/broot)
-
-Get `aarch64-unknown-linux-gnu` from [Install broot - Precompiled binaries](https://dystroy.org/broot/install/).
-
-```sh
-cp broot ~/.local/bin
-```
-
-↪ [edit a text file](https://dystroy.org/broot/file-operations/#edit-a-text-file)  
-↪ [Launching movie playback via "am start"](https://stackoverflow.com/questions/8207548/launching-movie-playback-via-am-start)
-
-## [asciinema](https://github.com/asciinema/asciinema)
-
-```sh
-sudo apt install asciinema
-pkg install asciinema
-```
-
-↪ [Recording & Sharing Terminal Sessions](https://weblog.masukomi.org/2022/10/11/recording_and_sharing_terminal_sessions/)
 
 ## [marker](https://github.com/VikParuchuri/marker)
 
@@ -476,33 +305,6 @@ python setup.py install
 python spongebob-cli
 ```
 
-## [starfetch](https://github.com/Haruno19/starfetch)
-
-```sh
-git clone --depth=1 https://github.com/Haruno19/starfetch
-```
-
-Check `starfetch/res/constellations`.
-
-```sh
-git clone --depth=1 https://github.com/K1ngst0m/starfetch
-cd starfetch
-make
-./starfetch.exe -r
-```
-
-Or:
-
-Install and use MSYS2.
-
-```sh
-git clone --depth=1 https://github.com/CoderCharmander/starfetch
-cargo build
-cd target/debug
-starfetch.exe -d
-starfetch.exe -l
-```
-
 ## [Warcraft Font Merger](https://github.com/nowar-fonts/Warcraft-Font-Merger)
 
 1. Get `WarFontMerger-SC-*-windows-x64.7z` from [Warcraft-Font-Merger - Releases](https://github.com/nowar-fonts/Warcraft-Font-Merger/releases).
@@ -544,11 +346,6 @@ url="http://<jackett_host>:9117/api/v2.0/indexers/all/results?apikey=$api_key"
 jsc -t nyaa-si -s "chainsaw man"
 jsc -t nyaa-si -s "chainsaw man" | xargs -n 1 -r aria2
 ```
-
-## [asciinema](https://github.com/asciinema/asciinema)
-
-↪ [CLI - Usage](https://docs.asciinema.org/manual/cli/usage/)  
-↪ [agg - Usage](https://docs.asciinema.org/manual/agg/usage/)
 
 ## [MinIO Client](https://min.io/docs/minio/linux/reference/minio-mc.html)
 
@@ -611,21 +408,6 @@ client_secret = "SPOTIFY_CLIENT_SECRET"
 ```sh
 uvpipx install seagoat
 seagoat-server start <your_repo>
-```
-
-## [grc](https://github.com/garabik/grc)
-
-```sh
-sudo apt install grc
-vim ~/.zshrc
-```
-
-```
-[[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
-```
-
-```sh
-grc ping <domain>
 ```
 
 ## [mkcert](https://github.com/FiloSottile/mkcert)

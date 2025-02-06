@@ -1,14 +1,6 @@
 ## [Nerd Font](http://nerdfonts.com/)
 
 ```sh
-mkdir -p ~/.local/share/fonts
-mv <font> ~/.local/share/fonts/
-fc-cache -fv
-```
-
-↪ [Install a nerd font on ubuntu](https://gist.github.com/matthewjberger/7dd7e079f282f8138a9dc3b045ebefa0)
-
-```sh
 sudo vim /etc/fonts/conf.d/50-enable-fixed.conf
 ```
 
@@ -40,12 +32,6 @@ mv JetBrains** ~/.local/share/fonts
 ↪ [ubuntu wiki - Fonts](https://wiki.ubuntu.com/Fonts)
 
 ## [Zsh](https://www.zsh.org/)
-
-```sh
-sudo pacman -S zsh
-sudo apt install zsh
-pkg install zsh
-```
 
 ```sh
 sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
@@ -80,19 +66,7 @@ chmod +x install_ohmyzsh.sh
 exec zsh
 ```
 
-## [zsh-abbr](https://github.com/olets/zsh-abbr)
-
-↪ [abbr c does not clear abbreviations created with the pattern abbr x=y](https://github.com/olets/zsh-abbr/issues/88)
-
-### [zsh-ssh](https://github.com/sunlei/zsh-ssh)
-
-Read more on [Using the SSH Config File](https://linuxize.com/post/using-the-ssh-config-file/).
-
 ### [fzf](https://github.com/junegunn/fzf)
-
-```sh
-pkg install fzf
-```
 
 <!-- --8<-- [start:ubuntu-22-arm] -->
 Get `fzf-*-linux_arm64.tar.gz` from [fzf - Releases](https://github.com/junegunn/fzf/releases).
@@ -106,10 +80,6 @@ mv fzf ~/.local/bin/
 
 ### [Atuin](https://github.com/atuinsh/atuin)
 
-```sh
-pkg install atuin
-```
-
 <!-- --8<-- [start:ubuntu-22-arm] -->
 Get `atuin-aarch64-unknown-linux-gnu.tar.gz` from [Atuin - Releases](https://github.com/atuinsh/atuin/releases).
 
@@ -122,10 +92,6 @@ source ~/.zshrc
 
 ### [tere](https://github.com/mgunyho/tere)
 
-```sh
-pkg install tere
-```
-
 <!-- --8<-- [start:ubuntu-22-arm] -->
 Get `tere-1.6.0-aarch64-unknown-linux-gnu.zip` from [tere - Releases](https://github.com/mgunyho/tere/releases)
 
@@ -137,10 +103,6 @@ mv tere ~/.local/bin/
 
 ### [eza](https://github.com/eza-community/eza)
 
-```sh
-pkg install eza
-```
-
 <!-- --8<-- [start:ubuntu-22-arm] -->
 Get `eza_aarch64-unknown-linux-gnu.tar.gz` from [eza - Releases](https://github.com/eza-community/eza/releases).
 
@@ -150,23 +112,11 @@ mv eza ~/.local/bin/
 ```
 <!-- --8<-- [end:ubuntu-22-arm] -->
 
-## [Github CLI](https://cli.github.com/)
-
-```sh
-sudo apt install gh
-pkg install gh
-```
-
-```sh
-gh auth login
-```
-
-## [tmux](https://github.com/tmux/tmux)
+<!-- ## [tmux](https://github.com/tmux/tmux) -->
 
 ## [Zellij](https://github.com/zellij-org/zellij)
 
 ```sh
-pkg install zellij
 cargo install zellij
 ```
 
@@ -203,37 +153,3 @@ tar -xvzf starship-aarch64-unknown-linux-musl.tar.gz
 mv starship ~/.local/bin/
 ```
 <!-- --8<-- [end:ubuntu-22-arm] -->
-
-## [Translate Shell](https://github.com/soimort/translate-shell)
-
-<!-- --8<-- [start:arch-linux] -->
-```sh
-sudo pacman -S translate-shell
-```
-<!-- --8<-- [end:arch-linux] -->
-
-<!-- --8<-- [start:ubuntu-server-arm-24] -->
-```sh
-vim .zshrc
-```
-
-```sh
-zinit light soimort/translate-shell
-```
-
-```
-mkdir ~/.config/translate-shell
-vim ~/.config/translate-shell/init.trans
-````
-
-```
-{
- :translate-shell "0.9.0"
- :verbose         false
- :show-original   false
- :hl              "en"
- :tl              ["zh"]
- :engine          "bing"
-}
-```
-<!-- --8<-- [end:ubuntu-server-arm-24] -->

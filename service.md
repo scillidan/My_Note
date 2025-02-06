@@ -495,15 +495,17 @@ sudo systemctl status vncserver@1
 
 <!-- --8<-- [start:ubuntu-server-arm-22] -->
 ```sh
-wget https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh -O install_nvm.sh
-chmod +x ./install_nvm.sh
-./install_nvm.sh
-source .bashrc
-nvm install --lts
+sudo apt install npm
 npm install pm2 -g
 pm2 dump
 pm2 startup
 ```
+
+<!-- wget https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh -O install_nvm.sh
+chmod +x ./install_nvm.sh
+./install_nvm.sh
+source .bashrc
+nvm install --lts -->
 
 ↪ [Vue packages version mismatch](https://github.com/nuxt/nuxt/issues/10305)  
 ↪ [how to modify nuxt server start port ,default port is 3000](https://github.com/nuxt/nuxt/issues/490)
@@ -2051,13 +2053,28 @@ vim docker-compose.yml
 Copy from [here](https://docs.linuxserver.io/images/docker-calibre/#docker-compose-recommended-click-here-for-more-info).
 
 ```sh
+vim docker-compose.yml
+```
+
+```yaml
+    volumes:
+      - ./config:/config
+      - /mnt/nvme/book:/book
+      - /mnt/nvme/sambashare/audioebook:/audioebook
+```
+
+```sh
 sudo docker compose up -d
 ```
+
+1. Cabibre → Preferences → Sharing → Sharing over the net → Run server automatically when calibre starts (On) → Start server.
+2. Get `http://<your_host>:8081/opds`.
+
 ↪ [linuxserver/calibre](https://docs.linuxserver.io/images/docker-calibre)
 <!-- ↪ [How To Install Calibre Server & Calibre Web On Ubuntu 22.04](https://kenfavors.com/code/how-to-install-calibre-server-calibre-web-on-ubuntu-22-04/) -->
 <!-- --8<-- [end:docker-arm] -->
 
-## [Calibre-Web](https://github.com/janeczku/calibre-web)
+## [Calibre-Web](https://github.com/janeczku/calibre-web) (Cache)
 
 <!-- --8<-- [start:windows10] -->
 ```sh
@@ -2085,6 +2102,17 @@ vim docker-compose.yml
 Copy from [here](https://docs.linuxserver.io/images/docker-calibre-web/#docker-compose-recommended-click-here-for-more-info).
 
 ```sh
+vim docker-compose.yml
+```
+
+```yaml
+    volumes:
+      - ./data:/config
+      - /mnt/nvme/share/calibre/library:/books
+```
+
+```sh
+mkdir -p /mnt/nvme/share/calibre/library
 sudo docker compose up -d
 ```
 

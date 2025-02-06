@@ -44,6 +44,8 @@ ollama pull starcoder2:3b
 ollama pull nomic-embed-text
 # ollama pull mxbai-embed-large
 # ollama pull jina/jina-embeddings-v2-base-en
+ollama pull deepseek-r1:8b
+ollama pull deepseek-coder:6.7b
 ollama list
 ```
 
