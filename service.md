@@ -2577,10 +2577,29 @@ Copy from [here](https://docs.techdox.nz/filebrowser/#docker-compose-file-docker
 
 ```sh
 sudo docker compose up -d
-<!-- --8<-- [end:docker-arm] -->
 ```
 
 ↪ [Setting Up Filebrowser with Docker Compose](https://docs.techdox.nz/filebrowser/)
+
+## [Twenty](https://github.com/twentyhq/twenty)
+
+```sh
+curl -o docker-compose.yml https://raw.githubusercontent.com/twentyhq/twenty/refs/heads/main/packages/twenty-docker/docker-compose.yml
+curl -o .env https://raw.githubusercontent.com/twentyhq/twenty/refs/heads/main/packages/twenty-docker/.env.example
+openssl rand -base64 32
+vim .env
+```
+
+```
+APP_SECRET=<random_string>
+PGPASSWORD_SUPERUSER=<password>
+```
+
+```sh
+sudo docker compose up -d
+```
+
+↪ [1-Click w/ Docker Compose](https://twenty.com/developers/section/self-hosting/docker-compose)
 
 ## [Dashy](https://github.com/Lissy93/dashy)
 
