@@ -207,12 +207,12 @@ Copy from [here](https://lobehub.com/docs/self-hosting/platform/docker-compose#r
 ```sh
 sudo docker compose up -d
 vim auto-update-lobe-chat.sh
-sudo chmod +x auto-update-lobe-chat.sh
 ```
 
 Copy from [here](https://lobehub.com/docs/self-hosting/platform/docker-compose#crontab-automatic-update-script-optional).
 
 ```sh
+sudo chmod +x auto-update-lobe-chat.sh
 crontab -e
 ```
 
