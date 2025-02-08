@@ -556,14 +556,14 @@ sudo vim /etc/docker/daemon.json
 
 ```
 {
-  # "data-root": "/mnt/nvme/docker",
   "dns": ["8.8.8.8", "8.8.4.4"],
   "registry-mirrors": [
     "https://docker.1panel.top",
     "https://docker.1panel.live",
     "https://proxy.1panel.live",
     "https://dockerproxy.1panel.live"
-  ]
+  ],
+  # "data-root": "/mnt/nvme/docker"
 }
 ```
 
@@ -603,9 +603,7 @@ sudo docker volume <volume_name>
 ```sh
 sudo docker compose up -d
 sudo docker compose stop
-```
-
-```sh
+sudo docker compose -f docker-compose.yaml pull
 ```
 
 ↪ [Docker Hub - Quickstart](https://docs.docker.com/docker-hub/quickstart/)
