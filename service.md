@@ -500,10 +500,10 @@ chmod +x ./install_nvm.sh
 ./install_nvm.sh
 source .bashrc
 nvm install --lts
-sudo apt install npm
-npm install pm2 -g
+pnpm add -g pm2
 pm2 dump
 pm2 startup
+# pm2 unstartup
 ```
 
 ↪ [Vue packages version mismatch](https://github.com/nuxt/nuxt/issues/10305)  
@@ -2248,6 +2248,20 @@ Service Management Menu `Start Service`
 
 ↪ [Self Hosting - Auto-Upstall](https://docs.nocodb.com/getting-started/self-hosted/installation/auto-upstall)
 
+## [Mathesar](https://github.com/mathesar-foundation/mathesar)
+
+```sh
+mkdir mathesar
+cd mathesar
+wget https://github.com/mathesar-foundation/mathesar/raw/0.2.0/docker-compose.yml
+echo $(cat /dev/urandom | LC_CTYPE=C tr -dc 'a-zA-Z0-9' | head -c 50)
+vim .env
+```
+
+```
+SECRET_KEY=<secret_key>
+```
+
 ## [Datasette](https://datasette.io)
 
 ```sh
@@ -2309,8 +2323,8 @@ pip install datasette-copyable
 
 <!-- --8<-- [start:docker-arm] -->
 ```sh
-mkdir n8n-docker
-cd n8n-docker
+mkdir n8n
+cd n8n
 vim docker-compose.yml
 ```
 
@@ -2579,7 +2593,7 @@ sudo docker compose up -d
 
 ↪ [Setting Up Filebrowser with Docker Compose](https://docs.techdox.nz/filebrowser/)
 
-## [Twenty](https://github.com/twentyhq/twenty)
+## [Twenty](https://github.com/twentyhq/twenty) (Cache)
 
 ```sh
 curl -o docker-compose.yml https://raw.githubusercontent.com/twentyhq/twenty/refs/heads/main/packages/twenty-docker/docker-compose.yml
@@ -2607,6 +2621,8 @@ sudo docker compose up -d
 ## [Windows](https://github.com/dockur/windows) (Cache)
 
 ## [OSX](https://github.com/dockur/macos) (Cache)
+
+## [Tolgee](https://github.com/tolgee/tolgee-platform) (TBD)
 
 <!--
 ## [Plane](https://github.com/makeplane/plane)

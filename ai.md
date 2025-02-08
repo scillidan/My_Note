@@ -1396,6 +1396,16 @@ ollama run llama3:instruct
 uv python app/webui.py
 ```
 
+## [Penpot](https://github.com/penpot/penpot)
+
+```sh
+mkdir penpot
+wget https://raw.githubusercontent.com/penpot/penpot/main/docker/images/docker-compose.yaml
+sudo docker compose up -d
+```
+
+↪ [Install with Docker](https://help.penpot.app/technical-guide/getting-started/#install-with-docker)
+
 <!-- 
 https://github.com/lamm-mit/PDF2Audio
  -->
