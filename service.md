@@ -1,32 +1,5 @@
 ## Ubuntu Server ARM 22
 
-```sh
-sudo apt update && sudo apt upgrade -y
-```
-
-```sh
-sudo apt-get clean
-sudo apt-get autoremove
-```
-
-## Change Timezone
-
-```sh
-timedatectl set-timezone Asia/Shanghai
-```
-
-## Enable WiFi
-
-```sh
-sudo apt install network-manager
-nmcli d
-sudo nmcli r wifi on
-nmcli d wifi list
-sudo nmcli d wifi connect <ssid> password <password>
-```
-
-↪ [Establish a Wireless Connection](https://ubuntu.com/core/docs/networkmanager/configure-wifi-connections)
-
 <!--
 ```sh
 sudo apt install net-tools
@@ -37,105 +10,6 @@ iwconfig wlan0 essid <SSID> key <Password>
 ↪ [Connect to WiFi network through Ubuntu terminal [duplicate]](https://askubuntu.com/questions/294257/connect-to-wifi-network-through-ubuntu-terminal)  
 ↪ [RPi 4 running Ubuntu Server 20.04: can't connect to WiFi](https://raspberrypi.stackexchange.com/questions/111722/rpi-4-running-ubuntu-server-20-04-cant-connect-to-wifi)
 -->
-
-## Disable WiFi
-
-Refer to [How To Disable Wi-Fi On Ubuntu Server (3 easy ways)](https://raspberrytips.com/disable-wi-fi-ubuntu-server/):
-
-```sh
-sudo ifconfig eth0 up
-sudo ifconfig wlan0 down
-```
-
-But it don't work.
-
-```sh
-sudo rm /etc/netplan/50-cloud-init.yaml
-sudo vim /etc/netplan/00-installer-config.yaml
-```
-
-```yaml
-network:
-  version: 2
-  renderer: networkd
-  ethernets:
-    eth0:
-      dhcp4: true
-      optional: true
-  wifis:
-    wlan0:
-      dhcp4: true
-      optional: false
-      access-points:
-        "<ssid>":
-          password: "<password>"
-          hidden: true
-```
-
-```sh
-sudo chmod 600 /etc/netplan/00-installer-config.yaml
-sudo netplan generate
-sudo netplan --debug apply
-sudo reboot
-```
-
-```sh
-ip a
-sudo ifconfig wlan0 down
-```
-
-↪ [Configure a Static IP address for WIFI using Netplan in Ubuntu Server 22.04 on a HP Pavillion Desktop 510-p051a](https://stackoverflow.com/questions/77637274/configure-a-static-ip-address-for-wifi-using-netplan-in-ubuntu-server-22-04-on-a)  
-↪ [No internet connection after ubuntu server 20.04 install, ifconfig not available](https://askubuntu.com/questions/1233934/no-internet-connection-after-ubuntu-server-20-04-install-ifconfig-not-available)
-
-## Use repository mirror
-
-For `Ubuntu 22.04 LTS`:
-
-```sh
-mkdir -p /etc/apt/sources.list.d
-sudo cp /etc/apt/sources.list.d/ubuntu.sources /etc/apt/sources.list.d/ubuntu.sources.bak
-sudo vim /etc/apt/sources.list.d/ubuntu.sources
-```
-
-```
-Types: deb
-URIs: https://mirrors.ustc.edu.cn/ubuntu-ports
-Suites: jammy jammy-updates jammy-backports
-Components: main restricted universe multiverse
-Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
-
-Types: deb
-URIs: https://mirrors.ustc.edu.cn/ubuntu-ports
-Suites: jammy-security
-Components: main universe restricted multiverse
-Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
-```
-
-For `Ubuntu 24.04 LTS`:
-
-```sh
-sudo cp /etc/apt/sources.list.d/ubuntu.sources /etc/apt/sources.list.d/ubuntu.sources.bak
-sudo vim /etc/apt/sources.list.d/ubuntu.sources
-```
-
-```
-Types: deb
-URIs: https://mirrors.ustc.edu.cn/ubuntu-ports
-Suites: noble noble-updates noble-backports
-Components: main restricted universe multiverse
-Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
-
-Types: deb
-URIs: https://mirrors.ustc.edu.cn/ubuntu-ports
-Suites: noble-security
-Components: main universe restricted multiverse
-Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
-```
-
-↪ [USTC Mirror Help - Ubuntu Ports](https://mirrors.ustc.edu.cn/help/ubuntu-ports.html)
-<!-- 
-↪ [How to fix "Failed to fetch <sources.list links> 404 Not Found [IP: <some_ip>]"](https://askubuntu.com/questions/1348375/how-to-fix-failed-to-fetch-sources-list-links-404-not-found-ip-some-ip)
- -->
 
 ## [curl](https://curl.se/) (Optional)
 
@@ -153,13 +27,7 @@ sudo apt-get autoremove
 
 ```sh
 sudo mkdir -p /mnt/nvme
-```
-
-```sh
 ls -l /mnt/nvme
-```
-
-```sh
 sudo mount -o uid=root,gid=root,umask=000 /dev/sda2 /mnt/nvme
 ```
 
@@ -167,27 +35,18 @@ sudo mount -o uid=root,gid=root,umask=000 /dev/sda2 /mnt/nvme
 
 ```sh
 sudo apt install vsftpd
-```
-
-```sh
 sudo systemctl enable --now vsftpd
-```
-
-```sh
 sudo vim /etc/vsftpd.conf
 ```
 
-```sh
+```
 utf8_filesystem=YES
 ```
 
-```
+```sh
 sudo adduser ftpuser
 sudo mkdir -p /home/ftpuser/ftp
 sudo chmod a-w /home/ftpuser/ftp
-```
-
-```sh
 sudo chown ftpuser:ftpuser /home/ftpuser/ftp
 ```
 
@@ -234,49 +93,7 @@ sudo pacman -S samba
 sudo pacman -Qi samba
 wget https://raw.githubusercontent.com/zentyal/samba/refs/heads/master/examples/smb.conf.default -O smb.conf
 ```
-<!-- --8<-- [end:arch-linux] -->
 
-<!-- --8<-- [start:ubuntu-22-arm] -->
-```sh
-sudo apt install samba
-sudo systemctl status smbd
-sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.backup
-sudo vim /etc/samba/smb.conf
-```
-
-```
-workgroup = SAMBAGROUP
-...
-[sambashare1]
-comment = Samba Share
-path = /mnt/nvme/sambashare
-read only = no
-browsable = yes
-writable = yes
-guest ok = no
-# path = /data/smb/share1
-# create mask = 0700
-# directory mask = 0700
-```
-
-↪ [Installing and Configuring Samba on Ubuntu 22](https://reintech.io/blog/installing-configuring-samba-ubuntu-22)
-<!-- --8<-- [end:ubuntu-22-arm] -->
-
-```sh
-sudo groupadd -r sambausers
-sudo useradd -m sambauser
-sudo usermod -aG sambausers sambauser
-sudo smbpasswd -a sambauser
-sudo mkdir -p /mnt/nvme/sambashare
-sudo systemctl restart smbd
-# sudo chown -R :sambausers /mnt/nvme/sambashare
-# sudo chmod 1770 /mnt/nvme/sambashare
-# sudo systemctl enable --now smb
-# sudo systemctl enable --now nmb
-# testparm
-```
-
-<!-- --8<-- [start:arch-linux] -->
 ```sh
 sudo mkdir /home/sambauser/server
 sudo chown -R sambauser /home/sambauser/server
@@ -2345,10 +2162,6 @@ services:
       - "0.0.0.0:5678:5678"
     environment:
       - N8N_SECURE_COOKIE=false
-    volumes:
-      - /mnt/nvme/share/n8n:/files
-      - n8n_data:/home/node/.n8n
-
 ```
 
 ```sh
@@ -2612,6 +2425,14 @@ sudo docker compose up -d
 ```
 
 ↪ [1-Click w/ Docker Compose](https://twenty.com/developers/section/self-hosting/docker-compose)
+
+## [Penpot](https://github.com/penpot/penpot)
+
+```sh
+mkdir penpot
+wget https://raw.githubusercontent.com/penpot/penpot/main/docker/images/docker-compose.yaml
+sudo docker compose up -d
+```
 
 ## [Dashy](https://github.com/Lissy93/dashy)
 

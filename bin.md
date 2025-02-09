@@ -18,12 +18,6 @@ git push --force origin <branch>
 
 ## [chezmoi](https://www.chezmoi.io)
 
-<!-- --8<-- [start:termux] -->
-```sh
-pkg install chezmoi
-```
-<!-- --8<-- [end:termux] -->
-
 <!-- --8<-- [start:ubuntu-server-arm-22] -->
 Get `chezmoi_*_linux_arm64.deb` from [chezmoi - Releases](https://github.com/twpayne/chezmoi).
 
@@ -41,6 +35,7 @@ vim ~/.local/share/chezmoi/.chezmoiignore
 ```
 **/zjframes.wasm # Example
 **/zjstatus.wasm
+lazy-lock.json
 ```
 
 ↪ [Chezmoi: ignore files and subdirectories](https://stackoverflow.com/questions/75519055/chezmoi-ignore-files-and-subdirectories)

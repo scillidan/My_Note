@@ -197,8 +197,8 @@ python translate_epub.py --trust_remote_code --model_name_or_path models/sakura-
 
 <!-- --8<-- [start:docker-arm] -->
 ```sh
-mkdir Docker/lobe-chat
-cd Docker/lobe-chat
+mkdir lobe-chat
+cd lobe-chat
 vim docker-compose.yml
 ```
 
@@ -366,7 +366,15 @@ sudo docker compose --env-file .env up -d --build
 ```
 <!-- --8<-- [end:docker-arm] -->
 
-## [RAGFlow](https://github.com/infiniflow/ragflow) (Cache)
+## [RAGFlow](https://github.com/infiniflow/ragflow)
+
+```sh
+mkdir ragflow
+cd ragflow
+wget https://github.com/infiniflow/ragflow/blob/main/docker/docker-compose-base.yml -O docker-compose.yml
+wget https://github.com/infiniflow/ragflow/blob/main/docker/.env
+sudo docker compose up -d
+```
 
 ## [AutoRAG](https://github.com/Marker-Inc-Korea/AutoRAG) (Cache)
 
@@ -539,12 +547,7 @@ uv run langflow run
 ```sh
 mkdir langflow
 cd langflow
-vim docker-compose.yml
-```
-
-Copy from [here](https://github.com/langflow-ai/langflow/blob/main/docker_example/docker-compose.yml).
-
-```sh
+wget https://github.com/langflow-ai/langflow/blob/main/docker_example/docker-compose.yml
 sudo docker compose up -d
 ```
 <!-- --8<-- [end:docker-arm] -->
@@ -1394,14 +1397,6 @@ uv venv --python cpython-3.10.11-windows-x86_64-none
 uv pip install -r requirements.txt
 ollama run llama3:instruct
 uv python app/webui.py
-```
-
-## [Penpot](https://github.com/penpot/penpot)
-
-```sh
-mkdir penpot
-wget https://raw.githubusercontent.com/penpot/penpot/main/docker/images/docker-compose.yaml
-sudo docker compose up -d
 ```
 
 ↪ [Install with Docker](https://help.penpot.app/technical-guide/getting-started/#install-with-docker)
