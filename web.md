@@ -1,27 +1,36 @@
+## [Material for MkDocs](https://github.com/squidfunk/mkdocs-material)
+
+```sh
+mkdir <site>
+cd <site>
+uv venv
+.venv\Scripts\activate.bat
+uv pip install mkdocs-material
+mkdocs new .
+```
+
+```yaml
+theme:
+  name: material
+```
+
 ## [Sphinx](https://www.sphinx-doc.org/en/master/)
 
 ```sh
 mkdir <site>
 cd <site>
-python -m venv venv
-venv\Scripts\activate.bat
-pip install furo
+uv venv
+.venv\Scripts\activate.bat
+uv pip install furo sphinx-copybutton
+# uv pip install sphinxcontrib-asciinema sphinx-autobuild
 sphinx-quickstart
+# make clean
 make html
 ```
 
-↪ [Furo](https://github.com/pradyunsg/furo)
-
-Optional:
-
-```sh
-pip install sphinx-copybutton sphinxcontrib-asciinema
-pip install sphinx-autobuild
-make clean
-make html
-```
-
+↪ [Furo](https://github.com/pradyunsg/furo)  
 ↪ [sphinx-copybutton](https://github.com/executablebooks/sphinx-copybutton)  
+↪ [sphinxcontrib-mermaid](https://github.com/mgaitan/sphinxcontrib-mermaid)  
 ↪ [sphinxcontrib-asciinema](https://github.com/divi255/sphinxcontrib.asciinema)  
 ↪ [sphinx-autobuild](https://github.com/sphinx-doc/sphinx-autobuild)
 

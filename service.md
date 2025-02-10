@@ -333,10 +333,9 @@ Run commands as Admin:
 ```sh
 git clone https://github.com/jessety/pm2-installer
 cd pm2-installer
-npm run configure
-npm run setup
-pm2 start ...
-pm2 save
+sudo npm run configure
+sudo npm run setup
+sudo pm2 save
 ```
 
 Windows 10 → Control Panel → Administrative Tools > Services → PM2 → Properties → Log On → local system account → Go back to first tab → Start
