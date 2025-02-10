@@ -3,7 +3,7 @@
 <!--
 ```sh
 sudo apt install net-tools
-ifconfig wlan0 up
+sudo ifconfig wlan0 up
 iwconfig wlan0 essid <SSID> key <Password>
 ```
 
@@ -312,12 +312,15 @@ sudo systemctl status vncserver@1
 
 <!-- --8<-- [start:ubuntu-server-arm-22] -->
 ```sh
-wget https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh -O install_nvm.sh
-chmod +x ./install_nvm.sh
-./install_nvm.sh
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 source .bashrc
 nvm install --lts
-pnpm add -g pm2
+nvm use --lts
+npm install -g pm2
+# npm install pnpm -g
+# pnpm setup
+# source .bashrc
+# pnpm add -g pm2
 pm2 dump
 pm2 startup
 # pm2 unstartup

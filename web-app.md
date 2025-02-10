@@ -959,7 +959,7 @@ If app take up `4321` port, open `chrome://serviceworker-internals/?devtools` an
 With PM2:
 
 ```sh
-pm2 serve -s . -p 4321 --name sreadium --spa
+pm2 serve . 4321 --name sreadium --spa
 ```
 
 ## [Villain](https://github.com/btzr-io/Villain)

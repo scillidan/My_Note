@@ -369,11 +369,12 @@ sudo docker compose --env-file .env up -d --build
 ## [RAGFlow](https://github.com/infiniflow/ragflow)
 
 ```sh
-mkdir ragflow
+sysctl vm.max_map_count
+sudo sysctl -w vm.max_map_count=262144
+git clone --depth=1 https://github.com/infiniflow/ragflow
 cd ragflow
-wget https://github.com/infiniflow/ragflow/blob/main/docker/docker-compose-base.yml -O docker-compose.yml
-wget https://github.com/infiniflow/ragflow/blob/main/docker/.env
-sudo docker compose up -d
+sudo docker compose -f docker/docker-compose.yml up -d
+docker logs -f ragflow-server
 ```
 
 ## [AutoRAG](https://github.com/Marker-Inc-Korea/AutoRAG) (Cache)

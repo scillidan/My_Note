@@ -640,8 +640,10 @@ Then:
 For me, I used [setup_pegasus-frontend.bat](https://github.com/scillidan/My_Setup/blob/main/setup_pegasus-frontend.bat) to do them. And I have made a [desktop record](#).
 
 <!--
-↪ [Pegasus Tools Collection](https://pegasus-frontend.org/tools/)
-↪ [Skyscraper](https://github.com/muldjord/skyscraper)
+↪ [Pegasus Tools Collection](https://pegasus-frontend.org/tools/)  
+↪ [Skyscraper](https://github.com/muldjord/skyscraper)  
+↪ [Retro BIOSes](https://github.com/Abdess/retroarch_system)  
+↪ [RetroArch asset server](https://github.com/NickHeap2/retroarch-asset-server)
 -->
 
 ## [Steam](https://store.steampowered.com/) (Cache)
