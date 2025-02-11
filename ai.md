@@ -1242,6 +1242,25 @@ https://github.com/hallatore/stable-diffusion-webui-prompt-utilities
 https://github.com/ArtVentureX/sd-webui-agent-scheduler
 ```
 
+## [Stable Diffusion web UI for AMDGPUs](https://github.com/lshqqytiger/stable-diffusion-webui-amdgpu)
+
+```sh
+git clone --depth=1 https://github.com/lshqqytiger/stable-diffusion-webui-amdgpu
+cd stable-diffusion-webui-amdgpu
+subl webui-user.bat
+python -m venv venv
+venv\Scripts\activate.bat
+```
+
+```bat
+set COMMANDLINE_ARGS="--use-directml"
+```
+
+```sh
+pip install hf_transfer
+webui-user.bat
+```
+
 ## [IOPaint](https://github.com/Sanster/IOPaint)
 
 ```sh

@@ -91,16 +91,43 @@ sudo systemctl start nfs-kernel-server.service
 ```sh
 sudo pacman -S samba
 sudo pacman -Qi samba
-wget https://raw.githubusercontent.com/zentyal/samba/refs/heads/master/examples/smb.conf.default -O smb.conf
+sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bak
+sudo vim /etc/samba/smb.conf
+```
+
+```
+[global]
+    workgroup = WORKGROUP
+    server string = Samba Server %v
+    netbios name = archlinux
+    security = user
+    map to guest = bad user
+    dns proxy = no
+
+[Shared]
+    path = /srv/samba/shared
+    writable = yes
+    guest ok = yes
+    read only = no
+    force user = nobody
 ```
 
 ```sh
+sudo mkdir -p /srv/samba/shared
+sudo chmod 0777 /srv/samba/shared
+sudo systemctl start smb.service
+sudo systemctl start nmb.service
+sudo systemctl enable smb.service
+sudo systemctl enable nmb.service
+```
+
+<!-- ```sh
 sudo mkdir /home/sambauser/server
 sudo chown -R sambauser /home/sambauser/server
 sudo mount -t cifs //<ip>/sambashare /home/sambauser/server -o username=sambauser,password=YourPassword,workgroup=SAMBAGROUP
 sudo systemctl daemon-reload
 sudo mount
-```
+``` -->
 
 ↪ [How to Install and Configure SAMBA on Arch Linux](https://linuxways.net/arch/install-configure-samba-arch-linux/)  
 ↪ [Samba error code 22](https://forum.manjaro.org/t/samba-error-code-22/106741/1)

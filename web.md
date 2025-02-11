@@ -21,7 +21,7 @@ mkdir <site>
 cd <site>
 uv venv
 .venv\Scripts\activate.bat
-uv pip install furo sphinx-copybutton
+uv pip install furo sphinx-copybutton sphinxcontrib-mermaid
 # uv pip install sphinxcontrib-asciinema sphinx-autobuild
 sphinx-quickstart
 # make clean

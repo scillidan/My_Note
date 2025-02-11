@@ -412,3 +412,11 @@ sudo apt install libnss3-tools
 mkcert -install
 mkcert example.com "*.example.com" example.test localhost
 ```
+
+## [shot-scraper](https://github.com/simonw/shot-scraper) (Cache)
+
+```sh
+pipx install shot-scraper playwright
+playwright install
+shot-scraper <url>
+```
