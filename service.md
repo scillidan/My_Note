@@ -2474,6 +2474,8 @@ sudo docker compose up -d
 
 ## [Tolgee](https://github.com/tolgee/tolgee-platform) (TBD)
 
+## [solidtime](https://github.com/solidtime-io/solidtime)
+
 <!--
 ## [Plane](https://github.com/makeplane/plane)
 ## [Maybe](https://github.com/maybe-finance/maybe)
