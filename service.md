@@ -578,7 +578,7 @@ Password: adminadmin
 wget -qO- https://install.zerotier.com | sudo bash
 sudo systemctl enable --now zerotier-one.service
 systemctl status zerotier-one.service
-sudo zerotier-cli join <NetworkID>
+sudo zerotier-cli join <network_id>
 sudo zerotier-cli listnetworks
 ```
 

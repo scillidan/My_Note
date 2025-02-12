@@ -278,6 +278,16 @@ Casdoor:
 ↪ [[Bug] 无法使用管理员账号登录casdoor](https://github.com/lobehub/lobe-chat/issues/5098)
 
 
+```sh
+git clone --depth=1 https://github.com/lobehub/lobe-chat
+cd lobe-chat
+pnpm install
+# pnpm add next@latest
+pnpm dev
+```
+
+↪ [Project Setup](https://github.com/lobehub/lobe-chat/wiki/Setup-Development)
+
 ## [Next.js AI Chatbot](https://github.com/vercel/ai-chatbot) (Cache)
 
 Fork it.
