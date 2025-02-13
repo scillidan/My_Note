@@ -283,7 +283,11 @@ git clone --depth=1 https://github.com/lobehub/lobe-chat
 cd lobe-chat
 pnpm install
 # pnpm add next@latest
-pnpm dev
+# pnpm dev
+set NODE_OPTIONS=--max-old-space-size=4096
+pnpm build
+pnpm start
+# pm2 start pnpm --name lobe-chat -- run start
 ```
 
 ↪ [Project Setup](https://github.com/lobehub/lobe-chat/wiki/Setup-Development)
@@ -1427,6 +1431,18 @@ uv venv --python cpython-3.10.11-windows-x86_64-none
 uv pip install -r requirements.txt
 ollama run llama3:instruct
 uv python app/webui.py
+```
+
+## [MinerU](https://github.com/opendatalab/MinerU)
+
+```sh
+sudo pacman -S nvidia nvidia-utils nvidia-container-toolkit
+mkdir mineru
+cd mineru
+wget https://github.com/opendatalab/MinerU/raw/master/docker/global/Dockerfile -O Dockerfile
+sudo docker build -t mineru:latest .
+sudo docker run --rm -it --gpus=all mineru:latest /bin/bash -c "echo 'source /opt/mineru_venv/bin/activate' >> ~/.bashrc && exec bash"
+magic-pdf --help
 ```
 
 ↪ [Install with Docker](https://help.penpot.app/technical-guide/getting-started/#install-with-docker)
